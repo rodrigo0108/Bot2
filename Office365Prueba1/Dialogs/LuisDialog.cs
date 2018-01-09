@@ -22,76 +22,7 @@ namespace Office365Prueba1.Dialogs
             this.consultaServicio = servicioConsultado;
         }
 
-        private static Attachment GetThumbnailCard(string title, string subtitle, string text, CardImage cardImage, CardAction cardAction)
-        {
-            var heroCard = new ThumbnailCard
-            {
-                Title = title,
-                Subtitle = subtitle,
-                Text = text,
-                Images = new List<CardImage>() { cardImage },
-                Buttons = new List<CardAction>() { cardAction },
-            };
-
-            return heroCard.ToAttachment();
-        }
-
-        private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
-        {
-            var heroCard = new HeroCard
-            {
-                Title = title,
-                Subtitle = subtitle,
-                Text = text,
-                Images = new List<CardImage>() { cardImage },
-            };
-
-            return heroCard.ToAttachment();
-        }
-
-        private static Attachment GetVideoCard()
-        {
-            var videoCard = new VideoCard
-            {
-                Title = "Office 365 - Excel",
-                Text = "Tutorial sobre como usar excel",
-             
-                Media = new List<MediaUrl>
-        {
-            new MediaUrl()
-            {
-                Url = "https://www.youtube.com/watch?v=hrCOOF_z6mc"
-            }
-        },
-                Buttons = new List<CardAction>
-        {
-            new CardAction()
-            {
-                Title = "Ver más información",
-                Type = ActionTypes.OpenUrl,
-                Value = "https://peach.blender.org/"
-            }
-        }
-            };
-
-            return videoCard.ToAttachment();
-        }
-
-        private static IList<Attachment> GetExcelDefinicionCard()
-        {
-            return new List<Attachment>()
-            {
-                 GetHeroCard(
-                    "¿Qué es excel?",
-                    "Significad e historia de  Excel",
-                    "Excel es un programa informático desarrollado por Microsoft y forma parte de Office que es una suite ofimática la cual incluye otros programas como Word y PowerPoint. Excel se distingue de los demás programas porque nos permite trabajar con datos numéricos, es decir, podemos realizar cálculos, crear tablas o gráficos y también podemos analizar los datos con herramientas tan avanzadas como las tablas dinámicas.",
-                    new CardImage(url: "https://policyviz.com/wp-content/uploads/2017/07/Excel-Logo.png")),
-                GetVideoCard(),
-
-
-
-            };
-        }
+        
 
 
         [LuisIntent("")]
@@ -121,61 +52,82 @@ namespace Office365Prueba1.Dialogs
         [LuisIntent("Consulta.DefinicionServicio")]
         public async Task DefinicionServicio(IDialogContext context, LuisResult result)
         {
-            
-            //--------------------------------
-            //obtener el producto si este fue elegido de forma explicita
-            foreach (var entidad in result.Entities.Where(Entidad => Entidad.Type == "Servicio"))
-            {
-                var valor = entidad.Entity.ToLower().Replace(" ", "");
-                if (valor == "excel")
-                {
-                    var reply = context.MakeMessage();
 
-                    reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
-                    reply.Attachments = GetExcelDefinicionCard();
+            //--------------------------------
+            var reply = context.MakeMessage();
+            reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+            //obtener el producto si este fue elegido de forma explicita
+            foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+            {
+                var value = entity.Entity.ToLower().Replace(" ", "");
+
+                if (value == "outlook" || value == "outlok")
+                {
+
+                    reply.Attachments = Cards.GetOutlookDefinicionCard();
 
                     await context.PostAsync(reply);
                     context.Wait(MessageReceived);
                     return;
                 }
-                else if (valor == "powerpoint")
+                else if (value == "excel")
                 {
-                    await context.PostAsync("Mensaje de powerpoint");
+                    reply.Attachments = Cards.GetExcelDefinicionCard();
+
+                    await context.PostAsync(reply);
                     context.Wait(MessageReceived);
                     return;
                 }
-                else if (valor == "word")
+                else if (value == "powerpoint")
                 {
-                    await context.PostAsync("Mensaje de word");
+                    reply.Attachments = Cards.GetPowerPointDefinicionCard();
+
+                    await context.PostAsync(reply);
+                    context.Wait(MessageReceived);
+                    return;
+                }
+                else if (value == "word")
+                {
+                    reply.Attachments = Cards.GetWordDefinicionCard();
+
+                    await context.PostAsync(reply);
                     context.Wait(MessageReceived);
                     return;
                 }
                 else
                 {
-                    await context.PostAsync($"Lo siento, {valor} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                    await context.PostAsync($"Lo siento, {value} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                     context.Wait(MessageReceived);
                     return;
                 }
+
             }
             //------------------------
-
 
             //obtener el producto si este a sido escodigo anteriormente
             var servicio = "Servicio";
             context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
             if (servicio == "Word")
             {
-                await context.PostAsync("Mensaje de word");
+                reply.Attachments = Cards.GetWordDefinicionCard();
+
+                await context.PostAsync(reply);
                 context.Wait(MessageReceived);
                 context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "Excel")
             {
-                var reply = context.MakeMessage();
+                reply.Attachments = Cards.GetExcelDefinicionCard();
 
-                reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
-                reply.Attachments = GetExcelDefinicionCard();
+                await context.PostAsync(reply);
+                context.Wait(MessageReceived);
+                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                return;
+            }
+            else if (servicio == "Outlook")
+            {
+                reply.Attachments = Cards.GetOutlookDefinicionCard();
 
                 await context.PostAsync(reply);
                 context.Wait(MessageReceived);
@@ -184,7 +136,9 @@ namespace Office365Prueba1.Dialogs
             }
             else if (servicio == "PowerPoint")
             {
-                await context.PostAsync("Mensaje de powerpoint");
+                reply.Attachments = Cards.GetPowerPointDefinicionCard();
+
+                await context.PostAsync(reply);
                 context.Wait(MessageReceived);
                 context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
