@@ -10,36 +10,43 @@ namespace Office365Prueba1.Models
 
     public enum Servicio
     {
+        Outlook,
+        OneDrive,
         Word,
         Excel,
         PowerPoint,
-        Outlook,
         OneNote,
-        Publisher,
-        OneDrive,
-        Access
-
+        //SharePoint,
+        //MicrosoftTeams,
+        //Publisher,
+        //Access
     }
 
     [Serializable]
+    [Template(TemplateUsage.NotUnderstood, "\"{0}\" no es uno de los servicios", "Esa no es una opción: \"{0}\".")]
     public class ConsultaServicio
     {
+        [Prompt("Con que tipo de servicio tienes problemas: {||}")]
         public Servicio? TipoDeServicio;
 
-        public static IForm<ConsultaServicio> ConstruirForma()
+        public static IForm<ConsultaServicio> BuildForm()
         {
-            return new FormBuilder<ConsultaServicio>()
-                .Message("Bienvenido al centro de atención para Office 365").OnCompletion(async (context, order) =>
-                {
-                    var nombre = "Usuario";
-                    var servicio = "Servicio";
-                    context.UserData.TryGetValue<string>("Nombre", out nombre);
-                    context.PrivateConversationData.SetValue<string>(
-                        "tipoServicio", order.TipoDeServicio.ToString());
-                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+            OnCompletionAsyncDelegate<ConsultaServicio> processOrder = async (context, order) =>
+            {
+                var name = "Usuario";
+                var servicio = "Servicio";
+                context.UserData.TryGetValue<string>("Name", out name);
+                context.PrivateConversationData.SetValue<string>("tipoDeServicio", order.TipoDeServicio.ToString());
+                context.PrivateConversationData.TryGetValue<string>("tipoDeServicio", out servicio);
 
-                    await context.PostAsync($"Entonces estimado {nombre}, ¿Cúal es su duda respecto a {servicio}? ");
-                })
+                await context.PostAsync($"Entonces estimado {name}, ¿Cúal es su duda respecto a {servicio}? ");
+            };
+
+            return new FormBuilder<ConsultaServicio>()
+                .Message("Bienvenido soy el bot de soporte para Office 365")
+                .Field(nameof(TipoDeServicio))
+                .Confirm("El servicio que has seleccionado es {TipoDeServicio}? (Si/No)")
+                .OnCompletion(processOrder)
                 .Build();
         }
     }

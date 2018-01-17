@@ -27,9 +27,9 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
-            //--------------------------------
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+
             //obtener el producto si este fue elegido de forma explicita
             foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
             {
@@ -37,87 +37,75 @@ namespace Office365Prueba1.Dialogs
 
                 if (value == "outlook" || value == "outlok")
                 {
-
                     reply.Attachments = Cards.GetOutlookDefinicionCard();
-
                     await context.PostAsync(reply);
-
+                    //context.Wait(MessageReceived);
                     return;
                 }
                 else if (value == "excel")
                 {
                     reply.Attachments = Cards.GetExcelDefinicionCard();
-
                     await context.PostAsync(reply);
-
+                    //context.Wait(MessageReceived);
                     return;
                 }
-                else if (value == "powerpoint")
+                else if (value == "powerpoint" || value == "power point")
                 {
                     reply.Attachments = Cards.GetPowerPointDefinicionCard();
-
                     await context.PostAsync(reply);
-
+                    //context.Wait(MessageReceived);
                     return;
                 }
                 else if (value == "word")
                 {
                     reply.Attachments = Cards.GetWordDefinicionCard();
-
                     await context.PostAsync(reply);
-
+                    //context.Wait(MessageReceived);
                     return;
                 }
                 else
                 {
                     await context.PostAsync($"Lo siento, {value} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
-
+                    //context.Wait(MessageReceived);
                     return;
                 }
-
             }
-            //------------------------
 
             //obtener el producto si este a sido escodigo anteriormente
             var servicio = "Servicio";
-            context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+            context.PrivateConversationData.TryGetValue<string>("tipoDeServicio", out servicio);
             if (servicio == "Word")
             {
                 reply.Attachments = Cards.GetWordDefinicionCard();
-
                 await context.PostAsync(reply);
-
+                //context.Wait(MessageReceived);
                 context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "Excel")
             {
                 reply.Attachments = Cards.GetExcelDefinicionCard();
-
                 await context.PostAsync(reply);
-
+                //context.Wait(MessageReceived);
                 context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "Outlook")
             {
                 reply.Attachments = Cards.GetOutlookDefinicionCard();
-
                 await context.PostAsync(reply);
-
+                //context.Wait(MessageReceived);
                 context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "PowerPoint")
             {
                 reply.Attachments = Cards.GetPowerPointDefinicionCard();
-
                 await context.PostAsync(reply);
-
+                //context.Wait(MessageReceived);
                 context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
-
         }
 
 

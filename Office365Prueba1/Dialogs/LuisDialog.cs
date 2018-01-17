@@ -25,8 +25,15 @@ namespace Office365Prueba1.Dialogs
         [LuisIntent("")]
         public async Task None(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("Lo siento, no sé lo que quieres decir");
+            var reply = context.MakeMessage();
+            reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+
+            await context.PostAsync("Perdon, no entiendo lo que estas diciendo");
+
+            reply.Attachments = Cards.GetConsulta();
+            await context.PostAsync(reply);
             context.Wait(MessageReceived);
+            return;
         }
 
         [LuisIntent("Saludo")]
@@ -45,11 +52,29 @@ namespace Office365Prueba1.Dialogs
             context.Call<ConsultaServicio>(formularioRegistro, Callback);
 
         }
-        
+
         [LuisIntent("Consulta.DefinicionServicio")]
         public async Task DefinicionServicio(IDialogContext context, LuisResult result)
         {
             await new ConceptoDialog(context, result).StartAsync();
         }
-    }
+
+
+        [LuisIntent("Consulta.Crear")]
+        public async Task ConsultaCrear(IDialogContext context, LuisResult result)
+        {
+            await new CrearDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Cambiar")]
+        public async Task ConsultaCambiar(IDialogContext context, LuisResult result)
+        {
+            await new CambiarDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Recuperar")]
+        public async Task ConsultaRecuperar(IDialogContext context, LuisResult result)
+        {
+            await new RecuperarDialog(context, result).StartAsync();
+        }
 }

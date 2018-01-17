@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -35,7 +36,7 @@ namespace Office365Prueba1
             return Chain.From(() => new LuisDialog(ConsultaServicio.ConstruirForma));
         }
 
-        private Activity HandleSystemMessage(Activity message)
+        private async Task HandleSystemMessage(Activity message)
         {
             if (message.Type == ActivityTypes.DeleteUserData)
             {
@@ -44,9 +45,22 @@ namespace Office365Prueba1
             }
             else if (message.Type == ActivityTypes.ConversationUpdate)
             {
-                // Handle conversation state changes, like members being added and removed
-                // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
-                // Not available in all channels
+                IConversationUpdateActivity iConversationUpdated = message as IConversationUpdateActivity;
+                if (iConversationUpdated != null)
+                {
+                    ConnectorClient connector = new ConnectorClient(new System.Uri(message.ServiceUrl));
+
+                    foreach (var member in iConversationUpdated.MembersAdded ?? System.Array.Empty<ChannelAccount>())
+                    {
+                        // if the bot is added, then
+                        if (member.Id == iConversationUpdated.Recipient.Id)
+                        {
+                            Activity replyToConversation = message.CreateReply("¡Hola!, ¿en qué te puedo ayudar?");
+                            replyToConversation.Attachments.Add(GetCardSaludos());
+                            await connector.Conversations.SendToConversationAsync(replyToConversation);
+                        }
+                    }
+                }
             }
             else if (message.Type == ActivityTypes.ContactRelationUpdate)
             {
@@ -61,7 +75,19 @@ namespace Office365Prueba1
             {
             }
 
-            return null;
+            //return null;
         }
-    }
+            private static Attachment GetCardSaludos()
+            {
+                var Saludocard = new ThumbnailCard
+                {
+                    Text = "¿Tienes una consulta?",
+                    Buttons = new List<CardAction>
+                {
+                    new CardAction(ActionTypes.PostBack, "Consulta", value: "Consulta"),
+                }
+                };
+                return Saludocard.ToAttachment();
+            }
+        }
 }
