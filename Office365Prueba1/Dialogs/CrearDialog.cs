@@ -10,6 +10,7 @@ using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -52,12 +53,12 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            await context.PostAsync("Lo siento, su pregunta no esta registrada");
-                            await context.PostAsync("O tal vez no escribió la pregunta correctamente");
-                            //context.Wait(MessageReceived);
-                            return;
+                            await new NoRegister(context).RespuestaNoRegistrada();
                         }
+
+                       
                     }
+                    await new NoRegister(context).RespuestaNoRegistrada();
                 }
                 // La primera parte de la pregunta es categorías
                 else if (palabra1 == "categoría" || palabra1 == "categoria" || palabra1 == "categorías" || palabra1 == "categorias")
@@ -76,10 +77,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
-                            await context.PostAsync("O tal vez no escribió la pregunta correctamente");
-                            //context.Wait(MessageReceived);
-                            return;
+                            await new NoRegister(context).RespuestaNoRegistrada();
                         }
                     }
                 }

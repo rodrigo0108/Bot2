@@ -12,7 +12,7 @@ using System.Web;
 
 namespace Office365Prueba1.Dialogs
 {
-    [LuisModel("82f3e996-7431-4211-a195-8cc9ca1a600d", "55b706c0133e457e9f928188adeabe1e")]
+    [LuisModel("26132056-47a4-4f3b-9c71-ee6e5fa0dad3", "2a755c441df445349b5d17f491219153")]
     [Serializable]
     public class LuisDialog : LuisDialog<ConsultaServicio>
     {
@@ -77,4 +77,11 @@ namespace Office365Prueba1.Dialogs
         {
             await new RecuperarDialog(context, result).StartAsync();
         }
+
+        [LuisIntent("Consulta.Agregar")]
+        public async Task ConsultaAgregar(IDialogContext context, LuisResult result)
+        {
+            await new AgregarDialog(context, result).StartAsync();
+        }
+    }
 }

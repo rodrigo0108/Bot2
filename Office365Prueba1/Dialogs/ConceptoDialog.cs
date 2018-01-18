@@ -49,7 +49,7 @@ namespace Office365Prueba1.Dialogs
                     //context.Wait(MessageReceived);
                     return;
                 }
-                else if (value == "powerpoint" || value == "power point")
+                else if (value == "powerpoint")
                 {
                     reply.Attachments = Cards.GetPowerPointDefinicionCard();
                     await context.PostAsync(reply);
@@ -71,9 +71,9 @@ namespace Office365Prueba1.Dialogs
                 }
             }
 
-            //obtener el producto si este a sido escodigo anteriormente
+            //obtener el producto si este a sido escogido anteriormente
             var servicio = "Servicio";
-            context.PrivateConversationData.TryGetValue<string>("tipoDeServicio", out servicio);
+            context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
             if (servicio == "Word")
             {
                 reply.Attachments = Cards.GetWordDefinicionCard();

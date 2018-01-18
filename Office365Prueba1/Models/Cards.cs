@@ -211,6 +211,124 @@ namespace Office365Prueba1.Models
             };
         }
 
+        // Agregar algun contacto en outlook
+        public static IList<Attachment> GetAgregarContacto()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar un contacto en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Vamos a ver cómo podemos agregar un nuevo contacto en Outlook. En Outlook, agregar un nuevo contacto no es necesario para poder enviarle un correo ya que podemos enviar un correo a cualquier dirección. Aún así tener un contacto agregado nos permitirá poder hablar con él a través del chat de Outlook, próximamente en Skype y organizar nuestros contactos conocidos. Por todo esto veremos hoy cómo podemos agregar un nuevo contacto en Outlook.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-un-contacto-e1dc4548-3bd6-4644-aecd-47b5728f7b0d")),
+                GetVideoCard(
+                    "Office 365 - Outlook",
+                    "Ayuda sobre como agregar un contacto",
+                    "https://www.youtube.com/watch?v=LQ1yev-dpXY"
+                    )
+            };
+        }
+
+        // Agregar persona a una lista de contactos
+        public static IList<Attachment> GetAgregarContactoListaContactos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar alguna persona a un grupo de contactos",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Use un grupo de contactos (anteriormente denominado “lista de distribución”) para enviar un mensaje de correo electrónico a varias personas (un equipo de proyecto, un comité o incluso solo un grupo de amigos) sin tener que agregar cada nombre cada vez que desea escribirles.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-personas-a-un-grupo-de-contactos-0c6c3bee-0529-4d87-822f-026620072e28")),
+            };
+        }
+
+        // Agregar persona a una lista de contactos
+        public static IList<Attachment> GetAgregarPersonasCategoriasColor()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar contactos a categorías de color",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "¿Su lista de contactos empieza a ser abrumadora? La forma más rápida de organizar los contactos es mediante colores (por ejemplo, azul para los compañeros, rojo para familiares y amigos o verde para las organizaciones y miembros de la comunidad).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-contactos-a-categor%C3%ADas-de-color-4d4e6521-aee8-4929-bea3-4a12e830fbfb")),
+  
+            };
+        }
+
+        public static IList<Attachment> GetAgregarGraficosMensajesOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar gráficos a mensajes en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Si una línea tras de otra de texto sin formato aburre a sus destinatarios, convierta su mensaje en una obra maestra visual con cinco tipos distintos de gráficos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-gr%C3%A1ficos-a-mensajes-en-outlook-114bb251-861f-41cd-b20f-7e7289630c5b")),
+
+            };
+        }
+
+        public static IList<Attachment> GetAgregarTablasMensajeOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar tablas a mensajes en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
+
+            };
+        }
+
+        public static IList<Attachment> GetAgregarConfirmacionLecturaNotificacionEntrega()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar una confirmacion de lectura o una notificación de entreega",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Una confirmación de entrega confirma la entrega del mensaje de correo electrónico al buzón del destinatario, pero no si el destinatario lo ha visto o leído.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-y-solicitar-confirmaciones-de-lectura-y-notificaciones-de-entrega-a34bf70a-4c2c-4461-b2a1-12e4a7a92141")),
+
+            };
+        }
+
+        public static IList<Attachment> GetAgregarSeguimientoMensajesOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar la confirmación de entrega para realizar un seguimiento de un mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Una confirmación de entrega indica que un mensaje de correo se ha enviado al buzón del destinatario, pero no si el destinatario lo ha visto o leído. Una confirmación de lectura avisa cuando se abre un mensaje.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-la-confirmaci%C3%B3n-de-entrega-para-realizar-un-seguimiento-de-un-mensaje-de-correo-electr%C3%B3nico-69cd1b39-2300-482d-96c6-22e2f4a96848?ui=es-ES&rs=es-HN&ad=PE")),
+
+            };
+        }
+
+        public static IList<Attachment> GetAgregarFeriadosCalendarioOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como agregar días no laborables a tu calendario en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Cuando exporta su calendario de Outlook a Google Calendar, está exportando una instantánea del calendario. Cualquier cambio que realice en su calendario de Outlook no se reflejará automáticamente en Google Calendar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Exportar-un-Calendario-de-Outlook-a-Google-Calendar-662fa3bb-0794-4b18-add8-9968b665f4e6")),
+
+            };
+        }
+
         // -------------------------------------------------------------
         // PREGUNTAS NO IMPLEMENTADAS
 
@@ -534,6 +652,27 @@ namespace Office365Prueba1.Models
                         Title = "Ver más información",
                         Type = ActionTypes.OpenUrl,
                         Value = value
+                    }
+                }
+            };
+            return videoCard.ToAttachment();
+        }
+
+        private static Attachment GetVideoCard(string title, string text, string url)
+        {
+            var videoCard = new VideoCard
+            {
+                Title = title,
+                Text = text,
+                Media = new List<MediaUrl> {
+                    new MediaUrl() {
+                        Url = url
+                    }
+                },
+                Buttons = new List<CardAction> {
+                    new CardAction() {
+                        Title = "Ver más información",
+                        Type = ActionTypes.OpenUrl
                     }
                 }
             };

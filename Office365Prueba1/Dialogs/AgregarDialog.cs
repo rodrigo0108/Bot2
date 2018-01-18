@@ -1,0 +1,157 @@
+﻿using System;
+using System.Linq;
+using System.Web;
+using System.Configuration;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Office365Prueba1.Models;
+using Microsoft.Bot.Connector;
+using Microsoft.Bot.Builder.Luis;
+using Microsoft.Bot.Builder.Luis.Models;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.FormFlow;
+
+namespace Office365Prueba1.Dialogs
+{
+    public class AgregarDialog
+    {
+        private IDialogContext context;
+        private LuisResult result;
+
+        public AgregarDialog(IDialogContext context, LuisResult result)
+        {
+            this.context = context;
+            this.result = result;
+        }
+
+        public async Task StartAsync()
+        {
+            var reply = context.MakeMessage();
+            reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+
+            // Recorrido de la primera parte de la pregunta
+            foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
+            {
+                var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
+                if (palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "personas" || palabra1 == "persona")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "lista" || palabra2 == "listas" || palabra2 == "grupos" || palabra2 == "grupo")
+                        {
+                            reply.Attachments = Cards.GetAgregarContactoListaContactos();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else if (palabra2 == "categoria" || palabra2 == "categorias" || palabra2 == "categorías" || palabra2 == "categoría")
+                        {
+                            reply.Attachments = Cards.GetAgregarPersonasCategoriasColor();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+
+                    reply.Attachments = Cards.GetAgregarContacto();
+                    await context.PostAsync(reply);
+                    //context.Wait(MessageReceived);
+                    return;
+
+                } else if (palabra1 == "graficos" || palabra1 == "grafico" || palabra1 == "gráficos" || palabra1 == "gráfico")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "mensajes" || palabra2 == "mensaje")
+                        {
+                            reply.Attachments = Cards.GetAgregarGraficosMensajesOutlook();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+
+                } else if (palabra1 == "tabla" || palabra1 == "tablas")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "mensajes" || palabra2 == "mensaje")
+                        {
+                            reply.Attachments = Cards.GetAgregarTablasMensajeOutlook();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+
+                } else if (palabra1== "confirmaciones" || palabra1 == "conformación" || palabra1 =="conformacion")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "lectura" || palabra2 == "lecturas")
+                        {
+                            reply.Attachments = Cards.GetAgregarConfirmacionLecturaNotificacionEntrega();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+                }else if(palabra1 =="notificaciones" || palabra1=="notificación" || palabra1 == "notificaion")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "entrega" || palabra2 == "entregas")
+                        {
+                            reply.Attachments = Cards.GetAgregarConfirmacionLecturaNotificacionEntrega();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+                }
+                else if (palabra1 == "seguimiento" || palabra1 == "seguimientos")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "mensaje" || palabra2 == "mensajes")
+                        {
+                            reply.Attachments = Cards.GetAgregarSeguimientoMensajesOutlook();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+                }else if (palabra1 == "díasnolaborables" || palabra1 == "diasnolaborables" || palabra1=="feriados" || palabra1=="feriado")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "calendario" || palabra2 == "calendarios")
+                        {
+                            reply.Attachments = Cards.GetAgregarFeriadosCalendarioOutlook();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+    }
+
+        }

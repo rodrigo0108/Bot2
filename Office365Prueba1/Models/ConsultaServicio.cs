@@ -29,15 +29,15 @@ namespace Office365Prueba1.Models
         [Prompt("Con que tipo de servicio tienes problemas: {||}")]
         public Servicio? TipoDeServicio;
 
-        public static IForm<ConsultaServicio> BuildForm()
+        public static IForm<ConsultaServicio> ConstruirForma()
         {
             OnCompletionAsyncDelegate<ConsultaServicio> processOrder = async (context, order) =>
             {
                 var name = "Usuario";
                 var servicio = "Servicio";
                 context.UserData.TryGetValue<string>("Name", out name);
-                context.PrivateConversationData.SetValue<string>("tipoDeServicio", order.TipoDeServicio.ToString());
-                context.PrivateConversationData.TryGetValue<string>("tipoDeServicio", out servicio);
+                context.PrivateConversationData.SetValue<string>("tipoServicio", order.TipoDeServicio.ToString());
+                context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
 
                 await context.PostAsync($"Entonces estimado {name}, ¿Cúal es su duda respecto a {servicio}? ");
             };
