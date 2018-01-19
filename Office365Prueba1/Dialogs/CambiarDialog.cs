@@ -58,6 +58,57 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                }else if(palabra1=="vista" || palabra1 == "vistas")
+                {
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "outlook" || serv == "outlok")
+                        {
+                            reply.Attachments = Cards.GetCrearCambiarPersonalizarVista();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else if (serv == "word" || serv == "wrd")
+                        {
+                            reply.Attachments = Cards.GetCambiarVistaWord();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                    }
+
+                    //obtener el producto si este a sido escogido anteriormente
+                    var servicio = "Servicio";
+                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+                    if (servicio == "Word")
+                    {
+                        reply.Attachments = Cards.GetCambiarVistaWord();
+                        await context.PostAsync(reply);
+                        //context.Wait(MessageReceived);
+                        context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                        return;
+                    }
+                    else if (servicio == "Outlook")
+                    {
+                        reply.Attachments = Cards.GetCrearCambiarPersonalizarVista();
+                        await context.PostAsync(reply);
+                        //context.Wait(MessageReceived);
+                        context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                        return;
+                        
+                    }
+
+                }else if (palabra1 == "sonido" || palabra1 == "sonidos")
+                {
+
                 }
                 else
                 {

@@ -104,36 +104,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Recuperar-o-reemplazar-un-mensaje-despu%C3%A9s-de-enviarlo-35027f88-d655-4554-b4f8-6c0729a723a0?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
-        // Crear, cambiar o personalizar una vista
-        public static IList<Attachment> GetCrearCambiarPersonalizarVista()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Crear, cambiar o personalizar una vista",
-                    "",
-                    "Cada carpeta Outlook, como la Bandeja de entrada y calendario, muestra sus elementos en un diseño de una vista. " +
-                    "Cada carpeta tiene varias vistas predefinidas que puede elegir entre y puede crear vistas personalizadas.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Crear-cambiar-o-personalizar-una-vista-f693f3d9-0037-4fa0-9376-3a57b6337b71")),
-            };
-        }
-
-        // Cambiar el modo de ver el calendario de Outlook
-        public static IList<Attachment> GetCambiarModoVerCalendario()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Cambiar el modo de ver el calendario de Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013",
-                    "",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Cambiar-el-modo-en-que-ve-el-calendario-de-Outlook-a4e0dfd2-89a1-4770-9197-a3e786f4cd8f?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
-
         // Crear o programar una cita
         public static IList<Attachment> GetCrearProgramarCita()
         {
@@ -357,6 +327,194 @@ namespace Office365Prueba1.Models
             };
         }
 
+
+        // Crear, cambiar o personalizar una vista
+        public static IList<Attachment> GetCrearCambiarPersonalizarVista()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear, cambiar o personalizar una vista",
+                    "",
+                    "Cada carpeta Outlook, como la Bandeja de entrada y calendario, muestra sus elementos en un diseño de una vista. " +
+                    "Cada carpeta tiene varias vistas predefinidas que puede elegir entre y puede crear vistas personalizadas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-cambiar-o-personalizar-una-vista-f693f3d9-0037-4fa0-9376-3a57b6337b71")),
+            };
+        }
+
+        // Cambiar el modo de ver el calendario de Outlook
+        public static IList<Attachment> GetCambiarModoVerCalendario()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar el modo de ver el calendario de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-modo-en-que-ve-el-calendario-de-Outlook-a4e0dfd2-89a1-4770-9197-a3e786f4cd8f?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Cambiar el sonido reproducido cuando se recibe un mensaje de correo
+        public static IList<Attachment> GetCambiarSonidoReproducidoMensajeCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar el sonido reproducido cuando se recibe un mensaje de correo",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Cambiar el sonido de Windows mediante el Panel de Control. Si desea desactivar el sonido, use la vista Backstage en Outlook.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-sonido-reproducido-cuando-se-recibe-un-mensaje-de-correo-cbf254a8-008c-4dce-a02f-b9c87fa8097a?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+    
+        public static IList<Attachment> GetCambiarNombreCategoriaColor()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar el nombre de una categoría de color",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Las categorías de color son una excelente forma de agrupar visualmente mensajes, tareas, contactos o eventos de calendario que se parecen.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-nombre-de-una-categor%C3%ADa-de-color-692ab131-525a-467b-8cbd-4b08346d5346")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarColorTextoRedactaMensaje()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar el color del texto a medida que se redacta un mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Cuando escribe un mensaje de correo electrónico, puede cambiar el color del texto de un carácter, una palabra o cualquier texto seleccionado.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-del-texto-a-medida-que-se-redacta-un-mensaje-de-correo-electr%C3%B3nico-8be7e0d8-61cd-40eb-8db1-5cf94434bd66")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarColorTextoFuentePredeterminadoMensajes()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar el color del texto o la fuente predeterminada de los mensajes de correo",
+                    "Outlook",
+                    "En Outlook, la fuente se establece automáticamente para que crear, responder o reenviar un mensaje de correo electrónico es Calibri de 11 puntos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-del-texto-o-la-fuente-predeterminada-de-los-mensajes-de-correo-59b9860e-6dc0-48a1-9b07-6d8ea13ac5ca?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarColorFondoCalendario()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar el color de fondo del calendario",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "El cambio del color de fondo es una forma rápida de hacer que su calendario sea diferente. Esto resulta especialmente útil si trabaja con múltiples calendarios.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-del-calendario-3c544857-8446-46a5-ab9c-07b6af6e5091")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarFuenteMensajesEntrantesRemitente()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar automáticamente las fuentes y los colores de los mensajes entrantes según el remitente, el asunto o los destinatarios",
+                    "Outlook",
+                    "Formato condicional es una forma de hacer que los mensajes entrantes que cumplen las condiciones definidas destaquen en la lista de mensajes mediante el uso de colores, fuentes y estilos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-autom%C3%A1ticamente-las-fuentes-y-los-colores-de-los-mensajes-entrantes-seg%C3%BAn-el-remitente-el-asunto-o-los-destinatarios-ee281b41-5be4-47e4-81fb-1d8a202870df")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarTamanoFuenteListaMensajes()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar automáticamente las fuentes y los colores de los mensajes entrantes según el remitente, el asunto o los destinatarios",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Para buscar más rápidamente a través de la Bandeja de entrada, desea ampliar el texto de las líneas de asunto y el encabezado de columna, o cambiar la fuente para facilitar la lectura.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-la-fuente-o-el-tama%C3%B1o-de-fuente-en-la-lista-de-mensajes-57bd24a6-1f85-45ac-a657-fba877d3fe00?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarFirmaCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar una firma de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Ya sea un nuevo puesto (¡enhorabuena!) o un cambio de número de teléfono, asegúrese de tener actualizada su firma de mensaje de correo electrónico.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-una-firma-de-correo-electr%C3%B3nico-86597769-e4df-4320-b219-39d6e1a9e87b")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarConfiguracionGruposEnvios()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar configuración del grupo de envío o recepción",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Una vez que haya agregado cuentas a Outlook, puede cambiar la frecuencia con Outlook comprueba si hay nuevo correo electrónico de cada cuenta, así como la frecuencia con Outlook envía los mensajes salientes de cada cuenta.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-configuraci%C3%B3n-del-grupo-de-env%C3%ADo-o-recepci%C3%B3n-7184f59d-c194-44d7-973a-7af568a918d0?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarUbicacionGuardanMensajes()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar la ubicación donde se guardan los mensajes de correo electrónico enviado",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "En Outlook, puede especificar la carpeta donde se guardan los elementos de correo electrónico enviado.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-la-ubicaci%C3%B3n-donde-se-guardan-los-mensajes-de-correo-electr%C3%B3nico-enviado-bd95ef3b-8c04-466a-8576-d1ce0eabeb2c?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarCitaOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar una cita, una reunión o un evento",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Puede cambiar una cita, una reunión o un evento para actualizar el calendario de Outlook y para que otras personas puedan informarse de los cambios de programación.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-una-cita-una-reuni%C3%B3n-o-un-evento-29b44f7a-8938-4b99-b98d-3efcf45f7613")),
+            };
+        }
+
+        public static IList<Attachment> GetCambiarNivelProteccionFiltroCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar el nivel de protección en el filtro de correo no deseado",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Correo electrónico no deseado, también conocido como correo no deseado, puede resultar bastante molesto en su Bandeja de entrada. El filtro de correo electrónico no deseado en Outlook identifica mensajes que probablemente correo no deseado y los mueven a la carpeta Correo no deseado.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-nivel-de-protecci%C3%B3n-en-el-filtro-de-correo-no-deseado-ef21aec7-6eb5-4457-8b94-93f13fc275cb?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
         // -------------------------------------------------------------
         // PREGUNTAS NO IMPLEMENTADAS
 
@@ -450,21 +608,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Ver-encabezados-de-mensajes-de-correo-electr%C3%B3nico-cd039382-dc6e-4264-ac74-c048563d212c")),
             };
         }
-
-        // Cambiar el sonido reproducido cuando se recibe un mensaje de correo
-        public static IList<Attachment> GetCambiarSonidoReproducidoMensajeCorreo()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Cambiar el sonido reproducido cuando se recibe un mensaje de correo",
-                    "Se aplica a: Outlook 2016 Outlook 2013",
-                    "Cambiar el sonido de Windows mediante el Panel de Control. Si desea desactivar el sonido, use la vista Backstage en Outlook.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Cambiar-el-sonido-reproducido-cuando-se-recibe-un-mensaje-de-correo-cbf254a8-008c-4dce-a02f-b9c87fa8097a?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
-
         // Activar y desactivar las alertas de escritorio
         public static IList<Attachment> GetActivarDesactivarAlertasEscritorio()
         {
@@ -621,6 +764,20 @@ namespace Office365Prueba1.Models
                     "Video sobre Word",
                     "https://videocontent.osi.office.net/92cbca43-f999-4546-9aa4-e9a0a0494579/626d11f6-fbdf-4f5c-987f-952a73376352_1280x720_3400.mp4",
                     "https://support.office.com/es-es/article/V%C3%ADdeo-%C2%BFQu%C3%A9-es-Word-aee9c7ff-f9c5-415f-80dc-103ad5e344d7"),
+            };
+        }
+
+        // Cambiar vista en Word
+        public static IList<Attachment> GetCambiarVistaWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cómo cambiar la vista predeterminada a la vista Borrador en Word",
+                    "Se aplica a: Word 2016 Microsoft Word 2013Microsoft Word 2010Microsoft Office Word 2007",
+                    "Para cambiar la vista predeterminada a la vista borrador cuando se abre un documento de Word 2007",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.microsoft.com/es-es/help/919599/how-to-change-the-default-view-to-draft-view-in-word")),
             };
         }
 
