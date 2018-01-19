@@ -33,13 +33,36 @@ namespace Office365Prueba1.Dialogs
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
-                if (palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "personas" || palabra1 == "persona")
+                if (palabra1 == "contacto" || palabra1=="contactos" || palabra1 == "nombres" || palabra1 == "nombre" || palabra1 == "personas" || palabra1 == "persona" || palabra1 == "contactos" || palabra1 == "contacto" || palabra1 == "correos" || palabra1 == "correo" || palabra1 == "emails" || palabra1 == "email" || palabra1 == "correoselectronicos" || palabra1 == "correoselectrónicos" || palabra1 == "correoelectronico" || palabra1 == "correoelectrónico")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "lista" || palabra2 == "listas" || palabra2 == "grupos" || palabra2 == "grupo")
                         {
+                            foreach (var entityP3 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra3"))
+                            {
+                                var palabra3 = entityP3.Entity.ToLower().Replace(" ", "");
+                                if (palabra3 == "bloqueados" || palabra3 == "bloqueado" || palabra3 == "nodeseados" || palabra3 == "nodeseadas" || palabra3 == "detestable" || palabra3 == "detestables")
+                                {
+                                    reply.Attachments = Cards.GetNombresListasBloqueados();
+                                    await context.PostAsync(reply);
+                                    //context.Wait(MessageReceived);
+                                    return;
+                                }else if (palabra3=="contacto" || palabra3=="contactos")
+                                {
+                                    reply.Attachments = Cards.GetAgregarContactoListaContactos();
+                                    await context.PostAsync(reply);
+                                    //context.Wait(MessageReceived);
+                                    return;
+                                }
+                                else
+                                {
+                                    await context.PostAsync($"¿{palabra3}?, por favor vuelva a escribir la consulta correctamente");
+                                    //context.Wait(MessageReceived);
+                                    return;
+                                }
+                            }
                             reply.Attachments = Cards.GetAgregarContactoListaContactos();
                             await context.PostAsync(reply);
                             //context.Wait(MessageReceived);
@@ -49,6 +72,12 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetAgregarPersonasCategoriasColor();
                             await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -72,6 +101,12 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
 
                     }
 
@@ -87,10 +122,16 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
 
                     }
 
-                } else if (palabra1== "confirmaciones" || palabra1 == "conformación" || palabra1 =="conformacion")
+                } else if (palabra1== "confirmaciones" || palabra1 == "conformación" || palabra1 =="confirmacion")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -101,10 +142,22 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             //context.Wait(MessageReceived);
                             return;
+                        }else if(palabra2 == "entregas" || palabra2 == "entrega")
+                        {
+                            reply.Attachments = Cards.GetAgregarConfirmacionEntregaRealizarSeguimiento();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
                         }
 
                     }
-                }else if(palabra1 =="notificaciones" || palabra1=="notificación" || palabra1 == "notificaion")
+                }else if(palabra1 =="notificaciones" || palabra1=="notificación" || palabra1 == "notificacion")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -113,6 +166,12 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetAgregarConfirmacionLecturaNotificacionEntrega();
                             await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -131,6 +190,12 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
 
                     }
                 }else if (palabra1 == "díasnolaborables" || palabra1 == "diasnolaborables" || palabra1=="feriados" || palabra1=="feriado")
@@ -145,8 +210,20 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
 
                     }
+                }
+                else
+                {
+                    await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
+                    //context.Wait(MessageReceived);
+                    return;
                 }
 
             }

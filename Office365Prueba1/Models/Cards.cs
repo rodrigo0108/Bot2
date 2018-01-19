@@ -301,6 +301,20 @@ namespace Office365Prueba1.Models
             };
         }
 
+        public static IList<Attachment> GetAgregarConfirmacionEntregaRealizarSeguimiento()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar la confirmación de entrega para realizar un seguimiento de un mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Una confirmación de entrega indica que un mensaje de correo se ha enviado al buzón del destinatario, pero no si el destinatario lo ha visto o leído.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-la-confirmaci%C3%B3n-de-entrega-para-realizar-un-seguimiento-de-un-mensaje-de-correo-electr%C3%B3nico-69cd1b39-2300-482d-96c6-22e2f4a96848")),
+
+            };
+        }
+
         public static IList<Attachment> GetAgregarSeguimientoMensajesOutlook()
         {
             return new List<Attachment>()
@@ -325,6 +339,20 @@ namespace Office365Prueba1.Models
                     "Cuando exporta su calendario de Outlook a Google Calendar, está exportando una instantánea del calendario. Cualquier cambio que realice en su calendario de Outlook no se reflejará automáticamente en Google Calendar.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Exportar-un-Calendario-de-Outlook-a-Google-Calendar-662fa3bb-0794-4b18-add8-9968b665f4e6")),
+
+            };
+        }
+
+        public static IList<Attachment> GetNombresListasBloqueados()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Bloquear a un remitente de correo",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Como parte de sus criterios de filtrado, el filtro de correo electrónico no deseado de Outlook comprueba los remitentes de mensajes con las listas de direcciones de correo electrónico y dominios de Internet designados como seguro o bloqueado.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Bloquear-a-un-remitente-de-correo-b29fd867-cac9-40d8-aed1-659e06a706e4?ui=es-ES&rs=es-HN&ad=PE")),
 
             };
         }
