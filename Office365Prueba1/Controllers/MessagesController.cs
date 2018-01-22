@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -21,6 +22,11 @@ namespace Office365Prueba1
         {
             if (activity.Type == ActivityTypes.Message)
             {
+                //Bot escribiendo
+                var connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                Activity repeticionmecanografiada = activity.CreateReply();
+                repeticionmecanografiada.Type = ActivityTypes.Typing;
+                await connector.Conversations.ReplyToActivityAsync(repeticionmecanografiada);
                 await Conversation.SendAsync(activity, CrearDialogoLuis);
             }
             else

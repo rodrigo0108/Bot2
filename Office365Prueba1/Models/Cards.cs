@@ -343,6 +343,8 @@ namespace Office365Prueba1.Models
             };
         }
 
+        //CAMBIAR-OUTLOOK
+        //-----------------------------------------------------------
         // Cambiar el modo de ver el calendario de Outlook
         public static IList<Attachment> GetCambiarModoVerCalendario()
         {
@@ -514,6 +516,90 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-nivel-de-protecci%C3%B3n-en-el-filtro-de-correo-no-deseado-ef21aec7-6eb5-4457-8b94-93f13fc275cb?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        //USAR-OUTLOOK
+        //-----------------------------------------------------------
+        public static IList<Attachment> GetUsarArrobaLlamarAtencion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar las @menciones para llamar la atención de un usuario",
+                    "Se aplica a: Outlook 2016 Outlook 2016 para Mac Outlook en la web para Office 365 Empresa Outlook.com Outlook en la web para Exchange Server 2016",
+                    "Si desea llamar la atención de alguien en un mensaje de correo electrónico o una invitación a la reunión, puede escribir el símbolo @, seguido por su nombre en el cuerpo del mensaje de correo electrónico o una reunión invitar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-las-menciones-para-llamar-la-atenci%C3%B3n-de-un-usuario-90701709-5dc1-41c7-aa48-b01d4a46e8c7")),
+            };
+        }
+
+        public static IList<Attachment> GetUsarAsistenteProgramacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar el asistente para programación",
+                    "Outlook",
+                    "En este vídeo aprenderá a usar el Asistente para programación para que le resulte más fácil administrar reuniones complejas con un gran número de asistentes.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-el-asistente-para-programaci%C3%B3n-a7bf1aee-bee6-46d6-a126-194ed04fbe09#ID0EAABAAA=Informaci%C3%B3n_general")),
+                GetVideoCard(
+                    "Office 365 - Outlook",
+                    "Usar el asistente para programación",
+                    "https://videocontent.osi.office.net/8b47f9db-6dc9-4bee-9719-bd52745f8b58/318c1ac2-885d-44ab-a6f5-0ab6dcd75055_1280x720_3400.mp4"),
+            };
+        }
+
+        public static IList<Attachment> GetUsarCalendarioManeraAdecuadaOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Prácticas recomendadas para las organizaciones cuando se usa el calendario de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "El calendario de Outlook está completamente integrado con el correo electrónico, los contactos y otras características, lo que lo convierte en una de las funciones más apreciadas de Outlook.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Pr%C3%A1cticas-recomendadas-para-las-organizaciones-cuando-se-usa-el-calendario-de-Outlook-d93f72d3-2361-4e0d-8d6a-5c4939c17f39?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        public static IList<Attachment> GetUsarFiltrosCorreoNoDeseadoControlarMensajes()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar los filtros de correo electrónico no deseado para controlar los mensajes que se pueden ver",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "El Filtro de correo electrónico no deseado de Outlook comprueba el remitente de todos los mensajes entrantes con las listas de direcciones de correo electrónico y los dominios de Internet: la parte de la dirección de correo electrónico después del símbolo @: designado como seguro o bloqueado.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-los-filtros-de-correo-electr%C3%B3nico-no-deseado-para-controlar-los-mensajes-que-ve-274ae301-5db2-4aad-be21-25413cede077?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        public static IList<Attachment> GetUsarLimpiezaConversacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar la limpieza de conversación para eliminar mensajes redundantes",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa",
+                    "La característica Limpieza de conversación de Outlook reduce el número de mensajes contenidos en las carpetas de correo. Los mensajes redundantes de una conversación se mueven a la carpeta Elementos eliminados.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-Limpieza-de-conversaci%C3%B3n-para-eliminar-mensajes-redundantes-70179d54-fa57-48ce-95fd-416d72e5ccd4?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        public static IList<Attachment> GetUsarCorreosOrganizarBajaPrioridad()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar otros correos para organizar mensajes de baja prioridad en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "En Outlook 2016 para Windows, 'Otros correos'puede ayudarle a filtrar correo electrónico de baja prioridad para que pueda dedicarle más tiempo a los mensajes más importantes.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-Otros-correos-para-organizar-mensajes-de-baja-prioridad-en-Outlook-7b50c5db-7704-4e55-8a1b-dfc7bf1eafa0")),
+            };
+        }
+
 
         // -------------------------------------------------------------
         // PREGUNTAS NO IMPLEMENTADAS

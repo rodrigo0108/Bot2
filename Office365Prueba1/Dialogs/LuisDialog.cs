@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Threading;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -70,6 +71,16 @@ namespace Office365Prueba1.Dialogs
         public async Task ConsultaCambiar(IDialogContext context, LuisResult result)
         {
             await new CambiarDialog(context, result).StartAsync();
+            /*int estado = new CambiarDialog(context, result).Estado();
+            if (estado.Equals(1))
+            {
+                await context.PostAsync("El estado es 1");
+            }
+            else
+            {
+                await context.PostAsync("El estado es 0");
+            }*/
+            //context.Call(new PosRespuestaDialog(), Callback);
         }
 
         [LuisIntent("Consulta.Recuperar")]
@@ -82,6 +93,12 @@ namespace Office365Prueba1.Dialogs
         public async Task ConsultaAgregar(IDialogContext context, LuisResult result)
         {
             await new AgregarDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Usar")]
+        public async Task ConsultaUsar(IDialogContext context, LuisResult result)
+        {
+            await new UsarDialog(context, result).StartAsync();
         }
     }
 }
