@@ -600,7 +600,79 @@ namespace Office365Prueba1.Models
             };
         }
 
+        //------------------
+        //VER-OUTLOOK
+        // Ver encabezados de mensajes de correo electrónico
+        public static IList<Attachment> GetVerEncabezadosMensajesCorreoElectronico()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Ver encabezados de mensajes de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Encabezados de mensajes de correo electrónico proporcionan una lista de detalles técnicos sobre el mensaje, " +
+                    "como el remitente, el software utilizado para redactarlo y los servidores de correo electrónico que ha pasado hasta " +
+                    "llegar al destinatario.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Ver-encabezados-de-mensajes-de-correo-electr%C3%B3nico-cd039382-dc6e-4264-ac74-c048563d212c")),
+            };
+        }
+        // Ver mensajes de correo electrónico por conversación
+        public static IList<Attachment> GetVerMensajesCorreoElectronicoConversacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Ver mensajes de correo electrónico por conversación",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Cuando se cambia a la vista de organización por conversaciones, los mensajes que tienen el mismo asunto aparecen" +
+                    " como un grupo o una colección de mensajes.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Ver-mensajes-de-correo-electr%C3%B3nico-por-conversaci%C3%B3n-0eeec76c-f59b-4834-98e6-05cfdfa9fb07?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
 
+        // Ver solo los mensajes no leídos
+        public static IList<Attachment> GetVerSoloMensajesNoLeidos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Ver solo los mensajes no leídos",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "La Bandeja de entrada o cualquier carpeta de correo se pueden filtrar para mostrar solo los mensajes no leídos. " +
+                    "De forma predeterminada, los mensajes no leídos aparecen en negrita en el lista de mensajes.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Ver-solo-los-mensajes-no-le%C3%ADdos-f2c8450c-9cd0-4037-a5d3-26f6946727ca")),
+            };
+        }
+
+        // Ver mensajes simultáneamente en Outlook
+        public static IList<Attachment> GetVerMensajesSimultaneamente()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Ver simultáneamente varios calendarios",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Puede ver varios calendarios simultáneamente en paralelo o combinados en una vista superpuesta apilada que le permitirá ver la disponibilidad en varios calendarios.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Ver-simult%C3%A1neamente-varios-calendarios-fffa8783-0556-4ea1-ba62-3ed8a95a903c")),
+            };
+        }
+        // Ver tareas en Outlook
+        public static IList<Attachment> GetVerTareasOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Ver las tareas",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Las tareas se muestran en tres lugares de Outlook: en la Barra Tareas pendientes, en tareas y en la lista de tareas diarias en el calendario.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Ver-las-tareas-2146bc92-2d5c-407f-a619-2b2e372b2ca2?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
         // -------------------------------------------------------------
         // PREGUNTAS NO IMPLEMENTADAS
 
@@ -634,36 +706,7 @@ namespace Office365Prueba1.Models
             };
         }
 
-        // Ver mensajes de correo electrónico por conversación
-        public static IList<Attachment> GetVerMensajesCorreoElectronicoConversacion()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Ver mensajes de correo electrónico por conversación",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Cuando se cambia a la vista de organización por conversaciones, los mensajes que tienen el mismo asunto aparecen" +
-                    " como un grupo o una colección de mensajes.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Ver-mensajes-de-correo-electr%C3%B3nico-por-conversaci%C3%B3n-0eeec76c-f59b-4834-98e6-05cfdfa9fb07?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
-
-        // Ver solo los mensajes no leídos
-        public static IList<Attachment> GetVerSoloMensajesNoLeidos()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Ver solo los mensajes no leídos",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "La Bandeja de entrada o cualquier carpeta de correo se pueden filtrar para mostrar solo los mensajes no leídos. " +
-                    "De forma predeterminada, los mensajes no leídos aparecen en negrita en el lista de mensajes.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Ver-solo-los-mensajes-no-le%C3%ADdos-f2c8450c-9cd0-4037-a5d3-26f6946727ca")),
-            };
-        }
-
+        
         // Marcar un mensaje como leído o como no leído
         public static IList<Attachment> GetMarcarMensajeComoLeidoONoLeido()
         {
@@ -679,21 +722,7 @@ namespace Office365Prueba1.Models
             };
         }
 
-        // Ver encabezados de mensajes de correo electrónico
-        public static IList<Attachment> GetVerEncabezadosMensajesCorreoElectronico()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Ver encabezados de mensajes de correo electrónico",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Encabezados de mensajes de correo electrónico proporcionan una lista de detalles técnicos sobre el mensaje, " +
-                    "como el remitente, el software utilizado para redactarlo y los servidores de correo electrónico que ha pasado hasta " +
-                    "llegar al destinatario.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Ver-encabezados-de-mensajes-de-correo-electr%C3%B3nico-cd039382-dc6e-4264-ac74-c048563d212c")),
-            };
-        }
+        
         // Activar y desactivar las alertas de escritorio
         public static IList<Attachment> GetActivarDesactivarAlertasEscritorio()
         {

@@ -51,6 +51,7 @@ namespace Office365Prueba1.Dialogs
         {
             var formularioRegistro = new FormDialog<ConsultaServicio>(new ConsultaServicio(), this.consultaServicio, FormOptions.PromptInStart);
             context.Call<ConsultaServicio>(formularioRegistro, Callback);
+            
 
         }
 
@@ -99,6 +100,12 @@ namespace Office365Prueba1.Dialogs
         public async Task ConsultaUsar(IDialogContext context, LuisResult result)
         {
             await new UsarDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Ver")]
+        public async Task ConsultaVer(IDialogContext context, LuisResult result)
+        {
+            await new VerDialog(context, result).StartAsync();
         }
     }
 }

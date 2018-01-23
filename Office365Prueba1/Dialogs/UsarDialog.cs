@@ -10,19 +10,26 @@ using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using System.Threading;
+
 namespace Office365Prueba1.Dialogs
 {
     public class UsarDialog
     {
         private IDialogContext context;
         private LuisResult result;
-
+        
         public UsarDialog(IDialogContext context, LuisResult result)
         {
             this.context = context;
             this.result = result;
         }
-
+        
+        /*public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
+        {
+            context.Wait(this.MessageReceivedAsync);
+        }*/
+        
         public async Task StartAsync()
         {
             var reply = context.MakeMessage();
@@ -172,14 +179,17 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                }else if (palabra1=="correos" || palabra1=="correo")
+                }else if (palabra1=="otroscorreos" || palabra1=="otrocorreo")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
 
-                        if (palabra2 == "mensajes" || palabra2 == "mensaje")
+                        if (palabra2 == "organizar" || palabra2 == "ordenar" || palabra2 =="estructurar")
                         {
+                            
+                            //context.Call(new PosRespuestaDialog(),Callback);
+                            //await context.Forward(new PosRespuestaDialog(), this.MessageReceivedAsync,palabra2,CancellationToken.None);
                             reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
                             await context.PostAsync(reply);
                             //context.Wait(MessageReceived);
@@ -192,6 +202,10 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                    reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
+                    await context.PostAsync(reply);
+                    //context.Wait(MessageReceived);
+                    return;
                 }
                 else
                 {
@@ -202,7 +216,6 @@ namespace Office365Prueba1.Dialogs
                 }
 
             }
-
         }
 
         }

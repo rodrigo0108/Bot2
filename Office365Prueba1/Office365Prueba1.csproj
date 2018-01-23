@@ -123,6 +123,7 @@
     <Compile Include="Dialogs\RecuperarDialog.cs" />
     <Compile Include="Dialogs\SaludoDialog.cs" />
     <Compile Include="Dialogs\UsarDialog.cs" />
+    <Compile Include="Dialogs\VerDialog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
