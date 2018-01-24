@@ -89,7 +89,8 @@ namespace Office365Prueba1.Dialogs
                     //context.Wait(MessageReceived);
                     return;
 
-                } else if (palabra1 == "graficos" || palabra1 == "grafico" || palabra1 == "gráficos" || palabra1 == "gráfico")
+                }
+                else if (palabra1 == "graficos" || palabra1 == "grafico" || palabra1 == "gráficos" || palabra1 == "gráfico")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -110,7 +111,8 @@ namespace Office365Prueba1.Dialogs
 
                     }
 
-                } else if (palabra1 == "tabla" || palabra1 == "tablas")
+                }
+                else if (palabra1 == "tabla" || palabra1 == "tablas")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -131,7 +133,8 @@ namespace Office365Prueba1.Dialogs
 
                     }
 
-                } else if (palabra1== "confirmaciones" || palabra1 == "conformación" || palabra1 =="confirmacion")
+                }
+                else if (palabra1== "confirmaciones" || palabra1 == "conformación" || palabra1 =="confirmacion")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -157,7 +160,8 @@ namespace Office365Prueba1.Dialogs
                         }
 
                     }
-                }else if(palabra1 =="notificaciones" || palabra1=="notificación" || palabra1 == "notificacion")
+                }
+                else if(palabra1 =="notificaciones" || palabra1=="notificación" || palabra1 == "notificacion")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -198,7 +202,8 @@ namespace Office365Prueba1.Dialogs
                         }
 
                     }
-                }else if (palabra1 == "díasnolaborables" || palabra1 == "diasnolaborables" || palabra1=="feriados" || palabra1=="feriado")
+                }
+                else if (palabra1 == "díasnolaborables" || palabra1 == "diasnolaborables" || palabra1=="feriados" || palabra1=="feriado")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -219,6 +224,100 @@ namespace Office365Prueba1.Dialogs
 
                     }
                 }
+                else if (palabra1 == "archivos" || palabra1 == "archivo")
+                {
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "outlook" || serv == "outlok")
+                        {
+                            reply.Attachments = Cards.GetAdjuntarArchivosOutlook();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else if (serv == "word" || serv == "wrd")
+                        {
+                            reply.Attachments = Cards.GetAgregarArchivosWord();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else if (serv == "excel" || serv == "excl")
+                        {
+                            reply.Attachments = Cards.GetAdjuntarArchivosExcel();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else if (serv == "powerpoint" || serv == "pwrpoint" || serv=="pwrpt" || serv=="powerpt")
+                        {
+                            reply.Attachments = Cards.GetAdjuntarArchivosPowerPoint();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else if (serv=="onenote" || serv=="noenote" || serv=="note")
+                        {
+                            reply.Attachments = Cards.GetAgregarArchivosOneNote();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                    }
+
+                    //obtener el producto si este a sido escogido anteriormente
+                    var servicio = "Servicio";
+                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+                    switch (servicio)
+                    {
+                        case "Word":
+                            reply.Attachments = Cards.GetAgregarArchivosWord();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                            return;
+                            
+                        case "Outlook":
+                            reply.Attachments = Cards.GetAdjuntarArchivosOutlook();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                            return;
+                        case "Excel":
+                            reply.Attachments = Cards.GetAdjuntarArchivosExcel();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                            return;
+                        case "PowerPoint":
+                            reply.Attachments = Cards.GetAdjuntarArchivosPowerPoint();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                            return;
+                        case "OneNote":
+                            reply.Attachments = Cards.GetAgregarArchivosOneNote();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                            return;
+                    }
+
+                    await context.PostAsync("Por favor haga click en 'Consulta' o escribalo, seleccione el servicio y vuelva a hacer la pregunta.");
+
+                    reply.Attachments = Cards.GetConsulta();
+                    await context.PostAsync(reply);
+                    //context.Wait(MessageReceived);
+                    return;
+
+                }
                 else
                 {
                     await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
@@ -226,6 +325,11 @@ namespace Office365Prueba1.Dialogs
                     return;
                 }
 
+                await context.PostAsync("Lo siento, su pregunta no esta registrada");
+                reply.Attachments = Cards.GetConsultaV2();
+                await context.PostAsync(reply);
+                await context.PostAsync("O tal vez no escribió la pregunta correctamente, seleccione un servicio y vuelva a hacer la pregunta");
+                return;
             }
 
         }

@@ -99,24 +99,28 @@ namespace Office365Prueba1.Dialogs
                     //obtener el producto si este a sido escogido anteriormente
                     var servicio = "Servicio";
                     context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
-                    if (servicio == "Word")
+                    switch (servicio)
                     {
-                        reply.Attachments = Cards.GetCambiarVistaWord();
-                        await context.PostAsync(reply);
-                        //context.Wait(MessageReceived);
-                        context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
-                        return;
-                    }
-                    else if (servicio == "Outlook")
-                    {
-                        reply.Attachments = Cards.GetCrearCambiarPersonalizarVista();
-                        await context.PostAsync(reply);
-                        //context.Wait(MessageReceived);
-                        context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
-                        return;
+                        case "Word":
+                            reply.Attachments = Cards.GetCambiarVistaWord();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                            return;
 
+                        case "Outlook":
+                            reply.Attachments = Cards.GetCrearCambiarPersonalizarVista();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                            return;
                     }
+                    await context.PostAsync("Por favor haga click en 'Consulta' o escribalo, seleccione el servicio y vuelva a hacer la pregunta.");
 
+                    reply.Attachments = Cards.GetConsulta();
+                    await context.PostAsync(reply);
+                    //context.Wait(MessageReceived);
+                    return;
                 }
                 else if (palabra1 == "sonido" || palabra1 == "sonidos")
                 {
@@ -174,8 +178,6 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync("Mira, tengo esto");
                                     reply.Attachments = Cards.GetCambiarColorTextoRedactaMensaje();
                                     await context.PostAsync(reply);
-                                    //estado = 1;
-                                    //context.Call(new PosRespuestaDialog(), MessageReceivedAsync);
                                     //context.Wait(MessageReceived);
                                     return;
                                 }
@@ -186,7 +188,7 @@ namespace Office365Prueba1.Dialogs
                                     return;
                                 }
                             }
-                            //Si no escribe el objeto de la razon
+                            //Si no escribe el objeto de la razón
                             await context.PostAsync("Mira, tengo esto");
                             reply.Attachments = Cards.GetCambiarColorTextoRedactaMensaje();
                             await context.PostAsync(reply);

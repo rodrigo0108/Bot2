@@ -127,7 +127,8 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                }else if(palabra1 == "tareas" || palabra1 == "tarea")
+                }
+                else if(palabra1 == "tareas" || palabra1 == "tarea")
                 {
                     reply.Attachments = Cards.GetVerTareasOutlook();
                     await context.PostAsync(reply);

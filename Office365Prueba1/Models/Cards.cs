@@ -11,33 +11,7 @@ namespace Office365Prueba1.Models
         // ------------------------------------------------------------- 
         // PREGUNTAS DE OUTLOOK                                          
         // ------------------------------------------------------------- 
-        // Crear y enviar correo electrónico
-        public static IList<Attachment> GetCrearEnviarCorreoElectronico()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Crear y enviar correo electrónico",
-                    "",
-                    "",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Inicio-r%C3%A1pido-de-Outlook-2016-e9da47c4-9b89-4b49-b945-a204aeea6726?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
-
-        // Crear un mensaje de correo electrónico
-        public static IList<Attachment> GetCrearMensajeCorreoElectronico()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Crear un mensaje de correo electrónico",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010",
-                    "",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Crear-un-mensaje-de-correo-electr%C3%B3nico-147208af-ca8e-4cdf-b71f-77ba81a54069?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
+        
 
         // Definicon de Outlook
         public static IList<Attachment> GetOutlookDefinicionCard()
@@ -59,21 +33,9 @@ namespace Office365Prueba1.Models
             };
         }
 
-        // Crear y agregar una firma a los mensajes
-        public static IList<Attachment> GetCrearFirmaMensaje()
-        {
-            return new List<Attachment>()
-            {
-              GetVideoCard(
-                    "Crear y agregar una firma a los mensajes",
-                    "En Outlook puede crear firmas personalizadas para sus mensajes de correo electrónico. Puede incluir texto, imágenes, su tarjeta " +
-                    "de presentación electrónica, un logotipo o incluso una imagen con su firma manuscrita. Puede configurarlo para que las firmas " +
-                    "se agreguen automáticamente a todos los mensajes salientes o puede elegir qué mensajes incluirán una firma.",
-                    "https://videocontent.osi.office.net/f6ae6849-cbd6-4863-a3c5-546e90246c45/dcb8a228-ebbc-47fe-a315-d62959b5de1a_1280x720_3400.mp4",
-                    "https://support.office.com/es-es/article/Crear-y-agregar-una-firma-a-los-mensajes-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#ID0EAABAAA=2016,_2013"),
-            };
-        }
 
+        //----------RECUPERAR-OUTLOOK---------------------
+        //--------------------------------------------
         // Recuperar elementos eliminados en Outlook para Windows
         public static IList<Attachment> GetRecuperarElementosEliminados()
         {
@@ -88,7 +50,6 @@ namespace Office365Prueba1.Models
                     "https://support.office.com/es-es/article/Recuperar-elementos-eliminados-en-Outlook-para-Windows-49e81f3c-c8f4-4426-a0b9-c0fd751d48ce?ui=es-ES&rs=es-ES&ad=ES"),
             };
         }
-
         // Recuperar o reemplazar un mensaje después de enviarlo
         public static IList<Attachment> GetRecuperarMensajeDespuésEnviarlo()
         {
@@ -102,6 +63,23 @@ namespace Office365Prueba1.Models
                     "recuperar el mensaje y luego enviar un mensaje de reemplazo con el dato adjunto.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Recuperar-o-reemplazar-un-mensaje-despu%C3%A9s-de-enviarlo-35027f88-d655-4554-b4f8-6c0729a723a0?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        //----------CREAR-OUTLOOK---------------------
+        //--------------------------------------------
+        // Crear y agregar una firma a los mensajes
+        public static IList<Attachment> GetCrearFirmaMensaje()
+        {
+            return new List<Attachment>()
+            {
+              GetVideoCard(
+                    "Crear y agregar una firma a los mensajes",
+                    "En Outlook puede crear firmas personalizadas para sus mensajes de correo electrónico. Puede incluir texto, imágenes, su tarjeta " +
+                    "de presentación electrónica, un logotipo o incluso una imagen con su firma manuscrita. Puede configurarlo para que las firmas " +
+                    "se agreguen automáticamente a todos los mensajes salientes o puede elegir qué mensajes incluirán una firma.",
+                    "https://videocontent.osi.office.net/f6ae6849-cbd6-4863-a3c5-546e90246c45/dcb8a228-ebbc-47fe-a315-d62959b5de1a_1280x720_3400.mp4",
+                    "https://support.office.com/es-es/article/Crear-y-agregar-una-firma-a-los-mensajes-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#ID0EAABAAA=2016,_2013"),
             };
         }
         // Crear o programar una cita
@@ -118,7 +96,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-o-programar-una-cita-be84396a-0903-4e25-b31c-1c99ce0dacf2?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         // Crear y asignar categorías de color
         public static IList<Attachment> GetCrearAsignarCategoriasColor()
         {
@@ -134,7 +111,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-y-asignar-categor%C3%ADas-de-color-a1fde97e-15e1-4179-a1a0-8a91ef89b8dc")),
             };
         }
-
         // Crear una plantilla de mensaje de correo electrónico
         public static IList<Attachment> GetCrearPlantillaMensajeCorreoElectronico()
         {
@@ -150,7 +126,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-una-plantilla-de-mensaje-de-correo-electr%C3%B3nico-43ec7142-4dd0-4351-8727-bd0977b6b2d1")),
             };
         }
-
         // Crear una plantilla de correo electrónico
         public static IList<Attachment> GetCrearPlantillaCorreoElectronico()
         {
@@ -166,7 +141,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/crear-una-plantilla-de-correo-electr%C3%B3nico-d14aff6f-b5be-4144-8979-2dca68a96215")),
             };
         }
-
         // Crear un evento que dure todo el día
         public static IList<Attachment> GetCrearEventoQueDureTodoDia()
         {
@@ -180,7 +154,35 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-un-evento-que-dure-todo-el-d%C3%ADa-52420de0-8f5a-41b2-a165-070588896c25?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Crear y enviar correo electrónico
+        public static IList<Attachment> GetCrearEnviarCorreoElectronico()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear y enviar correo electrónico",
+                    "",
+                    "",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Inicio-r%C3%A1pido-de-Outlook-2016-e9da47c4-9b89-4b49-b945-a204aeea6726?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Crear un mensaje de correo electrónico
+        public static IList<Attachment> GetCrearMensajeCorreoElectronico()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010",
+                    "",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-un-mensaje-de-correo-electr%C3%B3nico-147208af-ca8e-4cdf-b71f-77ba81a54069?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
 
+        //----------AGREGAR-OUTLOOK---------------------
+        //--------------------------------------------
         // Agregar algun contacto en outlook
         public static IList<Attachment> GetAgregarContacto()
         {
@@ -199,7 +201,6 @@ namespace Office365Prueba1.Models
                     )
             };
         }
-
         // Agregar persona a una lista de contactos
         public static IList<Attachment> GetAgregarContactoListaContactos()
         {
@@ -213,7 +214,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/agregar-personas-a-un-grupo-de-contactos-0c6c3bee-0529-4d87-822f-026620072e28")),
             };
         }
-
         // Agregar persona a una lista de contactos
         public static IList<Attachment> GetAgregarPersonasCategoriasColor()
         {
@@ -228,7 +228,6 @@ namespace Office365Prueba1.Models
   
             };
         }
-
         public static IList<Attachment> GetAgregarGraficosMensajesOutlook()
         {
             return new List<Attachment>()
@@ -242,7 +241,6 @@ namespace Office365Prueba1.Models
 
             };
         }
-
         public static IList<Attachment> GetAgregarTablasMensajeOutlook()
         {
             return new List<Attachment>()
@@ -256,7 +254,6 @@ namespace Office365Prueba1.Models
 
             };
         }
-
         public static IList<Attachment> GetAgregarConfirmacionLecturaNotificacionEntrega()
         {
             return new List<Attachment>()
@@ -270,7 +267,6 @@ namespace Office365Prueba1.Models
 
             };
         }
-
         public static IList<Attachment> GetAgregarConfirmacionEntregaRealizarSeguimiento()
         {
             return new List<Attachment>()
@@ -284,7 +280,6 @@ namespace Office365Prueba1.Models
 
             };
         }
-
         public static IList<Attachment> GetAgregarSeguimientoMensajesOutlook()
         {
             return new List<Attachment>()
@@ -298,7 +293,6 @@ namespace Office365Prueba1.Models
 
             };
         }
-
         public static IList<Attachment> GetAgregarFeriadosCalendarioOutlook()
         {
             return new List<Attachment>()
@@ -312,7 +306,6 @@ namespace Office365Prueba1.Models
 
             };
         }
-
         public static IList<Attachment> GetNombresListasBloqueados()
         {
             return new List<Attachment>()
@@ -326,7 +319,24 @@ namespace Office365Prueba1.Models
 
             };
         }
+        //adjuntar archivos en outlook
+        public static IList<Attachment> GetAdjuntarArchivosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Adjuntar archivos o insertar imágenes en mensajes de correo de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Es fácil adjuntar imágenes, archivos, contactos, mensajes de correo y muchos otros elementos a los mensajes de Outlook. Outlook"
+                    +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
 
+            };
+        }
+
+        //CAMBIAR-OUTLOOK
+        //-----------------------------------------------------------
 
         // Crear, cambiar o personalizar una vista
         public static IList<Attachment> GetCrearCambiarPersonalizarVista()
@@ -342,9 +352,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-cambiar-o-personalizar-una-vista-f693f3d9-0037-4fa0-9376-3a57b6337b71")),
             };
         }
-
-        //CAMBIAR-OUTLOOK
-        //-----------------------------------------------------------
         // Cambiar el modo de ver el calendario de Outlook
         public static IList<Attachment> GetCambiarModoVerCalendario()
         {
@@ -358,7 +365,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-modo-en-que-ve-el-calendario-de-Outlook-a4e0dfd2-89a1-4770-9197-a3e786f4cd8f?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         // Cambiar el sonido reproducido cuando se recibe un mensaje de correo
         public static IList<Attachment> GetCambiarSonidoReproducidoMensajeCorreo()
         {
@@ -372,8 +378,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-sonido-reproducido-cuando-se-recibe-un-mensaje-de-correo-cbf254a8-008c-4dce-a02f-b9c87fa8097a?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
-    
         public static IList<Attachment> GetCambiarNombreCategoriaColor()
         {
             return new List<Attachment>()
@@ -386,7 +390,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-nombre-de-una-categor%C3%ADa-de-color-692ab131-525a-467b-8cbd-4b08346d5346")),
             };
         }
-
         public static IList<Attachment> GetCambiarColorTextoRedactaMensaje()
         {
             return new List<Attachment>()
@@ -399,7 +402,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-color-del-texto-a-medida-que-se-redacta-un-mensaje-de-correo-electr%C3%B3nico-8be7e0d8-61cd-40eb-8db1-5cf94434bd66")),
             };
         }
-
         public static IList<Attachment> GetCambiarColorTextoFuentePredeterminadoMensajes()
         {
             return new List<Attachment>()
@@ -412,7 +414,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-color-del-texto-o-la-fuente-predeterminada-de-los-mensajes-de-correo-59b9860e-6dc0-48a1-9b07-6d8ea13ac5ca?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         public static IList<Attachment> GetCambiarColorFondoCalendario()
         {
             return new List<Attachment>()
@@ -425,7 +426,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-del-calendario-3c544857-8446-46a5-ab9c-07b6af6e5091")),
             };
         }
-
         public static IList<Attachment> GetCambiarFuenteMensajesEntrantesRemitente()
         {
             return new List<Attachment>()
@@ -438,7 +438,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-autom%C3%A1ticamente-las-fuentes-y-los-colores-de-los-mensajes-entrantes-seg%C3%BAn-el-remitente-el-asunto-o-los-destinatarios-ee281b41-5be4-47e4-81fb-1d8a202870df")),
             };
         }
-
         public static IList<Attachment> GetCambiarTamanoFuenteListaMensajes()
         {
             return new List<Attachment>()
@@ -451,7 +450,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-la-fuente-o-el-tama%C3%B1o-de-fuente-en-la-lista-de-mensajes-57bd24a6-1f85-45ac-a657-fba877d3fe00?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         public static IList<Attachment> GetCambiarFirmaCorreo()
         {
             return new List<Attachment>()
@@ -464,7 +462,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-una-firma-de-correo-electr%C3%B3nico-86597769-e4df-4320-b219-39d6e1a9e87b")),
             };
         }
-
         public static IList<Attachment> GetCambiarConfiguracionGruposEnvios()
         {
             return new List<Attachment>()
@@ -477,7 +474,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-configuraci%C3%B3n-del-grupo-de-env%C3%ADo-o-recepci%C3%B3n-7184f59d-c194-44d7-973a-7af568a918d0?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         public static IList<Attachment> GetCambiarUbicacionGuardanMensajes()
         {
             return new List<Attachment>()
@@ -490,7 +486,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-la-ubicaci%C3%B3n-donde-se-guardan-los-mensajes-de-correo-electr%C3%B3nico-enviado-bd95ef3b-8c04-466a-8576-d1ce0eabeb2c?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         public static IList<Attachment> GetCambiarCitaOutlook()
         {
             return new List<Attachment>()
@@ -503,7 +498,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-una-cita-una-reuni%C3%B3n-o-un-evento-29b44f7a-8938-4b99-b98d-3efcf45f7613")),
             };
         }
-
         public static IList<Attachment> GetCambiarNivelProteccionFiltroCorreo()
         {
             return new List<Attachment>()
@@ -516,6 +510,7 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Cambiar-el-nivel-de-protecci%C3%B3n-en-el-filtro-de-correo-no-deseado-ef21aec7-6eb5-4457-8b94-93f13fc275cb?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+
         //USAR-OUTLOOK
         //-----------------------------------------------------------
         public static IList<Attachment> GetUsarArrobaLlamarAtencion()
@@ -530,7 +525,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/usar-las-menciones-para-llamar-la-atenci%C3%B3n-de-un-usuario-90701709-5dc1-41c7-aa48-b01d4a46e8c7")),
             };
         }
-
         public static IList<Attachment> GetUsarAsistenteProgramacion()
         {
             return new List<Attachment>()
@@ -547,7 +541,6 @@ namespace Office365Prueba1.Models
                     "https://videocontent.osi.office.net/8b47f9db-6dc9-4bee-9719-bd52745f8b58/318c1ac2-885d-44ab-a6f5-0ab6dcd75055_1280x720_3400.mp4"),
             };
         }
-
         public static IList<Attachment> GetUsarCalendarioManeraAdecuadaOutlook()
         {
             return new List<Attachment>()
@@ -560,7 +553,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Pr%C3%A1cticas-recomendadas-para-las-organizaciones-cuando-se-usa-el-calendario-de-Outlook-d93f72d3-2361-4e0d-8d6a-5c4939c17f39?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         public static IList<Attachment> GetUsarFiltrosCorreoNoDeseadoControlarMensajes()
         {
             return new List<Attachment>()
@@ -573,7 +565,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Usar-los-filtros-de-correo-electr%C3%B3nico-no-deseado-para-controlar-los-mensajes-que-ve-274ae301-5db2-4aad-be21-25413cede077?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         public static IList<Attachment> GetUsarLimpiezaConversacion()
         {
             return new List<Attachment>()
@@ -586,7 +577,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Usar-Limpieza-de-conversaci%C3%B3n-para-eliminar-mensajes-redundantes-70179d54-fa57-48ce-95fd-416d72e5ccd4?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         public static IList<Attachment> GetUsarCorreosOrganizarBajaPrioridad()
         {
             return new List<Attachment>()
@@ -600,8 +590,8 @@ namespace Office365Prueba1.Models
             };
         }
 
-        //------------------
         //VER-OUTLOOK
+        //------------------
         // Ver encabezados de mensajes de correo electrónico
         public static IList<Attachment> GetVerEncabezadosMensajesCorreoElectronico()
         {
@@ -631,7 +621,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Ver-mensajes-de-correo-electr%C3%B3nico-por-conversaci%C3%B3n-0eeec76c-f59b-4834-98e6-05cfdfa9fb07?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         // Ver solo los mensajes no leídos
         public static IList<Attachment> GetVerSoloMensajesNoLeidos()
         {
@@ -646,7 +635,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Ver-solo-los-mensajes-no-le%C3%ADdos-f2c8450c-9cd0-4037-a5d3-26f6946727ca")),
             };
         }
-
         // Ver mensajes simultáneamente en Outlook
         public static IList<Attachment> GetVerMensajesSimultaneamente()
         {
@@ -673,8 +661,157 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Ver-las-tareas-2146bc92-2d5c-407f-a619-2b2e372b2ca2?ui=es-ES&rs=es-HN&ad=PE")),
             };
         }
-        // -------------------------------------------------------------
+        //BUSCAR-OUTLOOK
+        //------------------
+        //Buscar personas o contactos en outlook
+        public static IList<Attachment> GetBuscarPersonasOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Buscar personas y contactos",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Bien tenga unos pocos contactos, varios cientos o más que mil, hay ocasiones en que desea buscar un contacto en lugar de desplazarse por una larga lista de contactos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Buscar-personas-y-contactos-f868749b-31a4-4fba-a936-b778cbb8f1cb")),
+                
+            };
+        }
+        //Buscar mensajes en outlook
+        public static IList<Attachment> GetBuscarMensajesOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Buscar y filtrar mensajes",
+                    "Outlook",
+                    "La búsqueda es una potente herramienta para ayudarle a encontrar los mensajes de correo electrónico en cualquier lugar en Outlook.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Buscar-y-filtrar-mensajes-3e32b06d-a2d9-4a66-922f-78b77c41b97f#ID0EAABAAA=P%C3%B3ngalo_en_pr%C3%A1ctica")),
+                GetVideoCard(
+                    "Office 365 - Outlook",
+                    "Buscar y filtrar mensajes",
+                    "https://videocontent.osi.office.net/1823715a-6c4f-4bb7-a7e3-973ad1fc1891/1bb06f49-bb0c-4489-8804-0d53123cb8dc_1280x720_3400.mp4",
+                    "https://support.office.com/es-es/article/Buscar-y-filtrar-mensajes-3e32b06d-a2d9-4a66-922f-78b77c41b97f#ID0EAABAAA=P%C3%B3ngalo_en_pr%C3%A1ctica"),
+            };
+        }
+        //Buscar un mensaje o elemento con Búsqueda instantánea
+        public static IList<Attachment> GetBuscarMensajeBusquedaInstantanea()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Buscar un mensaje o elemento con Búsqueda instantánea",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007 Office 2007",
+                    "¿Necesita encontrar un mensaje importante en su bandeja de entrada o carpeta abarrotada? La búsqueda instantánea le ayuda a encontrar rápidamente elementos en Outlook.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Buscar-un-mensaje-o-elemento-con-B%C3%BAsqueda-instant%C3%A1nea-69748862-5976-47b9-98e8-ed179f1b9e4d")),
+
+            };
+        }
+        //Buscar elementos en un archivo de datos de Outlook (.pst)
+        public static IList<Attachment> GetBuscarElementosArchivosDatos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Abrir y buscar elementos en un archivo de datos de Outlook (.pst)",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Si usa una cuenta POP o IMAP, toda la información de Outlook se almacenan en un archivo de datos de Outlook, también conocido como un Archivo de carpetas personales (.pst).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Abrir-y-buscar-elementos-en-un-Archivo-de-datos-de-Outlook-pst-2e2b55a4-f681-4b93-90cb-31d39349fb95")),
+
+            };
+        }
+
+        //ENVIAR-OUTLOOK
+        //------------------
+        //Enviar un mensaje de correo basado en una plantilla
+
+        public static IList<Attachment> GetEnviarMensajeBasadoPlantilla()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Enviar un mensaje de correo basado en una plantilla",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Utilice plantillas de correo electrónico para enviar mensajes que incluyan información que no cambie con frecuencia de un mensaje a otro. ",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Enviar-un-mensaje-de-correo-basado-en-una-plantilla-56c645fc-1b25-4059-808b-55ee72b6bc2d")),
+
+            };
+        }
+        //Enviar un mensaje de correo electrónico a un grupo de contactos
+        public static IList<Attachment> GetEnviarMensajeGrupoContactos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Enviar un mensaje de correo electrónico a un grupo de contactos",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Use un grupo de contactos (denominado anteriormente “lista de distribución”) para enviar un mensaje de correo electrónico a varias personas "+
+                    "(un equipo del proyecto, un comité o incluso un grupo de amigos) sin tener que agregar cada nombre cada vez que les escribe. ",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Enviar-un-mensaje-de-correo-electr%C3%B3nico-a-un-grupo-de-contactos-1c97fcb2-0ed4-41e6-b401-58f9d7d40e39")),
+
+            };
+        }
+        // Enviar respuestas automáticas "Fuera de la oficina" de Outlook
+        public static IList<Attachment> GetEnviarRespuestasAutomaticas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Enviar respuestas automáticas 'Fuera de la oficina' de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Solo puede enviar respuestas automáticas de fuera de la oficina siguiendo estos pasos si tiene cuenta de Office 365, " +
+                    "Outlook.com o Exchange. Para el resto de cuentas de correo electrónico, vea Enviar y redirigir correo electrónico automáticamente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Enviar-respuestas-autom%C3%A1ticas-Fuera-de-la-oficina-de-Outlook-9742f476-5348-4f9f-997f-5e208513bd67?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Reenviar una reunión
+        public static IList<Attachment> GetReenviarReuniónOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Reenviar una reunión",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Existen dos maneras de reenviar una reunión, dependiendo de si la reunión está en su calendario o en su correo electrónico.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Reenviar-una-reuni%C3%B3n-94f2df68-8109-4334-8bfa-f5c013dc1578")),
+            };
+        }
+        //Enviar respuestas automáticas "Fuera de la oficina" de Outlook
+        public static IList<Attachment> GetEnviarRespuestasAutomaticasFueraOficinaOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Enviar respuestas automáticas 'Fuera de la oficina' de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Hay dos formas de enviar respuestas de fuera de la oficina automáticas. El uso de cada una de ellas dependerá del tipo de cuenta de correo electrónico que tenga.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Enviar-respuestas-autom%C3%A1ticas-Fuera-de-la-oficina-de-Outlook-9742f476-5348-4f9f-997f-5e208513bd67?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        //Responder o reenviar un mensaje de correo electrónico
+        public static IList<Attachment> GetReenviarMensajeOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Responder o reenviar un mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010 Outlook 2007",
+                    "Cuando recibe un mensaje, puede enviar una respuesta solo al remitente o si hay varios destinatarios puede incluirlos también. Además, tiene la opción de reenviar el mensaje a otras personas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Responder-o-reenviar-un-mensaje-de-correo-electr%C3%B3nico-a843f8d3-01b0-48da-96f5-a71f70d0d7c8?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
         // PREGUNTAS NO IMPLEMENTADAS
+        // -------------------------------------------------------------
 
         // Mantener las próximas citas y reuniones siempre a la vista
         public static IList<Attachment> GetMantenerCitasReunionesVista()
@@ -689,7 +826,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Mantener-las-pr%C3%B3ximas-citas-y-reuniones-siempre-a-la-vista-0dc3d54c-9ae9-4285-9439-4f675244aae0")),
             };
         }
-
         // Mostrar, ocultar y ver el campo de copia carbón oculta (CCO)
         public static IList<Attachment> GetMostrarOcultarVerCampoCopiaCarbonOculta()
         {
@@ -705,8 +841,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Mostrar-ocultar-y-ver-el-campo-de-copia-carb%C3%B3n-oculta-CCO-04304e27-63a2-4276-8884-5077fba0e229?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
-        
         // Marcar un mensaje como leído o como no leído
         public static IList<Attachment> GetMarcarMensajeComoLeidoONoLeido()
         {
@@ -721,9 +855,7 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Marcar-un-mensaje-como-le%C3%ADdo-o-como-no-le%C3%ADdo-59b44298-08c2-4eb7-8128-ea0fb7f52720")),
             };
         }
-
-        
-        // Activar y desactivar las alertas de escritorio
+       // Activar y desactivar las alertas de escritorio
         public static IList<Attachment> GetActivarDesactivarAlertasEscritorio()
         {
             return new List<Attachment>()
@@ -735,7 +867,6 @@ namespace Office365Prueba1.Models
                     "https://support.office.com/es-es/article/Activar-y-desactivar-las-alertas-de-escritorio-9940c70e-b306-442e-a856-d94b20318481?ui=es-ES&rs=es-ES&ad=ES"),
             };
         }
-
         // Crear un grupo de contactos o una lista de distribución en Outlook
         public static IList<Attachment> GetCrearGrupoContactosListaDistribucionOutlook()
         {
@@ -751,22 +882,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-un-grupo-de-contactos-o-una-lista-de-distribuci%C3%B3n-en-Outlook-88ff6c60-0a1d-4b54-8c9d-9e1a71bc3023?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
-        // Enviar respuestas automáticas "Fuera de la oficina" de Outlook
-        public static IList<Attachment> GetEnviarRespuestasAutomaticas()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Enviar respuestas automáticas 'Fuera de la oficina' de Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Solo puede enviar respuestas automáticas de fuera de la oficina siguiendo estos pasos si tiene cuenta de Office 365, " +
-                    "Outlook.com o Exchange. Para el resto de cuentas de correo electrónico, vea Enviar y redirigir correo electrónico automáticamente.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Enviar-respuestas-autom%C3%A1ticas-Fuera-de-la-oficina-de-Outlook-9742f476-5348-4f9f-997f-5e208513bd67?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
-
         // Crear una carpeta de búsqueda
         public static IList<Attachment> GetCrearCarpetaBúsqueda()
         {
@@ -782,7 +897,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Usar-carpetas-de-b%C3%BAsqueda-para-buscar-mensajes-u-otros-elementos-de-Outlook-c1807038-01e4-475e-8869-0ccab0a56dc5?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-
         // Crear diseños de fondo para los mensajes de correo electrónico
         public static IList<Attachment> GetCrearDiseñosFondoParaMensajes()
         {
@@ -798,7 +912,6 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-dise%C3%B1os-de-fondo-para-los-mensajes-de-correo-electr%C3%B3nico-b5552ece-8f09-49ce-81a1-c1b7d347914f")),
             };
         }
-
         // Crear una tarea a partir de un mensaje
         public static IList<Attachment> GetCrearTareaAPartirMensaje()
         {
@@ -813,6 +926,7 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-una-tarea-a-partir-de-un-mensaje-40deff88-941a-4fc0-aba1-7d929d947795")),
             };
         }
+
 
         // -------------------------------------------------------------
         // PREGUNTAS DE EXCEL
@@ -837,11 +951,26 @@ namespace Office365Prueba1.Models
                     "https://support.office.com/es-es/article/Inicio-r%C3%A1pido-de-Excel-2016-94b00f50-5896-479c-b0c5-ff74603b35a3?ui=es-ES&rs=es-ES&ad=ES"),
             };
         }
-
+        //----------AGREGAR-EXCEL-------------------
+        //------------------------------------------
+        // Adjuntar archivos en excel
+        public static IList<Attachment> GetAdjuntarArchivosExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar un objeto en la hoja de cálculo de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
+            };
+        }
         // -------------------------------------------------------------
         // PREGUNTAS DE POWER POINT
         // -------------------------------------------------------------
         // Definicon de Power Point
+
         public static IList<Attachment> GetPowerPointDefinicionCard()
         {
             return new List<Attachment>()
@@ -857,6 +986,22 @@ namespace Office365Prueba1.Models
                     "Video sobre PowerPoint",
                     "https://videocontent.osi.office.net/f8bfaba3-fab6-400f-b58a-f8d80b455682/2c0bd7ad-139b-45d7-932a-12f38dd4a01c_1280x720_3400.mp4",
                     "https://products.office.com/es-mx/what-is-powerpoint"),
+            };
+        }
+        //----------AGREGAR-POWER POINT---------------
+        //--------------------------------------------
+
+        // Adjuntar archivos en power point
+        public static IList<Attachment> GetAdjuntarArchivosPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar una hoja de cálculo o algún archivo en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Puede vincular datos de una hoja de cálculo guardada Excel a la presentación de PowerPoint si tiene PowerPoint 2013 o posterior.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
             };
         }
 
@@ -881,7 +1026,8 @@ namespace Office365Prueba1.Models
                     "https://support.office.com/es-es/article/V%C3%ADdeo-%C2%BFQu%C3%A9-es-Word-aee9c7ff-f9c5-415f-80dc-103ad5e344d7"),
             };
         }
-
+        //----------CAMBIAR-WORD--------------------
+        //--------------------------------------------
         // Cambiar vista en Word
         public static IList<Attachment> GetCambiarVistaWord()
         {
@@ -893,6 +1039,358 @@ namespace Office365Prueba1.Models
                     "Para cambiar la vista predeterminada a la vista borrador cuando se abre un documento de Word 2007",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.microsoft.com/es-es/help/919599/how-to-change-the-default-view-to-draft-view-in-word")),
+            };
+        }
+        //----------AGREGAR-WORD--------------------
+        //--------------------------------------------
+        // Adjuntar archivos en word
+        public static IList<Attachment> GetAgregarArchivosWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar un documento en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Puede insertar el contenido de documentos de Microsoft Office Word creados previamente en un documento de Microsoft Office Word nuevo o diferente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-documento-en-word-274128e5-4da7-4cb8-b65f-3d8b585e03f1")),
+            };
+        }
+        // -------------------------------------------------------------
+        // PREGUNTAS DE ONE NOTE
+        // -------------------------------------------------------------
+
+        //----------AGREGAR-ONE NOTE-----------------
+        //--------------------------------------------
+        
+        // Adjuntar archivos en one note
+        public static IList<Attachment> GetAgregarArchivosOneNote()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cómo adjuntar un arhivo en One Note",
+                    "Se aplica a: OneNote 2013",
+                    "OneNote puede conservar toda la información acerca de un asunto o un proyecto en un único lugar, incluidas las copias de archivos y documentos relacionados.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/tareas-b%C3%A1sicas-en-microsoft-onenote-2013-da73c095-e082-4276-acf9-8728ca8b08ab")),
+            };
+        }
+
+        // -------------------------------------------------------------
+        // TEMAS DESTACADOS
+        // -------------------------------------------------------------´´
+        // Temas destacados de Outlook
+        public static IList<Attachment> GetDestacadosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                // Novedades en Outlook 2016 para Windows
+                GetHeroCardV3(
+                    "Novedades en Outlook 2016 para Windows",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Novedades-en-Outlook-2016-para-Windows-51c81e7a-de25-4a34-a7fe-bd79f8e48647")),
+                // Crear y agregar una firma a los mensajes
+                 GetHeroCardV3(
+                    "Crear y agregar una firma a los mensajes",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-y-agregar-una-firma-a-los-mensajes-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#ID0EAABAAA=2016,_2013")),
+                // Enviar respuestas automáticas "Fuera de la oficina" de Outlook
+                GetHeroCardV3(
+                    "Enviar respuestas automáticas Fuera de la oficina",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Enviar-respuestas-autom%C3%A1ticas-Fuera-de-la-oficina-de-Outlook-9742f476-5348-4f9f-997f-5e208513bd67?ui=es-ES&rs=es-ES&ad=ES")),
+                // Importar contactos desde Gmail
+                GetHeroCardV3(
+                    "Importar contactos desde Gmail",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Importar-contactos-desde-Gmail-ad99d439-04b6-4001-a266-c170df721291?ui=es-ES&rs=es-ES&ad=ES")),
+                // Importar contactos a Outlook
+                GetHeroCardV3(
+                    "Importar contactos a Outlook",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Importar-contactos-a-Outlook-bb796340-b58a-46c1-90c7-b549b8f3c5f8")),
+                // Recuperar elementos eliminados en Outlook para Windows
+                GetHeroCardV3(
+                    "Recuperar elementos eliminados en Outlook para Windows",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Recuperar-elementos-eliminados-en-Outlook-para-Windows-49e81f3c-c8f4-4426-a0b9-c0fd751d48ce?ui=es-ES&rs=es-ES&ad=ES")),
+                // Recuperar o reemplazar un mensaje después de enviarlo
+                GetHeroCardV3(
+                    "Recuperar o reemplazar un mensaje después de enviarlo",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Recuperar-o-reemplazar-un-mensaje-despu%C3%A9s-de-enviarlo-35027f88-d655-4554-b4f8-6c0729a723a0?ui=es-ES&rs=es-ES&ad=ES")),
+                // Outlook no responde, se detiene en «Procesando», deja de funcionar, se inmoviliza o se bloquea
+                GetHeroCardV3(
+                    "Outlook no responde, se bloquea o deja de funcionar",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Outlook-no-responde-se-detiene-en-%C2%ABProcesando%C2%BB-deja-de-funcionar-se-inmoviliza-o-se-bloquea-5c313d04-64af-4441-82d2-44e5a43eee5a?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Temas destacados de OneDrive
+        public static IList<Attachment> GetDestacadosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                // ¿Qué es OneDrive para la Empresa?
+                GetHeroCardV3(
+                    "¿Qué es OneDrive para la Empresa?",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/%C2%BFQu%C3%A9-es-OneDrive-para-la-Empresa-187f90af-056f-47c0-9656-cc0ddca7fdc2")),
+                // ¿Qué versión de OneDrive uso?
+                 GetHeroCardV3(
+                    "¿Qué versión de OneDrive uso?",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/%C2%BFQu%C3%A9-versi%C3%B3n-de-OneDrve-uso-19246eae-8a51-490a-8d97-a645c151f2ba?ui=es-ES&rs=es-ES&ad=ES")),
+                // Cargar fotografías y archivos en OneDrive
+                GetHeroCardV3(
+                    "Cargar fotografías y archivos en OneDrive",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Cargar-fotograf%C3%ADas-y-archivos-en-OneDrive-b00ad3fe-6643-4b16-9212-de00ef02b586")),
+                // Recuperar archivos de tu equipo
+                GetHeroCardV3(
+                    "Recuperar archivos de tu equipo",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Recuperar-archivos-de-tu-equipo-70761550-519c-4d45-b780-5a613b2f8822?ui=es-ES&rs=es-ES&ad=ES")),
+                // Compartir archivos y carpetas de OneDrive
+                GetHeroCardV3(
+                    "Compartir archivos y carpetas de OneDrive",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Compartir-archivos-y-carpetas-de-OneDrive-9fcc2f7d-de0c-4cec-93b0-a82024800c07")),
+                // Usar OneDrive para Android
+                GetHeroCardV3(
+                    "Usar OneDrive para Android",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Usar-OneDrive-para-Android-eee1d31c-792d-41d4-8132-f9621b39eb36")),
+                // Solucionar problemas de sincronización de OneDrive
+                GetHeroCardV3(
+                    "Solucionar problemas de sincronización de OneDrive",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Solucionar-problemas-de-sincronizaci%C3%B3n-de-OneDrive-0899b115-05f7-45ec-95b2-e4cc8c4670b2")),
+                // Configurar el equipo para sincronizar los archivos de OneDrive para la Empresa en Office 365
+                GetHeroCardV3(
+                    "Configurar el equipo para sincronizar los archivos",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Configurar-el-equipo-para-sincronizar-los-archivos-de-OneDrive-para-la-Empresa-en-Office-365-23e1f12b-d896-4cb1-a238-f91d19827a16?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Temas destacados de Word
+        public static IList<Attachment> GetDestacadosWord()
+        {
+            return new List<Attachment>()
+            {
+                // Novedades de Word 2016 para Windows
+                GetHeroCardV3(
+                    "Novedades de Word 2016 para Windows",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Novedades-de-Word-2016-para-Windows-4219dfb5-23fc-4853-95aa-b13a674a6670?ui=es-ES&rs=es-ES&ad=ES")),
+                // Descargar plantillas pregeneradas gratuitas
+                 GetHeroCardV3(
+                    "Descargar plantillas pregeneradas gratuitas",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Descargar-plantillas-pregeneradas-gratuitas-29f2a18d-29a6-4a07-998b-cfe5ff7ffbbb")),
+                // Realizar un seguimiento de los cambios en Word
+                GetHeroCardV3(
+                    "Realizar un seguimiento de los cambios en Word",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Realizar-un-seguimiento-de-los-cambios-en-Word-197ba630-0f5f-4a8e-9a77-3712475e806a?ui=es-ES&rs=es-ES&ad=ES")),
+                // Cambiar o establecer la fuente predeterminada
+                GetHeroCardV3(
+                    "Cambiar o establecer la fuente predeterminada",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Cambiar-o-establecer-la-fuente-predeterminada-20f72414-2c42-4b53-9654-d07a92b9294a")),
+                // Agregar un gráfico al documento en Word
+                GetHeroCardV3(
+                    "Agregar un gráfico al documento en Word",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-un-gr%C3%A1fico-al-documento-en-Word-ff48e3eb-5e04-4368-a39e-20df7c798932?ui=es-ES&rs=es-ES&ad=ES")),
+                // Soporte de accesibilidad para Word
+                GetHeroCardV3(
+                    "Soporte de accesibilidad para Word",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Soporte-de-accesibilidad-para-Word-c014d8b8-4ef3-4a7a-935d-295663f3343c")),
+                // Iniciar la numeración de página más adelante en el documento
+                GetHeroCardV3(
+                    "Iniciar la numeración de página más adelante en el documento",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Iniciar-la-numeraci%C3%B3n-de-p%C3%A1ginas-m%C3%A1s-adelante-en-el-documento%C2%A0-c73e3d55-d722-4bd0-886e-0b0bd0eb3f02")),
+                // Eliminar o cambiar un encabezado o pie de página de una sola página
+                GetHeroCardV3(
+                    "Eliminar o cambiar un encabezado o pie de página de una sola página",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Eliminar-o-cambiar-un-encabezado-o-pie-de-p%C3%A1gina-de-una-sola-p%C3%A1gina-a9b6c963-a3e1-4de1-9142-ca1be1dba7ff?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Temas destacados de Excel
+        public static IList<Attachment> GetDestacadosExcel()
+        {
+            return new List<Attachment>()
+            {
+                // Novedades en Excel 2016 para Windows
+                GetHeroCardV3(
+                    "Novedades en Excel 2016 para Windows",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Novedades-en-Excel-2016-para-Windows-5fdb9208-ff33-45b6-9e08-1f5cdb3a6c73")),
+                // Mover o copiar hojas de cálculo o los datos que contienen
+                 GetHeroCardV3(
+                    "Mover o copiar hojas de cálculo o los datos que contienen",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mover-o-copiar-hojas-de-c%C3%A1lculo-o-los-datos-que-contienen-47207967-bbb2-4e95-9b5c-3c174aa69328?ui=es-ES&rs=es-ES&ad=ES")),
+                // Crear una lista desplegable
+                GetHeroCardV3(
+                    "Crear una lista desplegable",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Crear-una-lista-desplegable-7693307a-59ef-400a-b769-c5402dce407b")),
+                // Calcular la diferencia entre dos fechas
+                GetHeroCardV3(
+                    "Calcular la diferencia entre dos fechas",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Calcular-la-diferencia-entre-dos-fechas-8235e7c9-b430-44ca-9425-46100a162f38")),
+                // Inmovilizar paneles para bloquear filas y columnas
+                GetHeroCardV3(
+                    "Inmovilizar paneles para bloquear filas y columnas",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Inmovilizar-paneles-para-bloquear-filas-y-columnas-dab2ffc9-020d-4026-8121-67dd25f2508f")),
+                // Funciones de Excel (por orden alfabético)
+                GetHeroCardV3(
+                    "Funciones de Excel (por orden alfabético)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Funciones-de-Excel-por-orden-alfab%C3%A9tico-b3944572-255d-4efb-bb96-c6d90033e188?ui=es-ES&rs=es-ES&ad=ES")),
+                // Cómo evitar la ruptura de las fórmulas
+                GetHeroCardV3(
+                    "Cómo evitar la ruptura de las fórmulas",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/C%C3%B3mo-evitar-la-ruptura-de-las-f%C3%B3rmulas-8309381d-33e8-42f6-b889-84ef6df1d586")),
+                // Soporte de accesibilidad para Excel
+                GetHeroCardV3(
+                    "Soporte de accesibilidad para Excel",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Soporte-de-accesibilidad-para-Excel-0976b140-7033-4e2d-8887-187280701bf8")),
+            };
+        }
+        // Temas destacados de PowerPoint
+        public static IList<Attachment> GetDestacadosPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                // Novedades en Outlook 2016 para Windows
+                GetHeroCardV3(
+                    "Novedades en Outlook 2016 para Windows",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Novedades-en-Outlook-2016-para-Windows-51c81e7a-de25-4a34-a7fe-bd79f8e48647")),
+                // Agregar imágenes prediseñadas a un archivo
+                 GetHeroCardV3(
+                    "Agregar imágenes prediseñadas a un archivo",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-im%C3%A1genes-predise%C3%B1adas-a-un-archivo-0a01ae25-973c-4c2c-8eaf-8c8e1f9ab530?wt.mc_id=ppt_home&ui=es-ES&rs=es-ES&ad=ES")),
+                // Convertir una presentación en un vídeo
+                GetHeroCardV3(
+                    "Convertir una presentación en un vídeo",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Convertir-una-presentaci%C3%B3n-en-un-v%C3%ADdeo-c140551f-cb37-4818-b5d4-3e30815c3e83?wt.mc_id=ppt_home&ui=es-ES&rs=es-ES&ad=ES")),
+                // Agregar una marca de agua "BORRADOR" al fondo de las diapositivas
+                GetHeroCardV3(
+                    "Agregar una marca de agua 'BORRADOR' al fondo de las diapositivas",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-marca-de-agua-BORRADOR-al-fondo-de-las-diapositivas-ea4cc5f5-ea5d-4213-9c7d-ed01a7952ed0?wt.mc_id=ppt_home&ui=es-ES&rs=es-ES&ad=ES")),
+                // Importar contactos a Outlook
+                GetHeroCardV3(
+                    "Importar contactos a Outlook",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Importar-contactos-a-Outlook-bb796340-b58a-46c1-90c7-b549b8f3c5f8")),
+                // Reproducir música durante toda la presentación con diapositivas
+                GetHeroCardV3(
+                    "Reproducir música durante toda la presentación con diapositivas",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Reproducir-m%C3%BAsica-durante-toda-la-presentaci%C3%B3n-con-diapositivas-b01ded6a-28c8-473a-971a-6dfa92cc9367?wt.mc_id=ppt_home&ui=es-ES&rs=es-ES&ad=ES")),
+                // ¿Qué es un patrón de diapositivas?
+                GetHeroCardV3(
+                    "¿Qué es un patrón de diapositivas?",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/%C2%BFQu%C3%A9-es-un-patr%C3%B3n-de-diapositivas-b9abb2a0-7aef-4257-a14e-4329c904da54?wt.mc_id=ppt_home")),
+                // Soporte de accesibilidad para PowerPoint
+                GetHeroCardV3(
+                    "Soporte de accesibilidad para PowerPoint",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Soporte-de-accesibilidad-para-PowerPoint-9d2b646d-0b79-4135-a570-b8c7ad33ac2f?wt.mc_id=ppt_home")),
+            };
+        }
+        // Temas destacados de OneNote
+        public static IList<Attachment> GetDestacadosOneNote()
+        {
+            return new List<Attachment>()
+            {
+                // Novedades de OneNote para Windows 10
+                GetHeroCardV3(
+                    "Novedades de OneNote para Windows 10",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Novedades-de-OneNote-para-Windows-10-1477d5de-f4fd-4943-b18a-ff17091161ea?ui=es-ES&rs=es-ES&ad=ES")),
+                // Introducción al nuevo OneNote
+                 GetHeroCardV3(
+                    "Introducción al nuevo OneNote",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-ES/article/Introducci%C3%B3n-al-nuevo-OneNote-ab84fcc2-f845-41ac-9c29-89b0720c8eb3")),
+                // Tareas básicas en OneNote para Windows 10
+                GetHeroCardV3(
+                    "Tareas básicas en OneNote para Windows 10",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Tareas-básicas-en-OneNote-para-Windows-10-081573f8-2e8f-45e5-bf16-0900d4d3331f?ui=es-ES&rs=es-ES&ad=ES")),
+                // Enviar fotos e imágenes de otras aplicaciones a OneNote
+                GetHeroCardV3(
+                    "Enviar fotos e imágenes de otras aplicaciones a OneNote",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Enviar-fotos-e-im%C3%A1genes-de-otras-aplicaciones-a-OneNote-para-Windows-10-02e66db1-eb04-4297-a41b-b82648aa843d?ui=es-ES&rs=es-ES&ad=ES")),
+                // Sincronizar blocs de notas en OneNote 
+                GetHeroCardV3(
+                    "Sincronizar blocs de notas en OneNote ",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Sincronizar-blocs-de-notas-en-OneNote-para-Windows-10-21cb4629-3ef4-4220-8539-d01d29491e6a?ui=es-ES&rs=es-ES&ad=ES")),
+                // Compartir una página de notas o un bloc de notas completo
+                GetHeroCardV3(
+                    "Compartir una página de notas o un bloc de notas completo",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Compartir-una-p%C3%A1gina-de-notas-o-un-bloc-de-notas-completo-desde-OneNote-para-Windows-10-d4a74a14-44a3-411e-8fb5-06e73ddf047f?ui=es-ES&rs=es-ES&ad=ES")),
+                // Proteger las notas con contraseña en OneNote para Windows 10
+                GetHeroCardV3(
+                    "Proteger las notas con contraseña en OneNote para Windows 10",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Proteger-las-notas-con-contrase%C3%B1a-en-OneNote-para-Windows-10-a2fd9183-c864-4653-9c4e-714a116a4ab7?ui=es-ES&rs=es-ES&ad=ES")),
+                // Solucionar problemas en OneNote para Windows 10
+                GetHeroCardV3(
+                    "Solucionar problemas en OneNote para Windows 10",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Solucionar-problemas-en-OneNote-para-Windows-10-942b006c-46ac-4300-a629-7fac5ae4dc70?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // -------------------------------------------------------------
+
+        public static IList<Attachment> GetConsulta()
+        {
+            return new List<Attachment>()
+            {
+                GetCardConsulta(
+                    "¿Tienes una consulta?",
+                    "Consulta"),
+            };
+        }
+        public static IList<Attachment> GetConsultaV2()
+        {
+            return new List<Attachment>()
+            {
+                GetCardConsulta(
+                    "Para más ayuda seleccione 'consulta'",
+                    "Consulta"),
+            };
+        }
+        public static IList<Attachment> GetConfirmacion()
+        {
+            return new List<Attachment>()
+            {
+                GetCardDoubleAction(
+                    "Si",
+                    "si",
+                    "No",
+                    "no"),
             };
         }
 
@@ -910,7 +1408,6 @@ namespace Office365Prueba1.Models
             };
             return heroCard.ToAttachment();
         }
-
         private static Attachment GetHeroCardV2(string title, string subtitle, string text, CardAction cardAction)
         {
             var heroCard = new HeroCard
@@ -922,7 +1419,15 @@ namespace Office365Prueba1.Models
             };
             return heroCard.ToAttachment();
         }
-
+        private static Attachment GetHeroCardV3(string title, CardAction cardAction)
+        {
+            var heroCard = new HeroCard
+            {
+                Title = title,
+                Buttons = new List<CardAction>() { cardAction },
+            };
+            return heroCard.ToAttachment();
+        }
         private static Attachment GetThumbnailCard(string title, string subtitle, string text, CardImage cardImage, CardAction cardAction)
         {
             var heroCard = new ThumbnailCard
@@ -935,7 +1440,6 @@ namespace Office365Prueba1.Models
             };
             return heroCard.ToAttachment();
         }
-
         private static Attachment GetVideoCard(string title, string text, string url, string value)
         {
             var videoCard = new VideoCard
@@ -957,7 +1461,6 @@ namespace Office365Prueba1.Models
             };
             return videoCard.ToAttachment();
         }
-
         private static Attachment GetVideoCard(string title, string text, string url)
         {
             var videoCard = new VideoCard
@@ -978,7 +1481,6 @@ namespace Office365Prueba1.Models
             };
             return videoCard.ToAttachment();
         }
-
         private static Attachment GetCardConsulta(string text, String value)
         {
             var Saludocard = new ThumbnailCard
@@ -991,16 +1493,19 @@ namespace Office365Prueba1.Models
             };
             return Saludocard.ToAttachment();
         }
-
-        public static IList<Attachment> GetConsulta()
+        private static Attachment GetCardDoubleAction(string firstAction, string action1, string secondAction, string action2)
         {
-            return new List<Attachment>()
+            var Saludocard = new ThumbnailCard
             {
-                GetCardConsulta(
-                    "¿Tienes una consulta?",
-                    "Consulta"),
+                Buttons = new List<CardAction>
+                {
+                    new CardAction(ActionTypes.ImBack, firstAction, value: action1),
+                    new CardAction(ActionTypes.ImBack, firstAction, value: action2),
+                }
             };
+            return Saludocard.ToAttachment();
         }
+       
 
 
     }

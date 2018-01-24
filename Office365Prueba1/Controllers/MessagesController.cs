@@ -56,12 +56,25 @@ namespace Office365Prueba1
                 {
                     ConnectorClient connector = new ConnectorClient(new System.Uri(message.ServiceUrl));
 
+                    Random rnd = new Random();
+                    // Saludos que puede generar el bot
+                    string[] saludos = {
+                        "¡Hola!, ¿en qué te puedo ayudar? \U0001F601",
+                        "¡Bienvenido! \U0001F601 ¿en qué te puedo ayudar?",
+                        "Qué tal \U0001F601, ¿cómo puedo ayudarte?",
+                        "Buen día \U0001F601, cuéntame, ¿en que puedo ayudarte?"
+                    };
+
+                    // Generate random indexes for saludos
+                    int mIndex = rnd.Next(0, saludos.Length);
+
                     foreach (var member in iConversationUpdated.MembersAdded ?? System.Array.Empty<ChannelAccount>())
                     {
                         // if the bot is added, then
                         if (member.Id == iConversationUpdated.Recipient.Id)
                         {
-                            Activity replyToConversation = message.CreateReply("¡Hola!, ¿en qué te puedo ayudar?");
+                            // Display the result.
+                            Activity replyToConversation = message.CreateReply(saludos[mIndex]);
                             replyToConversation.Attachments.Add(GetCardSaludos());
                             await connector.Conversations.SendToConversationAsync(replyToConversation);
                         }

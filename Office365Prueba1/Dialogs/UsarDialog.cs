@@ -188,8 +188,6 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "organizar" || palabra2 == "ordenar" || palabra2 =="estructurar")
                         {
                             
-                            //context.Call(new PosRespuestaDialog(),Callback);
-                            //await context.Forward(new PosRespuestaDialog(), this.MessageReceivedAsync,palabra2,CancellationToken.None);
                             reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
                             await context.PostAsync(reply);
                             //context.Wait(MessageReceived);

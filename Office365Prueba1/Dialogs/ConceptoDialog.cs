@@ -65,8 +65,9 @@ namespace Office365Prueba1.Dialogs
                 }
                 else
                 {
-                    await context.PostAsync($"Lo siento, {value} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
-                    //context.Wait(MessageReceived);
+                    await context.PostAsync($"Lo siento, '{value}' no esta registrado como servicio");
+                    reply.Attachments = Cards.GetConsultaV2();
+                    await context.PostAsync(reply);
                     return;
                 }
             }
@@ -106,6 +107,15 @@ namespace Office365Prueba1.Dialogs
                 context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
+            else
+            {
+             // Si el usuario no a ingresado la primera parte de la pregunta
+             await context.PostAsync("Lo siento, su pregunta no esta registrada");
+             reply.Attachments = Cards.GetConsultaV2();
+             await context.PostAsync(reply);
+             await context.PostAsync("O tal vez no escribió la pregunta correctamente, seleccione un servicio y vuelva a hacer la pregunta");
+             return;
+             }
         }
 
 

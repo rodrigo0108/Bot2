@@ -107,5 +107,11 @@ namespace Office365Prueba1.Dialogs
         {
             await new VerDialog(context, result).StartAsync();
         }
+
+        [LuisIntent("Consulta.Buscar")]
+        public async Task ConsultaBuscar(IDialogContext context, LuisResult result)
+        {
+            await new BuscarDialog(context, result).StartAsync();
+        }
     }
 }
