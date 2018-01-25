@@ -13,17 +13,16 @@ using Microsoft.Bot.Builder.FormFlow;
 
 namespace Office365Prueba1.Dialogs
 {
-    public class EnviarDialog
+    public class AplicarDialog
     {
         private IDialogContext context;
         private LuisResult result;
 
-        public EnviarDialog(IDialogContext context, LuisResult result)
+        public AplicarDialog(IDialogContext context, LuisResult result)
         {
             this.context = context;
             this.result = result;
         }
-
         public async Task StartAsync()
         {
             var reply = context.MakeMessage();
@@ -33,20 +32,14 @@ namespace Office365Prueba1.Dialogs
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
-                if (palabra1 == "correoelectrónico" || palabra1 == "correoelectronico" || palabra1 == "correoselectrónicos" || palabra1 == "correoselectronicos" || palabra1=="correos" || palabra1=="correo" || palabra1=="mensajes" || palabra1=="mensaje")
+                if (palabra1 == "categoría" || palabra1 == "categorías" || palabra1 == "categoria" || palabra1 == "categorias")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "plantillas" || palabra2 == "plantillas")
+                        if (palabra2 == "color")
                         {
-                            reply.Attachments = Cards.GetEnviarMensajeBasadoPlantilla();
-                            await context.PostAsync(reply);
-                            //context.Wait(MessageReceived);
-                            return;
-                        }else if(palabra2=="lista"|| palabra2 == "listas" || palabra2=="grupo" || palabra2=="grupos")
-                        {
-                            reply.Attachments = Cards.GetEnviarMensajeGrupoContactos();
+                            reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
                             await context.PostAsync(reply);
                             //context.Wait(MessageReceived);
                             return;
@@ -58,41 +51,35 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    reply.Attachments = Cards.GetCrearEnviarCorreoElectronico();
+                    await context.PostAsync($"Quizás desea saber como asignar categorías de color, tengo esto: ");
+                    reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
                     await context.PostAsync(reply);
-                    //context.Wait(MessageReceived);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
-                }
-                else if (palabra1 == "respuestasautomaticas" || palabra1 == "respuestaautomatica" || palabra1== "respuestasautomáticas" || palabra1 == "respuestaautomática" || palabra1 == "respuestasfuera" || palabra1 == "respuestafuera")
-                {
-                    reply.Attachments = Cards.GetEnviarRespuestasAutomaticasFueraOficinaOutlook();
-                    await context.PostAsync(reply);
-                    //context.Wait(MessageReceived);
-                    return;
-                }
-                else if (palabra1 == "reenviar" || palabra1 == "reenvío" || palabra1 == "reenvio")
+
+                }else if (palabra1 == "diseñosdefondo" || palabra1 == "diseñosdefondos" || palabra1 == "fondos" || palabra1 == "fondo" || palabra1 == "mensajes" || palabra1 == "mensaje")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "reunión" || palabra2 == "reunion" || palabra2=="reuniones")
+                        if (palabra2 == "mensajes" || palabra2=="mensaje")
                         {
-                            reply.Attachments = Cards.GetReenviarReuniónOutlook();
+                            reply.Attachments = Cards.GetAplicarFondosTemasMensajes();
                             await context.PostAsync(reply);
                             //context.Wait(MessageReceived);
                             return;
                         }
-                        else if (palabra2 == "correoelectrónico" || palabra2 == "correoelectronico" || palabra2 == "correoselectrónicos" || palabra2 == "correoselectronicos" || palabra2 == "correos" || palabra2 == "correo" || palabra2 == "mensajes" || palabra2 == "mensaje")
+                        else
                         {
-                            reply.Attachments = Cards.GetReenviarMensajeOutlook();
-                            await context.PostAsync(reply);
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
                             //context.Wait(MessageReceived);
                             return;
                         }
                     }
-                    // Si el usuario no ingreso la segunda parte de la pregunta
-                    await context.PostAsync($"Por favor especifique que desea reenviar y vuelva a hacer la pregunta, ej. : '¿Cómo reenviar una reunión? o ¿Cómo reenviar un mensaje de correo?'");
-                    await context.PostAsync("Si no es el caso, la pregunta no se encuentra registrada");
+                    await context.PostAsync($"Quizás desea saber como aplicar un tema a mensajes de correo, tengo esto: ");
+                    reply.Attachments = Cards.GetAplicarFondosTemasMensajes();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
                 }
                 else
@@ -103,11 +90,11 @@ namespace Office365Prueba1.Dialogs
 
                 }
             }
+
             // Si el usuario no ingreso la segunda parte de la pregunta
             await context.PostAsync($"Lo siento, su pregunta no esta registrada");
             await context.PostAsync($"O tal vez no escribió la pregunta correctamente");
             return;
         }
-
     }
 }

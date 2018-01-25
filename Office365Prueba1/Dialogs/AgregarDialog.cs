@@ -84,6 +84,7 @@ namespace Office365Prueba1.Dialogs
 
                     }
 
+
                     reply.Attachments = Cards.GetAgregarContacto();
                     await context.PostAsync(reply);
                     //context.Wait(MessageReceived);
@@ -108,8 +109,14 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
-
                     }
+
+                    await context.PostAsync($"Quizás desees saber como agregar gráficos a tus mensajes de Outlook, mira, tengo esto: ");
+                    reply.Attachments = Cards.GetAgregarGraficosMensajesOutlook();
+                    await context.PostAsync(reply);
+                    await context.PostAsync("Si no es el caso, la pregunta no se encuentra registrada");
+                    return;
+
 
                 }
                 else if (palabra1 == "tabla" || palabra1 == "tablas")
@@ -130,8 +137,12 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
-
                     }
+                    await context.PostAsync($"Quizás desees saber como agregar tablas a tus mensajes de Outlook, mira, tengo esto: ");
+                    reply.Attachments = Cards.GetAgregarTablasMensajeOutlook();
+                    await context.PostAsync(reply);
+                    await context.PostAsync("Si no es el caso, la pregunta no se encuentra registrada");
+                    return;
 
                 }
                 else if (palabra1== "confirmaciones" || palabra1 == "conformación" || palabra1 =="confirmacion")
@@ -158,8 +169,10 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
-
                     }
+                    await context.PostAsync($"Por favor especifique que tipo de confirmación desea agregar, si es de lectura o entrega, ej. : '¿Cómo agregar una confirmación de lectura? o ¿Cómo agregar una confirmación de entrega?'");
+                    await context.PostAsync("Si no es el caso, la pregunta no se encuentra registrada");
+                    return;
                 }
                 else if(palabra1 =="notificaciones" || palabra1=="notificación" || palabra1 == "notificacion")
                 {
@@ -179,8 +192,11 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
-
                     }
+                    await context.PostAsync($"Quizás desees saber como agregar una notificación de entrega, mira, tengo esto: ");
+                    reply.Attachments = Cards.GetAgregarConfirmacionLecturaNotificacionEntrega();
+                    await context.PostAsync(reply);
+                    await context.PostAsync("Si no es el caso, la pregunta no se encuentra registrada");
                 }
                 else if (palabra1 == "seguimiento" || palabra1 == "seguimientos")
                 {
@@ -200,8 +216,11 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
-
                     }
+                    await context.PostAsync($"Quizás desees saber como añadir un seguimiento a tus mensajes, mira, tengo esto: ");
+                    reply.Attachments = Cards.GetAgregarSeguimientoMensajesOutlook();
+                    await context.PostAsync(reply);
+                    await context.PostAsync("Si no es el caso, la pregunta no se encuentra registrada");
                 }
                 else if (palabra1 == "díasnolaborables" || palabra1 == "diasnolaborables" || palabra1=="feriados" || palabra1=="feriado")
                 {
@@ -221,8 +240,11 @@ namespace Office365Prueba1.Dialogs
                             //context.Wait(MessageReceived);
                             return;
                         }
-
                     }
+                    await context.PostAsync($"Quizás desees saber como agregar feriados a tu calendario, mira, tengo esto: ");
+                    reply.Attachments = Cards.GetAgregarFeriadosCalendarioOutlook();
+                    await context.PostAsync(reply);
+                    await context.PostAsync("Si no es el caso, la pregunta no se encuentra registrada");
                 }
                 else if (palabra1 == "archivos" || palabra1 == "archivo")
                 {
@@ -318,21 +340,94 @@ namespace Office365Prueba1.Dialogs
                     return;
 
                 }
+                else if (palabra1 == "firmas" || palabra1=="firma")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "mensajes" || palabra2 == "mensaje")
+                        {
+                            reply.Attachments = Cards.GetCrearFirmaMensaje();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+                    await context.PostAsync($"Quizás desea saber como agregar una firma en mensajes de correo, acá tengo esto:");
+                    reply.Attachments = Cards.GetCrearFirmaMensaje();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
+                }
+                else if (palabra1 == "tarjetas" || palabra1 == "tarjeta")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "firma" || palabra2 == "firmas")
+                        {
+                            reply.Attachments = Cards.GetIncluirTarjetaPresentacionFirmaCorreo();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+                    await context.PostAsync($"Quizás desea saber como añadir una tarjeta de presentación electrónica en una firma de correo, acá tengo esto:");
+                    reply.Attachments = Cards.GetIncluirTarjetaPresentacionFirmaCorreo();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
+                }
+                else if (palabra1 == "hipervínculo" || palabra1 == "hipervinculo" || palabra1 == "hipervínculos" || palabra1 == "hipervinculos")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "firma" || palabra2 == "firmas")
+                        {
+                            reply.Attachments = Cards.GetInsertarHipervinculosFirmaCorreo();
+                            await context.PostAsync(reply);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+
+                    }
+                    await context.PostAsync($"Quizás desea saber como incluir un hipervínculo de una red social a tu firma de correo electrónico, tengo esto: ");
+                    reply.Attachments = Cards.GetInsertarHipervinculosFirmaCorreo();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");                    
+                    return;
+                }
                 else
                 {
                     await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
                     //context.Wait(MessageReceived);
                     return;
                 }
-
                 await context.PostAsync("Lo siento, su pregunta no esta registrada");
-                reply.Attachments = Cards.GetConsultaV2();
-                await context.PostAsync(reply);
                 await context.PostAsync("O tal vez no escribió la pregunta correctamente, seleccione un servicio y vuelva a hacer la pregunta");
                 return;
             }
-
         }
     }
-
-        }
+}

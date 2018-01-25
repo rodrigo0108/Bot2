@@ -181,7 +181,7 @@ namespace Office365Prueba1.Models
             };
         }
 
-        //----------AGREGAR-OUTLOOK---------------------
+        //----------AGREGAR-OUTLOOK-------------------
         //--------------------------------------------
         // Agregar algun contacto en outlook
         public static IList<Attachment> GetAgregarContacto()
@@ -259,7 +259,7 @@ namespace Office365Prueba1.Models
             return new List<Attachment>()
             {
                 GetHeroCardV2(
-                    "Como agregar una confirmacion de lectura o una notificación de entreega",
+                    "Como agregar una confirmación de lectura o una notificación de entrega",
                     "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
                     "Una confirmación de entrega confirma la entrega del mensaje de correo electrónico al buzón del destinatario, pero no si el destinatario lo ha visto o leído.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
@@ -331,6 +331,36 @@ namespace Office365Prueba1.Models
                     +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
+
+            };
+        }
+        //incluir una tarjeta de presentación electrónica en una firma de correo electrónico
+        public static IList<Attachment> GetIncluirTarjetaPresentacionFirmaCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Incluir una tarjeta de presentación electrónica en una firma de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Agregando su Tarjeta de presentación electrónica a su firma de correo electrónico,"
+                    +" puede incluir la información de contacto en cada mensaje que envíe.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Incluir-una-tarjeta-de-presentaci%C3%B3n-electr%C3%B3nica-en-una-firma-de-correo-electr%C3%B3nico-fe50a63b-34e5-44c5-b68f-849afdc28ab0?ui=es-ES&rs=es-HN&ad=PE")),
+
+            };
+        }
+        //insertar hipervínculos de Facebook o Twitter en la firma de correo electrónico
+        public static IList<Attachment> GetInsertarHipervinculosFirmaCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar hipervínculos de Facebook o Twitter en la firma de correo electrónico",
+                    "SSe aplica a: Outlook 2016 Outlook 2013",
+                    "Puede modificar su firma de correo electrónico o cree uno nuevo para incluir "
+                    +"vínculos a perfiles de Facebook o Twitter. Para empezar, asegúrese de que guarde copias de los iconos de Facebook y Twitter en su equipo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Insertar-hiperv%C3%ADnculos-a-Facebook-y-Twitter-en-la-firma-de-correo-electr%C3%B3nico-40833df1-9459-48f0-b90f-0f6e66536206")),
 
             };
         }
@@ -756,20 +786,6 @@ namespace Office365Prueba1.Models
 
             };
         }
-        // Enviar respuestas automáticas "Fuera de la oficina" de Outlook
-        public static IList<Attachment> GetEnviarRespuestasAutomaticas()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Enviar respuestas automáticas 'Fuera de la oficina' de Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Solo puede enviar respuestas automáticas de fuera de la oficina siguiendo estos pasos si tiene cuenta de Office 365, " +
-                    "Outlook.com o Exchange. Para el resto de cuentas de correo electrónico, vea Enviar y redirigir correo electrónico automáticamente.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Enviar-respuestas-autom%C3%A1ticas-Fuera-de-la-oficina-de-Outlook-9742f476-5348-4f9f-997f-5e208513bd67?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
         // Reenviar una reunión
         public static IList<Attachment> GetReenviarReuniónOutlook()
         {
@@ -807,6 +823,76 @@ namespace Office365Prueba1.Models
                     "Cuando recibe un mensaje, puede enviar una respuesta solo al remitente o si hay varios destinatarios puede incluirlos también. Además, tiene la opción de reenviar el mensaje a otras personas.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Responder-o-reenviar-un-mensaje-de-correo-electr%C3%B3nico-a843f8d3-01b0-48da-96f5-a71f70d0d7c8?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        //----------ELIMINAR-OUTLOOK-------------------
+        //--------------------------------------------
+        //Enviar un mensaje de correo electrónico a un grupo de contactos
+        public static IList<Attachment> GetEliminarCategoriaColor()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar una categoría de color",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Puede eliminar una categoría de color de la lista de categorías si"+
+                    " ya no la desea o puede quitar una categoría de color de los elementos que categorizó previamente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Eliminar-una-categor%C3%ADa-de-color-417b871e-67f0-41b7-b3db-c4ffed19810e")),
+
+            };
+        }
+
+        //----------APLICAR-OUTLOOK-------------------
+        //--------------------------------------------
+        //Enviar un mensaje de correo electrónico a un grupo de contactos
+        public static IList<Attachment> GetAplicarFondosTemasMensajes()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Aplicar diseños de fondo, fondos o temas a mensajes de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Diseño de fondo en Microsoft Outlook incluye fondos y las tramas y ofrece "+
+                    "un conjunto de elementos de diseño unificado como fuentes, viñetas, colores y efectos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Aplicar-dise%C3%B1os-de-fondo-fondos-o-temas-a-mensajes-de-correo-electr%C3%B3nico-e24fc237-62e1-4361-82a3-d8a7467d2b7e?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
+
+        //----------ORGANIZAR-OUTLOOK-------------------
+        //--------------------------------------------
+        //Organizar el calendario con categorías de colores
+        public static IList<Attachment> GetOrganizarCalendariosCategorias()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Organizar el calendario con categorías de colores",
+                    "Se aplica a: Outlook 2013",
+                    "Si tiene muchas citas y reuniones en el calendario de Outlook, agregue categorías de colores para poder examinar y asociar visualmente elementos parecidos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Organizar-el-calendario-con-categor%C3%ADas-de-colores-74688307-88d1-40cb-98c2-92c5d7aa2e97?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
+
+        //----------ESTABLECER-OUTLOOK----------------
+        //--------------------------------------------
+        //Establecer o quitar avisos
+        public static IList<Attachment> GetEstablecerAvisoOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Establecer o quitar avisos",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Deje que Outlook sea su reloj de alarma personal. Establezca avisos que le informen de cuándo se aproxima una reunión o una cita.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Establecer-o-quitar-avisos-7a992377-ca93-4ddd-a711-851ef3597925")),
+
             };
         }
 
