@@ -26,6 +26,9 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -42,6 +45,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetOrganizarCalendariosCategorias();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -67,6 +71,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
