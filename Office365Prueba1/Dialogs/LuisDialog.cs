@@ -149,5 +149,29 @@ namespace Office365Prueba1.Dialogs
         {
             await new OrganizarDialog(context, result).StartAsync();
         }
+
+        [LuisIntent("Consulta.Guardar")]
+        public async Task ConsultaGuardar(IDialogContext context, LuisResult result)
+        {
+            await new GuardarDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Obtener")]
+        public async Task ConsultaObtener(IDialogContext context, LuisResult result)
+        {
+            await new ObtenerDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Abrir")]
+        public async Task ConsultaAbrir(IDialogContext context, LuisResult result)
+        {
+            await new AbrirDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Imprimir")]
+        public async Task ConsultaImprimir(IDialogContext context, LuisResult result)
+        {
+            await new ImprimirDialog(context, result).StartAsync();
+        }
     }
 }

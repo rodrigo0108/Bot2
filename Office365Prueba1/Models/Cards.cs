@@ -180,6 +180,27 @@ namespace Office365Prueba1.Models
                     value: "https://support.office.com/es-es/article/Crear-un-mensaje-de-correo-electr%C3%B3nico-147208af-ca8e-4cdf-b71f-77ba81a54069?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Crear una tarea a partir de un mensaje && Crear tareas y elementos de tarea
+        public static IList<Attachment> GetCrearTareaYAPartirDeMensaje()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear tareas y elementos de tarea",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Muchas personas llevan una lista de tareas pendientes, en papel, en una hoja de cálculo, o mediante una combinación " +
+                    "de papel y medios electrónicos. En Outlook, puede combinar sus diversas listas en una, mejorada con avisos y seguimientos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-tareas-y-elementos-de-tarea-45a94e7b-a4ee-46ea-9823-c3423c0eab8e?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Crear una tarea a partir de un mensaje",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Si desea crear una tarea basada en el contenido de un mensaje de correo electrónico, no tiene que volver a especificar " +
+                    "toda la información. En su lugar, haga clic en el mensaje y arrástrelo a tareas en el barra de navegación.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-una-tarea-a-partir-de-un-mensaje-40deff88-941a-4fc0-aba1-7d929d947795")),
+            };
+        }
 
         //----------AGREGAR-OUTLOOK-------------------
         //--------------------------------------------
@@ -362,6 +383,43 @@ namespace Office365Prueba1.Models
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Insertar-hiperv%C3%ADnculos-a-Facebook-y-Twitter-en-la-firma-de-correo-electr%C3%B3nico-40833df1-9459-48f0-b90f-0f6e66536206")),
 
+            };
+        }
+        // Crear un grupo de contactos desde una lista de contactos en Exce
+        public static IList<Attachment> GetAgregarColor()
+        {
+            return new List<Attachment>()
+            {
+                 GetHeroCardV2(
+                    "Como cambiar el color del texto a medida que se redacta un mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Cuando escribe un mensaje de correo electrónico, puede cambiar el color del texto de un carácter, una palabra o cualquier texto seleccionado.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-del-texto-a-medida-que-se-redacta-un-mensaje-de-correo-electr%C3%B3nico-8be7e0d8-61cd-40eb-8db1-5cf94434bd66")),
+                 GetHeroCardV2(
+                    "Como cambiar el color del texto o la fuente predeterminada de los mensajes de correo",
+                    "Outlook",
+                    "En Outlook, la fuente se establece automáticamente para que crear, responder o reenviar un mensaje de correo electrónico es Calibri de 11 puntos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-del-texto-o-la-fuente-predeterminada-de-los-mensajes-de-correo-59b9860e-6dc0-48a1-9b07-6d8ea13ac5ca?ui=es-ES&rs=es-ES&ad=ES")),
+                 GetHeroCardV2(
+                    "Como cambiar el color de fondo del calendario",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "El cambio del color de fondo es una forma rápida de hacer que su calendario sea diferente. Esto resulta especialmente útil si trabaja con múltiples calendarios.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-del-calendario-3c544857-8446-46a5-ab9c-07b6af6e5091")),
+                 GetHeroCardV2(
+                    "Como cambiar automáticamente las fuentes y los colores de los mensajes entrantes según el remitente, el asunto o los destinatarios",
+                    "Outlook",
+                    "Formato condicional es una forma de hacer que los mensajes entrantes que cumplen las condiciones definidas destaquen en la lista de mensajes mediante el uso de colores, fuentes y estilos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-autom%C3%A1ticamente-las-fuentes-y-los-colores-de-los-mensajes-entrantes-seg%C3%BAn-el-remitente-el-asunto-o-los-destinatarios-ee281b41-5be4-47e4-81fb-1d8a202870df")),
+                 GetHeroCardV2(
+                    "Como cambiar el nombre de una categoría de color",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Las categorías de color son una excelente forma de agrupar visualmente mensajes, tareas, contactos o eventos de calendario que se parecen.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-nombre-de-una-categor%C3%ADa-de-color-692ab131-525a-467b-8cbd-4b08346d5346")),
             };
         }
 
@@ -617,6 +675,20 @@ namespace Office365Prueba1.Models
                     "En Outlook 2016 para Windows, 'Otros correos'puede ayudarle a filtrar correo electrónico de baja prioridad para que pueda dedicarle más tiempo a los mensajes más importantes.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Usar-Otros-correos-para-organizar-mensajes-de-baja-prioridad-en-Outlook-7b50c5db-7704-4e55-8a1b-dfc7bf1eafa0")),
+            };
+        }
+        // Usar o crear carpetas de búsqueda para buscar mensajes u otros elementos de Outlook
+        public static IList<Attachment> GetUsarCrearCarpetasBusqueda()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar carpetas de búsqueda para buscar mensajes u otros elementos de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Una carpeta de búsqueda es una carpeta virtual que proporciona una vista de todos los elementos de correo electrónico " +
+                    "que coinciden con criterios de búsqueda específicos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-carpetas-de-b%C3%BAsqueda-para-buscar-mensajes-u-otros-elementos-de-Outlook-c1807038-01e4-475e-8869-0ccab0a56dc5?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
 
@@ -958,6 +1030,40 @@ namespace Office365Prueba1.Models
                     "Outlook ofrece varias opciones para guardar un mensaje de correo electrónico. Un mensaje que recibe, por ejemplo, se puede guardar como un archivo en el equipo.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Guardar-un-mensaje-4821bcd4-7687-4d6d-a486-b89a291a56e2")),
+
+            };
+        }
+
+        //----------ABRIR-OUTLOOK----------------
+        //---------------------------------------
+        //Abrir y cerrar archivos de datos de Outlook (.pst)
+        public static IList<Attachment> GetAbrirArchivosDatosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Abrir y cerrar archivos de datos de Outlook (.pst)",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Outlook es parte de su rutina diaria. Se usa para enviar mensajes de correo electrónico, configurar eventos del calendario y crear tareas y otros elementos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Abrir-y-cerrar-Archivos-de-datos-de-Outlook-pst-381b776d-7511-45a0-953a-0935c79d24f2")),
+
+            };
+        }
+
+        //----------IMPRIMIR-OUTLOOK-------------
+        //---------------------------------------
+        //Imprimir contactos, mensajes u otros elementos de Outlook
+        public static IList<Attachment> GetImprimirContactosMensajesOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Imprimir contactos, mensajes u otros elementos de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010 Outlook 2007",
+                    "Puede imprimir mensajes, contactos, calendarios, reuniones y tareas en Outlook. Cada tipo de elemento de Outlook tiene varias opciones de impresión.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Imprimir-contactos-mensajes-u-otros-elementos-de-Outlook-d2c0b12b-e308-41ce-9016-a3089ebdbe38?ui=es-ES&rs=es-HN&ad=PE")),
 
             };
         }
