@@ -25,9 +25,7 @@ namespace Office365Prueba1.Dialogs
         }
         public async Task StartAsync()
         {
-
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
-
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 

@@ -52,9 +52,9 @@ namespace Office365Prueba1.Dialogs
             Random rnd = new Random();
            
             string[] despedidas = {
-                        "Fue un gusto poder haberte ayudado, cuenta conmigo la próxima vez, nos vemos! \U0001F603",
+                        "Fue un gusto poder haberte ayudado, cuenta conmigo la próxima vez, nos vemos! \U0001F917",
                         "¡Hasta Pronto! \U0001F603",
-                        "¡Nos vemos pronto! \U0001F603",
+                        "¡Nos vemos pronto! \U0001F917",
                         "¡Que tengas un buen día, gracias por contar conmigo! \U0001F603"
                     };
 

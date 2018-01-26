@@ -24,6 +24,7 @@ namespace Office365Prueba1.Dialogs
         }
         public async Task StartAsync()
         {
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -35,6 +36,7 @@ namespace Office365Prueba1.Dialogs
                 {
                     reply.Attachments = Cards.GetBuscarPersonasOutlook();
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
                     return;
                 }
@@ -47,6 +49,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetBuscarMensajeBusquedaInstantanea();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -60,6 +63,7 @@ namespace Office365Prueba1.Dialogs
 
                     reply.Attachments = Cards.GetBuscarMensajesOutlook();
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
                     return;
 
@@ -73,6 +77,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetBuscarElementosArchivosDatos();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -83,20 +88,23 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                    await context.PostAsync($"Quizás desea saber como abrir y buscar elementos en un archivo de datos de Outlook (.pst), tengo esto: ");
+                    reply.Attachments = Cards.GetBuscarElementosArchivosDatos();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
                 }
                 else
                 {
                     await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
                     //context.Wait(MessageReceived);
                     return;
-                }
-                await context.PostAsync("Pregunta no registrada, por favor haga click en 'Consulta' para ver nuestros servicios");
-
-                reply.Attachments = Cards.GetConsulta();
-                await context.PostAsync(reply);
-                //context.Wait(MessageReceived);
-                return;
+                }                
             }
+            // Si el usuario no ingreso la segunda parte de la pregunta
+            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
+            await context.PostAsync($"O tal vez no escribió la pregunta correctamente");
+            return;
         }
 
     }
