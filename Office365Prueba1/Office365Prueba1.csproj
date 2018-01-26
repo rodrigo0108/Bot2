@@ -122,7 +122,9 @@
     <Compile Include="Dialogs\EliminarDialog.cs" />
     <Compile Include="Dialogs\EnviarDialog.cs" />
     <Compile Include="Dialogs\EstablecerDialog.cs" />
+    <Compile Include="Dialogs\GuardarDialog.cs" />
     <Compile Include="Dialogs\LuisDialog.cs" />
+    <Compile Include="Dialogs\ObtenerDialog.cs" />
     <Compile Include="Dialogs\OrganizarDialog.cs" />
     <Compile Include="Dialogs\RecuperarDialog.cs" />
     <Compile Include="Dialogs\SaludoDialog.cs" />

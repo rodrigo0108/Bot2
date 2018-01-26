@@ -753,6 +753,22 @@ namespace Office365Prueba1.Models
 
             };
         }
+        //Buscar y transferir archivos de datos de Outlook de un equipo a otro
+        public static IList<Attachment> GetBuscarArchivosDatosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Buscar y transferir archivos de datos de Outlook de un equipo a otro",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Outlook guarda información de copia de seguridad en varias ubicaciones diferentes. Dependiendo "+
+                    "del tipo de cuenta que tenga, puede hacer una copia de los correos electrónicos, la libreta "+
+                    "personal de direcciones, la configuración del panel de navegación, las firmas, las plantillas y más.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Buscar-y-transferir-archivos-de-datos-de-Outlook-de-un-equipo-a-otro-0996ece3-57c6-49bc-977b-0d1892e2aacc?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
 
         //ENVIAR-OUTLOOK
         //------------------
@@ -895,6 +911,57 @@ namespace Office365Prueba1.Models
 
             };
         }
+
+        //----------OBTENER-OUTLOOK----------------
+        //-----------------------------------------
+        //Obtener un id digital
+        public static IList<Attachment> GetObtenerIdDigitalOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                     "Obtener un id. digital",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Un identificador digital le permite enviar mensajes firmados digitalmente con Microsoft Outlook. Un identificador digital, también "+
+                    "denominado certificado digital, le ayuda a demostrar su identidad y a evitar la manipulación de mensajes para proteger la autenticidad "+
+                    "de un mensaje de correo electrónico.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Obtener-un-Id-digital-0eaa0ab9-b8a2-4a7e-828b-9bded6370b7b")),
+
+            };
+        }
+        //Obtener información sobre cómo navegar en Outlook con características de accesibilidad
+        public static IList<Attachment> GetObtenerInformacionNavegarOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Obtener información sobre cómo navegar en Outlook con características de accesibilidad",
+                    "Se aplica a: Outlook 2016 Outlook 2016 para Mac Outlook en la web para Office 365 Empresa Outlook.com Calendario de Outlook para Windows 10 Outlook para iOS y Android Outlook para Windows Phone 10 ...",
+                    "Este artículo va dirigido a los usuarios que usan un programa de lector de pantalla con los productos de Office y forma parte del conjunto de contenido de accesibilidad de Office.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Obtener-informaci%C3%B3n-sobre-c%C3%B3mo-navegar-en-Outlook-con-caracter%C3%ADsticas-de-accesibilidad-3dfe1380-ee04-4399-a3ff-800d3d4362a1?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
+
+        //----------GUARDAR-OUTLOOK----------------
+        //-----------------------------------------
+        //Guardar mensaje en outlook
+        public static IList<Attachment> GetGuardarMensajeOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Guardar un mensaje",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Outlook ofrece varias opciones para guardar un mensaje de correo electrónico. Un mensaje que recibe, por ejemplo, se puede guardar como un archivo en el equipo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Guardar-un-mensaje-4821bcd4-7687-4d6d-a486-b89a291a56e2")),
+
+            };
+        }
+
 
         // PREGUNTAS NO IMPLEMENTADAS
         // -------------------------------------------------------------
