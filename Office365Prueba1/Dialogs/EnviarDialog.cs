@@ -26,6 +26,8 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -42,12 +44,14 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetEnviarMensajeBasadoPlantilla();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }else if(palabra2=="lista"|| palabra2 == "listas" || palabra2=="grupo" || palabra2=="grupos")
                         {
                             reply.Attachments = Cards.GetEnviarMensajeGrupoContactos();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -60,6 +64,7 @@ namespace Office365Prueba1.Dialogs
                     }
                     reply.Attachments = Cards.GetCrearEnviarCorreoElectronico();
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
                     return;
                 }
@@ -67,6 +72,7 @@ namespace Office365Prueba1.Dialogs
                 {
                     reply.Attachments = Cards.GetEnviarRespuestasAutomaticasFueraOficinaOutlook();
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
                     return;
                 }
@@ -79,6 +85,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetReenviarReuniónOutlook();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -86,6 +93,13 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetReenviarMensajeOutlook();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
                             //context.Wait(MessageReceived);
                             return;
                         }

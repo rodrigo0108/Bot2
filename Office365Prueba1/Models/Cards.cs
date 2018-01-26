@@ -588,7 +588,7 @@ namespace Office365Prueba1.Models
             return new List<Attachment>()
             {
                 GetHeroCardV2(
-                    "Usar los filtros de correo electrónico no deseado para controlar los mensajes que se pueden ver",
+                    "Usar los filtros de correo electrónico no deseado para controlar los mensajes que se pueden ver.",
                     "Se aplica a: Outlook 2016 Outlook 2013",
                     "El Filtro de correo electrónico no deseado de Outlook comprueba el remitente de todos los mensajes entrantes con las listas de direcciones de correo electrónico y los dominios de Internet: la parte de la dirección de correo electrónico después del símbolo @: designado como seguro o bloqueado.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",

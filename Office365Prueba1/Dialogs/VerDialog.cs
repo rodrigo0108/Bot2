@@ -27,6 +27,8 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
@@ -47,6 +49,7 @@ namespace Office365Prueba1.Dialogs
                                 {
                                     reply.Attachments = Cards.GetVerMensajesCorreoElectronicoConversacion();
                                     await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
                                     //context.Wait(MessageReceived);
                                     return;
                                 }
@@ -57,6 +60,11 @@ namespace Office365Prueba1.Dialogs
                                     return;
                                 }
                             }
+                            await context.PostAsync($"Quizás desea saber como ver mensajes de correo electrónico por conversación, tengo esto: ");
+                            reply.Attachments = Cards.GetVerMensajesCorreoElectronicoConversacion();
+                            await context.PostAsync(reply);
+                            await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                            return;
                         }
                         else
                         {
@@ -65,6 +73,11 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                    await context.PostAsync($"Quizás desea saber como ver mensajes de correo electrónico por conversación, tengo esto: ");
+                    reply.Attachments = Cards.GetVerMensajesCorreoElectronicoConversacion();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
                 }
                 else if (palabra1 == "mensajes" || palabra1 == "mensaje")
                 {
@@ -75,6 +88,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetVerMensajesCorreoElectronicoConversacion();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -82,6 +96,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetVerSoloMensajesNoLeidos();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -89,6 +104,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetVerMensajesSimultaneamente();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -100,11 +116,15 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                    await context.PostAsync($"Por favor especifique que tipo de mensaje desea ver, ej. :'¿Cómo ver mensajes de forma simultánea?' o '¿Cómo ver mensajes desconocidos?' o '¿Cómo ver mensajes por conversación?'.");
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
                 }
                 else if (palabra1 == "cuadrocco" || palabra1 == "copiacarbónoculta" || palabra1 == "copiacarbonoculta" || palabra1 == "cco" || palabra1 == "copiacarbón" || palabra1 == "copiacarbon")
                 {
                     reply.Attachments = Cards.GetMostrarOcultarVerCampoCopiaCarbonOculta();
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
                     return;
                 }
@@ -117,6 +137,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = Cards.GetVerEncabezadosMensajesCorreoElectronico();
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }
@@ -127,11 +148,17 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                    await context.PostAsync($"Quizás desea saber como ver encabezados de mensajes de correo electrónico, tengo esto: ");
+                    reply.Attachments = Cards.GetVerEncabezadosMensajesCorreoElectronico();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
                 }
                 else if(palabra1 == "tareas" || palabra1 == "tarea")
                 {
                     reply.Attachments = Cards.GetVerTareasOutlook();
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
                     return;
                 }
@@ -143,6 +170,9 @@ namespace Office365Prueba1.Dialogs
                     return;
                 }
             }
+            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
+            await context.PostAsync($"O tal vez no escribió la pregunta correctamente");
+            return;
 
         }
     }

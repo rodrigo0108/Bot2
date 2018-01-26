@@ -46,6 +46,24 @@ namespace Office365Prueba1.Dialogs
             context.Wait(MessageReceived);
         }
 
+        [LuisIntent("Despedida")]
+        public async Task Despedida(IDialogContext context, LuisResult result)
+        {
+            Random rnd = new Random();
+           
+            string[] despedidas = {
+                        "Fue un gusto poder haberte ayudado, cuenta conmigo la próxima vez, nos vemos! \U0001F603",
+                        "¡Hasta Pronto! \U0001F603",
+                        "¡Nos vemos pronto! \U0001F603",
+                        "¡Que tengas un buen día, gracias por contar conmigo! \U0001F603"
+                    };
+
+    
+            int mIndex = rnd.Next(0, despedidas.Length);
+            await context.PostAsync(despedidas[mIndex]);
+
+        }
+
         [LuisIntent("Consulta.ServicioGeneral")]
         public async Task ConsultaServicio(IDialogContext context, LuisResult result)
         {
