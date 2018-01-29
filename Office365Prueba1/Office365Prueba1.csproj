@@ -118,12 +118,16 @@
     <Compile Include="Dialogs\AplicarDialog.cs" />
     <Compile Include="Dialogs\BuscarDialog.cs" />
     <Compile Include="Dialogs\CambiarDialog.cs" />
+    <Compile Include="Dialogs\CompartirDialog.cs" />
     <Compile Include="Dialogs\ConceptoDialog.cs" />
     <Compile Include="Dialogs\CrearDialog.cs" />
+    <Compile Include="Dialogs\EditarDialog.cs" />
     <Compile Include="Dialogs\EliminarDialog.cs" />
     <Compile Include="Dialogs\EnviarDialog.cs" />
     <Compile Include="Dialogs\EstablecerDialog.cs" />
+    <Compile Include="Dialogs\ExportarDialog.cs" />
     <Compile Include="Dialogs\GuardarDialog.cs" />
+    <Compile Include="Dialogs\ImportarDialog.cs" />
     <Compile Include="Dialogs\ImprimirDialog.cs" />
     <Compile Include="Dialogs\LuisDialog.cs" />
     <Compile Include="Dialogs\ObtenerDialog.cs" />

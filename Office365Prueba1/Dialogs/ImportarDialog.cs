@@ -7,16 +7,17 @@ using Microsoft.Bot.Builder.Dialogs;
 
 namespace Office365Prueba1.Dialogs
 {
-    public class AplicarDialog
+    public class ImportarDialog
     {
         private IDialogContext context;
         private LuisResult result;
 
-        public AplicarDialog(IDialogContext context, LuisResult result)
+        public ImportarDialog(IDialogContext context, LuisResult result)
         {
             this.context = context;
             this.result = result;
         }
+
         public async Task StartAsync()
         {
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
@@ -27,14 +28,14 @@ namespace Office365Prueba1.Dialogs
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
-                if (palabra1 == "categoría" || palabra1 == "categorías" || palabra1 == "categoria" || palabra1 == "categorias")
+                if (palabra1 == "correodegmail" || palabra1 == "gmail" || palabra1 == "correogmail")
                 {
-                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "color")
+                        if (palabra2 == "outlook")
                         {
-                            reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
+                            reply.Attachments = Cards.GetImportarGmailOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -47,20 +48,21 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como asignar categorías de color, tengo esto: ");
-                    reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
+                    await context.PostAsync($"Quizás desea saber como importar un correo gmail a outlook, tengo esto: ");
+                    reply.Attachments = Cards.GetImportarGmailOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
 
-                }else if (palabra1 == "diseñosdefondo" || palabra1 == "diseñosdefondos" || palabra1 == "fondos" || palabra1 == "fondo" || palabra1 == "mensajes" || palabra1 == "mensaje")
+                }
+                else if(palabra1 == "contactos" || palabra1 == "contacto")
                 {
-                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "mensajes" || palabra2=="mensaje")
+                        if (palabra2 == "outlook")
                         {
-                            reply.Attachments = Cards.GetAplicarFondosTemasMensajes();
+                            reply.Attachments = Cards.GetImportarContactosOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -73,7 +75,8 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como aplicar un tema a mensajes de correo, tengo esto: ");
+
+                    await context.PostAsync($"Quizás desea saber como importar contactos en Outlook, tengo esto: ");
                     reply.Attachments = Cards.GetAplicarFondosTemasMensajes();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
@@ -84,10 +87,8 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync($"Lo siento, su pregunta no esta registrada");
                     await context.PostAsync($"O tal vez no la escribió correctamente, ¿{palabra1}?");
                     return;
-
                 }
             }
-
             // Si el usuario no ingreso la segunda parte de la pregunta
             await context.PostAsync($"Lo siento, su pregunta no esta registrada");
             await context.PostAsync($"O tal vez no escribió la pregunta correctamente");

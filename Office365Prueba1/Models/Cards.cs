@@ -1068,6 +1068,106 @@ namespace Office365Prueba1.Models
             };
         }
 
+        //----------IMPORTAR-OUTLOOK-------------
+        //---------------------------------------
+        //Importar Gmail a Outlook
+        public static IList<Attachment> GetImportarGmailOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Importar Gmail a Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Administración de Office 365, ...",
+                    "Cuando cambia al correo electrónico de Office 365 desde otro servicio como Gmail (o Yahoo! o AOL) tiene dos opciones: Importar una copia de todos los mensajes antiguos a la cuenta de Office 365 y conectar una cuenta de correo antigua a Outlook",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Imprimir-contactos-mensajes-u-otros-elementos-de-Outlook-d2c0b12b-e308-41ce-9016-a3089ebdbe38?ui=es-ES&rs=es-HN&ad=PE")),
+                GetVideoCard(
+                    "Office 365 - Outlook",
+                    "Importar Gmail a Outlook",
+                    "https://videocontent.osi.office.net/50d42c82-ee90-4ef8-995a-a36eb8a04a8a/1ca01592-9571-4fd4-bb2b-dab502ad3bf0__H264_3400kbps_AAC_und_ch2_96kbps.mp4",
+                    "https://support.office.com/es-es/article/Imprimir-contactos-mensajes-u-otros-elementos-de-Outlook-d2c0b12b-e308-41ce-9016-a3089ebdbe38?ui=es-ES&rs=es-HN&ad=PE"),
+
+            };
+        }
+        //Importar contactos a Outlook
+        public static IList<Attachment> GetImportarContactosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Importar contactos a Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Administración de Office 365, ...",
+                    "Outlook dispone de un asistente para importar y exportar que facilita la importación de contactos desde un archivo CSV.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/importar-contactos-a-outlook-bb796340-b58a-46c1-90c7-b549b8f3c5f8")),
+               
+            };
+        }
+
+        //----------EXPORTAR-OUTLOOK-------------
+        //---------------------------------------
+        //Exportar un calendario de Outlook a Google Calendar
+        public static IList<Attachment> GetExportarCalendarioGoogleCalendar()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Exportar un calendario de Outlook a Google Calendar",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Cuando exporta su calendario de Outlook a Google Calendar, está exportando una instantánea del calendario. Cualquier cambio que realice en su calendario de Outlook no se reflejará automáticamente en Google Calendar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Exportar-un-Calendario-de-Outlook-a-Google-Calendar-662fa3bb-0794-4b18-add8-9968b665f4e6")),
+      
+            };
+        }
+        //Exportar o hacer una copia de seguridad del correo electrónico, los contactos y el calendario a un archivo .pst de Outlook
+        public static IList<Attachment> GetExportarCorreoContactosCalendarioOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Exportar o hacer una copia de seguridad del correo electrónico, los contactos y el calendario a un archivo .pst de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Administración de Office 365, ...",
+                    "Cuando en el equipo se instala una aplicación Outlook, como Outlook 2016, puede usarla para transferir el correo electrónico, los contactos y los elementos de calendario desde una cuenta de correo a otra.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Exportar-o-hacer-una-copia-de-seguridad-del-correo-electr%C3%B3nico-los-contactos-y-el-calendario-a-un-archivo-pst-de-Outlook-14252b52-3075-4e9b-be4e-ff9ef1068f91")),
+
+            };
+        }
+
+        //----------EDITAR-OUTLOOK-------------
+        //-------------------------------------
+        //Editar un contacto
+        public static IList<Attachment> GetEditarContactosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Editar un contacto",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "Puede agregar información acerca de los contactos, como sus cumpleaños y aniversarios, o los nombres de sus esposos e hijos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Editar-un-contacto-2925f5d8-6092-4c74-9331-e6915df59fc2")),
+
+            };
+        }
+
+        //----------COMPARTIR-OUTLOOK----------
+        //-------------------------------------
+        //Compartir una carpeta de contactos con otros usuarios
+        public static IList<Attachment> GetCompartirCarpetaContactosUsuarios()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Compartir una carpeta de contactos con otros usuarios",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010 Outlook 2007",
+                    "Puede compartir cualquiera de las carpetas de contactos de cuenta de Exchange Server con otra persona que también está usando una cuenta de Exchange Server en su organización.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Compartir-una-carpeta-de-contactos-con-otros-usuarios-ce5a40d1-bc9f-4f5d-a2aa-5ec388573821")),
+
+            };
+        }
 
         // PREGUNTAS NO IMPLEMENTADAS
         // -------------------------------------------------------------

@@ -173,5 +173,28 @@ namespace Office365Prueba1.Dialogs
         {
             await new ImprimirDialog(context, result).StartAsync();
         }
+
+        [LuisIntent("Consulta.Importar")]
+        public async Task ConsultaImportar(IDialogContext context, LuisResult result)
+        {
+            await new ImportarDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Exportar")]
+        public async Task ConsultaExportar(IDialogContext context, LuisResult result)
+        {
+            await new ExportarDialog(context, result).StartAsync();
+        }
+
+        [LuisIntent("Consulta.Editar")]
+        public async Task ConsultaEditar(IDialogContext context, LuisResult result)
+        {
+            await new EditarDialog(context, result).StartAsync();
+        }
+        [LuisIntent("Consulta.Compartir")]
+        public async Task CompartiraEditar(IDialogContext context, LuisResult result)
+        {
+            await new CompartirDialog(context, result).StartAsync();
+        }
     }
 }
