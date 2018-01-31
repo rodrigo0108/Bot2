@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
+using Office365Prueba1.Utils;
+
 
 namespace Office365Prueba1.Dialogs
 {
@@ -35,16 +31,35 @@ namespace Office365Prueba1.Dialogs
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
                 if (palabra1 == "mensajes" || palabra1 == "mensaje")
                 {
-                    reply.Attachments = Cards.GetGuardarMensajeOutlook();
+                    reply.Attachments = RespuestasOutlook.GetGuardarMensajeOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
-                    //context.Wait(MessageReceived);
+                    return;
+                }
+                else if (palabra1 == "archivos" || palabra1 == "archivo" || palabra1 == "documentos" || palabra1 == "documento")
+                {
+                    await context.PostAsync($"Quizás desea saber como guardar un documento en One Drive");
+                    reply.Attachments = RespuestasOneDrive.GetGuardarDocumentoOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "fotos" || palabra1 == "foto" || palabra1 == "videos" || palabra1 == "video" || palabra1 == "vídeos" || palabra1 == "vídeo")
+                {
+                    reply.Attachments = RespuestasOneDrive.GetGuardarFotosVideosOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }else if (palabra1 == "capturasdepantalla" || palabra1 == "capturadepantalla" || palabra1 == "capturas" || palabra1 == "captura")
+                {
+                    reply.Attachments = RespuestasOneDrive.GetGuardarCapturasPantallaOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 else
                 {
                     await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
-                    //context.Wait(MessageReceived);
                     return;
                 }
             }

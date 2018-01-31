@@ -1,15 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
+using Office365Prueba1.Utils;
+
 namespace Office365Prueba1.Dialogs
 {
     public class BuscarDialog
@@ -34,7 +29,7 @@ namespace Office365Prueba1.Dialogs
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
                 if (palabra1 == "personas" || palabra1 == "persona" || palabra1 == "contactos" || palabra1 == "contacto")
                 {
-                    reply.Attachments = Cards.GetBuscarPersonasOutlook();
+                    reply.Attachments = RespuestasOutlook.GetBuscarPersonasOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
@@ -47,7 +42,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "busquedainstantanea" || palabra2 == "búsquedainstantánea" || palabra2 == "búsquedainstantanea" || palabra2 == "busquedainstantánea" || palabra2 =="búsqueda" || palabra2 == "busqueda")
                         {
-                            reply.Attachments = Cards.GetBuscarMensajeBusquedaInstantanea();
+                            reply.Attachments = RespuestasOutlook.GetBuscarMensajeBusquedaInstantanea();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -61,7 +56,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
 
-                    reply.Attachments = Cards.GetBuscarMensajesOutlook();
+                    reply.Attachments = RespuestasOutlook.GetBuscarMensajesOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
@@ -75,7 +70,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "archivos" || palabra2 == "archivo")
                         {
-                            reply.Attachments = Cards.GetBuscarElementosArchivosDatos();
+                            reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -89,13 +84,13 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como abrir y buscar elementos en un archivo de datos de Outlook (.pst), tengo esto: ");
-                    reply.Attachments = Cards.GetBuscarElementosArchivosDatos();
+                    reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
                 }else if(palabra1 == "archivos" || palabra1 == "archivo")
                 {
-                    reply.Attachments = Cards.GetBuscarArchivosDatosOutlook();
+                    reply.Attachments = RespuestasOutlook.GetBuscarArchivosDatosOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);

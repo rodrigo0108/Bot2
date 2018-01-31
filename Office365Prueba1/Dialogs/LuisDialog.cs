@@ -3,6 +3,7 @@ using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
+using Office365Prueba1.Utils;
 using Office365Prueba1.Models;
 using System;
 using System.Collections.Generic;

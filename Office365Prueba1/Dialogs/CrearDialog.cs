@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
 using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
@@ -27,6 +21,15 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+            Random rnd = new Random();
+
+            string[] respuestas = {
+                        "¡Mira! \U0001F604, tengo esto: ",
+                        "tengo esto: \U0001F603 ",
+                        "encontré la siguiente respuesta \U0001F601",
+                        "pude encontrar lo siguiente \U0001F600"
+                    };
+            int mIndex = rnd.Next(0, respuestas.Length);
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -54,7 +57,7 @@ namespace Office365Prueba1.Dialogs
                         // La segunda parte de la prgunta es mensaje o correo
                         if (palabra2 == "mensaje" || palabra2 == "mensajes" || palabra2 == "correo" || palabra2 == "correos")
                         {
-                            reply.Attachments = Cards.GetCrearFirmaMensaje();
+                            reply.Attachments = RespuestasOutlook.GetCrearFirmaMensaje();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -62,7 +65,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCrearFirmaMensaje();
+                            reply.Attachments = RespuestasOutlook.GetCrearFirmaMensaje();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -70,7 +73,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCrearFirmaMensaje();
+                    reply.Attachments = RespuestasOutlook.GetCrearFirmaMensaje();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -87,7 +90,7 @@ namespace Office365Prueba1.Dialogs
                         // La segunda parte de la pregunta es colores
                         if (palabra2 == "color" || palabra2 == "colores")
                         {
-                            reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
+                            reply.Attachments = RespuestasOutlook.GetCrearAsignarCategoriasColor();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -95,7 +98,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
+                            reply.Attachments = RespuestasOutlook.GetCrearAsignarCategoriasColor();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -103,7 +106,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
+                    reply.Attachments = RespuestasOutlook.GetCrearAsignarCategoriasColor();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -121,7 +124,7 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "mensaje" || palabra2 == "mensajes")
                         {
                             await context.PostAsync(confirmacionRespuesta1);
-                            reply.Attachments = Cards.GetCrearPlantillaMensajeCorreoElectronico();
+                            reply.Attachments = RespuestasOutlook.GetCrearPlantillaMensajeCorreoElectronico();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
@@ -129,14 +132,14 @@ namespace Office365Prueba1.Dialogs
                         else if (palabra2 == "correo" || palabra2 == "correos")
                         {
                             await context.PostAsync(confirmacionRespuesta1);
-                            reply.Attachments = Cards.GetCrearPlantillaCorreoElectronico();
+                            reply.Attachments = RespuestasOutlook.GetCrearPlantillaCorreoElectronico();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCrearPlantillaMensajeCorreoElectronico();
+                            reply.Attachments = RespuestasOutlook.GetCrearPlantillaMensajeCorreoElectronico();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -144,7 +147,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCrearPlantillaCorreoElectronico();
+                    reply.Attachments = RespuestasOutlook.GetCrearPlantillaCorreoElectronico();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -154,6 +157,36 @@ namespace Office365Prueba1.Dialogs
                 // La primera parte de la pregunta es carpetas
                 else if (palabra1 == "carpeta" || palabra1 == "carpetas")
                 {
+
+                    // Se detectó el 'servicio' de la pregunta
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "outlook" || serv == "outlok")
+                        {
+                            reply.Attachments = RespuestasOutlook.GetUsarCrearCarpetasBusqueda();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetCrearArchivosCarpetasOneDrive();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasOutlook.GetCrearCambiarPersonalizarVista();
+                            await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
                     // Se detectó la segunda parte de la pregunta
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -162,25 +195,26 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "busqueda" || palabra2 == "busquedas" || palabra2 == "búsquedas" || palabra2 == "búsqueda")
                         {
                             await context.PostAsync(confirmacionRespuesta1);
-                            reply.Attachments = Cards.GetUsarCrearCarpetasBusqueda();
+                            reply.Attachments = RespuestasOutlook.GetUsarCrearCarpetasBusqueda();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetUsarCrearCarpetasBusqueda();
+                            reply.Attachments = RespuestasOutlook.GetUsarCrearCarpetasBusqueda();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetUsarCrearCarpetasBusqueda();
-                    await context.PostAsync(preguntaNoRegistrada1);
+                    reply.Attachments = RespuestasOneDrive.GetCrearArchivosCarpetasOneDriveCarpetasBusquedaOutlook();
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 // -------------------------------------------------------------------
@@ -195,14 +229,14 @@ namespace Office365Prueba1.Dialogs
                         if (palabra3 == "mensaje" || palabra3 == "mensajes" || palabra3 == "correo" || palabra3 == "correos")
                         {
                             await context.PostAsync(confirmacionRespuesta1);
-                            reply.Attachments = Cards.GetCrearTareaAPartirMensaje();
+                            reply.Attachments = RespuestasOutlook.GetCrearTareaAPartirMensaje();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCrearTareaYAPartirDeMensaje();
+                            reply.Attachments = RespuestasOutlook.GetCrearTareaYAPartirDeMensaje();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -210,7 +244,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCrearTareaYAPartirDeMensaje();
+                    reply.Attachments = RespuestasOutlook.GetCrearTareaYAPartirDeMensaje();
                     await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
@@ -228,14 +262,14 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "contactos" || palabra2 == "contacto")
                         {
                             await context.PostAsync(confirmacionRespuesta1);
-                            reply.Attachments = Cards.GetCrearGrupoContactosListaDistribucionOutlook();
+                            reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCrearGrupoContactosListaDistribucionOutlook();
+                            reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -243,7 +277,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCrearGrupoContactosListaDistribucionOutlook();
+                    reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -260,7 +294,7 @@ namespace Office365Prueba1.Dialogs
                         // La segunda parte de la pregunta es colores
                         if (palabra3 == "mensaje" || palabra3 == "mensajes" || palabra3 == "correo" || palabra3 == "correos")
                         {
-                            reply.Attachments = Cards.GetCrearDiseñosFondoParaMensajes();
+                            reply.Attachments = RespuestasOutlook.GetCrearDiseñosFondoParaMensajes();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -268,7 +302,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCrearDiseñosFondoParaMensajes();
+                            reply.Attachments = RespuestasOutlook.GetCrearDiseñosFondoParaMensajes();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -276,7 +310,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCrearDiseñosFondoParaMensajes();
+                    reply.Attachments = RespuestasOutlook.GetCrearDiseñosFondoParaMensajes();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -287,7 +321,7 @@ namespace Office365Prueba1.Dialogs
                 else if (palabra1 == "evento" || palabra1 == "eventos")
                 {
                     await context.PostAsync(confirmacionRespuesta1);
-                    reply.Attachments = Cards.GetCrearEventoQueDureTodoDia();
+                    reply.Attachments = RespuestasOutlook.GetCrearEventoQueDureTodoDia();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -297,7 +331,7 @@ namespace Office365Prueba1.Dialogs
                 else if (palabra1 == "vista" || palabra1 == "vistas")
                 {
                     await context.PostAsync(confirmacionRespuesta1);
-                    reply.Attachments = Cards.GetCrearCambiarPersonalizarVista();
+                    reply.Attachments = RespuestasOutlook.GetCrearCambiarPersonalizarVista();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -307,7 +341,7 @@ namespace Office365Prueba1.Dialogs
                 else if (palabra1 == "correo" || palabra1 == "correos" || palabra1 == "mensaje" || palabra1 == "mensajes" || palabra1 == "correoelectronico")
                 {
                     await context.PostAsync(confirmacionRespuesta1);
-                    reply.Attachments = Cards.GetCrearMensajeCorreoElectronico();
+                    reply.Attachments = RespuestasOutlook.GetCrearMensajeCorreoElectronico();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -316,7 +350,78 @@ namespace Office365Prueba1.Dialogs
                 // La primera parte de la pregunta es cita
                 else if (palabra1 == "cita" || palabra1 == "citas")
                 {
-                    reply.Attachments = Cards.GetCrearProgramarCita();
+                    reply.Attachments = RespuestasOutlook.GetCrearProgramarCita();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "archivos" || palabra1 == "archivo")
+                {
+                    // Se detectó la segunda parte de la pregunta
+                    foreach (var serv in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var servicio = serv.Entity.ToLower().Replace(" ", "");
+                        // La segunda parte de la pregunta es colores
+                        if (servicio == "word")
+                        {
+                            reply.Attachments = Cards.GetCrearDocumentoWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{servicio}'?");
+                            return;
+                        }
+                    }
+   
+                    reply.Attachments = RespuestasOneDrive.GetCrearArchivosCarpetasOneDrive();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1=="documentos" || palabra1=="documento")
+                {
+                    // Se detectó la segunda parte de la pregunta
+                    foreach (var serv in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var servicio = serv.Entity.ToLower().Replace(" ", "");
+                        // La segunda parte de la pregunta es colores
+                        if (servicio == "word")
+                        {
+                            reply.Attachments =Cards.GetCrearDocumentoWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if(servicio == "onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetCrearDocumentoDesdeOneDrive();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{servicio}'?");
+                            return;
+                        }
+                    }
+                    await context.PostAsync($"Quizás desea saber como crear un documento desde One Drive, " + respuestas[mIndex]);
+                    reply.Attachments = RespuestasOneDrive.GetCrearDocumentoDesdeOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
+                }
+                else if (palabra1=="cuentas" || palabra1=="cuenta")
+                {
+                    reply.Attachments = RespuestasOneDrive.GetCrearCuentaOneDrive();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);

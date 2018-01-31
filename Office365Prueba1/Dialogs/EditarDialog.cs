@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using System;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -42,7 +42,7 @@ namespace Office365Prueba1.Dialogs
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
                 if (palabra1 == "contacto" || palabra1 == "contactos")
                 {
-                    reply.Attachments = Cards.GetEditarContactosOutlook();
+                    reply.Attachments = RespuestasOutlook.GetEditarContactosOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
@@ -55,7 +55,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "contactos" || palabra2 == "contacto")
                         {
-                            reply.Attachments = Cards.GetCrearGrupoContactosListaDistribucionOutlook();
+                            reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -69,7 +69,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como editar un grupo de contactos, " + respuestas[mIndex]);
-                    reply.Attachments = Cards.GetCrearGrupoContactosListaDistribucionOutlook();
+                    reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -81,7 +81,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "distribucion" || palabra2 == "distribución")
                         {
-                            reply.Attachments = Cards.GetCrearGrupoContactosListaDistribucionOutlook();
+                            reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -95,7 +95,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como editar su lista de distribución, "+ respuestas[mIndex]);
-                    reply.Attachments = Cards.GetCrearGrupoContactosListaDistribucionOutlook();
+                    reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;

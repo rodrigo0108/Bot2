@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -34,7 +34,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "color")
                         {
-                            reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
+                            reply.Attachments = RespuestasOutlook.GetCrearAsignarCategoriasColor();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -48,7 +48,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como asignar categorías de color, tengo esto: ");
-                    reply.Attachments = Cards.GetCrearAsignarCategoriasColor();
+                    reply.Attachments = RespuestasOutlook.GetCrearAsignarCategoriasColor();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -60,7 +60,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "mensajes" || palabra2=="mensaje")
                         {
-                            reply.Attachments = Cards.GetAplicarFondosTemasMensajes();
+                            reply.Attachments = RespuestasOutlook.GetAplicarFondosTemasMensajes();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -74,7 +74,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como aplicar un tema a mensajes de correo, tengo esto: ");
-                    reply.Attachments = Cards.GetAplicarFondosTemasMensajes();
+                    reply.Attachments = RespuestasOutlook.GetAplicarFondosTemasMensajes();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;

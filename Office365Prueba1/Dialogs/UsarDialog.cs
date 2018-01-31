@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
-using System.Threading;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -44,7 +38,7 @@ namespace Office365Prueba1.Dialogs
 
                         if (palabra2 == "atención" || palabra2 == "atencion")
                         {
-                            reply.Attachments = Cards.GetUsarArrobaLlamarAtencion();
+                            reply.Attachments = RespuestasOutlook.GetUsarArrobaLlamarAtencion();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -58,7 +52,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como usar las @menciones para llamar la atención de un usuario, tengo esto: ");
-                    reply.Attachments = Cards.GetUsarArrobaLlamarAtencion();
+                    reply.Attachments = RespuestasOutlook.GetUsarArrobaLlamarAtencion();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -71,7 +65,7 @@ namespace Office365Prueba1.Dialogs
 
                         if (palabra2 == "programación" || palabra2 == "programacion")
                         {
-                            reply.Attachments = Cards.GetUsarAsistenteProgramacion();
+                            reply.Attachments = RespuestasOutlook.GetUsarAsistenteProgramacion();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -85,7 +79,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como usar el asistente para programación, tengo esto: ");
-                    reply.Attachments = Cards.GetUsarAsistenteProgramacion();
+                    reply.Attachments = RespuestasOutlook.GetUsarAsistenteProgramacion();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -98,7 +92,7 @@ namespace Office365Prueba1.Dialogs
 
                         if (palabra2 == "adecuada" || palabra2 == "recomendados" || palabra2 == "mejorforma" || palabra2 == "adecuadas")
                         {
-                            reply.Attachments = Cards.GetUsarCalendarioManeraAdecuadaOutlook();
+                            reply.Attachments = RespuestasOutlook.GetUsarCalendarioManeraAdecuadaOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -112,7 +106,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como usar el calendario de la manera más adecuada en Outlook, tengo esto: ");
-                    reply.Attachments = Cards.GetUsarCalendarioManeraAdecuadaOutlook();
+                    reply.Attachments = RespuestasOutlook.GetUsarCalendarioManeraAdecuadaOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -125,7 +119,7 @@ namespace Office365Prueba1.Dialogs
 
                         if (palabra2 == "busqueda" || palabra2 == "búsqueda" || palabra2 == "busquedas" || palabra2 == "búsquedas")
                         {
-                            reply.Attachments = Cards.GetCrearCarpetaBúsqueda();
+                            reply.Attachments = RespuestasOutlook.GetUsarCrearCarpetasBusqueda();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -139,7 +133,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como usar una carpeta de búsqueda en Outlook, tengo esto: ");
-                    reply.Attachments = Cards.GetCrearCarpetaBúsqueda();
+                    reply.Attachments = RespuestasOutlook.GetUsarCrearCarpetasBusqueda();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -158,7 +152,7 @@ namespace Office365Prueba1.Dialogs
 
                                 if (palabra3 == "mensajes" || palabra3 == "mensaje" || palabra3 == "correo" || palabra3 == "correos")
                                 {
-                                    reply.Attachments = Cards.GetUsarFiltrosCorreoNoDeseadoControlarMensajes();
+                                    reply.Attachments = RespuestasOutlook.GetUsarFiltrosCorreoNoDeseadoControlarMensajes();
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     //context.Wait(MessageReceived);
@@ -172,7 +166,7 @@ namespace Office365Prueba1.Dialogs
                                 }
                             }
                             await context.PostAsync($"Quizás desea saber como usar los filtros de correo electrónico no deseado para controlar los mensajes que se pueden ver, tengo esto: ");
-                            reply.Attachments = Cards.GetUsarFiltrosCorreoNoDeseadoControlarMensajes();
+                            reply.Attachments = RespuestasOutlook.GetUsarFiltrosCorreoNoDeseadoControlarMensajes();
                             await context.PostAsync(reply);
                             await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                             return;
@@ -186,7 +180,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como usar los filtros de correo electrónico no deseado para controlar los mensajes que se pueden ver, tengo esto: ");
-                    reply.Attachments = Cards.GetUsarFiltrosCorreoNoDeseadoControlarMensajes();
+                    reply.Attachments = RespuestasOutlook.GetUsarFiltrosCorreoNoDeseadoControlarMensajes();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -199,7 +193,7 @@ namespace Office365Prueba1.Dialogs
 
                         if (palabra2 == "conversación" || palabra2 == "conversaciones" || palabra2 == "charla" || palabra2 == "charlas")
                         {
-                            reply.Attachments = Cards.GetUsarLimpiezaConversacion();
+                            reply.Attachments = RespuestasOutlook.GetUsarLimpiezaConversacion();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -214,7 +208,7 @@ namespace Office365Prueba1.Dialogs
                     }
 
                     await context.PostAsync($"Quizás desea saber como usar la opción limpieza de conversación para eliminar mensajes redundantes, tengo esto: ");
-                    reply.Attachments = Cards.GetUsarLimpiezaConversacion();
+                    reply.Attachments = RespuestasOutlook.GetUsarLimpiezaConversacion();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -228,7 +222,7 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "organizar" || palabra2 == "ordenar" || palabra2 =="estructurar")
                         {
                             
-                            reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
+                            reply.Attachments = RespuestasOutlook.GetUsarCorreosOrganizarBajaPrioridad();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -241,7 +235,7 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
+                    reply.Attachments = RespuestasOutlook.GetUsarCorreosOrganizarBajaPrioridad();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);

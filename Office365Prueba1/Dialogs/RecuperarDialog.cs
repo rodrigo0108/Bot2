@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -52,14 +47,14 @@ namespace Office365Prueba1.Dialogs
                         // El usuario escribio en su pregunta la palabra eliminado
                         if (palabra2 == "eliminado" || palabra2 == "eliminados")
                         {
-                            reply.Attachments = Cards.GetRecuperarElementosEliminados();
+                            reply.Attachments = RespuestasOutlook.GetRecuperarElementosEliminados();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetRecuperarElementosEliminados();
+                            reply.Attachments = RespuestasOutlook.GetRecuperarElementosEliminados();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -67,7 +62,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetRecuperarElementosEliminados();
+                    reply.Attachments = RespuestasOutlook.GetRecuperarElementosEliminados();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -76,7 +71,7 @@ namespace Office365Prueba1.Dialogs
                 // El usuario escribio en su pregunta la palabra mensaje
                 else if (palabra1 == "mensaje" || palabra1 == "mensajes" || palabra1 == "correo" || palabra1 == "correos")
                 {
-                    reply.Attachments = Cards.GetRecuperarMensajeDespuésEnviarlo();
+                    reply.Attachments = RespuestasOutlook.GetRecuperarMensajeDespuesEnviarlo();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     return;

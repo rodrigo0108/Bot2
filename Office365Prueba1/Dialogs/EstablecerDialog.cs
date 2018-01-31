@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -36,7 +31,7 @@ namespace Office365Prueba1.Dialogs
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
                 if (palabra1 == "aviso" || palabra1 == "avisos")
                 {
-                    reply.Attachments = Cards.GetEstablecerAvisoOutlook();
+                    reply.Attachments = RespuestasOutlook.GetEstablecerAvisoOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);

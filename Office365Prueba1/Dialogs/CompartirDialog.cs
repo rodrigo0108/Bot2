@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
+using Office365Prueba1.Utils;
 using System;
 
 namespace Office365Prueba1.Dialogs
@@ -47,7 +47,7 @@ namespace Office365Prueba1.Dialogs
                                 var palabra3 = entityP3.Entity.ToLower().Replace(" ", "");
                                 if (palabra3 == "usuarios" || palabra3 == "usuario")
                                 {
-                                    reply.Attachments = Cards.GetCompartirCarpetaContactosUsuarios();
+                                    reply.Attachments = RespuestasOutlook.GetCompartirCarpetaContactosUsuarios();
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     //context.Wait(MessageReceived);
@@ -61,7 +61,7 @@ namespace Office365Prueba1.Dialogs
                                 }                               
                             }
                             await context.PostAsync($"Quizás desea saber compartir su carpeta de contactos con un usuario, " + respuestas[mIndex]);
-                            reply.Attachments = Cards.GetCompartirCarpetaContactosUsuarios();
+                            reply.Attachments = RespuestasOutlook.GetCompartirCarpetaContactosUsuarios();
                             await context.PostAsync(reply);
                             await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                             return;
@@ -73,10 +73,32 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber compartir su carpeta de contactos con un usuario, " + respuestas[mIndex]);
-                    reply.Attachments = Cards.GetCompartirCarpetaContactosUsuarios();
+                    await context.PostAsync($"Quizás desea saber compartir su carpeta de contactos con un usuario en Outlook o compartir su carpeta en One Drive, " + respuestas[mIndex]);
+                    reply.Attachments = RespuestasOneDrive.GetCompartirCarpetasOneDriveCarpetaContactosOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
+                }else if (palabra1=="archivos" || palabra1=="archivo")
+                {
+                    foreach(var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2")){
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "Android" || palabra2 == "android")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetCompartirArchivosOneDriveAndroid();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
+                            await context.PostAsync($"O tal vez no la escribió correctamente, ¿{palabra2}?");
+                            return;
+                        }
+                    }
+                    reply.Attachments = RespuestasOneDrive.GetCompartirArchivosCarpetasOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 else

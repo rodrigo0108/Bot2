@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
+using Office365Prueba1.Utils;
+
 
 namespace Office365Prueba1.Dialogs
 {
@@ -43,7 +39,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "categoría" || palabra2 == "categorías" || palabra2 == "categoria" || palabra2 == "categorias")
                         {
-                            reply.Attachments = Cards.GetOrganizarCalendariosCategorias();
+                            reply.Attachments = RespuestasOutlook.GetOrganizarCalendariosCategorias();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -57,7 +53,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como organizar su calendario con la opción de categorías de color, tengo esto: ");
-                    reply.Attachments = Cards.GetOrganizarCalendariosCategorias();
+                    reply.Attachments = RespuestasOutlook.GetOrganizarCalendariosCategorias();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -69,7 +65,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "bajaprioridad")
                         {
-                            reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
+                            reply.Attachments = RespuestasOutlook.GetUsarCorreosOrganizarBajaPrioridad();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -83,7 +79,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como organizar sus mensajes de baja prioridad en Outlook, tengo esto: ");
-                    reply.Attachments = Cards.GetUsarCorreosOrganizarBajaPrioridad();
+                    reply.Attachments = RespuestasOutlook.GetUsarCorreosOrganizarBajaPrioridad();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;

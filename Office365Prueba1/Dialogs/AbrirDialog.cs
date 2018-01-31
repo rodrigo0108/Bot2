@@ -1,15 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
 using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
@@ -42,7 +35,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "archivo" || palabra2 == "archivos")
                         {
-                            reply.Attachments = Cards.GetBuscarElementosArchivosDatos();
+                            reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -56,7 +49,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como abrir elementos en un archivo de datos de Outlook, tengo esto: ");
-                    reply.Attachments = Cards.GetBuscarElementosArchivosDatos();
+                    reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
@@ -68,7 +61,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "dato" || palabra2 == "datos")
                         {
-                            reply.Attachments = Cards.GetAbrirArchivosDatosOutlook();
+                            reply.Attachments = RespuestasOutlook.GetAbrirArchivosDatosOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -82,7 +75,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como abrir archivos de datos de Outlook (.pst), tengo esto: ");
-                    reply.Attachments = Cards.GetAbrirArchivosDatosOutlook();
+                    reply.Attachments = RespuestasOutlook.GetAbrirArchivosDatosOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;

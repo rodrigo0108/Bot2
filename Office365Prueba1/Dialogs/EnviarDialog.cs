@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -42,14 +37,14 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "plantillas" || palabra2 == "plantillas")
                         {
-                            reply.Attachments = Cards.GetEnviarMensajeBasadoPlantilla();
+                            reply.Attachments = RespuestasOutlook.GetEnviarMensajeBasadoPlantilla();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
                             return;
                         }else if(palabra2=="lista"|| palabra2 == "listas" || palabra2=="grupo" || palabra2=="grupos")
                         {
-                            reply.Attachments = Cards.GetEnviarMensajeGrupoContactos();
+                            reply.Attachments = RespuestasOutlook.GetEnviarMensajeGrupoContactos();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -62,7 +57,7 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    reply.Attachments = Cards.GetCrearEnviarCorreoElectronico();
+                    reply.Attachments = RespuestasOutlook.GetCrearEnviarCorreoElectronico();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
@@ -70,7 +65,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1 == "respuestasautomaticas" || palabra1 == "respuestaautomatica" || palabra1== "respuestasautomáticas" || palabra1 == "respuestaautomática" || palabra1 == "respuestasfuera" || palabra1 == "respuestafuera")
                 {
-                    reply.Attachments = Cards.GetEnviarRespuestasAutomaticasFueraOficinaOutlook();
+                    reply.Attachments = RespuestasOutlook.GetEnviarRespuestasAutomaticasFueraOficinaOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);
@@ -83,7 +78,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "reunión" || palabra2 == "reunion" || palabra2=="reuniones")
                         {
-                            reply.Attachments = Cards.GetReenviarReuniónOutlook();
+                            reply.Attachments = RespuestasOutlook.GetReenviarReuniónOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -91,7 +86,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else if (palabra2 == "correoelectrónico" || palabra2 == "correoelectronico" || palabra2 == "correoselectrónicos" || palabra2 == "correoselectronicos" || palabra2 == "correos" || palabra2 == "correo" || palabra2 == "mensajes" || palabra2 == "mensaje")
                         {
-                            reply.Attachments = Cards.GetReenviarMensajeOutlook();
+                            reply.Attachments = RespuestasOutlook.GetReenviarMensajeOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);

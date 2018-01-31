@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using System;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
@@ -47,7 +47,7 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "google" || palabra2=="googol")
                         {
-                            reply.Attachments = Cards.GetExportarCalendarioGoogleCalendar();
+                            reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             //context.Wait(MessageReceived);
@@ -61,14 +61,14 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     await context.PostAsync($"Quizás desea saber como exportar un calendario de Outlook a Google Calendar, " + respuestas[mIndex]);
-                    reply.Attachments = Cards.GetExportarCalendarioGoogleCalendar();
+                    reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
 
                 }else if (palabra1=="correoelectrónico" || palabra1== "correoelectrónicos" || palabra1 == "correoelectronico" || palabra1 == "correoelectronicos" || palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "calendario" || palabra1 == "calendarios" || palabra1=="correo" || palabra1=="correos")
                 {
-                    reply.Attachments = Cards.GetExportarCorreoContactosCalendarioOutlook();
+                    reply.Attachments = RespuestasOutlook.GetExportarCorreoContactosCalendarioOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     //context.Wait(MessageReceived);

@@ -2,9 +2,7 @@
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Connector;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Models
 {
