@@ -39,13 +39,11 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetEliminarCategoriaColor();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
@@ -55,6 +53,13 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");                    
                     return;
 
+                }
+                else if (palabra1 == "archivos" || palabra1 == "archivo" || palabra1 == "carpetas" || palabra1 == "carpeta")
+                {
+                    reply.Attachments = RespuestasOneDrive.GetEliminarArchivosCarpetasOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
                 }
                 else
                 {

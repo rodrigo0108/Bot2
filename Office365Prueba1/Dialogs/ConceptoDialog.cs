@@ -33,8 +33,25 @@ namespace Office365Prueba1.Dialogs
             string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
             string preguntaConsulta = "si tiene otra consulta por favor hágamelo saber";
 
-            //obtener el producto si este fue elegido de forma explicita
-            foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+            foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
+            {
+                var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
+                if (palabra1=="archivodepetición" || palabra1== "archivodepeticion")
+                {
+                    reply.Attachments = RespuestasOneDrive.GetDefinicionArchivoPeticion();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else
+                {
+                    await context.PostAsync($"Lo siento '{palabra1}' no se encuentra registrado.");
+                    return;
+                }
+            }
+                //obtener el producto si este fue elegido de forma explicita
+                foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
             {
                 var value = entity.Entity.ToLower().Replace(" ", "");
 

@@ -12,6 +12,8 @@ namespace Office365Prueba1.Dialogs
         private IDialogContext context;
         private LuisResult result;
 
+        
+
         public BuscarDialog(IDialogContext context, LuisResult result)
         {
             this.context = context;
@@ -20,6 +22,7 @@ namespace Office365Prueba1.Dialogs
         public async Task StartAsync()
         {
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            Constantes c = Constantes.Instance;
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -32,7 +35,6 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetBuscarPersonasOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
-                    //context.Wait(MessageReceived);
                     return;
                 }
                 else if (palabra1 == "mensajes" || palabra1 == "mensaje")
@@ -45,13 +47,11 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetBuscarMensajeBusquedaInstantanea();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
@@ -59,7 +59,6 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetBuscarMensajesOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
-                    //context.Wait(MessageReceived);
                     return;
 
                 }
@@ -73,13 +72,11 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
@@ -90,16 +87,55 @@ namespace Office365Prueba1.Dialogs
                     return;
                 }else if(palabra1 == "archivos" || palabra1 == "archivo")
                 {
-                    reply.Attachments = RespuestasOutlook.GetBuscarArchivosDatosOutlook();
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "datos" || palabra2 == "dato")
+                        {
+                            reply.Attachments = RespuestasOutlook.GetBuscarArchivosDatosOutlook();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            return;
+                        }
+                    }
+                    foreach (var servicio in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = servicio.Entity.ToLower().Replace(" ", "");
+                        if (serv == "onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetBuscarMoverArchivosOneDrive();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }else if(serv == "outlook")
+                        {
+                            await context.PostAsync("Quizas desees saber dónde está los archivos de datos de Outlook");
+                            reply.Attachments = RespuestasOutlook.GetBuscarArchivosDatosOutlook();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"La palabra '{serv}' no se encuentra registrada como servicio");
+                            return;
+                        }
+                    }
+                    
+                    await context.PostAsync("Quizás desea saber dónde está sus archivos en One Drive o donde están sus archivos de datos de Outlook, " + c.proponer());
+                    reply.Attachments = RespuestasOneDrive.GetBuscarArchivosOneDriveBuscarArchivosDatosOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
-                    //context.Wait(MessageReceived);
                     return;
                 }
                 else
                 {
                     await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
-                    //context.Wait(MessageReceived);
                     return;
                 }                
             }

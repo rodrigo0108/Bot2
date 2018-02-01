@@ -38,13 +38,11 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
@@ -64,13 +62,34 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetAbrirArchivosDatosOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                        else if (palabra2 == "dispositivomovil" || palabra2=="dispositivomóvil" || palabra2=="dispositivo" || palabra2 == "dispositivos" || palabra2=="dispositivosmóviles" || palabra2 == "dispositivosmoviles" || palabra2=="celular")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetAbrirArchivosDispositivoMovilOneDrive();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
+                            return;
+                        }
+                    }
+                    foreach (var serv in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var servicio = serv.Entity.ToLower().Replace(" ", "");
+                        if (servicio=="onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetAbrirArchivosDispositivoMovilOneDrive();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{servicio}?, no tenemos esa pregunta para ese servicio.");
                             return;
                         }
                     }

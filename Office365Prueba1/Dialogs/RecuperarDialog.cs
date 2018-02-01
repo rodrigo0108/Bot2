@@ -30,6 +30,7 @@ namespace Office365Prueba1.Dialogs
             string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
             string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
             string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
 
             // Recorrido de la segunda parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
@@ -45,11 +46,12 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
 
                         // El usuario escribio en su pregunta la palabra eliminado
-                        if (palabra2 == "eliminado" || palabra2 == "eliminados")
+                        if (palabra2 == "eliminado" || palabra2 == "eliminados" || palabra2 == "elimine")
                         {
                             reply.Attachments = RespuestasOutlook.GetRecuperarElementosEliminados();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
@@ -58,6 +60,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                     }
@@ -66,6 +69,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 // El usuario escribio en su pregunta la palabra mensaje
@@ -74,7 +78,30 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetRecuperarMensajeDespuesEnviarlo();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
+                }
+                else if (palabra1 == "archivo" || palabra1=="archivos" || palabra1=="carpetas" || palabra1=="carpeta")
+                {
+                    // Recorrido de la primera parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+
+                        if (palabra2 == "eliminado" || palabra2 == "eliminados" || palabra2 =="elimine")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetRestaurarArchivosEliminados();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"La palabra '{palabra2}' no se encuentra registrada, lo siento.");
+                            return;
+                        }
+                    }
                 }
                 else
                 {

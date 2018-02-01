@@ -32,9 +32,19 @@ namespace Office365Prueba1.Utils
                     "https://support.office.com/es-es/article/v%C3%ADdeo-%C2%BFqu%C3%A9-es-onenote-be6cc6cc-3ca7-4f46-8876-5000f013c563?ui=es-ES&rs=es-ES&ad=ES"),
             };
         }
-
-
-
+        // Definicion de archivo de petición
+        public static IList<Attachment> GetDefinicionArchivoPeticion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Obtenga más información sobre OneDrive archivos a petición",
+                    "Se aplica a: Office para empresas OneDrive para la Empresa OneDrive",
+                    "Archivos a petición le ayuda a obtener acceso a todos los archivos en OneDrive sin tener que descargar todos ellos y usar el espacio de almacenamiento en el dispositivo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/obtenga-m%C3%A1s-informaci%C3%B3n-sobre-onedrive-archivos-a-petici%C3%B3n-0e6860d3-d9f3-4971-b321-7092438fb38e?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
 
         //----------CARGAR-ONE DRIVE----------
         //------------------------------------
@@ -237,6 +247,124 @@ namespace Office365Prueba1.Utils
                 "Usar la aplicación OneDrive en su dispositivo Android para trabajar con su cuenta personal OneDrive, así como las cuentas de OneDrive para la empresa.",
                 new CardAction(ActionTypes.OpenUrl, "Ver más información",
                 value: "https://support.office.com/es-es/article/Agregar-OneDrive-para-la-Empresa-en-Android-babc9692-fb53-40b4-8b24-6b83ff95455e")),
+            };
+        }
+
+        //--------ABRIR-ONE DRIVE----------
+        //---------------------------------
+
+        //Abrir archivos en su dispositivo móvil
+        public static IList<Attachment> GetAbrirArchivosDispositivoMovilOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Abrir archivos en su dispositivo móvil",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Primero: pulse el archivo para obtener una vista previa. Segundo: Pulse el icono de la aplicación de Office en la parte superior para abrir el archivo.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/inicio-r%C3%A1pido-de-onedrive-a5710114-6aeb-4bf5-a336-dffa7cc0b77a?ui=es-ES&rs=es-ES&ad=ES#ID0EAABAAA=Seguir_conectado")),
+            };
+        }
+
+        //-----ESTABLECER-ONE DRIVE--------
+        //---------------------------------
+
+        //Establecer la ubicación de almacenamiento de los archivos
+        public static IList<Attachment> GetEstablecerUbicacionAlmacenamientoArchivosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Establecer la ubicación de almacenamiento de los archivos",
+                "Se aplica a: One Drive",
+                "Use la configuración de la aplicación OneDrive para cambiar la ubicación de almacenamiento de los archivos predeterminada.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/los-archivos-se-guardan-en-onedrive-de-manera-predeterminada-en-windows-10-33da0077-770c-4bda-b61e-8c8e8ca70ac7?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        //---------BUSCAR-ONE DRIVE--------
+        //---------------------------------
+
+        //Buscar y mover los archivos
+        public static IList<Attachment> GetBuscarMoverArchivosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Buscar y mover los archivos",
+                "Se aplica a: One Drive",
+                "Las carpetas Documentos e Imágenes están disponibles tanto en Este equipo como en OneDrive, por lo que es posible que haya confusiones."+
+                " Si ha guardado por error un archivo (por ejemplo, en la carpeta Documentos de su PC en lugar de la de OneDrive), use el Explorador de "+
+                "archivos o la aplicación OneDrive para arrastrar los archivos donde desee.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/los-archivos-se-guardan-en-onedrive-de-manera-predeterminada-en-windows-10-33da0077-770c-4bda-b61e-8c8e8ca70ac7?ui=es-ES&rs=es-ES&ad=ES")),
+            
+            };
+        }
+        //Buscar archivos en OneDrive o buscar archivos de datos de Outlook
+        public static IList<Attachment> GetBuscarArchivosOneDriveBuscarArchivosDatosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Buscar y mover los archivos",
+                "Se aplica a: One Drive",
+                "Las carpetas Documentos e Imágenes están disponibles tanto en Este equipo como en OneDrive, por lo que es posible que haya confusiones."+
+                " Si ha guardado por error un archivo (por ejemplo, en la carpeta Documentos de su PC en lugar de la de OneDrive), use el Explorador de "+
+                "archivos o la aplicación OneDrive para arrastrar los archivos donde desee.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/los-archivos-se-guardan-en-onedrive-de-manera-predeterminada-en-windows-10-33da0077-770c-4bda-b61e-8c8e8ca70ac7?ui=es-ES&rs=es-ES&ad=ES")),
+                 GetHeroCardV2(
+                    "Buscar y transferir archivos de datos de Outlook de un equipo a otro",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Outlook guarda información de copia de seguridad en varias ubicaciones diferentes. Dependiendo "+
+                    "del tipo de cuenta que tenga, puede hacer una copia de los correos electrónicos, la libreta "+
+                    "personal de direcciones, la configuración del panel de navegación, las firmas, las plantillas y más.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Buscar-y-transferir-archivos-de-datos-de-Outlook-de-un-equipo-a-otro-0996ece3-57c6-49bc-977b-0d1892e2aacc?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
+
+        //-------ELIMINAR-ONE DRIVE-------
+        //--------------------------------
+        //Eliminar archivos o carpetas en OneDrive
+        public static IList<Attachment> GetEliminarArchivosCarpetasOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Eliminar archivos o carpetas en OneDrive",
+                "Se aplica a: OneDrive para la Empresa OneDrive OneDrive para la Empresa ofrecido por 21Vianet.",
+                "Puede eliminar archivos específicos en OneDrive, o puede eliminar carpetas enteras y todos los archivos en ellos. Si necesita, es "+
+                "posible que pueda para recuperar los archivos eliminados de la Papelera de reciclaje de OneDrive.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/eliminar-archivos-o-carpetas-en-onedrive-21fe345a-e488-4fa7-932b-f053c1bebe8a?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
+
+        //-------RECUPERAR-ONE DRIVE--------
+        //----------------------------------
+        //Restaurar carpetas o archivos eliminados
+        public static IList<Attachment> GetRestaurarArchivosEliminados()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Eliminar o restaurar archivos y carpetas en OneDrive",
+                "Se aplica a: OneDrive para la Empresa Office.com OneDrive OneDrive para la Empresa ofrecido por 21Vianet.",
+                "Puedes borrar o restaurar archivos concretos de OneDrive o carpetas enteras, junto con todos los archivos que contengan.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/eliminar-o-restaurar-archivos-y-carpetas-en-onedrive-949ada80-0026-4db3-a953-c99083e6a84f?ui=es-ES&rs=es-ES&ad=ES")),
+                GetVideoCard(
+                    "Office 365 - One Drive",
+                    "Video sobre One Drive",
+                    "https://videocontent.osi.office.net/9ae26578-6412-455f-aa40-6d1a8df5b847/dc309662-8f74-49b3-b4cc-623d52105178_1280x720_3400.mp4",
+                    "https://support.office.com/es-es/article/eliminar-o-restaurar-archivos-y-carpetas-en-onedrive-949ada80-0026-4db3-a953-c99083e6a84f?ui=es-ES&rs=es-ES&ad=ES"),
+
             };
         }
 

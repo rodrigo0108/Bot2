@@ -21,21 +21,11 @@ namespace Office365Prueba1.Dialogs
         public async Task StartAsync()
         {
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            Constantes c = Constantes.Instance;
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
-            Random rnd = new Random();
-
-            string[] respuestas = {
-                        "¡Mira! \U0001F604, tengo esto: ",
-                        "tengo esto: \U0001F603 ",
-                        "encontré la siguiente respuesta \U0001F601",
-                        "pude encontrar lo siguiente \U0001F600"
-                    };
-
-
-            int mIndex = rnd.Next(0, respuestas.Length);
-
+            
             // Recorrido de la primera parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
@@ -58,17 +48,15 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como editar un grupo de contactos, " + respuestas[mIndex]);
+                    await context.PostAsync($"Quizás desea saber como editar un grupo de contactos, " + c.proponer());
                     reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
@@ -84,17 +72,15 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como editar su lista de distribución, "+ respuestas[mIndex]);
+                    await context.PostAsync($"Quizás desea saber como editar su lista de distribución, " + c.proponer());
                     reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");

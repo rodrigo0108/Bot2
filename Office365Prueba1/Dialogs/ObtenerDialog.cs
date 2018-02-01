@@ -21,6 +21,7 @@ namespace Office365Prueba1.Dialogs
         public async Task StartAsync()
         {
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            Constantes c = Constantes.Instance;
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -38,17 +39,15 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetObtenerInformacionNavegarOutlook();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como obtener información sobre cómo navegar en Outlook con características de accesibilidad, tengo esto: ");
+                    await context.PostAsync($"Quizás desea saber como obtener información sobre cómo navegar en Outlook con características de accesibilidad, "+ c.proponer());
                     reply.Attachments = RespuestasOutlook.GetObtenerInformacionNavegarOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
@@ -59,13 +58,11 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetObtenerIdDigitalOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
-                    //context.Wait(MessageReceived);
                     return;
                 }
                 else
                 {
                     await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
-                    //context.Wait(MessageReceived);
                     return;
                 }
             }
