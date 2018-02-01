@@ -53,6 +53,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
+
                         }
                         else
                         {
