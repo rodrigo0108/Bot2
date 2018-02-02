@@ -195,12 +195,18 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaConsulta);
                     return;
                 }
+                else if (palabra1 == "archivos" || palabra1=="archivo")
+                {
+                    reply.Attachments = RespuestasOneDrive.GetVerArchivosCompartidosOneDrive();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
                 else
                 {
-                    reply.Attachments = RespuestasOutlook.GetVerTareasOutlook();
                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra1}'?");
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
-                    await context.PostAsync(reply);
                     return;
                 }
             }

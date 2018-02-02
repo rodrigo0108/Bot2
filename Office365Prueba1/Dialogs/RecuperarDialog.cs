@@ -31,6 +31,7 @@ namespace Office365Prueba1.Dialogs
             string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
             string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            Constantes c = Constantes.Instance;
 
             // Recorrido de la segunda parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
@@ -82,7 +83,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaConsulta);
                     return;
                 }
-                else if (palabra1 == "archivo" || palabra1=="archivos" || palabra1=="carpetas" || palabra1=="carpeta")
+                else if (palabra1 == "archivo" || palabra1=="archivos")
                 {
                     // Recorrido de la primera parte de la pregunta
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
@@ -103,6 +104,65 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                    reply.Attachments = RespuestasOneDrive.GetRecuperarArchivosEquipo();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "carpetas" || palabra1 == "carpeta")
+                {
+                    // Recorrido de la primera parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+
+                        if (palabra2 == "eliminado" || palabra2 == "eliminados" || palabra2 == "elimine")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetRestaurarArchivosEliminados();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"La palabra '{palabra2}' no se encuentra registrada, lo siento.");
+                            return;
+                        }
+                    }
+                    await context.PostAsync($"Quizás desea saber como restaurar carpetas eliminadas, " + c.proponer());
+                    reply.Attachments = RespuestasOneDrive.GetRestaurarArchivosEliminados();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
+                }
+                else if (palabra1=="versión" || palabra1=="version")
+                {
+                    // Recorrido de la primera parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+
+                        if (palabra2 == "archivo" || palabra2 == "archivos")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetRestaurarVersionArchivoOneDrive();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"La palabra '{palabra2}' no se encuentra registrada, lo siento.");
+                            return;
+                        }
+                    }
+                    await context.PostAsync($"Quizás desea saber como restaurar la última versión de un archivo en One Drive, " + c.proponer());
+                    reply.Attachments = RespuestasOneDrive.GetRestaurarVersionArchivoOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
                 }
                 else
                 {

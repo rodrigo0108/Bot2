@@ -26,6 +26,7 @@ namespace Office365Prueba1.Dialogs
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
+          
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
@@ -175,7 +176,6 @@ namespace Office365Prueba1.Dialogs
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
@@ -196,13 +196,11 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetUsarLimpiezaConversacion();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
@@ -225,20 +223,17 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetUsarCorreosOrganizarBajaPrioridad();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
                             await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
                             return;
                         }
                     }
                     reply.Attachments = RespuestasOutlook.GetUsarCorreosOrganizarBajaPrioridad();
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
-                    //context.Wait(MessageReceived);
                     return;
                 }
                 else
@@ -247,6 +242,68 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync("O tal vez no escribió la pregunta correctamente");
                     //context.Wait(MessageReceived);
                     return;
+                }
+
+            }
+            foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+            {
+                var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                if (palabra2 == "windowsphone")
+                {
+                    foreach (var servicio in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = servicio.Entity.ToLower().Replace(" ", "");
+                        if (serv == "onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetUsarOneDriveEmpresaOneDriveWindowsPhone();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Los lamento, la palabra '{serv}' no se encuentra registrada.");
+                            return;
+                        }
+                    }
+                }
+                else if (palabra2 == "android")
+                {
+                    foreach (var servicio in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = servicio.Entity.ToLower().Replace(" ", "");
+                        if (serv == "onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetUsarOneDriveAndroid();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Los lamento, la palabra '{serv}' no se encuentra registrada.");
+                            return;
+                        }
+                    }
+                }
+                else if (palabra2 == "ios")
+                {
+                    foreach (var servicio in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = servicio.Entity.ToLower().Replace(" ", "");
+                        if (serv == "onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetUsarOneDriveEmpresaOneDriveIos();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Los lamento, la palabra '{serv}' no se encuentra registrada.");
+                            return;
+                        }
+                    }
                 }
 
             }

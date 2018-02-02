@@ -249,6 +249,21 @@ namespace Office365Prueba1.Utils
                 value: "https://support.office.com/es-es/article/Agregar-OneDrive-para-la-Empresa-en-Android-babc9692-fb53-40b4-8b24-6b83ff95455e")),
             };
         }
+        //Insertar archivos directamente en tu sitio web o blog
+        public static IList<Attachment> GetInsertarArchivosSitioWebBlog()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Insertar archivos directamente en tu sitio web o blog",
+                "Se aplica a: Office.com OneDrive",
+                "Si tiene un sitio web o un blog, es muy fácil y rápido incluir fotos, vídeos, documentos de Office y otros archivos desde OneDrive. "+
+                "Incluso puedes personalizar el modo en que los libros de Excel insertados se muestran a otras personas.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/insertar-archivos-directamente-en-tu-sitio-web-o-blog-ed07dd52-8bdb-431d-96a5-cbe8a80b7418?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
 
         //--------ABRIR-ONE DRIVE----------
         //---------------------------------
@@ -328,6 +343,64 @@ namespace Office365Prueba1.Utils
 
             };
         }
+        //Buscar archivos de SharePoint en One Drive
+        public static IList<Attachment> GetBuscarArchivosSharePointOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Buscar archivos de SharePoint en OneDrive",
+                "Se aplica a: OneDrive para la Empresa",
+                "Si usa OneDrive en la web, puede obtener acceso a sus archivos de SharePoint sin salir de OneDrive. "+
+                "Los sitios de SharePoint que siga o con los que interactuó recientemente aparecerán en una lista "+
+                "debajo del nombre de la organización.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Buscar-archivos-de-SharePoint-en-OneDrive-9275de7b-0b0b-40ee-8fa2-b17d1b0727d0")),
+
+            };
+        }
+        //Buscar y trabajar con archivos de OneDrive en iOS
+        public static IList<Attachment> GetBuscarTrabajarArchivosOneDriveIos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Buscar y trabajar con archivos de OneDrive en iOS",
+                "Se aplica a: OneDrive",
+                "Use la aplicación OneDrive para guardar, mover, cargar o descargar archivos y fotos.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Buscar-y-trabajar-con-archivos-de-OneDrive-en-iOS-fddb9917-2379-45ba-85e3-9e4ec46821dc")),
+
+            };
+        }
+        //Buscar y trabajar con archivos de OneDrive en Android
+        public static IList<Attachment> GetBuscarTrabajarArchivosOneDriveAndroid()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Buscar y trabajar con archivos de OneDrive en Android",
+                "Se aplica a: OneDrive",
+                "Use la aplicación OneDrive para Android para guardar, mover, cargar o descargar archivos.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Buscar-y-trabajar-con-archivos-de-OneDrive-en-Android-3ced081c-8ea8-40ab-b744-052dffe48590")),
+
+            };
+        }
+        //Buscar y trabajar con archivos de OneDrive en Windows phone
+        public static IList<Attachment> GetBuscarTrabajarArchivosOneDriveWindowsPhone()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Buscar y trabajar con archivos de OneDrive en Windows phone",
+                "Se aplica a: OneDrive",
+                "Cargar y trabajar con archivos en OneDrive en Windows phone, al igual que en el equipo. Cargar y guardar cualquier tipo de archivo, incluidos documentos, fotos, vídeos y archivos de música.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Buscar-y-trabajar-con-archivos-de-OneDrive-en-Windows-Phone-4d53b245-0a37-404d-bbe2-0b45df9b8cf8")),
+
+            };
+        }
 
         //-------ELIMINAR-ONE DRIVE-------
         //--------------------------------
@@ -366,6 +439,177 @@ namespace Office365Prueba1.Utils
                     "https://videocontent.osi.office.net/9ae26578-6412-455f-aa40-6d1a8df5b847/dc309662-8f74-49b3-b4cc-623d52105178_1280x720_3400.mp4",
                     "https://support.office.com/es-es/article/eliminar-o-restaurar-archivos-y-carpetas-en-onedrive-949ada80-0026-4db3-a953-c99083e6a84f?ui=es-ES&rs=es-ES&ad=ES"),
 
+            };
+        }
+        //Restaurar una versión anterior de un archivo en OneDrive
+        public static IList<Attachment> GetRestaurarVersionArchivoOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Restaurar una versión anterior de un archivo en OneDrive",
+                "Se aplica a: OneDrive para la Empresa SharePoint Server 2013 Enterprise SharePoint Server 2013 SharePoint Server 2016 OneDrive.",
+                "Con el historial de la versión en línea, puede ver y restaurar versiones anteriores de todos los archivos en su OneDrive. "+
+                "Historial de versiones funciona con todos los tipos de archivo, incluidos archivos PDF, archivos de CAD, fotos y vídeos.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/restaurar-una-versi%C3%B3n-anterior-de-un-archivo-en-onedrive-159cad6d-d76e-4981-88ef-de6e96c93893?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        //Recuperar archivos de tu equipo
+        public static IList<Attachment> GetRecuperarArchivosEquipo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Recuperar archivos de tu equipo",
+                "Se aplica a: Office.com OneDrive",
+                "Si tienes instalada la aplicación de escritorio OneDrive para Windows en un equipo, puedes usar la característica Capturar"+
+                " archivos para acceder a todos los archivos y carpetas de ese equipo a través del sitio web de OneDrive.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/recuperar-archivos-de-tu-equipo-70761550-519c-4d45-b780-5a613b2f8822?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        //-------ORGANIZAR-ONE DRIVE--------
+        //----------------------------------
+        //Organizar y buscar fotos en OneDrive
+        public static IList<Attachment> GetOrganizarBuscarFotosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Organizar y buscar fotos en OneDrive",
+                "Se aplica a: OneDrive",
+                "Después de cargar fotos, OneDrive le ayuda a organizar y buscar sus fotos con características como búsqueda "+
+                "de fotografías, etiquetas y álbumes.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Organizar-y-buscar-fotos-en-OneDrive-6a9b0298-f504-4992-af0e-45e2f270afc9")),
+            };
+        }
+
+        //-------VER-ONE DRIVE--------
+        //----------------------------
+        //Ver archivos compartidos con usted en OneDrive
+        public static IList<Attachment> GetVerArchivosCompartidosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Ver archivos compartidos con usted en OneDrive",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "El compartido (OneDrive- Personal) o compartido conmigo (OneDrive- Business) vista muestra los archivos que otros usuarios "+
+                "comparten con usted. Después de que alguien comparte un archivo con usted, dicho archivo aparecerán automáticamente en el compartido o compartido conmigo lista.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/ver-archivos-compartidos-con-usted-en-onedrive-2c14e8e6-4e52-4c61-9778-7155d33534a1?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        //-------USAR-ONE DRIVE--------
+        //----------------------------
+        //Usar OneDrive en iOS
+        public static IList<Attachment> GetUsarOneDriveIos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Usar OneDrive en iOS",
+                "Se aplica a: Office para empresas OneDrive para la Empresa OneDrive",
+                "A continuación se muestran los conceptos básicos sobre el uso de la aplicación OneDrive para iPhone, iPad y iPod Touch. Descarga la aplicación para iOS.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-en-iOS-08d5c5b2-ccc6-40eb-a244-fe3597a3c247")),
+            };
+        }
+        //Usar OneDrive para la empresa en iOS
+        public static IList<Attachment> GetUsarOneDriveEmpresaIos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Usar OneDrive para la empresa en iOS",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Usar la aplicación OneDrive en el dispositivo de iPad, iPhone o iPod Touch para trabajar con sus cuentas de OneDrive para la empresa , así como su cuenta personal OneDrive.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-para-la-Empresa-en-iOS-ed5af2c2-39a8-4684-a17c-fcde3742d4be")),
+            };
+        }
+        //Usar One Drive en iOS y tambien para la empresa
+        public static IList<Attachment> GetUsarOneDriveEmpresaOneDriveIos()
+        {
+            return new List<Attachment>()
+            {
+                 GetHeroCardV2(
+                "Usar OneDrive en iOS",
+                "Se aplica a: Office para empresas OneDrive para la Empresa OneDrive",
+                "A continuación se muestran los conceptos básicos sobre el uso de la aplicación OneDrive para iPhone, iPad y iPod Touch. Descarga la aplicación para iOS.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-en-iOS-08d5c5b2-ccc6-40eb-a244-fe3597a3c247")),
+
+                GetHeroCardV2(
+                "Usar OneDrive para la empresa en iOS",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Usar la aplicación OneDrive en el dispositivo de iPad, iPhone o iPod Touch para trabajar con sus cuentas de OneDrive para la empresa , así como su cuenta personal OneDrive.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-para-la-Empresa-en-iOS-ed5af2c2-39a8-4684-a17c-fcde3742d4be")),
+            };
+        }
+        //Usar OneDrive para Android
+        public static IList<Attachment> GetUsarOneDriveAndroid()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Usar OneDrive para Android",
+                "Se aplica a: Office para empresas OneDrive para la Empresa OneDrive",
+                "Después de que descargue la aplicación OneDrive, expanda las secciones siguientes para obtener información sobre cómo usarla.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-para-Android-eee1d31c-792d-41d4-8132-f9621b39eb36")),
+            };
+        }
+        //Usar OneDrive en Windows Phone
+        public static IList<Attachment> GetUsarOneDriveWindowsPhone()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Usar OneDrive en Windows Phone",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Los pasos y sugerencias para las tareas más comunes con la aplicación OneDrive para Windows Phone, se enceuntran dentro del link.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-en-Windows-Phone-6d8496dd-7e1e-44fa-8dc8-b8cf6ef6a1a9")),
+            };
+        }
+        //Usar OneDrive para la Empresa en Windows Phone 
+        public static IList<Attachment> GetUsarOneDriveEmpresaWindowsPhone()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Usar OneDrive para la Empresa en Windows Phone",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Acceso a sus cuentas de OneDrive para la Empresa en Windows phone con la misma App OneDrive con la aplicación para cargar, compartir"+
+                " y trabajar con archivos en su cuenta de OneDrive para la Empresa es la misma que está trabajando con su cuenta personal.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/usar-onedrive-para-la-empresa-en-windows-phone-6b0e1e05-2b8c-48fa-8820-7f25e2290fca?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        //Usar One Drive en Windows Phone y tambien para la empresa
+        public static IList<Attachment> GetUsarOneDriveEmpresaOneDriveWindowsPhone()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Usar OneDrive en Windows Phone",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Los pasos y sugerencias para las tareas más comunes con la aplicación OneDrive para Windows Phone, se enceuntran dentro del link.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-en-Windows-Phone-6d8496dd-7e1e-44fa-8dc8-b8cf6ef6a1a9")),
+                 GetHeroCardV2(
+                "Usar OneDrive para la Empresa en Windows Phone",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Acceso a sus cuentas de OneDrive para la Empresa en Windows phone con la misma App OneDrive con la aplicación para cargar, compartir"+
+                " y trabajar con archivos en su cuenta de OneDrive para la Empresa es la misma que está trabajando con su cuenta personal.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/usar-onedrive-para-la-empresa-en-windows-phone-6b0e1e05-2b8c-48fa-8820-7f25e2290fca?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
 

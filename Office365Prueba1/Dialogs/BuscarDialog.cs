@@ -85,7 +85,8 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
-                }else if(palabra1 == "archivos" || palabra1 == "archivo")
+                }
+                else if(palabra1 == "archivos" || palabra1 == "archivo")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -93,6 +94,13 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "datos" || palabra2 == "dato")
                         {
                             reply.Attachments = RespuestasOutlook.GetBuscarArchivosDatosOutlook();
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (palabra2=="sharepoint")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetBuscarArchivosSharePointOneDrive();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
@@ -108,10 +116,41 @@ namespace Office365Prueba1.Dialogs
                         var serv = servicio.Entity.ToLower().Replace(" ", "");
                         if (serv == "onedrive")
                         {
+                            foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                            {
+                                var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                                if (palabra2 == "ios")
+                                {
+                                    reply.Attachments = RespuestasOneDrive.GetBuscarTrabajarArchivosOneDriveIos();
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    return;
+                                }
+                                else if (palabra2 == "android")
+                                {
+                                    reply.Attachments = RespuestasOneDrive.GetBuscarTrabajarArchivosOneDriveAndroid();
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    return;
+                                }
+                                else if(palabra2 == "windowsphone")
+                                {
+                                    reply.Attachments = RespuestasOneDrive.GetBuscarTrabajarArchivosOneDriveWindowsPhone();
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    return;
+                                }
+                                else
+                                {
+                                    await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                                    return;
+                                }
+                            }
                             reply.Attachments = RespuestasOneDrive.GetBuscarMoverArchivosOneDrive();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
+
                         }else if(serv == "outlook")
                         {
                             await context.PostAsync("Quizas desees saber dónde está los archivos de datos de Outlook");
@@ -133,6 +172,13 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaConsulta);
                     return;
                 }
+                else if (palabra1 == "fotos" || palabra1=="foto")
+                {
+                    reply.Attachments = RespuestasOneDrive.GetOrganizarBuscarFotosOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                } 
                 else
                 {
                     await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
