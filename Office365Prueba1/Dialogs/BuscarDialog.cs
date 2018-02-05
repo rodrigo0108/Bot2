@@ -12,8 +12,6 @@ namespace Office365Prueba1.Dialogs
         private IDialogContext context;
         private LuisResult result;
 
-        
-
         public BuscarDialog(IDialogContext context, LuisResult result)
         {
             this.context = context;
@@ -161,11 +159,10 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            await context.PostAsync($"La palabra '{serv}' no se encuentra registrada como servicio");
+                            await context.PostAsync($"'{serv}' no se encuentra registrado como servicio");
                             return;
                         }
                     }
-                    
                     await context.PostAsync("Quizás desea saber dónde está sus archivos en One Drive o donde están sus archivos de datos de Outlook, " + c.proponer());
                     reply.Attachments = RespuestasOneDrive.GetBuscarArchivosOneDriveBuscarArchivosDatosOutlook();
                     await context.PostAsync(reply);

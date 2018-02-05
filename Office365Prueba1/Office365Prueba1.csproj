@@ -121,7 +121,9 @@
     <Compile Include="Dialogs\CargarDialog.cs" />
     <Compile Include="Dialogs\CompartirDialog.cs" />
     <Compile Include="Dialogs\ConceptoDialog.cs" />
+    <Compile Include="Dialogs\CopiarDialog.cs" />
     <Compile Include="Dialogs\CrearDialog.cs" />
+    <Compile Include="Dialogs\DesactivarDialog.cs" />
     <Compile Include="Dialogs\EditarDialog.cs" />
     <Compile Include="Dialogs\EliminarDialog.cs" />
     <Compile Include="Dialogs\EnviarDialog.cs" />
@@ -131,10 +133,12 @@
     <Compile Include="Dialogs\ImportarDialog.cs" />
     <Compile Include="Dialogs\ImprimirDialog.cs" />
     <Compile Include="Dialogs\LuisDialog.cs" />
+    <Compile Include="Dialogs\MoverDialog.cs" />
     <Compile Include="Dialogs\ObtenerDialog.cs" />
     <Compile Include="Dialogs\OrganizarDialog.cs" />
     <Compile Include="Dialogs\RecuperarDialog.cs" />
     <Compile Include="Dialogs\SaludoDialog.cs" />
+    <Compile Include="Dialogs\TrabajarDialog.cs" />
     <Compile Include="Dialogs\UsarDialog.cs" />
     <Compile Include="Dialogs\VerDialog.cs" />
     <Compile Include="Global.asax.cs">
@@ -159,7 +163,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Imagenes\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

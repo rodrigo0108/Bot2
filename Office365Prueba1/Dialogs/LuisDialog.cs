@@ -64,7 +64,7 @@ namespace Office365Prueba1.Dialogs
 
         }
 
-        [LuisIntent("Consulta.DefinicionServicio")]
+        [LuisIntent("Consulta.Definicion")]
         public async Task DefinicionServicio(IDialogContext context, LuisResult result)
         {
             await new ConceptoDialog(context, result).StartAsync();
@@ -183,9 +183,29 @@ namespace Office365Prueba1.Dialogs
             await new EditarDialog(context, result).StartAsync();
         }
         [LuisIntent("Consulta.Compartir")]
-        public async Task CompartiraEditar(IDialogContext context, LuisResult result)
+        public async Task ConsultaCompartir(IDialogContext context, LuisResult result)
         {
             await new CompartirDialog(context, result).StartAsync();
+        }
+        [LuisIntent("Consulta.Desactivar")]
+        public async Task ConsultaDesactivar(IDialogContext context, LuisResult result)
+        {
+            await new DesactivarDialog(context, result).StartAsync();
+        }
+        [LuisIntent("Consulta.Mover")]
+        public async Task ConsultaMover(IDialogContext context, LuisResult result)
+        {
+            await new MoverDialog(context, result).StartAsync();
+        }
+        [LuisIntent("Consulta.Copiar")]
+        public async Task ConsultaCopiar(IDialogContext context, LuisResult result)
+        {
+            await new CopiarDialog(context, result).StartAsync();
+        }
+        [LuisIntent("Consulta.Trabajar")]
+        public async Task ConsultaTrabajar(IDialogContext context, LuisResult result)
+        {
+            await new TrabajarDialog(context, result).StartAsync();
         }
     }
 }

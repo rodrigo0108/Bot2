@@ -262,7 +262,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            await context.PostAsync($"Los lamento, la palabra '{serv}' no se encuentra registrada.");
+                            await context.PostAsync($"Los lamento, '{serv}' no se encuentra registrado.");
                             return;
                         }
                     }
@@ -305,7 +305,6 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                 }
-
             }
             await context.PostAsync($"Lo siento, su pregunta no esta registrada");
             await context.PostAsync($"O tal vez no escribió la pregunta correctamente");

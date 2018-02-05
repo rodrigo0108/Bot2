@@ -45,6 +45,19 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/obtenga-m%C3%A1s-informaci%C3%B3n-sobre-onedrive-archivos-a-petici%C3%B3n-0e6860d3-d9f3-4971-b321-7092438fb38e?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        //Planes de almacenamiento de OneDrive por país o región
+        public static IList<Attachment> GetPlanesAlmacenamientoPaisOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Planes de almacenamiento de OneDrive por país o región",
+                    "Se aplica a: Office.com OneDrive",
+                    "La información de los planes se encontrarán dentro del link, ten en cuenta que si ya tienes una suscripción a OneDrive, no podrás ver los precios en otros países o regiones.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Planes-de-almacenamiento-de-OneDrive-por-pa%C3%ADs-o-regi%C3%B3n-e00ef3b3-a37b-4d0a-9995-a0bbdd74c0ef")),
+            };
+        }
 
         //----------CARGAR-ONE DRIVE----------
         //------------------------------------
@@ -612,6 +625,93 @@ namespace Office365Prueba1.Utils
                 value: "https://support.office.com/es-es/article/usar-onedrive-para-la-empresa-en-windows-phone-6b0e1e05-2b8c-48fa-8820-7f25e2290fca?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+
+        //-------CAMBIAR-ONE DRIVE--------
+        //----------------------------
+        //Detener o cambiar el uso compartido
+        public static IList<Attachment> GetCambiarUsoCompartidoArchivoOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Detener o cambiar el uso compartido",
+                "Se aplica a: OneDrive",
+                "Si es el propietario del archivo o tiene permisos de edición, puede detener o cambiar los permisos de uso compartido.",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/inicio-r%C3%A1pido-de-onedrive-a5710114-6aeb-4bf5-a336-dffa7cc0b77a?ui=es-ES&rs=es-ES&ad=ES#ID0EAABAAA=Colaborar")),
+            };
+        }
+
+        //-------DESACTIVAR-ONE DRIVE--------
+        //----------------------------
+        //Detener o cambiar el uso compartido
+        public static IList<Attachment> GetDesactivarDesinstalarOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Desactivar o desinstalar OneDrive",
+                "Se aplica a: SharePoint Online Office para empresas Administración de Office 365, ...",
+                "Si no quiere usar OneDrive, la solución más sencilla es desvincularlo.",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/Desactivar-o-desinstalar-OneDrive-f32a17ce-3336-40fe-9c38-6efb09f944b0")),
+            };
+        }
+
+        //-------MOVER-ONE DRIVE----------
+        //--------------------------------
+        //Ordenar, cambiar el nombre o mover fotos y archivos en OneDrive
+        public static IList<Attachment> GetCambiarNombreMoverFotosArhivosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Ordenar, cambiar el nombre o mover fotos y archivos en OneDrive",
+                "Se aplica a: Office.com OneDrive",
+                "Después de cargar fotos y archivos en OneDrive, puedes reorganizarlos, cambiarles el nombre y moverlos al sitio web de OneDrive para tenerlos organizados. Es posible que tengas que iniciar sesión con tu cuenta Microsoft.",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/ordenar-cambiar-el-nombre-o-mover-fotos-y-archivos-en-onedrive-01628e6d-9d2c-4298-a1f0-933e5b20a8bf?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        //------COPIAR-ONE DRIVE----------
+        //--------------------------------
+        //Copiar archivos y carpetas entre OneDrive para la Empresa y sitios de SharePoint
+        public static IList<Attachment> GetCopiarArchivosCarpetasOneDriveSharePoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Copiar archivos o carpetas entre OneDrive y SharePoint",
+                "Se aplica a: SharePoint Online OneDrive para la Empresa Centro de administración de SharePoint Online SharePoint Online Small Business",
+                "Cuando desee compartir archivos con algún equipo de diferente procedencia, o incluso dar a otros equipos la propiedad, puede copiar archivos entre OneDrive for Business "+
+                "y un sitio de SharePoint. Puede copiar archivos y carpetas de OneDrive a SharePoint, de SharePoint a OneDrive, dentro de un sitio SharePoint o entre sitios. Incluso puede"+
+                " copiar archivos de la unidad OneDrive de otra persona a su propia unidad OneDrive.",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/Copiar-archivos-y-carpetas-entre-OneDrive-para-la-Empresa-y-sitios-de-SharePoint-67a6323e-7fd4-4254-99a8-35613492a82f")),
+            };
+        }
+
+        //------TRABAJAR-ONE DRIVE--------
+        //--------------------------------
+        //Trabajar de manera conjunta en documentos de Office en OneDrive
+        public static IList<Attachment> GetTrabajarManeraConjuntaOfficeOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Trabajar de manera conjunta en documentos de Office en One Drive",
+                "Se aplica a: Excel Online Word Online PowerPoint Online OneNote Online Office.com",
+                "Con Office Online es fácil trabajar con otras personas porque puede enviar vínculos a documentos en lugar de enviar datos adjuntos. De este modo, ahorrará almacenamiento "+
+                "de correo electrónico y evitará tener que conciliar varias versiones del mismo documento.",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/trabajar-de-manera-conjunta-en-documentos-de-office-en-onedrive-ea3807bc-2b73-406f-a8c9-a493de18258b")),
+            };
+        }
+
+
+
+
 
         // ----------------------------------------------------------------------- 
 

@@ -572,6 +572,56 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Cambiar-el-modo-en-que-ve-el-calendario-de-Outlook-a4e0dfd2-89a1-4770-9197-a3e786f4cd8f?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Cambiar el nombre para mostrar lo que ven los destinatarios de correo electrónico
+        public static IList<Attachment> GetCambiarNombre()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar el nombre para mostrar lo que ven los destinatarios de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Si los destinatarios de correo electrónico ven solo una parte de su nombre, pero quiere que vean el " +
+                    "nombre completo, puede realizar fácilmente el cambio deseado. La presentación puede mostrar solo una " +
+                    "parte del nombre si no escribió su nombre completo al configurar su cuenta de correo por primera vez.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-el-nombre-para-mostrar-lo-que-ven-los-destinatarios-de-correo-electr%C3%B3nico-2b53331a-ba2a-4803-88dc-ac9fe376c8a9")),
+            };
+        }
+        // Mover o cambiar el nombre de una carpeta en Outlook.com
+        public static IList<Attachment> GetCambiarNombreCarpeta()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mover o cambiar el nombre de una carpeta en Outlook.com",
+                    "Se aplica a: Outlook.com",
+                    "Puede arrastrar una carpeta en Outlook.com a un nuevo lugar en la jerarquía de carpetas, o bien " +
+                    "puede usar la opción mover en el menú contextual. También puede cambiar el nombre de las carpetas que cree.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mover-o-cambiar-el-nombre-de-una-carpeta-en-Outlook-com-c9c66fed-8a7c-426a-afc6-0d46a72080fb")),
+            };
+        }
+        // Mover o cambiar el nombre de una carpeta en Outlook.com
+        // Como cambiar el nombre de una categoría de color
+        public static IList<Attachment> GetCambiarNombreCarpetaYCategoria()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mover o cambiar el nombre de una carpeta en Outlook.com",
+                    "Se aplica a: Outlook.com",
+                    "Puede arrastrar una carpeta en Outlook.com a un nuevo lugar en la jerarquía de carpetas, o bien " +
+                    "puede usar la opción mover en el menú contextual. También puede cambiar el nombre de las carpetas que cree.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mover-o-cambiar-el-nombre-de-una-carpeta-en-Outlook-com-c9c66fed-8a7c-426a-afc6-0d46a72080fb")),
+                 GetHeroCardV2(
+                    "Como cambiar el nombre de una categoría de color",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Las categorías de color son una excelente forma de agrupar visualmente mensajes, tareas, contactos o eventos de calendario que se parecen.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-nombre-de-una-categor%C3%ADa-de-color-692ab131-525a-467b-8cbd-4b08346d5346")),
+            };
+        }
         // Cambiar el sonido reproducido cuando se recibe un mensaje de correo
         public static IList<Attachment> GetCambiarSonidoReproducidoMensajeCorreo()
         {
@@ -726,6 +776,20 @@ namespace Office365Prueba1.Utils
                     "El calendario de Outlook está completamente integrado con el correo electrónico, los contactos y otras características, lo que lo convierte en una de las funciones más apreciadas de Outlook.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Pr%C3%A1cticas-recomendadas-para-las-organizaciones-cuando-se-usa-el-calendario-de-Outlook-d93f72d3-2361-4e0d-8d6a-5c4939c17f39?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Configuración de Correo
+        public static IList<Attachment> GetCambiarConfiguracionCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Configuración de Correo",
+                    "Se aplica a: Outlook Web App",
+                    "Personalizar la configuración para los mensajes que envía y recibe con Outlook Web App. Puede hacer cosas como configurar una firma se agregue a los mensajes que envíe o controlar el seguimiento de mensajes.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-la-foto-y-la-informaci%C3%B3n-de-cuenta-en-outlook-en-la-web-b2dbb289-851d-4bed-93c3-3e136f5659ec")),
+
             };
         }
 
@@ -1484,6 +1548,58 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        //--------------------
+        //DESACTIVAR
+        //Activar o desactivar las alertas de escritorio
+        public static IList<Attachment> GetDesactivarActivarAlertasEscritorio()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCard(
+                    "Activar o desactivar las alertas de escritorio",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Una Alerta de escritorio es una notificación que aparece en su escritorio cuando recibe un nuevo mensaje de correo " +
+                    "electrónico, una convocatoria de reunión o una solicitud de tarea. De manera predeterminada, las Alertas de escritorio están activadas.",
+                    new CardImage(url: "https://support.content.office.net/es-es/media/4162fda4-1b30-407d-bf2d-56ac8dabcee3.jpg")),
+                GetVideoCard(
+                    "Activar o desactivar las alertas de escritorio",
+                    "Desactivar ventana de alerta",
+                    "https://videocontent.osi.office.net/367cb3e3-121b-4e18-9662-1055bf6757ab/7a6cc676-5ef0-44c6-a7be-aa84ebd2bd08_1280x720_3400.mp4",
+                    "https://support.office.com/es-es/article/activar-y-desactivar-las-alertas-de-escritorio-9940c70e-b306-442e-a856-d94b20318481?ui=es-ES&rs=es-ES&ad=ES"),
+            };
+        }
+        //Activar o desactivar Otros correos en Outlook
+        public static IList<Attachment> GetDesactivarActivarOtrosCorreosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Activar o desactivar Otros correos en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Administración de Office 365, ...",
+                    "Outlook brinda la posibilidad de que el usuario pueda administrar la opción 'Otros correos' libremente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/activar-o-desactivar-otros-correos-en-outlook-a9c72a77-1bc4-40e6-ba6d-103c1d1aba4c?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
+
+        //--------------------
+        //MOVER
+        //Mover un archivo de datos de Outlook
+        public static IList<Attachment> GetMoverArchivoDatosOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mover un archivo de datos de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "En este artículo se explica cómo mover un archivo de datos de Outlook. Se supone que sabe cómo hacer copia "+
+                    "de seguridad de los archivos de datos de Outlook y que han hecho antes de seguir estos procedimientos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mover-un-Archivo-de-datos-de-Outlook-e7b2e7b2-fb87-406c-85c7-04d4b69cf9a0")),
+
+            };
+        }
         // ----------------------------------------------------------------------- 
         // PREGUNTAS NO IMPLEMENTADAS 
 

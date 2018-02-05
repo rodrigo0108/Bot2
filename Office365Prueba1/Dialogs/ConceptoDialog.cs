@@ -22,6 +22,7 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+            Constantes c = Constantes.Instance;
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -44,6 +45,48 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaConsulta);
                     return;
                 }
+                else if (palabra1=="plan" || palabra1=="planes" || palabra1=="precio" || palabra1=="precios")
+                {
+                    foreach(var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "almacenamiento" || palabra2 == "almacenamientos")
+                        {
+                            foreach (var entityP3 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra3"))
+                            {
+                                var palabra3 = entityP3.Entity.ToLower().Replace(" ", "");
+                                if (palabra3 == "región" || palabra3 == "regiones" || palabra3 == "país" || palabra3 == "paises")
+                                {
+                                    reply.Attachments = RespuestasOneDrive.GetPlanesAlmacenamientoPaisOneDrive();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    return;
+                                }
+                                else
+                                {
+                                    await context.PostAsync($"¿{palabra3}?, por favor vuelva a escribir la consulta correctamente");
+                                    return;
+                                }
+                            }
+                            reply.Attachments = RespuestasOneDrive.GetPlanesAlmacenamientoPaisOneDrive();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            return;
+                        }
+                    }
+                    await context.PostAsync("Quizás desea saber cuáles son los plantes de almacenamiento por región o por país de One Drive, " + c.proponer());
+                    reply.Attachments = RespuestasOneDrive.GetPlanesAlmacenamientoPaisOneDrive();
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
                 else
                 {
                     await context.PostAsync($"Lo siento '{palabra1}' no se encuentra registrado.");
@@ -52,7 +95,7 @@ namespace Office365Prueba1.Dialogs
             }
                 //obtener el producto si este fue elegido de forma explicita
                 foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
-            {
+                {
                 var value = entity.Entity.ToLower().Replace(" ", "");
 
                 if (value == "outlook" || value == "outlok")
@@ -113,7 +156,6 @@ namespace Office365Prueba1.Dialogs
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);
-                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "Excel")
@@ -122,7 +164,6 @@ namespace Office365Prueba1.Dialogs
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);
-                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "Outlook")
@@ -131,7 +172,6 @@ namespace Office365Prueba1.Dialogs
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);
-                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "PowerPoint")
@@ -140,7 +180,6 @@ namespace Office365Prueba1.Dialogs
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);
-                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else if (servicio == "OneDrive")
@@ -149,7 +188,6 @@ namespace Office365Prueba1.Dialogs
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);
-                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                 return;
             }
             else
