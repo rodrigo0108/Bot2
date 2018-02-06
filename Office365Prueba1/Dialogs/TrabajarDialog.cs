@@ -20,6 +20,9 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+            var accion = "Trabajar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
             string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
             Constantes c = Constantes.Instance;

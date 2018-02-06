@@ -21,17 +21,12 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
-            Random rnd = new Random();
-
-            string[] respuestas = {
-                        "¡Mira! \U0001F604, tengo esto: ",
-                        "tengo esto: \U0001F603 ",
-                        "encontré la siguiente respuesta \U0001F601",
-                        "pude encontrar lo siguiente \U0001F600"
-                    };
-            int mIndex = rnd.Next(0, respuestas.Length);
+           
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+
+            var accion = "Crear";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
 
             string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
             string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
@@ -41,10 +36,13 @@ namespace Office365Prueba1.Dialogs
             string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
             string preguntaConsulta = "si tiene otra consulta por favor hágamelo saber";
 
+            Constantes c = Constantes.Instance;
+
             // Se detectó la primera parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
+                context.PrivateConversationData.SetValue<string>("Palabra1", palabra1);
                 // -------------------------------------------------------------------
                 // La primera parte de la pregunta es firma 
                 if (palabra1 == "firma" || palabra1 == "firmas")
@@ -413,7 +411,7 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como crear un documento desde One Drive, " + respuestas[mIndex]);
+                    await context.PostAsync($"Quizás desea saber como crear un documento desde One Drive, " + c.proponer());
                     reply.Attachments = RespuestasOneDrive.GetCrearDocumentoDesdeOneDrive();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");

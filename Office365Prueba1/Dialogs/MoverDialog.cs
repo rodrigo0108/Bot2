@@ -19,11 +19,18 @@ namespace Office365Prueba1.Dialogs
         }
         public async Task StartAsync()
         {
-            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
-            string preguntaConsulta = "¿Tiene alguna otra consulta?";
-            Constantes c = Constantes.Instance;
+            var accion = "Mover";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
+            string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
+
+            Constantes c = Constantes.Instance;
 
             // Recorrido de la primera parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
@@ -44,13 +51,17 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "datos" || palabra2 == "dato")
                         {
                             reply.Attachments = RespuestasOutlook.GetMoverArchivoDatosOutlook();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            reply.Attachments = RespuestasOutlook.GetMoverArchivoDatosOutlook();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra1}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
                             return;
                         }
                     }
@@ -60,6 +71,7 @@ namespace Office365Prueba1.Dialogs
                         if (serv == "outlook")
                         {
                             reply.Attachments = RespuestasOutlook.GetMoverArchivoDatosOutlook();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
@@ -67,6 +79,7 @@ namespace Office365Prueba1.Dialogs
                         else if (serv == "onedrive")
                         {
                             reply.Attachments = RespuestasOneDrive.GetCambiarNombreMoverFotosArhivosOneDrive();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
@@ -83,6 +96,7 @@ namespace Office365Prueba1.Dialogs
                     if (servicio == "Outlook")
                     {
                         reply.Attachments = RespuestasOutlook.GetMoverArchivoDatosOutlook();
+                        await context.PostAsync(confirmacionRespuesta1);
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         return;
@@ -90,6 +104,7 @@ namespace Office365Prueba1.Dialogs
                     else if (servicio == "OneDrive")
                     {
                         reply.Attachments = RespuestasOneDrive.GetCambiarNombreMoverFotosArhivosOneDrive();
+                        await context.PostAsync(confirmacionRespuesta1);
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         return;
@@ -105,7 +120,12 @@ namespace Office365Prueba1.Dialogs
                     }
                 }
             }
-           
+            // No se detectó la primera parte de la pregunta
+            await context.PostAsync(preguntaNoRegistrada2);
+            reply.Attachments = Cards.GetConsultaV2();
+            await context.PostAsync(reply);
+            await context.PostAsync("O tal vez no escribió la pregunta correctamente");
+            return;
         }
     }
 }

@@ -106,6 +106,56 @@
   <ItemGroup>
     <Content Include="default.htm" />
     <Content Include="Global.asax" />
+    <Content Include="Images\aprendizajeDeOutlook.png" />
+    <Content Include="Images\Excel\Destacados\1.png" />
+    <Content Include="Images\Excel\Destacados\2.png" />
+    <Content Include="Images\Excel\Destacados\3.png" />
+    <Content Include="Images\Excel\Destacados\4.png" />
+    <Content Include="Images\Excel\Destacados\5.png" />
+    <Content Include="Images\Excel\Destacados\6.png" />
+    <Content Include="Images\Excel\Destacados\7.png" />
+    <Content Include="Images\Excel\Destacados\8.png" />
+    <Content Include="Images\Excel\Destacados\9.png" />
+    <Content Include="Images\OneDrive\Destacados\1.png" />
+    <Content Include="Images\OneDrive\Destacados\2.png" />
+    <Content Include="Images\OneDrive\Destacados\3.png" />
+    <Content Include="Images\OneDrive\Destacados\4.png" />
+    <Content Include="Images\OneDrive\Destacados\5.png" />
+    <Content Include="Images\OneDrive\Destacados\6.png" />
+    <Content Include="Images\OneDrive\Destacados\7.png" />
+    <Content Include="Images\OneDrive\Destacados\8.png" />
+    <Content Include="Images\OneNote\Destacados\1.png" />
+    <Content Include="Images\OneNote\Destacados\2.png" />
+    <Content Include="Images\OneNote\Destacados\3.png" />
+    <Content Include="Images\OneNote\Destacados\4.png" />
+    <Content Include="Images\OneNote\Destacados\5.png" />
+    <Content Include="Images\OneNote\Destacados\6.png" />
+    <Content Include="Images\OneNote\Destacados\7.png" />
+    <Content Include="Images\OneNote\Destacados\8.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook1.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook2.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook3.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook4.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook5.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook6.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook7.png" />
+    <Content Include="Images\Outlook\Destacados\destacadosOutlook8.png" />
+    <Content Include="Images\PowerPoint\Destacados\1.png" />
+    <Content Include="Images\PowerPoint\Destacados\2.png" />
+    <Content Include="Images\PowerPoint\Destacados\3.png" />
+    <Content Include="Images\PowerPoint\Destacados\4.png" />
+    <Content Include="Images\PowerPoint\Destacados\5.png" />
+    <Content Include="Images\PowerPoint\Destacados\6.png" />
+    <Content Include="Images\PowerPoint\Destacados\7.png" />
+    <Content Include="Images\PowerPoint\Destacados\8.png" />
+    <Content Include="Images\Word\Destacados\1.png" />
+    <Content Include="Images\Word\Destacados\2.png" />
+    <Content Include="Images\Word\Destacados\3.png" />
+    <Content Include="Images\Word\Destacados\4.png" />
+    <Content Include="Images\Word\Destacados\5.png" />
+    <Content Include="Images\Word\Destacados\6.png" />
+    <Content Include="Images\Word\Destacados\7.png" />
+    <Content Include="Images\Word\Destacados\8.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -121,11 +171,13 @@
     <Compile Include="Dialogs\CargarDialog.cs" />
     <Compile Include="Dialogs\CompartirDialog.cs" />
     <Compile Include="Dialogs\ConceptoDialog.cs" />
+    <Compile Include="Dialogs\ConsultaSecundariaDialog.cs" />
     <Compile Include="Dialogs\CopiarDialog.cs" />
     <Compile Include="Dialogs\CrearDialog.cs" />
     <Compile Include="Dialogs\DesactivarDialog.cs" />
     <Compile Include="Dialogs\EditarDialog.cs" />
     <Compile Include="Dialogs\EliminarDialog.cs" />
+    <Compile Include="Dialogs\EncontrarDialog.cs" />
     <Compile Include="Dialogs\EnviarDialog.cs" />
     <Compile Include="Dialogs\EstablecerDialog.cs" />
     <Compile Include="Dialogs\ExportarDialog.cs" />
@@ -138,6 +190,7 @@
     <Compile Include="Dialogs\OrganizarDialog.cs" />
     <Compile Include="Dialogs\RecuperarDialog.cs" />
     <Compile Include="Dialogs\SaludoDialog.cs" />
+    <Compile Include="Dialogs\SincronizarDialog.cs" />
     <Compile Include="Dialogs\TrabajarDialog.cs" />
     <Compile Include="Dialogs\UsarDialog.cs" />
     <Compile Include="Dialogs\VerDialog.cs" />
@@ -163,9 +216,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Imagenes\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

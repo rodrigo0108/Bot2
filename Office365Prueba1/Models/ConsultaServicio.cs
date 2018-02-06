@@ -41,7 +41,7 @@ namespace Office365Prueba1.Models
                 context.PrivateConversationData.SetValue<string>("tipoServicio", order.TipoDeServicio.ToString());
                 context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
 
-                await context.PostAsync($"Entonces estimado {name}, ¿En qué te puedo ayudar respecto a {servicio}? ");
+                await context.PostAsync($"Entonces estimad@ {name}, ¿En qué te puedo ayudar respecto a {servicio}? ");
 
                 if (servicio == "Word")
                 {

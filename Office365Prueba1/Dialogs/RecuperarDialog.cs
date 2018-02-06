@@ -21,6 +21,9 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+            var accion = "Recuperar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 

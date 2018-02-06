@@ -21,9 +21,20 @@ namespace Office365Prueba1.Dialogs
         }
         public async Task StartAsync()
         {
-            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+
+            var accion = "Eliminar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
+            string preguntaNoRegistrada1 = "Lo siento, su pregunta no esta registrada, tal vez no escribió la pregunta correctamente";
+            string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
+            string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
+            string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
 
             // Recorrido de la primera parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
@@ -37,26 +48,32 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "color")
                         {
                             reply.Attachments = RespuestasOutlook.GetEliminarCategoriaColor();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            reply.Attachments = RespuestasOutlook.GetEliminarCategoriaColor();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como eliminar una categoría de color, tengo esto: ");
+                    // No se detectó la segunda parte de la pregunta
                     reply.Attachments = RespuestasOutlook.GetEliminarCategoriaColor();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
-                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");                    
                     return;
 
                 }
                 else if (palabra1 == "archivos" || palabra1 == "archivo" || palabra1 == "carpetas" || palabra1 == "carpeta")
                 {
                     reply.Attachments = RespuestasOneDrive.GetEliminarArchivosCarpetasOneDrive();
+                    await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -66,12 +83,13 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync($"Lo siento, su pregunta no esta registrada");
                     await context.PostAsync($"O tal vez no la escribió correctamente, ¿{palabra1}?");
                     return;
-
                 }
             }
-            // Si el usuario no ingreso la segunda parte de la pregunta
-            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
-            await context.PostAsync($"O tal vez no escribió la pregunta correctamente");
+            // No se detectó la primera parte de la pregunta
+            await context.PostAsync(preguntaNoRegistrada2);
+            reply.Attachments = Cards.GetConsultaV2();
+            await context.PostAsync(reply);
+            await context.PostAsync("O tal vez no escribió la pregunta correctamente");
             return;
         }
     }

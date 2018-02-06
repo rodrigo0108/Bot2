@@ -19,12 +19,16 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
-            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
-            string preguntaConsulta = "¿Tiene alguna otra consulta?";
-            Constantes c = Constantes.Instance;
+            var accion = "Copiar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+
+            Constantes c = Constantes.Instance;
             // Recorrido de la primera parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {

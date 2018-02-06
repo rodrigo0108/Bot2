@@ -19,7 +19,18 @@ namespace Office365Prueba1.Dialogs
         }
         public async Task StartAsync()
         {
+            var accion = "Buscar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
+            string preguntaNoRegistrada1 = "Lo siento, su pregunta no esta registrada, tal vez no escribió la pregunta correctamente";
+            string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
+            string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
+            string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
+            string preguntaConsulta2 = "si necesita más información por favor hágamelo saber";
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
+
             Constantes c = Constantes.Instance;
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
@@ -31,6 +42,7 @@ namespace Office365Prueba1.Dialogs
                 if (palabra1 == "personas" || palabra1 == "persona" || palabra1 == "contactos" || palabra1 == "contacto")
                 {
                     reply.Attachments = RespuestasOutlook.GetBuscarPersonasOutlook();
+                    await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -43,18 +55,23 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "busquedainstantanea" || palabra2 == "búsquedainstantánea" || palabra2 == "búsquedainstantanea" || palabra2 == "busquedainstantánea" || palabra2 =="búsqueda" || palabra2 == "busqueda")
                         {
                             reply.Attachments = RespuestasOutlook.GetBuscarMensajeBusquedaInstantanea();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            reply.Attachments = RespuestasOutlook.GetBuscarMensajeBusquedaInstantanea();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
                             return;
                         }
                     }
 
                     reply.Attachments = RespuestasOutlook.GetBuscarMensajesOutlook();
+                    await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -68,13 +85,17 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "archivos" || palabra2 == "archivo")
                         {
                             reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            reply.Attachments = RespuestasOutlook.GetBuscarElementosArchivosDatos();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
                             return;
                         }
                     }
@@ -178,13 +199,16 @@ namespace Office365Prueba1.Dialogs
                 } 
                 else
                 {
-                    await context.PostAsync($"¿{palabra1}?, por favor vuelva a escribir la consulta correctamente");
+                    await context.PostAsync(preguntaNoRegistrada2);
+                    await context.PostAsync($"O tal vez no escribió correctamente la palabra '{palabra1}'?");
                     return;
                 }                
             }
-            // Si el usuario no ingreso la segunda parte de la pregunta
-            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
-            await context.PostAsync($"O tal vez no escribió la pregunta correctamente");
+            // No se detectó la primera parte de la pregunta
+            await context.PostAsync(preguntaNoRegistrada2);
+            reply.Attachments = Cards.GetConsultaV2();
+            await context.PostAsync(reply);
+            await context.PostAsync("O tal vez no escribió la pregunta correctamente");
             return;
         }
 

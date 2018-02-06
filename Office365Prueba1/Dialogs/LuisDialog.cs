@@ -30,7 +30,7 @@ namespace Office365Prueba1.Dialogs
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
-            await context.PostAsync("Perdon, no entiendo lo que estas diciendo");
+            await context.PostAsync("Perdón, no entiendo lo que estás diciendo.");
 
             reply.Attachments = Cards.GetConsulta();
             await context.PostAsync(reply);
@@ -53,6 +53,14 @@ namespace Office365Prueba1.Dialogs
             Constantes c = Constantes.Instance;
             await context.PostAsync(c.despedir());
 
+        }
+        // La accion del usuario es de una consulta secundaria
+        [LuisIntent("Consulta.Secundaria")]
+        public async Task ConsultaSecundaria(IDialogContext context, LuisResult result)
+        {
+            // --------> Se tiene respuesta hasta EliminarDialog <----------
+            await new ConsultaSecundariaDialog(context, result).StartAsync();
+            // --------> Se tiene respuesta hasta EliminarDialog <----------
         }
 
         [LuisIntent("Consulta.ServicioGeneral")]
@@ -206,6 +214,11 @@ namespace Office365Prueba1.Dialogs
         public async Task ConsultaTrabajar(IDialogContext context, LuisResult result)
         {
             await new TrabajarDialog(context, result).StartAsync();
+        }
+        [LuisIntent("Consulta.Encontrar")]
+        public async Task ConsultaEncontrar(IDialogContext context, LuisResult result)
+        {
+            await new EncontrarDialog(context, result).StartAsync();
         }
     }
 }

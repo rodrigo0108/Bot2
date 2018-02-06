@@ -58,6 +58,34 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Planes-de-almacenamiento-de-OneDrive-por-pa%C3%ADs-o-regi%C3%B3n-e00ef3b3-a37b-4d0a-9995-a0bbdd74c0ef")),
             };
         }
+        //Formatos de vídeo que se pueden reproducir en el sitio web de OneDrive
+        public static IList<Attachment> GetFormatoVideoPermitidosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Formatos de vídeo que se pueden reproducir en el sitio web de OneDrive",
+                    "Se aplica a: OneDrive",
+                    "Puede reproducir archivos de audio y vídeo mayoría, incluidos mp4, archivos de película de Apple y QuickTime directamente desde el sitio Web de OneDrive.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Formatos-de-v%C3%ADdeo-que-se-pueden-reproducir-en-el-sitio-web-de-OneDrive-07c008b2-70e4-4ced-8a9b-f25bed77196a")),
+            };
+        }
+        //Requisitos del sistema de OneDrive
+        public static IList<Attachment> GetRequisitosSistemaOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Requisitos del sistema de OneDrive",
+                    "Se aplica a: OneDrive",
+                    "La aplicación de escritorio de sincronización de OneDrive requiere lo siguiente: Sistema operativo(versión de 32 bits o de 64 bits de Windows 10, Windows 8/8.1 o Windows 7),"+
+                    " procesador(1,6 GHz o superior), memoria(1 GB de RAM o más), resolución(1024 x 576 como mínimo), conexión a internet(se recomienda disponer de acceso a Internet de alta velocidad),"+
+                    " sistemas de archivos(NTFS o HFS + (no distingue mayúsculas de minúsculas)).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/requisitos-del-sistema-de-onedrive-cc0cb2b8-f446-445c-9b52-d3c2627d681e?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
 
         //----------CARGAR-ONE DRIVE----------
         //------------------------------------
@@ -709,9 +737,37 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        //-----SINCRONIZAR-ONE DRIVE------
+        //--------------------------------
+        //Sincronizar la carpeta de documentos con OneDrive
+        public static IList<Attachment> GetSincronizarCarpetaDocumentosOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Sincronizar la carpeta de documentos con OneDrive",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "¿Desea sincronizar automáticamente la carpeta de documentos con OneDrive o OneDrive para la Empresa ? Siga este procedimiento.",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/Sincronizar-la-carpeta-de-documentos-con-OneDrive-0f4ddfd3-4a72-4013-9d94-181dab6be19a")),
+            };
+        }
 
-
-
+        //-----ENCONTRAR-ONE DRIVE------
+        //--------------------------------
+        //Encontrar archivos perdidos o que faltan en OneDrive
+        public static IList<Attachment> GetEncontrarArchivosPerdidosFaltanOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Encontrar archivos perdidos o que faltan en OneDrive",
+                "Se aplica a: Office.com OneDrive",
+                "Puedes buscar archivos, fotos e incluso texto dentro de archivos y fotos. Selecciona Buscar en la barra superior y escribe la frase que quieras en el cuadro de búsqueda. Funciona también en la aplicación móvil de OneDrive. ",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/Encontrar-archivos-perdidos-o-que-faltan-en-OneDrive-0d929e0d-8682-4295-982b-4bd75a3daa01")),
+            };
+        }
 
         // ----------------------------------------------------------------------- 
 

@@ -20,21 +20,21 @@ namespace Office365Prueba1.Dialogs
         }
         public async Task StartAsync()
         {
-            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            var accion = "Exportar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
-            Random rnd = new Random();
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
+            string preguntaNoRegistrada1 = "Lo siento, su pregunta no esta registrada, tal vez no escribió la pregunta correctamente";
+            string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
+            string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
+            string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
+            string preguntaConsulta = "¿Tiene alguna otra consulta?";
 
-            string[] respuestas = {
-                        "¡Mira! \U0001F604, tengo esto: ",
-                        "tengo esto: \U0001F603 ",
-                        "encontré la siguiente respuesta \U0001F601",
-                        "pude encontrar lo siguiente \U0001F600"
-                    };
-
-
-            int mIndex = rnd.Next(0, respuestas.Length);
+            Constantes c = Constantes.Instance;
 
             // Recorrido de la primera parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
@@ -48,30 +48,34 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "google" || palabra2=="googol")
                         {
                             reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            //context.Wait(MessageReceived);
                             return;
                         }
                         else
                         {
-                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
-                            //context.Wait(MessageReceived);
+                            reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como exportar un calendario de Outlook a Google Calendar, " + respuestas[mIndex]);
+                    // No se detectó la segunda parte de la pregunta
                     reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
-                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
 
-                }else if (palabra1=="correoelectrónico" || palabra1== "correoelectrónicos" || palabra1 == "correoelectronico" || palabra1 == "correoelectronicos" || palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "calendario" || palabra1 == "calendarios" || palabra1=="correo" || palabra1=="correos")
+                }
+                else if (palabra1=="correoelectrónico" || palabra1== "correoelectrónicos" || palabra1 == "correoelectronico" || palabra1 == "correoelectronicos" || palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "calendario" || palabra1 == "calendarios" || palabra1=="correo" || palabra1=="correos")
                 {
                     reply.Attachments = RespuestasOutlook.GetExportarCorreoContactosCalendarioOutlook();
+                    await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
-                    //context.Wait(MessageReceived);
                     return;
                 }
                 else
@@ -81,9 +85,11 @@ namespace Office365Prueba1.Dialogs
                     return;
                 }
             }
-            // Si el usuario no ingreso la segunda parte de la pregunta
-            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
-            await context.PostAsync($"O tal vez no escribió la pregunta correctamente");
+            // No se detectó la primera parte de la pregunta
+            await context.PostAsync(preguntaNoRegistrada2);
+            reply.Attachments = Cards.GetConsultaV2();
+            await context.PostAsync(reply);
+            await context.PostAsync("O tal vez no escribió la pregunta correctamente");
             return;
         }
     }

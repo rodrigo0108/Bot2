@@ -30,6 +30,9 @@ namespace Office365Prueba1.Dialogs
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
+            var accion = "Agregar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
+
             string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
             string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
             string preguntaNoRegistrada1 = "Lo siento, su pregunta no esta registrada, tal vez no escribió la pregunta correctamente";
@@ -43,7 +46,7 @@ namespace Office365Prueba1.Dialogs
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
                 context.PrivateConversationData.SetValue<string>("Palabra1", palabra1);
-                if (palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "nombres" || palabra1 == "nombre" || palabra1 == "personas" || palabra1 == "persona" || palabra1 == "contactos" || palabra1 == "contacto" || palabra1 == "correos" || palabra1 == "correo" || palabra1 == "emails" || palabra1 == "email" || palabra1 == "correoselectronicos" || palabra1 == "correoselectrónicos" || palabra1 == "correoelectronico" || palabra1 == "correoelectrónico")
+                if (palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "correos" || palabra1 == "correo" || palabra1 == "emails" || palabra1 == "email")
                 {
                     // Recorrido de la segunda parte de la pregunta
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
@@ -73,7 +76,7 @@ namespace Office365Prueba1.Dialogs
                                 }
                                 else
                                 {
-                                    reply.Attachments = RespuestasOutlook.GetContactoYLista();
+                                    reply.Attachments = RespuestasOutlook.GetContactoYBloqueados();
                                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                                     await context.PostAsync(reply);
@@ -81,7 +84,7 @@ namespace Office365Prueba1.Dialogs
                                 }
                             }
                             // No se detectó la tercera parte de la pregunta
-                            reply.Attachments = RespuestasOutlook.GetContactoYLista();
+                            reply.Attachments = RespuestasOutlook.GetContactoYBloqueados();
                             await context.PostAsync(preguntaNoRegistrada1);
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -107,6 +110,66 @@ namespace Office365Prueba1.Dialogs
                     }
                     // No se detectó la segunda parte de la pregunta
                     reply.Attachments = RespuestasOutlook.GetContactoYListaYCategorias();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta2);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "nombres" || palabra1 == "nombre" || palabra1 == "personas" || palabra1 == "persona")
+                {
+                    // Recorrido de la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "lista" || palabra2 == "listas" || palabra2 == "grupos" || palabra2 == "grupo")
+                        {
+                            // Recorrido de la tercera parte de la pregunta
+                            foreach (var entityP3 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra3"))
+                            {
+                                var palabra3 = entityP3.Entity.ToLower().Replace(" ", "");
+                                if (palabra3 == "bloqueados" || palabra3 == "bloqueado" || palabra3 == "nodeseados" || palabra3 == "nodeseadas" || palabra3 == "detestable" || palabra3 == "detestables")
+                                {
+                                    reply.Attachments = RespuestasOutlook.GetNombresListasBloqueados();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    return;
+                                }
+                                else if (palabra3 == "contactos" || palabra3 == "contacto")
+                                {
+                                    reply.Attachments = RespuestasOutlook.GetAgregarContactoListaContactos();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    return;
+                                }
+                                else
+                                {
+                                    reply.Attachments = RespuestasOutlook.GetContactoYBloqueados();
+                                    await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
+                                    await context.PostAsync(opcionSecundarioDeRespuesta2);
+                                    await context.PostAsync(reply);
+                                    return;
+                                }
+                            }
+                            // No se detectó la tercera parte de la pregunta
+                            reply.Attachments = RespuestasOutlook.GetContactoYBloqueados();
+                            await context.PostAsync(preguntaNoRegistrada1);
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasOutlook.GetContactoYBloqueados();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasOutlook.GetContactoYBloqueados();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                     await context.PostAsync(reply);
@@ -463,7 +526,6 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                             return;
 
                         case "Outlook":
@@ -471,28 +533,24 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                             return;
                         case "Excel":
                             reply.Attachments = Cards.GetAdjuntarArchivosExcel();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                             return;
                         case "PowerPoint":
                             reply.Attachments = Cards.GetAdjuntarArchivosPowerPoint();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                             return;
                         case "OneNote":
                             reply.Attachments = Cards.GetAgregarArchivosOneNote();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
-                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                             return;
                     }
 

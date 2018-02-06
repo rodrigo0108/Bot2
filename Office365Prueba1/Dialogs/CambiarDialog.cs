@@ -11,16 +11,13 @@ namespace Office365Prueba1.Dialogs
     {
         private IDialogContext context;
         private LuisResult result;
-        //public int estado;
 
         public CambiarDialog(IDialogContext context, LuisResult result)
         {
             this.context = context;
             this.result = result;
-          
         }
-
-
+        
         public async Task StartAsync()
         {
             var reply = context.MakeMessage();
