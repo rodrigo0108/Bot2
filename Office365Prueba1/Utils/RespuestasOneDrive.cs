@@ -763,7 +763,7 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                 "Encontrar archivos perdidos o que faltan en OneDrive",
                 "Se aplica a: Office.com OneDrive",
-                "Puedes buscar archivos, fotos e incluso texto dentro de archivos y fotos. Selecciona Buscar en la barra superior y escribe la frase que quieras en el cuadro de búsqueda. Funciona también en la aplicación móvil de OneDrive. ",
+                "Puedes buscar archivos, fotos e incluso texto dentro de archivos y fotos.\r\r Selecciona Buscar en la barra superior y escribe la frase que quieras en el cuadro de búsqueda.\r\r Funciona también en la aplicación móvil de OneDrive. ",
                 new CardAction(ActionTypes.OpenUrl, "Ver información",
                 value: "https://support.office.com/es-es/article/Encontrar-archivos-perdidos-o-que-faltan-en-OneDrive-0d929e0d-8682-4295-982b-4bd75a3daa01")),
             };

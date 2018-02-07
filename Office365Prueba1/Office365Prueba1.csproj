@@ -169,6 +169,7 @@
     <Compile Include="Dialogs\BuscarDialog.cs" />
     <Compile Include="Dialogs\CambiarDialog.cs" />
     <Compile Include="Dialogs\CargarDialog.cs" />
+    <Compile Include="Dialogs\CombinarDialog.cs" />
     <Compile Include="Dialogs\CompartirDialog.cs" />
     <Compile Include="Dialogs\ConceptoDialog.cs" />
     <Compile Include="Dialogs\ConsultaSecundariaDialog.cs" />
@@ -204,11 +205,13 @@
     <Compile Include="Utils\NoRegister.cs" />
     <Compile Include="Utils\RespuestasOneDrive.cs" />
     <Compile Include="Utils\RespuestasOutlook.cs" />
+    <Compile Include="Utils\RespuestasWord.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Properties\PublishProfiles\Office365Botv1 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

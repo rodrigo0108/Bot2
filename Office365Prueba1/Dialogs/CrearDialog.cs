@@ -363,7 +363,7 @@ namespace Office365Prueba1.Dialogs
                         // La segunda parte de la pregunta es colores
                         if (servicio == "word")
                         {
-                            reply.Attachments = Cards.GetCrearDocumentoWord();
+                            reply.Attachments = RespuestasWord.GetCrearDocumentoWord();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -391,7 +391,7 @@ namespace Office365Prueba1.Dialogs
                         // La segunda parte de la pregunta es colores
                         if (servicio == "word")
                         {
-                            reply.Attachments =Cards.GetCrearDocumentoWord();
+                            reply.Attachments = RespuestasWord.GetCrearDocumentoWord();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);

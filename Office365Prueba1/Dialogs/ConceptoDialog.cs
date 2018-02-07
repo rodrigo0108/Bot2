@@ -164,7 +164,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (value == "word")
                 {
-                    reply.Attachments = Cards.GetWordDefinicionCard();
+                    reply.Attachments = RespuestasWord.GetWordDefinicionCard();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
@@ -192,7 +192,7 @@ namespace Office365Prueba1.Dialogs
             context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
             if (servicio == "Word")
             {
-                reply.Attachments = Cards.GetWordDefinicionCard();
+                reply.Attachments = RespuestasWord.GetWordDefinicionCard();
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);

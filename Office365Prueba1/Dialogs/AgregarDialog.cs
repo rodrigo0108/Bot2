@@ -477,7 +477,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else if (serv == "word" || serv == "wrd")
                         {
-                            reply.Attachments = Cards.GetAgregarArchivosWord();
+                            reply.Attachments = RespuestasWord.GetAgregarArchivosWord();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             return;
@@ -522,7 +522,7 @@ namespace Office365Prueba1.Dialogs
                     switch (servicio)
                     {
                         case "Word":
-                            reply.Attachments = Cards.GetAgregarArchivosWord();
+                            reply.Attachments = RespuestasWord.GetAgregarArchivosWord();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);

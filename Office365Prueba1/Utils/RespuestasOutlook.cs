@@ -17,11 +17,12 @@ namespace Office365Prueba1.Utils
         // Definicion de Outlook
         public static IList<Attachment> GetOutlookDefinicionCard()
         {
+            var asd = HttpContext.Current.Server.MapPath("~/Images/PowerPoint/Destacados/4.png");
             return new List<Attachment>()
             {
                 GetHeroCard(
                     "¿Qué es Outlook?",
-                    "",
+                    $"{asd}",
                     "El nuevo Outlook es más que solo correo electrónico. Le mostraremos cómo organizar automáticamente su bandeja de entrada y " +
                     "lo ayudará a enfocarse en los correos electrónicos que más le importan. También obtienes un poderoso calendario para " +
                     "administrar tu día.",

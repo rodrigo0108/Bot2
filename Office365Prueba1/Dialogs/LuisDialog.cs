@@ -220,5 +220,10 @@ namespace Office365Prueba1.Dialogs
         {
             await new EncontrarDialog(context, result).StartAsync();
         }
+        [LuisIntent("Consulta.Combinar")]
+        public async Task ConsultaCombinar(IDialogContext context, LuisResult result)
+        {
+            await new CombinarDialog(context, result).StartAsync();
+        }
     }
 }
