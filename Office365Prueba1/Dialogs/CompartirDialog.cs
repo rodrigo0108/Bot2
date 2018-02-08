@@ -88,26 +88,129 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
                 }
-                else if (palabra1=="archivos" || palabra1=="archivo")
+                else if (palabra1=="blocdenotas" || palabra1=="páginadenotas" || palabra1 == "páginasdenotas" || palabra1 == "paginadenotas" || palabra1 == "paginasdenotas")
                 {
-                    foreach(var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2")){
+                    reply.Attachments = RespuestasOneNote.GetCompartirPaginaNotasBlocNotasOneNote();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1=="presentación" || palabra1=="presentacion" || palabra1 == "presentaciones")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetCompartirPresentacionPowerPoint();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1=="libro" || palabra1=="libros")
+                {
+                    reply.Attachments = RespuestasExcel.GetCompartirLibrosExcelOtrosUsuarios();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1=="coautoría" || palabra1== "coautoria" || palabra1 == "autoría" || palabra1 == "autoria")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "Android" || palabra2 == "android")
+                        if(palabra1 == "presentación" || palabra1 == "presentacion" || palabra1 == "presentaciones")
                         {
-                            reply.Attachments = RespuestasOneDrive.GetCompartirArchivosOneDriveAndroid();
+                            reply.Attachments = RespuestasPowerPoint.GetCompartirAutoriaPresentacionPowerPoint();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
-                            await context.PostAsync($"O tal vez no la escribió correctamente, ¿{palabra2}?");
+                            reply.Attachments = RespuestasPowerPoint.GetCompartirAutoriaPresentacionPowerPoint();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                     }
-                    reply.Attachments = RespuestasOneDrive.GetCompartirArchivosCarpetasOneDrive();
-                    await context.PostAsync(confirmacionRespuesta1);
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasPowerPoint.GetCompartirAutoriaPresentacionPowerPoint();
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1=="archivos" || palabra1=="archivo" || palabra1=="documento" || palabra1 == "documentos")
+                {
+                    // Se detectó el 'servicio' de la pregunta
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "word")
+                        {
+                            reply.Attachments = RespuestasWord.GetCompartirArchivosWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "excel")
+                        {
+                            reply.Attachments = RespuestasExcel.GetCompartirLibrosExcelOtrosUsuarios();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "powerpoint")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetCompartirPresentacionPowerPoint();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetCompartirArchivosCarpetasOneDrive();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetCompartirArchivosPowerPointExcelWordOneDrive();
+                            await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2")){
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "Android" || palabra2 == "android")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetCompartirArchivosOneDriveAndroid();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetCompartirArchivosOneDriveAndroid();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                    }
+                    reply.Attachments = RespuestasPowerPoint.GetCompartirArchivosPowerPointExcelWordOneDrive();
+                    await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;

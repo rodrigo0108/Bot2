@@ -148,7 +148,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (value == "excel")
                 {
-                    reply.Attachments = Cards.GetExcelDefinicionCard();
+                    reply.Attachments = RespuestasExcel.GetExcelDefinicionCard();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
@@ -156,7 +156,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (value == "powerpoint")
                 {
-                    reply.Attachments = Cards.GetPowerPointDefinicionCard();
+                    reply.Attachments = RespuestasPowerPoint.GetPowerPointDefinicionCard();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
@@ -200,7 +200,7 @@ namespace Office365Prueba1.Dialogs
             }
             else if (servicio == "Excel")
             {
-                reply.Attachments = Cards.GetExcelDefinicionCard();
+                reply.Attachments = RespuestasExcel.GetExcelDefinicionCard();
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);
@@ -216,7 +216,7 @@ namespace Office365Prueba1.Dialogs
             }
             else if (servicio == "PowerPoint")
             {
-                reply.Attachments = Cards.GetPowerPointDefinicionCard();
+                reply.Attachments = RespuestasPowerPoint.GetPowerPointDefinicionCard();
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);

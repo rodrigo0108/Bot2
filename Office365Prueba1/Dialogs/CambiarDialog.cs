@@ -253,20 +253,25 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(preguntaConsulta);
                                     return;
                                 }
+                                else if (palabra3 == "documento" || palabra3 == "documentos" || palabra3=="archivo" || palabra3=="archivos")
+                                {
+                                    reply.Attachments = RespuestasWord.GetCambiarColorFondoDocumentoWord();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    return;
+                                }
                                 else
                                 {
-                                    reply.Attachments = RespuestasOutlook.GetCambiarColorFondoCalendario();
+                                    //falta
                                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                                     await context.PostAsync(opcionSecundarioDeRespuesta1);
-                                    await context.PostAsync(reply);
                                     return;
                                 }
                             }
-                            // No se detectó la tercera parte de la pregunta
-                            reply.Attachments = RespuestasOutlook.GetCambiarColorFondoCalendario();
+                            //falta x2
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(preguntaConsulta);
-                            await context.PostAsync(reply);
                             return;
 
                         }
@@ -420,6 +425,14 @@ namespace Office365Prueba1.Dialogs
                             reply.Attachments = RespuestasOutlook.GetCambiarNombreCarpeta();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
+                            return;
+                        }
+                        else if (palabra2=="autor")
+                        {
+                            reply.Attachments = RespuestasWord.GetCambiarNombreAutorDocumento();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
@@ -631,6 +644,100 @@ namespace Office365Prueba1.Dialogs
                     // Si el usuario no ingreso la segunda parte de la pregunta
                     await context.PostAsync($"Lo siento, su pregunta no esta registrada");
                     await context.PostAsync("O tal vez no escribió la pregunta correctamente");
+                    return;
+                }
+                else if (palabra1 == "letrasmayúsculas" || palabra1 == "letramayúscula" || palabra1 == "mayúscula" || palabra1 == "mayuscula" || palabra1 == "mayúsculas" || palabra1 == "mayusculas")
+                {
+                    reply.Attachments = RespuestasWord.GetCambiarMayusculasTextoWord();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(preguntaConsulta);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "interlineado")
+                {
+                    reply.Attachments = RespuestasWord.GetCambiarInterlineadoWord();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(preguntaConsulta);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "espacio" || palabra1=="espacios")
+                {
+                    reply.Attachments = RespuestasWord.GetCambiarEspaciosTextoWord();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(preguntaConsulta);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "fondo" || palabra1=="fondos")
+                {
+                    // Se detectó la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "documento" || palabra2 == "documentos" || palabra2 =="archivos" || palabra2=="archivo")
+                        {
+                            reply.Attachments = RespuestasWord.GetCambiarColorFondoDocumentoWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetCambiarColorFondoDocumentoWord();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetCambiarColorFondoDocumentoWord();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "bordes" || palabra1 == "borde")
+                {
+                    // Se detectó la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "documento" || palabra2 == "documentos" || palabra2 == "archivos" || palabra2 == "archivo")
+                        {
+                            reply.Attachments = RespuestasWord.GetCambiarBordeDocumentoWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (palabra2 == "cuadrodetexto" || palabra2 == "cuadrosdetexto")
+                        {
+                            reply.Attachments = RespuestasWord.GetCambiarBordeCuadroTextoWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetCambiarBordeDocumentoCuadroTextoWord();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetCambiarBordeDocumentoCuadroTextoWord();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
                     return;
                 }
                 else

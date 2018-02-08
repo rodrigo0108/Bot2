@@ -484,7 +484,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else if (serv == "excel" || serv == "excl")
                         {
-                            reply.Attachments = Cards.GetAdjuntarArchivosExcel();
+                            reply.Attachments = RespuestasExcel.GetAdjuntarArchivosExcel();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -492,7 +492,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else if (serv == "powerpoint" || serv == "pwrpoint" || serv == "pwrpt" || serv == "powerpt")
                         {
-                            reply.Attachments = Cards.GetAdjuntarArchivosPowerPoint();
+                            reply.Attachments = RespuestasPowerPoint.GetAdjuntarArchivosPowerPoint();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -535,13 +535,13 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             return;
                         case "Excel":
-                            reply.Attachments = Cards.GetAdjuntarArchivosExcel();
+                            reply.Attachments = RespuestasExcel.GetAdjuntarArchivosExcel();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         case "PowerPoint":
-                            reply.Attachments = Cards.GetAdjuntarArchivosPowerPoint();
+                            reply.Attachments = RespuestasPowerPoint.GetAdjuntarArchivosPowerPoint();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -554,7 +554,7 @@ namespace Office365Prueba1.Dialogs
                             return;
                     }
 
-                    await context.PostAsync("Por favor haga click en 'Consulta' o escribalo, seleccione el servicio y vuelva a hacer la pregunta.");
+                    await context.PostAsync("Por favor haga click en 'Consulta' o escríbalo, seleccione el servicio y vuelva a hacer la pregunta.");
                     reply.Attachments = Cards.GetConsulta();
                     await context.PostAsync(reply);
                     return;
@@ -571,6 +571,14 @@ namespace Office365Prueba1.Dialogs
                 else if (palabra1 == "cuenta" || palabra1 == "cuentas")
                 {
                     reply.Attachments = RespuestasOneDrive.GetAgregarCuentaOneDriveAndroid();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "comentarios" || palabra1 == "comentario")
+                {
+                    reply.Attachments = RespuestasWord.GetAgregarComentarioWord();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
