@@ -42,9 +42,26 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                     "Insertar una hoja de cálculo o algún archivo en PowerPoint",
                     "Se aplica a: PowerPoint 2016 PowerPoint 2013",
-                    "Puede vincular datos de una hoja de cálculo guardada Excel a la presentación de PowerPoint si tiene PowerPoint 2013 o posterior.",
+                    ">1. En PowerPoint, en la pestaña **Insertar**, haga clic o puntee **Objeto**.\r\r"+
+                    ">2. En el cuadro de diálogo **Insertar objeto**, seleccione **Crear desde archivo**.\r\r"+
+                    ">3. Haga clic o puntee **Examinar** y, en el cuadro Examinar, busque el archivo que desea insertar y vincular.\r\r"+
+                    ">4. Antes de cerrar el cuadro de diálogo **Insertar objeto**, seleccione **Vínculo** y haga clic en **Aceptar**.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
+            };
+        }
+        // Agregar un encabezado o pie de página a documentos o notas
+        public static IList<Attachment> GetAgregarEncabezadoPiePaginaPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar un encabezado o pie de página a documentos o notas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "En PowerPoint, notas y documentos tiene encabezados y pies de página. Diapositivas tienen sólo pies de página."+
+                    " Haga click en **Ver más información** para ver instrucciones detalladas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-a-documentos-o-notas-882efcea-35cd-4b68-ac0b-041ae1ba7099?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
         // COMPARTIR

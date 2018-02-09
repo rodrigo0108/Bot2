@@ -45,6 +45,26 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
             };
         }
+
+        //CREAR
+        //---------------------
+        // Crear una tabla en el estilo que desee
+        public static IList<Attachment> GetCrearTablaExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear o eliminar una tabla de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
+                    "Siga los siguientes pasos para crear una tabla:\r\r"+
+                    ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
+                    ">2. En la pestaña **Inicio**, haga clic en **Estilos** > **Dar formato como tabla** > seleccione un estilo en la **Galería de estilos** de tabla.\r\r"+
+                    ">3. Excel resaltará automáticamente el rango de datos de la tabla, si todo esta bien haga click en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
+            };
+        }
+
         // COMPARTIR
         // ---------------------
         //Compartir el libro de Excel con otros usuarios

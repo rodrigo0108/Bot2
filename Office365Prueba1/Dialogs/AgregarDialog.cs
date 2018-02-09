@@ -205,6 +205,42 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1 == "tabla" || palabra1 == "tablas")
                 {
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "word")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarDibujarTablaWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "excel")
+                        {
+                            reply.Attachments = RespuestasExcel.GetCrearTablaExcel();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "outlook")
+                        {
+                            reply.Attachments = RespuestasOutlook.GetAgregarTablasMensajeOutlook();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarDibujarTablaWordCrearExcelOutlook();
+                            await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
@@ -226,7 +262,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasOutlook.GetAgregarTablasMensajeOutlook();
+                    reply.Attachments = RespuestasWord.GetInsertarDibujarTablaWordCrearExcelOutlook();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -358,6 +394,43 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1 == "firmas" || palabra1 == "firma")
                 {
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "outlook" || serv == "outlok")
+                        {
+                            reply.Attachments = RespuestasOutlook.GetCrearFirmaMensaje();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "word")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarFirmaWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if(serv == "excel" || serv=="powerpoint" || serv=="office")
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarFirmaDigitalArhivosOffice();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
+                            await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                    }
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
@@ -369,9 +442,17 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
+                        else if (palabra2 == "archivos" || palabra2 == "archivo" || palabra2 == "documentos"  || palabra2=="documento")
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarFirmaDigitalArhivosOffice();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
                         else
                         {
-                            reply.Attachments = RespuestasOutlook.GetCrearFirmaMensaje();
+                            reply.Attachments = RespuestasWord.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -379,10 +460,10 @@ namespace Office365Prueba1.Dialogs
                         }
 
                     }
-                    reply.Attachments = RespuestasOutlook.GetCrearFirmaMensaje();
-                    await context.PostAsync($"Quizás desea saber como agregar una firma en mensajes de correo, acá tengo esto:");
+                    reply.Attachments = RespuestasWord.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
+                    await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
-                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 else if (palabra1 == "tarjetas" || palabra1 == "tarjeta")
@@ -458,11 +539,12 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
+                            reply.Attachments = RespuestasOneDrive.GetInsertarArchivosSitioWebBlog();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
                             return;
                         }
-
                     }
                     foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
@@ -500,7 +582,15 @@ namespace Office365Prueba1.Dialogs
                         }
                         else if (serv == "onenote" || serv == "noenote" || serv == "note")
                         {
-                            reply.Attachments = Cards.GetAgregarArchivosOneNote();
+                            reply.Attachments = RespuestasOneNote.GetAgregarArchivosOneNote();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv=="onedrive")
+                        {
+                            reply.Attachments = RespuestasOneDrive.GetInsertarArchivosSitioWebBlog();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -508,7 +598,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasOutlook.GetCrearCambiarPersonalizarVista();
+                            reply.Attachments = RespuestasWord.GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -547,18 +637,40 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             return;
                         case "OneNote":
-                            reply.Attachments = Cards.GetAgregarArchivosOneNote();
+                            reply.Attachments = RespuestasOneNote.GetAgregarArchivosOneNote();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        case "OneDrive":
+                            reply.Attachments = RespuestasOneDrive.GetInsertarArchivosSitioWebBlog();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                     }
-
-                    await context.PostAsync("Por favor haga click en 'Consulta' o escríbalo, seleccione el servicio y vuelva a hacer la pregunta.");
-                    reply.Attachments = Cards.GetConsulta();
+                    reply.Attachments = RespuestasWord.GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote();
+                    await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
 
+                }
+                else if (palabra1 == "pdf")
+                {
+                    reply.Attachments = RespuestasWord.GetAgregarPDFArchivoOffice();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "carácterespecial" || palabra1 == "caracterespecial" || palabra1 == "carácteresespeciales" || palabra1 == "caracteresespeciales" || palabra1=="símbolo" || palabra1=="simbolo")
+                {
+                    reply.Attachments = RespuestasWord.GetInsertarCaracterEspecialOffice();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
                 }
                 else if (palabra1 == "carpetascompartidas" || palabra1 == "carpetacompartida" || palabra1 == "carpeta")
                 {
@@ -579,6 +691,245 @@ namespace Office365Prueba1.Dialogs
                 else if (palabra1 == "comentarios" || palabra1 == "comentario")
                 {
                     reply.Attachments = RespuestasWord.GetAgregarComentarioWord();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "texto" || palabra1=="textos")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "automáticamente" || palabra2 == "automaticamente" || palabra2 == "automático" || palabra2 == "automatico")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarTextoAutomaticamenteWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarTextoAutomaticamenteWord();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetInsertarTextoAutomaticamenteWord();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    return;
+
+                }
+                else if (palabra1 == "palabras" || palabra1 == "palabra")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "diccionario" )
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarPalabrasDiccionarioCorrectorOrtografico();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarPalabrasDiccionarioCorrectorOrtografico();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetAgregarPalabrasDiccionarioCorrectorOrtografico();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "número" || palabra1 == "numero" || palabra1 == "recuento")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "palabras" || palabra2 == "palabra")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarRecuentoPalabrasDocumento();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if(palabra2=="página" || palabra2 == "páginas" || palabra2 == "pagina" || palabra2 == "paginas")
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarNumerosPaginasWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarNumerosPaginasWordInsertarRecuentoPalabras();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetAgregarNumerosPaginasWordInsertarRecuentoPalabras();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "numeración" || palabra1 == "numeracion")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "página" || palabra2 == "pagina" || palabra2 == "páginas" || palabra2 == "paginas")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarNumeracionPaginaWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarNumeracionPaginaWord();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetInsertarNumeracionPaginaWord();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "marcadores" || palabra1 == "marcador")
+                {
+                    reply.Attachments = RespuestasWord.GetAgregarMarcadoresDocumentoWorMensajeOutlook();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "salto" || palabra1 == "saltos")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "página" || palabra2 == "pagina")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarSaltoPagina();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (palabra2 == "sección" || palabra2 == "seccion")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarSaltoSeccion();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarSaltoPaginaSeccion();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetInsertarSaltoPaginaSeccion();
+                    await context.PostAsync(preguntaNoRegistrada2);
+                    await context.PostAsync(opcionSecundarioDeRespuesta2);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "encabezados" || palabra1 == "encabezado" || palabra1 == "piedepágina" || palabra1 == "piedepagina" || palabra1 == "piesdepágina" || palabra1 == "piesdepagina")
+                {
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "word")
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarEncabezadoPiePaginaWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (serv == "powerpoint")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarEncabezadoPiePaginaPowerPoint();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetAgregarEncabezadoPiePaginaWordPowerPoint();
+                            await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetAgregarEncabezadoPiePaginaWordPowerPoint();
+                    await context.PostAsync(preguntaNoRegistrada2);
+                    await context.PostAsync(opcionSecundarioDeRespuesta2);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "marcadeagua" || palabra1 == "marcasdeagua")
+                {
+                    reply.Attachments = RespuestasWord.GetInsertarMarcaAguaWord();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "imagen" || palabra1 == "imágenes" || palabra1 == "imagenes")
+                {
+                    reply.Attachments = RespuestasWord.GetInsertarImagenes();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "wordart")
+                {
+                    reply.Attachments = RespuestasWord.GetInsertarWordArt();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "cuadrodetexto" || palabra1 == "cuadrosdetexto")
+                {
+                    reply.Attachments = RespuestasWord.GetAgregarCopiarEliminarCuadroTexto();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);

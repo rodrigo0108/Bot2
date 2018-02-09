@@ -298,8 +298,11 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                 "Insertar archivos directamente en tu sitio web o blog",
                 "Se aplica a: Office.com OneDrive",
-                "Si tiene un sitio web o un blog, es muy fácil y rápido incluir fotos, vídeos, documentos de Office y otros archivos desde OneDrive. "+
-                "Incluso puedes personalizar el modo en que los libros de Excel insertados se muestran a otras personas.",
+                "Si tiene un sitio web o un blog, es muy fácil y rápido incluir fotos, vídeos, documentos de Office y otros archivos desde OneDrive.\r\r"+
+                ">1. Ve al [sitio web de OneDrive](https://onedrive.live.com/about/es-419/). Es posible que tengas que iniciar sesión con tu cuenta Microsoft.\r\r"+
+                ">2. Elige el archivo que quieres insertar activando la casilla de la esquina superior derecha del archivo.\r\r"+
+                ">3. Pulsa o haz clic en **Insertar** en la parte superior de la página y elige **Generar**.\r\r"+
+                ">4. Copia o pega el código en el código de tu sitio web o blog.",
                 new CardAction(ActionTypes.OpenUrl, "Ver más información",
                 value: "https://support.office.com/es-es/article/insertar-archivos-directamente-en-tu-sitio-web-o-blog-ed07dd52-8bdb-431d-96a5-cbe8a80b7418?ui=es-ES&rs=es-ES&ad=ES")),
             };
