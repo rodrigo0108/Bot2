@@ -64,6 +64,114 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
             };
         }
+        // Crear una tabla de contenido en Word y crear tabla en Excel
+        public static IList<Attachment> GetCrearTablaContenidoWordTablaExcel()
+        {
+            return new List<Attachment>()
+            {
+                 GetHeroCardV2(
+                    "Crear una tabla de contenido en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Para crear una tabla de contenido que podrá mantener actualizada con gran facilidad, "+
+                    "en primer lugar, necesitará aplicar los estilos de título al texto que desea incluir "+
+                    "en dicha tabla. Luego, **Word** la generará automáticamente a partir de esos títulos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-una-tabla-de-contenido-en-Word-882e8564-0edb-435e-84b5-1d8552ccf0c0")),
+
+                GetHeroCardV2(
+                    "Crear o eliminar una tabla de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
+                    "Siga los siguientes pasos para crear una tabla:\r\r"+
+                    ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
+                    ">2. En la pestaña **Inicio**, haga clic en **Estilos** > **Dar formato como tabla** > seleccione un estilo en la **Galería de estilos** de tabla.\r\r"+
+                    ">3. Excel resaltará automáticamente el rango de datos de la tabla, si todo esta bien haga click en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
+            };
+        }
+        // Crear un gráfico con gráficos recomendados
+        public static IList<Attachment> GetCrearGraficoExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un gráfico con gráficos recomendados",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "Pruebe el comando **Gráficos recomendados** de la pestaña **Insertar** para crear con rapidez un gráfico que sea justo el adecuado para sus datos.\r\r"+
+                    ">1. [Seleccione los datos](https://support.office.com/es-es/article/seleccionar-datos-para-un-gr%C3%A1fico-5fca57b7-8c52-4e09-979a-631085113862?ui=es-ES&rs=es-ES&ad=ES) para los que desea crear un gráfico.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Tablas dinámicas recomendadas**.\r\r"+
+                    ">3. En la pestaña **Gráficos recomendados**, escoja el gráfico de su preferencia y haga clic en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-un-gr%C3%A1fico-con-gr%C3%A1ficos-recomendados-cd131b77-79c7-4537-a438-8db20cea84c0?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Crear un gráfico de Excel en Word y crear un gráfico con gráficos recomendados
+        public static IList<Attachment> GetCrearGraficoWordExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un gráfico de Excel en Word",
+                    "Se aplica a: Word 2013",
+                     "Siga los siguientes pasos:\r\r"+
+                    ">1. En su documento de Word, haga clic en **Insertar** > **Gráfico**.\r\r"+
+                    ">2. Seleccione el tipo de gráfico que quiera, como una columna o un gráfico circular, y haga clic en **Aceptar**.\r\r"+
+                    ">3. Introduzca sus datos en una hoja de cálculo que se abre automáticamente con el gráfico.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-un-gr%C3%A1fico-de-Excel-en-Word-11a7d2f0-4487-4a9b-bbc6-d50916cd4a57")),
+                GetHeroCardV2(
+                    "Crear un gráfico con gráficos recomendados",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "Pruebe el comando **Gráficos recomendados** de la pestaña **Insertar** para crear con rapidez un gráfico que sea justo el adecuado para sus datos.\r\r"+
+                    ">1. [Seleccione los datos](https://support.office.com/es-es/article/seleccionar-datos-para-un-gr%C3%A1fico-5fca57b7-8c52-4e09-979a-631085113862?ui=es-ES&rs=es-ES&ad=ES) para los que desea crear un gráfico.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Tablas dinámicas recomendadas**.\r\r"+
+                    ">3. En la pestaña **Gráficos recomendados**, escoja el gráfico de su preferencia y haga clic en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-un-gr%C3%A1fico-con-gr%C3%A1ficos-recomendados-cd131b77-79c7-4537-a438-8db20cea84c0?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Crear e imprimir etiquetas postales para una lista de direcciones en Excel
+        public static IList<Attachment> GetCrearEtiquetasPostalesExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear e imprimir etiquetas postales para una lista de direcciones en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Para crear e imprimir las etiquetas postales, primero debe preparar los datos de la hoja de cálculo en Excel y "+
+                    "utilizar después Word para configurar, organizar, revisar e imprimir las etiquetas postales."+
+                    "Si desea utilizar etiquetas de dirección para realizar envíos masivos de correo a su lista de direcciones, puede "+
+                    "usar la combinación de correspondencia para crear una hoja de etiquetas de dirección.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-e-imprimir-etiquetas-postales-para-una-lista-de-direcciones-en-Excel-d9484315-5123-48ae-bc58-2e8dcf271252")),
+               };
+        }
+        // Crear etiquetas Word y Crear e imprimir etiquetas postales para una lista de direcciones en Excel
+        public static IList<Attachment> GetCrearEtiquetasWordEtiquetasPostalesExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una lista de comprobación en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Starter 2010",
+                    "Para un lote de etiquetas diferentes, se recomienda empezar el documento desde una plantilla de etiqueta. "+
+                    "Para buscar una, vaya a la pestaña **Archivo** en Word, haga clic en **Nuevo** y, a continuación, en el cuadro"+
+                    " de búsqueda, escriba etiquetas y presione Entrar. O bien, en el explorador, consulte [plantillas de etiquetas en templates.office.com](https://templates.office.com/en-us/Labels).\r\r"+
+                    "Si desea saber como crear etiquetas de dirección de retorno haga clic [aquí](https://support.office.com/es-es/article/Crear-etiquetas-de-remite-be712991-16dd-4b9e-810e-35b5320c922b)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/hacer-una-lista-de-comprobaci%C3%B3n-en-word-dd04fa4f-2ca7-4543-8818-c469eca9f45c?ui=es-ES&rs=es-ES&ad=ES")),
+
+                GetHeroCardV2(
+                    "Crear e imprimir etiquetas postales para una lista de direcciones en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Para crear e imprimir las etiquetas postales, primero debe preparar los datos de la hoja de cálculo en Excel y "+
+                    "utilizar después Word para configurar, organizar, revisar e imprimir las etiquetas postales."+
+                    "Si desea utilizar etiquetas de dirección para realizar envíos masivos de correo a su lista de direcciones, puede "+
+                    "usar la combinación de correspondencia para crear una hoja de etiquetas de dirección.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-e-imprimir-etiquetas-postales-para-una-lista-de-direcciones-en-Excel-d9484315-5123-48ae-bc58-2e8dcf271252")),
+               };
+        }
 
         // COMPARTIR
         // ---------------------

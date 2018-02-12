@@ -39,7 +39,7 @@ namespace Office365Prueba1.Dialogs
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "perdido" || palabra2 == "perdidos" || palabra2=="faltan")
+                        if (palabra2 == "perdido" || palabra2 == "perdidos" || palabra2=="faltan" || palabra2=="faltantes" )
                         {
                             reply.Attachments = RespuestasOneDrive.GetEncontrarArchivosPerdidosFaltanOneDrive();
                             await context.PostAsync(confirmacionRespuesta1);

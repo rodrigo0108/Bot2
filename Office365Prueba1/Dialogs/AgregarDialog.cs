@@ -891,7 +891,7 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = RespuestasWord.GetAgregarEncabezadoPiePaginaWordPowerPoint();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
-                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
                             return;
                         }
@@ -935,13 +935,18 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaConsulta);
                     return;
                 }
+                else if (palabra1 == "formulario" || palabra1 == "formularios")
+                {
+                    reply.Attachments = RespuestasWord.GetAgregarCopiarEliminarCuadroTexto();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
                 else
                 {
-                    // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasOutlook.GetCambiarNivelProteccionFiltroCorreo();
-                    await context.PostAsync(preguntaNoRegistrada1);
-                    await context.PostAsync(opcionSecundarioDeRespuesta1);
-                    await context.PostAsync(reply);
+                    await context.PostAsync($"Lo siento, su pregunta no esta registrada");
+                    await context.PostAsync($"O tal vez no la escribió correctamente, ¿{palabra1}?");
                     return;
                 }
 

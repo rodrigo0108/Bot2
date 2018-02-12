@@ -26,6 +26,12 @@ namespace Office365Prueba1.Dialogs
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
+            string preguntaNoRegistrada1 = "Lo siento, su pregunta no esta registrada, tal vez no escribió la pregunta correctamente";
+            string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
+            string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
+            string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
             Constantes c = Constantes.Instance;
 
@@ -87,6 +93,51 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetCrearGrupoContactosListaDistribucionOutlook();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
+                }
+                else if(palabra1 == "pdf")
+                {
+                    reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "contenido")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "pdf")
+                        {
+                            reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "encabezados" || palabra1 == "encabezado" || palabra1 == "piedepágina" || palabra1 == "piedepagina" || palabra1 == "piesdepágina" || palabra1 == "piesdepagina")
+                {
+                    reply.Attachments = RespuestasWord.GetModificarEncabezadoPiePagina();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 else

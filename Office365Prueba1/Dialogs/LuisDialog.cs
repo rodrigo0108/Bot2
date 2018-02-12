@@ -225,5 +225,15 @@ namespace Office365Prueba1.Dialogs
         {
             await new CombinarDialog(context, result).StartAsync();
         }
+        [LuisIntent("Consulta.Convertir")]
+        public async Task ConsultaConvertir(IDialogContext context, LuisResult result)
+        {
+            await new ConvertirDialog(context, result).StartAsync();
+        }
+        [LuisIntent("Consulta.Probar")]
+        public async Task ConsultaProbar(IDialogContext context, LuisResult result)
+        {
+            await new ProbarDialog(context, result).StartAsync();
+        }
     }
 }

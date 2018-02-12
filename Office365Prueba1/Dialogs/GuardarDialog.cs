@@ -50,8 +50,28 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1 == "archivos" || palabra1 == "archivo" || palabra1 == "documentos" || palabra1 == "documento")
                 {
-                    await context.PostAsync($"Quizás desea saber como guardar un documento en One Drive");
-                    reply.Attachments = RespuestasOneDrive.GetGuardarDocumentoOneDrive();
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "pdf" || palabra2 == "xps")
+                        {
+                            reply.Attachments = RespuestasWord.GetGuardarArchivoPDF();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetGuardarArchivoPDF();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    reply.Attachments = RespuestasWord.GetGuardarArchivoPDF();
+                    await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -63,7 +83,8 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
-                }else if (palabra1 == "capturasdepantalla" || palabra1 == "capturadepantalla" || palabra1 == "capturas" || palabra1 == "captura")
+                }
+                else if (palabra1 == "capturasdepantalla" || palabra1 == "capturadepantalla" || palabra1 == "capturas" || palabra1 == "captura")
                 {
                     reply.Attachments = RespuestasOneDrive.GetGuardarCapturasPantallaOneDrive();
                     await context.PostAsync(confirmacionRespuesta1);

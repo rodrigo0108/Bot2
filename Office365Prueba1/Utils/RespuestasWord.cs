@@ -30,6 +30,21 @@ namespace Office365Prueba1.Utils
                     "https://support.office.com/es-es/article/V%C3%ADdeo-%C2%BFQu%C3%A9-es-Word-aee9c7ff-f9c5-415f-80dc-103ad5e344d7"),
             };
         }
+        // Firmas digitales y certificados
+        public static IList<Attachment> GetQueEsFirmaDigital()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "¿Qué es una firma digital?",
+                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Access 2016 Visio Professional 2016",
+                    "Una firma digital es un sello de autenticación electrónico cifrado en información digital, como mensajes de correo, "+
+                    "macros o documentos electrónicos. La firma constata que la información proviene del firmante y no se ha modificado.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Firmas-digitales-y-certificados-8186cd15-e7ac-4a16-8597-22bd163e8e96#__toc311530578")),
+            };
+        }
+
         // TRABAJAR
         //----------------------
         //Colaborar en documentos de Word con coautoría en tiempo real
@@ -661,6 +676,117 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/crear-un-documento-3aa3c766-9733-4f60-9efa-de245467c13d")),
             };
         }
+        // Crear un documento Word
+        public static IList<Attachment> GetCrearHipervinculo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear o modificar un hipervínculo",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Office 2016",
+                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar **ENTRAR** o la barra"+
+                    " espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office"+
+                    " convierte automáticamente la dirección en un vínculo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Crear una sangría de primera línea
+        public static IList<Attachment> GetCrearSangria()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una sangría de primera línea",
+                    "Se aplica a: Word 2016 Word 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el texto donde quiere agregar la sangría de primera línea.\r\r"+
+                    ">2. Haga clic en **Inicio** y, luego, en el grupo **Párrafo**, haga clic en el selector de cuadro de diálogo para abrir el cuadro de diálogo **Párrafo**.\r\r"+
+                    ">3. En la pestaña **Sangría y espacio**, en **Sangría**, seleccione **Primera línea** y haga clic en **Aceptar**\r\r"+
+                    "Si desea saber como crear una sangría francesa haga clic [aquí](https://support.office.com/es-es/article/Crear-una-sangr%C3%ADa-francesa-7bdfb86a-c714-41a8-ac7a-3782a91ccad5).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-una-sangr%C3%ADa-de-primera-l%C3%ADnea-b3721167-e1c8-40c3-8a97-3f046fc72d6d")),
+            };
+        }
+        // Crear una tabla de contenido en Word
+        public static IList<Attachment> GetCrearTablaContenidoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una tabla de contenido en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Para crear una tabla de contenido que podrá mantener actualizada con gran facilidad, "+
+                    "en primer lugar, necesitará aplicar los estilos de título al texto que desea incluir "+
+                    "en dicha tabla. Luego, **Word** la generará automáticamente a partir de esos títulos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-una-tabla-de-contenido-en-Word-882e8564-0edb-435e-84b5-1d8552ccf0c0")),
+            };
+        }
+        // Crear un gráfico de Excel en Word
+        public static IList<Attachment> GetCrearGraficoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un gráfico de Excel en Word",
+                    "Se aplica a: Word 2013",
+                     "Siga los siguientes pasos:\r\r"+
+                    ">1. En su documento de Word, haga clic en **Insertar** > **Gráfico**.\r\r"+
+                    ">2. Seleccione el tipo de gráfico que quiera, como una columna o un gráfico circular, y haga clic en **Aceptar**.\r\r"+
+                    ">3. Introduzca sus datos en una hoja de cálculo que se abre automáticamente con el gráfico.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-un-gr%C3%A1fico-de-Excel-en-Word-11a7d2f0-4487-4a9b-bbc6-d50916cd4a57")),
+            };
+        }
+        // Crear formularios en Word
+        public static IList<Attachment> GetCrearFormularioWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un formulario para rellenar",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Para crear un formulario en Microsoft Word, puede empezar con una plantilla y agregar controles de contenido, como casillas, cuadros"+
+                    " de texto, selectores de fecha y listas desplegables. Otros usuarios pueden usar Word para rellenar el formulario en su equipo. En un"+
+                    " escenario avanzado, cualquier control de contenido que agregue a un formulario también se puede vincular a datos.\r\r" +
+                    "Si desea saber como crear formularios que otros puedan rellenar haga clic [aquí](https://support.office.com/es-es/article/crear-un-formulario-para-rellenar-39a58412-107e-426b-a10b-ac44937e3a9f?ui=es-ES&rs=es-ES&ad=ES).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-formularios-que-los-usuarios-rellenan-o-imprimen-en-Word-040c5cc1-e309-445b-94ac-542f732c8c8b")),
+            };
+        }
+        // Crear una lista de comprobación en Word
+        public static IList<Attachment> GetCrearListaComprobacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una lista de comprobación en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Con Word se pueden crear dos tipos de listas de comprobación:\r\r"+
+                    ">* Listas con casillas o marcas de verificación, en lugar de viñetas o números.\r\r"+
+                    ">* Listas que se pueden marcar en Word. Para ello, es necesario agregar un control de contenido de la pestaña **Desarrollador**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/hacer-una-lista-de-comprobaci%C3%B3n-en-word-dd04fa4f-2ca7-4543-8818-c469eca9f45c?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Crear e imprimir etiquetas
+        public static IList<Attachment> GetCrearImprimirEtiquetasWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una lista de comprobación en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Starter 2010",
+                    "Para un lote de etiquetas diferentes, se recomienda empezar el documento desde una plantilla de etiqueta. "+
+                    "Para buscar una, vaya a la pestaña **Archivo** en Word, haga clic en **Nuevo** y, a continuación, en el cuadro"+
+                    " de búsqueda, escriba etiquetas y presione Entrar. O bien, en el explorador, consulte [plantillas de etiquetas en templates.office.com](https://templates.office.com/en-us/Labels).\r\r"+
+                    "Si desea saber como crear etiquetas de dirección de retorno haga clic [aquí](https://support.office.com/es-es/article/Crear-etiquetas-de-remite-be712991-16dd-4b9e-810e-35b5320c922b)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/hacer-una-lista-de-comprobaci%C3%B3n-en-word-dd04fa4f-2ca7-4543-8818-c469eca9f45c?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
 
         // COMPARTIR
         //----------------------
@@ -806,7 +932,7 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                     "Cambiar el color de un borde de página",
                     "Se aplica a: Word 2016 Outlook 2016 PowerPoint 2016 Word 2013 Outlook 2013 PowerPoint 2013 Word 2010 Word 2007 Outlook 2007 Office 2007 Word Starter 2010",
-                    "Para cambiar el color de una página existente borde vaya a la pestaña Diseño de la cinta de opciones, haga clic en Bordes de página y use el control de lista desplegable de Color para seleccionar otro color. Haga clic en Aceptar para aplicar el cambio.",
+                    "Para cambiar el color de una página existente borde vaya a la pestaña **Diseño** de la cinta de opciones, haga clic en **Bordes de página** y use el control de lista desplegable de **Color** para seleccionar otro color. Haga clic en **Aceptar** para aplicar el cambio.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/decorar-los-documentos-o-las-im%C3%A1genes-con-bordes-70e0af47-31c7-47ae-89f3-9ec587f1e49f?ui=es-ES&rs=es-ES&ad=ES")),
             };
@@ -818,7 +944,7 @@ namespace Office365Prueba1.Utils
             {
                 GetHeroCardV2(
                     "Cambiar o quitar el borde de un cuadro de texto, una forma o un gráfico SmartArt",
-                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Project Professional 2016 Excel 2013 Word 2013 Outlook 2013 PowerPoint 2013 Excel 2010, ...",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Project Professional 2016 Excel 2013 ",
                     "Cambiar el color del borde de un cuadro de texto.\r\r"+
                     ">1. Seleccione el borde del cuadro de texto o de la forma que desea cambiar.\r\r"+
                     ">2. Haga clic en la pestaña Formato, después, en Contorno de forma y, en Colores del tema, seleccione el color que quiera.",
@@ -840,7 +966,7 @@ namespace Office365Prueba1.Utils
 
                 GetHeroCardV2(
                     "Cambiar o quitar el borde de un cuadro de texto, una forma o un gráfico SmartArt",
-                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Project Professional 2016 Excel 2013 Word 2013 Outlook 2013 PowerPoint 2013 Excel 2010, ...",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Project Professional 2016 Excel 2013 Word 2013 Outlook 2013 PowerPoint 2013 Excel 2010",
                     "Cambiar el color del borde de un cuadro de texto.\r\r"+
                     ">1. Seleccione el borde del cuadro de texto o de la forma que desea cambiar.\r\r"+
                     ">2. Haga clic en la pestaña Formato, después, en Contorno de forma y, en Colores del tema, seleccione el color que quiera.",
@@ -848,8 +974,393 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/cambiar-o-quitar-el-borde-de-un-cuadro-de-texto-una-forma-o-un-gr%C3%A1fico-smartart-ec2e4491-d3bf-4266-beac-f6298fdfde9f?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        //Modificar un encabezado o pie de página
+        public static IList<Attachment> GetModificarEncabezadoPiePagina()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Modificar un encabezado o pie de página",
+                    "Se aplica a: Word 2016 para Mac Word para Mac 2011",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga doble clic en el área de encabezado o pie de página (en la parte superior o inferior de la página) para abrir la pestaña **Encabezado y pie de página**.\r\r"+
+                    ">2. Seleccione el texto que desea cambiar y escriba el nuevo encabezado o pie de página en su sitio.\r\r"+
+                    ">3. Cuando termine, en la pestaña **Encabezado y pie de página**, haga clic en **Cerrar encabezado y pie de página**. ",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-o-editar-encabezados-y-pies-de-p%C3%A1gina-en-word-para-mac-98a28ebf-8bf5-478c-a91f-548aebe87725")),
+            };
+        }
+        //Ajustar la sangría y el espaciado
+        public static IList<Attachment> GetAjustarSangriaEspaciado()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Ajustar la sangría y el espaciado",
+                    "Se aplica a: Word 2016 Outlook 2016 Word 2013 Outlook 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione un párrafo o un grupo de párrafos que quiera ajustar.\r\r"+
+                    ">2. Haga clic en el selector de cuadro de diálogo **Párrafo** en la pestaña **Diseño de página** o **Presentación**.\r\r"+
+                    ">3. Si fuera necesario, haga clic en la pestaña **Sangría y espacio**.\r\r"+
+                    ">4. Elija la configuración y, después, haga clic en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Ajustar-la-sangr%C3%ADa-y-el-espaciado-36239d98-14c5-411e-a880-1ddf25d65cd6")),
+            };
+        }
 
+        // ELIMINAR
+        //----------------------
+        // Quitar comentarios en Word
+        public static IList<Attachment> GetQuitarComentariosWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar comentarios",
+                    "Se aplica a: Word 2016",
+                    "Si el documento incluye comentarios, no se quitarán al aceptar o rechazar los cambios realizados. Tendrá que eliminarlos por separado.\r\r"+
+                    ">* Haga clic en el comentario y en la pestaña **Revisión**, haga clic en **Eliminar**\r\r"+
+                    ">* Para quitar todos los comentarios a la vez, haga clic en un comentario y, luego, en la pestaña **Revisión**, haga clic en la flecha debajo de **Eliminar** y haga clic en **Eliminar todos los comentarios del documento**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/quitar-los-cambios-realizados-y-los-comentarios-en-word-2016-para-windows-7966b497-7e04-4a13-8d41-53a3ffa00c25?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Quitar marcas de revisión 
+        public static IList<Attachment> GetQuitarMarcasRevision()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar marcas de revisión",
+                    "Se aplica a: Word 2016",
+                    "Acepte o rechace los cambios realizados para quitarlos del documento:\r\r"+
+                    ">* Para ver cada revisión una por una, en la pestaña **Revisar** haga clic en **Siguiente** en el grupo de **Cambios** y luego en **Aceptar** o en **Rechazar**.\r\r"+
+                    ">* Para aceptar todos los cambios a la vez, haga clic en la flecha situada debajo de **Aceptar** y luego en **Aceptar todos los cambios**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/quitar-los-cambios-realizados-y-los-comentarios-en-word-2016-para-windows-7966b497-7e04-4a13-8d41-53a3ffa00c25?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Quitar hipervínculos
+        public static IList<Attachment> GetQuitarHipervinculos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar hipervínculo",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016",
+                    "Para quitar un hipervínculo y conservar el texto, haga clic con el botón secundario en el hipervínculo"+
+                    " y haga clic en **Quitar hipervínculo**.\r\r"+
+                    "Para quitar el hipervínculo por completo, selecciónelo y, después, presione **Supr**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/quitar-los-cambios-realizados-y-los-comentarios-en-word-2016-para-windows-7966b497-7e04-4a13-8d41-53a3ffa00c25?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Quitar un salto de página
+        public static IList<Attachment> GetQuitarSaltoPagina()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar un salto de página",
+                    "Se aplica a: Word 2010",
+                    "Quitar un salto de página manual: \r\r"+
+                    ">1. Haga clic en **Inicio** > **Mostrar u ocultar** ![duck](https://support.content.office.net/es-es/media/c0475c36-0248-45ef-b171-15dae58939ae.gif).\r\r"+
+                    ">2. Haga doble clic en el salto de página para que esté seleccionado y, a continuación, presione la tecla **Suprimir**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/quitar-un-salto-de-p%C3%A1gina-e696a217-adc7-4ef3-977b-de0c3d87b762?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
+        // Eliminar un salto de sección
+        public static IList<Attachment> GetEliminarSaltoSeccion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar un salto de sección",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En el grupo **Párrafo** de la pestaña **Inicio**, haga clic en **Mostrar u ocultar** ![duck](https://support.content.office.net/es-es/media/c0475c36-0248-45ef-b171-15dae58939ae.gif).\r\r"+
+                    ">2. Para eliminarlo, coloque el cursor justo antes del salto de sección y presione **Suprimir**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/eliminar-un-salto-de-secci%C3%B3n-1e12f200-7215-4688-a55a-5130f383dc5f?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
+        // Quitar un salto de página - Eliminar un salto de sección
+        public static IList<Attachment> GetQuitarSaltoPaginaEliminarSaltoSeccion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar un salto de sección",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En el grupo **Párrafo** de la pestaña **Inicio**, haga clic en **Mostrar u ocultar** ![duck](https://support.content.office.net/es-es/media/c0475c36-0248-45ef-b171-15dae58939ae.gif).\r\r"+
+                    ">2. Para eliminarlo, coloque el cursor justo antes del salto de sección y presione **Suprimir**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/eliminar-un-salto-de-secci%C3%B3n-1e12f200-7215-4688-a55a-5130f383dc5f?ui=es-ES&rs=es-HN&ad=PE")),
+                GetHeroCardV2(
+                    "Eliminar un salto de sección",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En el grupo **Párrafo** de la pestaña **Inicio**, haga clic en **Mostrar u ocultar** ![duck](https://support.content.office.net/es-es/media/c0475c36-0248-45ef-b171-15dae58939ae.gif).\r\r"+
+                    ">2. Para eliminarlo, coloque el cursor justo antes del salto de sección y presione **Suprimir**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/eliminar-un-salto-de-secci%C3%B3n-1e12f200-7215-4688-a55a-5130f383dc5f?ui=es-ES&rs=es-HN&ad=PE")),
 
+            };
+        }
+        // Quitar números de página
+        public static IList<Attachment> GetQuitarNumerosPagina()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar números de página",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                    "Quitar números de páginas continuos:\r\r"+
+                    ">* En la pestaña **Insertar**, en el grupo **Encabezado y pie de página**, seleccione **Número de página** y, después, haga clic en **Quitar números de página**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Quitar-n%C3%BAmeros-de-p%C3%A1gina-d79e5090-c8f7-4e24-ab97-c36cfeb8d85b")),
+            };
+        }
+        // Eliminar o cambiar un encabezado o pie de página de una sola página
+        public static IList<Attachment> GetEliminarCambiarEncabezadoPiePagina()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar o cambiar un encabezado o pie de página de una sola página",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                    "Para eliminar o cambiar el encabezado o pie de página en la primera página haga lo siguiente:\r\r"+
+                    ">1. Haga doble clic en el área de encabezado o pie de página (en la parte superior o inferior de la página) para abrir **Herramientas para encabezado y pie de página**.\r\r"+
+                    ">2. Active la casilla **Primera página diferente**.\r\r"+
+                    ">3. Si el documento incluye un encabezado o pie de página, se quitará de la primera página automáticamente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/eliminar-o-cambiar-un-encabezado-o-pie-de-p%C3%A1gina-de-una-sola-p%C3%A1gina-a9b6c963-a3e1-4de1-9142-ca1be1dba7ff?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
+        // Quitar una marca de agua
+        public static IList<Attachment> GetQuitarMarcaAgua()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar o cambiar un encabezado o pie de página de una sola página",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                    "Puede quitar una marca de agua de un documento si lo desea.\r\r"+
+                    ">1. Abra el documento donde quiera quitar la marca de agua.\r\r"+
+                    ">2. Vaya a la pestaña **Diseño**(en Word 2010 o Word 2007, vaya a la pestaña **Diseño de página**) y, en el grupo **Fondo de página**, seleccione **Marca de agua**.\r\r"+
+                    ">3. Seleccione **Quitar marca de agua**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/quitar-una-marca-de-agua-636cc588-489d-46c4-a03f-07f3f4820029?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
+
+        // DESACTIVAR
+        //---------------------
+        // Desactivar hipervínculos
+        public static IList<Attachment> GetDesactivarHipervinculos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Desactivar los hipervínculos automáticos",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016",
+                    "Cuando no sea práctico que Office cree automáticamente los hipervínculos en su documento a medida que escriba, puede desconectarlos.\r\r"+
+                    ">* Haga clic en **Archivo** > **Opciones** > **Revisión**.\r\r"+
+                    ">* (En Outlook, haga clic en **Archivo** > **Opciones** > **Correo** > **Opciones del editor** > **Corrección**).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Quitar-o-desactivar-los-hiperv%C3%ADnculos-027b4e8c-38f8-432c-b57f-6c8b67ebe3b0")),
+            };
+        }
+        // Configurar o desactivar el formato de texto automático
+        public static IList<Attachment> GetDesactivarFormatoAutomatico()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Configurar o desactivar el formato de texto automático",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Publisher 2016 Visio Professional 2016",
+                    "Para desactivar el formato automático, lo único que tiene que hacer es desmarcar todas las opciones que quiera desactivar en la pestaña"+
+                    " [Formato automático mientras escribe](https://support.content.office.net/es-es/media/f0b96f4c-c337-49aa-841c-fafd1299331e.png).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Quitar-o-desactivar-los-hiperv%C3%ADnculos-027b4e8c-38f8-432c-b57f-6c8b67ebe3b0")),
+            };
+        }
+
+        // MOSTRAR
+        //--------------------
+        // Mostrar u ocultar las reglas horizontales y verticales
+        public static IList<Attachment> GetMostrarOcultarReglaWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar u ocultar las reglas horizontales y verticales",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Para ver ambas reglas, asegúrese de que está en la vista Diseño de impresión y que la opción de regla vertical está activada.\r\r"+
+                    ">* **Opción 1**: Elija **Ver regla** en la parte superior de la barra de [desplazamiento vertical](https://support.content.office.net/es-es/media/4316d720-10e8-4261-bf6e-2f3a09dd0588.jpg).\r\r"+
+                    ">* **Opción 2**: Elija **Vista** y seleccione la casilla **Regla**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/mostrar-u-ocultar-las-reglas-horizontales-y-verticales-dc8a4e0d-209f-43b8-b967-8e65da24d4c7")),
+            };
+        }
+
+        // GUARDAR
+        //--------------------
+        // Guardar o convertir a PDF o XPS
+        public static IList<Attachment> GetGuardarArchivoPDF()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Guardar o convertir a PDF o XPS",
+                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 OneNote 2016 Publisher 2016 Access 2016 Visio Professional 2016",
+                    "Para exportar o guardar como PDF, un archivo Office, en el menú **Archivo**, haga clic en **Exportar** o en **Guardar como**. Para ver "+
+                    "instrucciones detalladas, entre al siguiente [enlace](https://support.office.com/es-es/article/guardar-o-convertir-a-pdf-o-xps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110?ui=es-ES&rs=es-ES&ad=ES)"+
+                    " para seleccionar un programa de Office.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/guardar-o-convertir-a-pdf-o-xps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // EDITAR
+        //--------------------
+        // Editar contenido de PDF en Word
+        public static IList<Attachment> GetEditarContenidoPdfWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Editar contenido de PDF en Word",
+                    "Se aplica a: Word 2016 Word 2013",
+                    "Para convertir un PDF en un documento de Word editable, ábralo como cualquier otro documento.\r\r"+
+                    ">1. Haga clic en **Archivo** > **Abrir**.\r\r"+
+                    ">2. Elija la ubicación del PDF y haga clic en **Buscar**.\r\r"+
+                    ">3. Encuentre el PDF y haga clic en **Abrir**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/editar-contenido-de-pdf-en-word-b2d1d729-6b79-499a-bcdb-233379c2f63a?ui=es-ES&rs=es-ES&ad=ES")),
+                GetVideoCard(
+                    "Office 365 - Word",
+                    "Convertir archivo PDF en Word",
+                    "https://videocontent.osi.office.net/b44dad88-b993-4b1b-b992-eb226581a717/fae01964-f530-402d-a142-3889647ac5ba__H264_3400kbps_AAC_und_ch2_96kbps.mp4",
+                    "https://support.office.com/es-es/article/editar-contenido-de-pdf-en-word-b2d1d729-6b79-499a-bcdb-233379c2f63a?ui=es-ES&rs=es-ES&ad=ES"),
+            };
+        }
+
+        // ESTABLECER
+        //-------------------
+        // Establecer los márgenes de una página en Word
+        public static IList<Attachment> GetEstablecerMargenesPaginaWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Establecer los márgenes de una página en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Starter 2010",
+                    "Si ninguno de los márgenes estándares concuerda con lo que desea, defina sus propios márgenes.\r\r"+
+                    ">1. Haga clic en **Diseño** > **Márgenes** > **Márgenes personalizados**.\r\r"+
+                    ">2. En **Configuración de página**, en **Márgenes**, escriba los valores que desee.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/establecer-los-m%C3%A1rgenes-de-una-p%C3%A1gina-en-word-da21a474-99d8-4e54-b12d-a8a14ea7ce02?ui=es-ES&rs=es-ES&ad=ES")),
+                };
+        }
+        // Establecer, desactivar o quitar tabulaciones
+        public static IList<Attachment> GetEstablecerDesactivarQuitarTabulaciones()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Establecer, desactivar o quitar tabulaciones",
+                    "Se aplica a: Word 2016 Outlook 2016 Word 2013 Outlook 2013 Word 2010 Word 2007",
+                    "Puede usar tabulaciones para crear documentos con un formato sencillo. Al usar las opciones de diseño del documento"+
+                    " en Word, puede crear, por ejemplo, una tabla de contenido o un índice sin agregar una sola tabulación.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/establecer-desactivar-o-quitar-tabulaciones-06969e0f-2c81-4fe0-8df5-88f18087a8e0?ui=es-ES&rs=es-HN&ad=PE")),
+                };
+        }
+        // Establecer las reglas para una combinación de correspondencia
+        public static IList<Attachment> GetEstablecerReglasCombinacionCorrespondencia()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Establecer las reglas para una combinación de correspondencia",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Puede agregar reglas al configurar la combinación de correspondencia.\r\r"+
+                    ">1. En la pestaña **Correspondencia**, en el grupo **Escribir e insertar campos**, seleccione **Reglas**.\r\r"+
+                    ">2. Seleccione una regla disponible.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Establecer-las-reglas-para-una-combinaci%C3%B3n-de-correspondencia-d546ee7e-ab7a-4d6d-b488-41f9e4bd1409")),
+                };
+        }
+
+        // APLICAR
+        //-------------------
+        // Aplicar espacio simple a las líneas de un documento
+        public static IList<Attachment> GetAplicarEspacioSimpleLineasDocumento()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Aplicar espacio simple a las líneas de un documento",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word 2016 para Mac",
+                    "Aplicar espacio simple al documento:\r\r"+
+                    ">1. Elija **Diseño** > **Espacio entre párrafos**.\r\r"+
+                    ">2. Elija **Sin espacio entre párrafos**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/aplicar-espacio-simple-a-las-l%C3%ADneas-de-un-documento-e96fa086-3f36-415e-8a7c-b4690ad94b92?ui=es-ES&rs=es-HN&ad=PE")),
+                };
+        }
+
+        // BUSCAR
+        //-------------------
+        // Buscar y reemplazar texto y otros datos en un documento de Word
+        public static IList<Attachment> GetBuscarReemplazarTextoDatosDocumentoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Buscar texto en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
+                    "Puede buscar rápidamente todas las repeticiones de una palabra o frase específica.\r\r"+
+                    ">1. En la pestaña **Inicio**, en el grupo **Edición**, elija **Buscar**. O presione Ctrl+F en el teclado.\r\r"+
+                    ">2. En el cuadro de búsqueda, escriba el texto que quiere buscar.\r\r"+
+                    ">3. Examine los resultados mediante los controles de flecha hacia arriba y hacia abajo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Buscar-y-reemplazar-texto-y-otros-datos-en-un-documento-de-Word-c6728c16-469e-43cd-afe4-7708c6c779b7")),
+                GetHeroCardV2(
+                    "Buscar y reemplazar texto en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la pestaña **Inicio**, en el grupo **Edición**, elija **Reemplazar**. O presione Ctrl+H en el teclado.\r\r"+
+                    ">2. En el cuadro **Buscar**, escriba el texto que quiera buscar y reemplazar.\r\r"+
+                    ">3. En el cuadro **Reemplazar con**, escriba el texto de reemplazo.\r\r"+
+                    ">4. Elija **Buscar siguiente** y, después, haga clic en la opción que usted necesite.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Buscar-y-reemplazar-texto-y-otros-datos-en-un-documento-de-Word-c6728c16-469e-43cd-afe4-7708c6c779b7")),
+                };
+        }
+
+        // PROBAR
+        //-------------------
+        // Probar legibilidad de un documento
+        public static IList<Attachment> GetProbarLegibilidadDocumento()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Conocer la legibilidad de un documento",
+                    "Se aplica a: Word 2016 Outlook 2016 Word 2013 Outlook 2013",
+                    "Siga los siguientes pasos: \r\r"+
+                    ">1. Haga clic en la pestaña **Archivo** y, después, en **Opciones**.\r\r"+
+                    ">2. Haga clic en **Revisión**.\r\r"+
+                    ">3. En **Al corregir la ortografía y la gramática en Word**, asegúrese de que la casilla de verificación **Revisar gramática con ortografía** esté activada.\r\r"+
+                    ">4. Seleccione **Estadísticas de legibilidad**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/conocer-la-legibilidad-de-un-documento-85b4969e-e80a-4777-8dd3-f7fc3c8b3fd2?ui=es-ES&rs=es-ES&ad=ES")),
+                };
+        }
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
         {

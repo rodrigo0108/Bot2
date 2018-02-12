@@ -65,7 +65,8 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
 
-                }else if (palabra1 == "diseñosdefondo" || palabra1 == "diseñosdefondos" || palabra1 == "fondos" || palabra1 == "fondo" || palabra1 == "diseño" || palabra1 == "diseños")
+                }
+                else if (palabra1 == "diseñosdefondo" || palabra1 == "diseñodefondos" || palabra1 == "fondos" || palabra1 == "fondo" || palabra1 == "diseño" || palabra1 == "diseños")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -73,7 +74,7 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "mensajes" || palabra2=="mensaje")
                         {
                             reply.Attachments = RespuestasOutlook.GetCrearDiseñosDePlantillaParaMensajesV2();
-                            await context.PostAsync(confirmacionRespuesta2);
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
@@ -91,6 +92,43 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetAplicarFondosTemasMensajes();
                     await context.PostAsync(reply);
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
+                    return;
+                }
+                else if (palabra1 == "espaciosimple" || palabra1 == "espaciossimples")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "línea" || palabra2 == "líneas" || palabra2 == "linea" || palabra2 == "lineas")
+                        {
+                            reply.Attachments = RespuestasWord.GetAplicarEspacioSimpleLineasDocumento();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else if (palabra1 == "documento" || palabra1 == "documentos")
+                        {
+                            reply.Attachments = RespuestasWord.GetAplicarEspacioSimpleLineasDocumento();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetAplicarEspacioSimpleLineasDocumento();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetAplicarEspacioSimpleLineasDocumento();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
                     return;
                 }
                 else

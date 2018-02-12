@@ -26,6 +26,12 @@ namespace Office365Prueba1.Dialogs
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
+            string preguntaNoRegistrada1 = "Lo siento, su pregunta no esta registrada, tal vez no escribió la pregunta correctamente";
+            string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
+            string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
+            string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
 
             Constantes c = Constantes.Instance;
@@ -65,13 +71,18 @@ namespace Office365Prueba1.Dialogs
                         if (palabra2 == "escritorio")
                         {
                             reply.Attachments = RespuestasOutlook.GetDesactivarActivarAlertasEscritorio();
+                            await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
                         {
-                            await context.PostAsync($"¿{palabra2}?, por favor vuelva a escribir la consulta correctamente");
+                            reply.Attachments = RespuestasOutlook.GetDesactivarActivarAlertasEscritorio();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                     }
@@ -81,9 +92,49 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
                     return;
                 }
-                else if (palabra1=="otroscorreos" || palabra1=="otroscorreo")
+                else if (palabra1=="otroscorreos" || palabra1=="otrocorreo")
                 {
                     reply.Attachments = RespuestasOutlook.GetDesactivarActivarOtrosCorreosOutlook();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "hipervínculo" || palabra1 == "hipervinculo" || palabra1 == "hipervínculos" || palabra1 == "hipervinculos")
+                {
+                    reply.Attachments = RespuestasWord.GetDesactivarHipervinculos();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "formato")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "automático" || palabra2 == "automatico")
+                        {
+                            reply.Attachments = RespuestasWord.GetDesactivarFormatoAutomatico();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetDesactivarFormatoAutomatico();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = reply.Attachments = RespuestasWord.GetDesactivarFormatoAutomatico();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
@@ -102,13 +153,17 @@ namespace Office365Prueba1.Dialogs
                 if (serv == "onedrive")
                 {
                     reply.Attachments = RespuestasOneDrive.GetDesactivarDesinstalarOneDrive();
+                    await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 else
                 {
-                    await context.PostAsync($"Los lamento, '{serv}' no se encuentra registrado.");
+                    reply.Attachments = RespuestasOneDrive.GetDesactivarDesinstalarOneDrive();
+                    await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
                     return;
                 }
             }

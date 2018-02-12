@@ -173,6 +173,7 @@
     <Compile Include="Dialogs\CompartirDialog.cs" />
     <Compile Include="Dialogs\ConceptoDialog.cs" />
     <Compile Include="Dialogs\ConsultaSecundariaDialog.cs" />
+    <Compile Include="Dialogs\ConvertirDialog.cs" />
     <Compile Include="Dialogs\CopiarDialog.cs" />
     <Compile Include="Dialogs\CrearDialog.cs" />
     <Compile Include="Dialogs\DesactivarDialog.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Dialogs\MoverDialog.cs" />
     <Compile Include="Dialogs\ObtenerDialog.cs" />
     <Compile Include="Dialogs\OrganizarDialog.cs" />
+    <Compile Include="Dialogs\ProbarDialog.cs" />
     <Compile Include="Dialogs\RecuperarDialog.cs" />
     <Compile Include="Dialogs\SaludoDialog.cs" />
     <Compile Include="Dialogs\SincronizarDialog.cs" />

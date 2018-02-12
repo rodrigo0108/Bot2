@@ -498,8 +498,8 @@ namespace Office365Prueba1.Dialogs
                                 {
                                     reply.Attachments = RespuestasOutlook.GetCambiarConfiguracionGruposEnvios();
                                     await context.PostAsync(confirmacionRespuesta1);
-                                    await context.PostAsync(preguntaConsulta);
                                     await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
                                     return;
                                 }
                                 else
@@ -508,6 +508,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                                     await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
                                     return;
                                 }
                             }
@@ -516,6 +517,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaNoRegistrada1);
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
@@ -588,6 +590,7 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetCambiarCitaOutlook();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 else if (palabra1 == "nivel" || palabra1 == "niveles")
@@ -599,8 +602,8 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = RespuestasOutlook.GetCambiarNivelProteccionFiltroCorreo();
                             await context.PostAsync(confirmacionRespuesta1);
-                            await context.PostAsync(preguntaConsulta);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
@@ -609,6 +612,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                     }
@@ -617,6 +621,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 else if (palabra1 == "usocompartido")
@@ -628,8 +633,8 @@ namespace Office365Prueba1.Dialogs
                         {
                             reply.Attachments = RespuestasOneDrive.GetCambiarUsoCompartidoArchivoOneDrive();
                             await context.PostAsync(confirmacionRespuesta1);
-                            await context.PostAsync(preguntaConsulta);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                         else
@@ -638,6 +643,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             return;
                         }
                     }
@@ -740,6 +746,31 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     return;
                 }
+                else if (palabra1 == "encabezados" || palabra1 == "encabezado" || palabra1 == "piedepágina" || palabra1 == "piedepagina" || palabra1 == "piesdepágina" || palabra1 == "piesdepagina")
+                {
+                    reply.Attachments = RespuestasWord.GetModificarEncabezadoPiePagina();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "espaciado" || palabra1 == "espaciado")
+                {
+                    reply.Attachments = RespuestasWord.GetAjustarSangriaEspaciado();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "sangría" || palabra1 == "sangrías")
+                {
+                    reply.Attachments = RespuestasWord.GetAjustarSangriaEspaciado();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+
                 else
                 {
                     await context.PostAsync(preguntaNoRegistrada2);

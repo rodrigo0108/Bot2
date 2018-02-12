@@ -8,19 +8,18 @@ using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
 {
-    public class ExportarDialog
+    public class ConvertirDialog
     {
         private IDialogContext context;
         private LuisResult result;
-
-        public ExportarDialog(IDialogContext context, LuisResult result)
+        public ConvertirDialog(IDialogContext context, LuisResult result)
         {
             this.context = context;
             this.result = result;
         }
         public async Task StartAsync()
         {
-            var accion = "Exportar";
+            var accion = "Convertir";
             context.PrivateConversationData.SetValue<string>("Accion", accion);
 
             var reply = context.MakeMessage();
@@ -40,14 +39,14 @@ namespace Office365Prueba1.Dialogs
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
-                if (palabra1 == "calendario" || palabra1 == "calendarios")
+                if (palabra1 == "documento" || palabra1 == "documentos" || palabra1 == "archivo" || palabra1 == "archivos")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "google" || palabra2=="googol")
+                        if (palabra2 == "pdf")
                         {
-                            reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
+                            reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -55,7 +54,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
+                            reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -63,43 +62,15 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasOutlook.GetExportarCalendarioGoogleCalendar();
+                    reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
                     return;
                 }
-                else if (palabra1=="correoelectrónico" || palabra1== "correoelectrónicos" || palabra1 == "correoelectronico" || palabra1 == "correoelectronicos" || palabra1 == "contacto" || palabra1 == "contactos" || palabra1=="correo" || palabra1=="correos")
+                else if (palabra1 == "pdf")
                 {
-                    reply.Attachments = RespuestasOutlook.GetExportarCorreoContactosCalendarioOutlook();
-                    await context.PostAsync(confirmacionRespuesta1);
-                    await context.PostAsync(reply);
-                    await context.PostAsync(preguntaConsulta);
-                    return;
-                }
-                else if (palabra1 == "archivos" || palabra1 == "archivo" || palabra1 == "documentos" || palabra1 == "documento")
-                {
-                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
-                    {
-                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "pdf" || palabra2 == "xps")
-                        {
-                            reply.Attachments = RespuestasWord.GetGuardarArchivoPDF();
-                            await context.PostAsync(confirmacionRespuesta1);
-                            await context.PostAsync(reply);
-                            await context.PostAsync(preguntaConsulta);
-                            return;
-                        }
-                        else
-                        {
-                            reply.Attachments = RespuestasWord.GetGuardarArchivoPDF();
-                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
-                            await context.PostAsync(opcionSecundarioDeRespuesta1);
-                            await context.PostAsync(reply);
-                            return;
-                        }
-                    }
-                    reply.Attachments = RespuestasWord.GetGuardarArchivoPDF();
+                    reply.Attachments = RespuestasWord.GetEditarContenidoPdfWord();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);

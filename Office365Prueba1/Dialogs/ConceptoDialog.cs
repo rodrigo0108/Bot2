@@ -127,6 +127,14 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaConsulta);
                         return;
                     }
+                    else if (palabra1=="firma" || palabra1 == "firmas")
+                    {
+                        reply.Attachments = RespuestasWord.GetQueEsFirmaDigital();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        return;
+                    }
                     else
                     {
                         await context.PostAsync($"Lo siento '{palabra1}' no se encuentra registrado.");

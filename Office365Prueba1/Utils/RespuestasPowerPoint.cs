@@ -96,6 +96,7 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/compartir-y-compartir-la-autor%C3%ADa-de-una-presentaci%C3%B3n-con-powerpoint-online-20b2c606-6140-4b0c-8540-159c3d248255?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+
         // COMPARTIR ARCHIVOS - POWER POINT - EXCEL - WORD - ONE DRIVE
         // ----------------------------------------------------------------------- 
         public static IList<Attachment> GetCompartirArchivosPowerPointExcelWordOneDrive()
@@ -137,6 +138,90 @@ namespace Office365Prueba1.Utils
                 new CardAction(ActionTypes.OpenUrl, "Ver más información",
                 value: "https://support.office.com/es-es/article/v%C3%ADdeo-compartir-archivos-y-carpetas-en-onedrive-3fcefa26-1371-401e-8c04-589de81ed5eb")),
 
+            };
+        }
+
+        // ELIMINAR
+        //---------------------
+        // Eliminar comentarios en Power Point
+        public static IList<Attachment> GetEliminarComentariosPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar comentarios en Power Point",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Eliminar comentarios:\r\r"+
+                    ">* **En la diapositiva:**    Haga clic en el icono de comentarios ![duck](https://support.content.office.net/es-es/media/5280372e-4b53-4d30-8c78-3a60a066ec23.png) del comentario que desea eliminar y, a continuación, haga clic en Eliminar comentario.\r\r"+
+                    ">* **En el panel Comentarios:**    Haga clic en el comentario que desea eliminar y, luego, haga clic en la **X** negra.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-cambiar-ocultar-o-eliminar-comentarios-en-una-presentaci%C3%B3n-a8f071fa-6e5d-4c37-a025-1cf48a76eb38?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Eliminar comentarios Power Point y Word
+        public static IList<Attachment> GetEliminarComentariosWordComentariosPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar comentarios",
+                    "Se aplica a: Word 2016",
+                    "Si el documento incluye comentarios, no se quitarán al aceptar o rechazar los cambios realizados. Tendrá que eliminarlos por separado.\r\r"+
+                    ">* Haga clic en el comentario y en la pestaña **Revisión**, haga clic en **Eliminar**\r\r"+
+                    ">* Para quitar todos los comentarios a la vez, haga clic en un comentario y, luego, en la pestaña **Revisión**, haga clic en la flecha debajo de **Eliminar** y haga clic en **Eliminar todos los comentarios del documento**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/quitar-los-cambios-realizados-y-los-comentarios-en-word-2016-para-windows-7966b497-7e04-4a13-8d41-53a3ffa00c25?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Eliminar comentarios en Power Point",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Eliminar comentarios:\r\r"+
+                    ">* **En la diapositiva:**    Haga clic en el icono de comentarios ![duck](https://support.content.office.net/es-es/media/5280372e-4b53-4d30-8c78-3a60a066ec23.png) del comentario que desea eliminar y, a continuación, haga clic en Eliminar comentario.\r\r"+
+                    ">* **En el panel Comentarios:**    Haga clic en el comentario que desea eliminar y, luego, haga clic en la **X** negra.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-cambiar-ocultar-o-eliminar-comentarios-en-una-presentaci%C3%B3n-a8f071fa-6e5d-4c37-a025-1cf48a76eb38?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Cambiar o eliminar información de encabezado y pie de página en una presentación
+        public static IList<Attachment> GetEliminarCambiarInformacionEncabezadoPiePagina()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar o eliminar información de encabezado y pie de página en una presentación",
+                    "Se aplica a: PowerPoint 2010 y PowerPoint 2007",
+                    "Eliminar información de encabezado y pie de página de las diapositivas:\r\r"+
+                    ">1. Seleccione la diapositiva que contiene el encabezado o pie de página que desea cambiar.\r\r"+
+                    ">2. En la pestaña **Insertar**, en el grupo **Texto**, seleccione **Encabezado y pie de página**.\r\r"+
+                    ">3. En el cuadro de diálogo **Encabezado y pie de página**, en la ficha **Diapositiva**, desactive las casillas de verificación correspondientes a las opciones que desee eliminar del encabezado o pie de página.\r\r"+
+                    ">4. Haga clic en **Aplicar a todo**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-o-eliminar-informaci%C3%B3n-de-encabezado-y-pie-de-p%C3%A1gina-en-una-presentaci%C3%B3n-5695469d-eaf5-412a-b0ce-e6b7d11082a2")),
+            };
+        }
+        // Cambiar o eliminar información de encabezado y pie de página en una presentación
+        public static IList<Attachment> GetEliminarCambiarEncabezadoPiePaginaWordPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar o cambiar un encabezado o pie de página de una sola página",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                    "Para eliminar o cambiar el encabezado o pie de página en la primera página haga lo siguiente:\r\r"+
+                    ">1. Haga doble clic en el área de encabezado o pie de página (en la parte superior o inferior de la página) para abrir **Herramientas para encabezado y pie de página**.\r\r"+
+                    ">2. Active la casilla **Primera página diferente**.\r\r"+
+                    ">3. Si el documento incluye un encabezado o pie de página, se quitará de la primera página automáticamente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/eliminar-o-cambiar-un-encabezado-o-pie-de-p%C3%A1gina-de-una-sola-p%C3%A1gina-a9b6c963-a3e1-4de1-9142-ca1be1dba7ff?ui=es-ES&rs=es-HN&ad=PE")),
+                GetHeroCardV2(
+                    "Cambiar o eliminar información de encabezado y pie de página en una presentación",
+                    "Se aplica a: PowerPoint 2010 y PowerPoint 2007",
+                    "Eliminar información de encabezado y pie de página de las diapositivas:\r\r"+
+                    ">1. Seleccione la diapositiva que contiene el encabezado o pie de página que desea cambiar.\r\r"+
+                    ">2. En la pestaña **Insertar**, en el grupo **Texto**, seleccione **Encabezado y pie de página**.\r\r"+
+                    ">3. En el cuadro de diálogo **Encabezado y pie de página**, en la ficha **Diapositiva**, desactive las casillas de verificación correspondientes a las opciones que desee eliminar del encabezado o pie de página.\r\r"+
+                    ">4. Haga clic en **Aplicar a todo**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-o-eliminar-informaci%C3%B3n-de-encabezado-y-pie-de-p%C3%A1gina-en-una-presentaci%C3%B3n-5695469d-eaf5-412a-b0ce-e6b7d11082a2")),
             };
         }
 

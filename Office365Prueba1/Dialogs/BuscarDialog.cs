@@ -196,8 +196,46 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     return;
-                } 
-                else
+                }
+                else if (palabra1 == "regla")
+                {
+                    reply.Attachments = RespuestasWord.GetMostrarOcultarReglaWord();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "texto" || palabra1 == "texto" || palabra1 == "datos" || palabra1 == "dato")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "documentos" || palabra2 == "documento" || palabra2 == "archivo" || palabra2 == "archivos")
+                        {
+                            reply.Attachments = RespuestasWord.GetBuscarReemplazarTextoDatosDocumentoWord();
+                            await context.PostAsync(confirmacionRespuesta2);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetBuscarReemplazarTextoDatosDocumentoWord();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasWord.GetBuscarReemplazarTextoDatosDocumentoWord();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta2);
+                    await context.PostAsync(reply);
+                    return;
+                }
+
+                    else
                 {
                     await context.PostAsync(preguntaNoRegistrada2);
                     await context.PostAsync($"O tal vez no escribió correctamente la palabra '{palabra1}'?");
