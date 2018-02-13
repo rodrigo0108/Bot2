@@ -61,7 +61,7 @@ namespace Office365Prueba1.Dialogs
                         else
                         {
                             await context.PostAsync($"Lo siento, '{service}' no esta registrado como servicio");
-                            reply.Attachments = RespuestasWord.GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord();
+                            reply.Attachments = Cards.GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord();
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
                             return;
@@ -86,7 +86,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             return;
                     }
-                    reply.Attachments = RespuestasWord.GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord();
+                    reply.Attachments = Cards.GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);

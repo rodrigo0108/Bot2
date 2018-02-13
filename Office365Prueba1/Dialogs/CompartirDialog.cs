@@ -90,7 +90,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1=="blocdenotas" || palabra1=="páginadenotas" || palabra1 == "páginasdenotas" || palabra1 == "paginadenotas" || palabra1 == "paginasdenotas")
                 {
-                    reply.Attachments = RespuestasOneNote.GetCompartirPaginaNotasBlocNotasOneNote();
+                    reply.Attachments = RespuestasOneNote.GetCompartirPaginaDeNotasBlocDeNotasOneNote();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);

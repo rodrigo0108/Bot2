@@ -234,7 +234,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetInsertarDibujarTablaWordCrearExcelOutlook();
+                            reply.Attachments = Cards.GetInsertarDibujarTablaWordCrearExcelOutlook();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -262,7 +262,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasWord.GetInsertarDibujarTablaWordCrearExcelOutlook();
+                    reply.Attachments = Cards.GetInsertarDibujarTablaWordCrearExcelOutlook();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -423,7 +423,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
+                            reply.Attachments = Cards.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -452,7 +452,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
+                            reply.Attachments = Cards.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -460,7 +460,7 @@ namespace Office365Prueba1.Dialogs
                         }
 
                     }
-                    reply.Attachments = RespuestasWord.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
+                    reply.Attachments = Cards.GetAgregarFirmaWordFirmaDigitalFirmaMensajes();
                     await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
@@ -598,7 +598,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote();
+                            reply.Attachments = Cards.GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -649,7 +649,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             return;
                     }
-                    reply.Attachments = RespuestasWord.GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote();
+                    reply.Attachments = Cards.GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote();
                     await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
@@ -889,7 +889,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetAgregarEncabezadoPiePaginaWordPowerPoint();
+                            reply.Attachments = Cards.GetAgregarEncabezadoPiePaginaWordPowerPoint();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -897,7 +897,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasWord.GetAgregarEncabezadoPiePaginaWordPowerPoint();
+                    reply.Attachments = Cards.GetAgregarEncabezadoPiePaginaWordPowerPoint();
                     await context.PostAsync(preguntaNoRegistrada2);
                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                     await context.PostAsync(reply);

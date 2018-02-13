@@ -315,6 +315,407 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Solucionar-problemas-en-OneNote-para-Windows-10-942b006c-46ac-4300-a629-7fac5ae4dc70?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // -------------------------------------------------------------
+        //-------- PREGUNTAS SOBRE MICROSOFT ----------
+        //---------------------------------------------
+        // Recuperar la cuenta de Microsoft
+        public static IList<Attachment> GetRecuperarCuentaMicrosoft()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Recuperar la cuenta de Microsoft",
+                "Se aplica a: Microsoft account",
+                "El formulario de recuperación de cuenta es la última opción que debes usar para recuperar tu cuenta.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.microsoft.com/es-es/help/17875/microsoft-account-recover")),
+            };
+        }
+
+        // Cómo restablecer la contraseña de tu cuenta de Microsoft
+        public static IList<Attachment> GetRecuperarContraseñaMicrosoft()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Cómo restablecer la contraseña de tu cuenta de Microsoft",
+                "Se aplica a: Microsoft account",
+                "Si has olvidado la contraseña que usas para iniciar sesión en servicios como, por ejemplo, Outlook.com, Skype, OneDrive y Xbox Live, quizás tengas que restablecerla.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.microsoft.com/es-es/help/4026971/microsoft-account-how-to-reset-your-password")),
+            };
+        }
+
+        //------- PREGUNTAS CON VARIOS SERVICIOS -------
+        //----------------------------------------------
+        // Abrir archivos en su dispositivo móvil
+        // Abrir y cerrar archivos de datos de Outlook (.pst)
+        public static IList<Attachment> GetAbrirArchivosOneDriveOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                "Abrir archivos en su dispositivo móvil",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Primero: pulse el archivo para obtener una vista previa. Segundo: Pulse el icono de la aplicación de Office en la parte superior para abrir el archivo.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/inicio-r%C3%A1pido-de-onedrive-a5710114-6aeb-4bf5-a336-dffa7cc0b77a?ui=es-ES&rs=es-ES&ad=ES#ID0EAABAAA=Seguir_conectado")),
+                GetHeroCardV2(
+                    "Abrir y cerrar archivos de datos de Outlook (.pst)",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Outlook es parte de su rutina diaria. Se usa para enviar mensajes de correo electrónico, configurar eventos del calendario y crear tareas y otros elementos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Abrir-y-cerrar-Archivos-de-datos-de-Outlook-pst-381b776d-7511-45a0-953a-0935c79d24f2")),
+            };
+        }
+
+        // Como cambiar el color de fondo del calendario
+        // Cambiar el color de fondo de una página en OneNote para Windows 10
+        //Cambiar el fondo o el color de un documento en Word 2016 para Windows
+        public static IList<Attachment> GetCambiarColorFondoOutlookOneDriveDocumentoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Como cambiar el color de fondo del calendario",
+                    "Se aplica a: Outlook 2016 Outlook 2013",
+                    "El cambio del color de fondo es una forma rápida de hacer que su calendario sea diferente. Esto resulta " +
+                    "especialmente útil si trabaja con [múltiples calendarios](https://support.office.com/es-es/article/crear-calendarios-adicionales-4b5570c4-e95d-4673-b38a-2b8ead5f00ee?ui=es-ES&rs=es-ES&ad=ES).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-del-calendario-3c544857-8446-46a5-ab9c-07b6af6e5091")),
+                GetHeroCardV2(
+                    "Cambiar el color de fondo de una página en OneNote",
+                    "Se aplica a: OneNote para Windows 10",
+                    "Para elegir un nuevo color para el fondo de la página actual, haga lo siguiente:\r\r" +
+                    ">1. Abra la página cuyo color de fondo que desee cambiar.\r\r" +
+                    ">2. En la ficha vista, haga clic o puntee en Color de página.\r\r" +
+                    ">3. Haga clic o puntee en el color que desee.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-el-color-de-fondo-de-una-p%C3%A1gina-en-onenote-para-windows-10-c9265c78-a9b4-4cce-9ee3-46a2bb9e50f6?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Cambiar el fondo o el color de un documento en Word 2016 para Windows",
+                    "Se aplica a: Word 2016",
+                    "Para agregar interés visual adicional a su documento, agregue un color de fondo con el botón **Color de página**.\r\r"+
+                    ">1. Haga clic en Diseño > Color de página.\r\r"+
+                    ">2. Haga clic en el color deseado en Colores del tema o en Colores estándar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-fondo-o-el-color-de-un-documento-en-Word-2016-para-Windows-db481e61-7af6-4063-bbcd-b276054a5515")),
+            };
+        }
+
+        // Accion imprimir Outlook - OneNote
+        // Imprimir notas en OneNote para Windows 10
+        // Imprimir contactos, mensajes u otros elementos de Outlook
+        public static IList<Attachment> GetImprimirOutlookOneNote()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Imprimir notas en OneNote",
+                    "Se aplica a: OneNote para Windows 10",
+                    "siempre que sea necesaria una copia impresa de las notas, puede imprimir fácilmente una sola página, " +
+                    "una sección completa o un bloc de notas completo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/imprimir-notas-en-onenote-para-windows-10-45edbbc5-fbb8-453f-99c7-aaadebe5c06a?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Imprimir contactos, mensajes u otros elementos de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010 Outlook 2007",
+                    "Puede imprimir mensajes, contactos, calendarios, reuniones y tareas en Outlook. Cada tipo de elemento de " +
+                    "Outlook tiene varias opciones de impresión.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Imprimir-contactos-mensajes-u-otros-elementos-de-Outlook-d2c0b12b-e308-41ce-9016-a3089ebdbe38?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
+
+
+        // Insertar una tabla en OneNote para Windows 10
+        // Como agregar tablas a mensajes en Outlook
+        public static IList<Attachment> GetInsertarTabla()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar una tabla en OneNote",
+                    "Se aplica a: OneNote para Windows 10",
+                    "Si desea organizar visualmente la información en las notas, puede insertar y dar formato " +
+                    "a una tabla en OneNote para Windows 10.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-una-tabla-en-onenote-para-windows-10-35052542-ca8e-42fe-be3f-bc5c748a14b1?ui=es-ES&rs=es-ES&ad=ES")),
+                 GetHeroCardV2(
+                    "Como agregar tablas a mensajes en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
+            };
+        }
+
+        //Colaborar en documentos de Word con coautoría en tiempo real y trabajar de manera conjunta en documentos de Office en OneDrive
+        public static IList<Attachment> GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord()
+        {
+            return new List<Attachment>()
+            {
+
+                GetHeroCardV2(
+                    "Colaborar en documentos de Word con coautoría en tiempo real",
+                    "Se aplica a: Word 2016 Word 2016 para Mac Word para Mac 2011 Word Online Word para iPad Word para iPhone Word para tabletas Android Word para teléfonos Android",
+                    "La colaboración es un proceso simple de tres pasos:\r\r 1-Guarde el documento en OneDrive o SharePoint Online, de modo que otros usuarios puedan trabajar"+
+                    " en él.\r\r 2-Invite a personas para editarlo con usted.\r\r 3-Cuando abran o trabajen en el documento en Word 2016, Word Online y Word Android verán los"+
+                    " cambios de otros usuarios tan pronto como se realicen.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/colaborar-en-documentos-de-word-con-coautor%C3%ADa-en-tiempo-real-7dd3040c-3f30-4fdd-bab0-8586492a1f1d?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Trabajar de manera conjunta en documentos de Office en One Drive",
+                    "Se aplica a: Excel Online Word Online PowerPoint Online OneNote Online Office.com",
+                    "Con Office Online es fácil trabajar con otras personas porque puede enviar vínculos a documentos en lugar de enviar datos adjuntos. De este modo, ahorrará almacenamiento "+
+                    "de correo electrónico y evitará tener que conciliar varias versiones del mismo documento.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver información",
+                    value: "https://support.office.com/es-es/article/trabajar-de-manera-conjunta-en-documentos-de-office-en-onedrive-ea3807bc-2b73-406f-a8c9-a493de18258b")),
+                };
+        }
+
+        // Insertar Archivos
+        public static IList<Attachment> GetInsertarArchivo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar un archivo en OneNote para Windows 10",
+                    "Se aplica a: OneNote para Windows 10",
+                    "Insertar un archivo en OneNote para Windows 10 facilita la mantener todas sus notas organizadas. " +
+                    "Puede insertar un archivo como datos adjuntos para que pueda abrir una copia del archivo en OneNote.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-archivo-en-onenote-para-windows-10-5fc09a27-71b3-4e92-9eb6-3b0be9380374?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Insertar un objeto en la hoja de cálculo de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
+                GetHeroCardV2(
+                    "Adjuntar archivos o insertar imágenes en mensajes de correo de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Es fácil adjuntar imágenes, archivos, contactos, mensajes de correo y muchos otros elementos a los mensajes de Outlook. Outlook"
+                    +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
+                GetHeroCardV2(
+                    "Insertar una hoja de cálculo o algún archivo en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Puede vincular datos de una hoja de cálculo guardada Excel a la presentación de PowerPoint si tiene PowerPoint 2013 o posterior.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
+            };
+        }
+
+        // Agregar archivo en outlook, word, excel, power point, one drive, one note
+        public static IList<Attachment> GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar un documento en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Puede insertar el contenido de documentos de Microsoft Office Word creados previamente en un documento de Microsoft Office Word nuevo o diferente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-documento-en-word-274128e5-4da7-4cb8-b65f-3d8b585e03f1")),
+                GetHeroCardV2(
+                    "Adjuntar archivos o insertar imágenes en mensajes de correo de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Es fácil adjuntar imágenes, archivos, contactos, mensajes de correo y muchos otros elementos a los mensajes de Outlook. Outlook"
+                    +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
+                  GetHeroCardV2(
+                    "Insertar un objeto en la hoja de cálculo de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
+                  GetHeroCardV2(
+                    "Insertar una hoja de cálculo o algún archivo en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    ">1. En PowerPoint, en la pestaña **Insertar**, haga clic o puntee **Objeto**.\r\r"+
+                    ">2. En el cuadro de diálogo **Insertar objeto**, seleccione **Crear desde archivo**.\r\r"+
+                    ">3. Haga clic o puntee **Examinar** y, en el cuadro Examinar, busque el archivo que desea insertar y vincular.\r\r"+
+                    ">4. Antes de cerrar el cuadro de diálogo **Insertar objeto**, seleccione **Vínculo** y haga clic en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
+                  GetHeroCardV2(
+                    "Cómo adjuntar un arhivo en One Note",
+                    "Se aplica a: OneNote 2013",
+                    "OneNote puede conservar toda la información acerca de un asunto o un proyecto en un único lugar, incluidas las copias de archivos y documentos relacionados.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/tareas-b%C3%A1sicas-en-microsoft-onenote-2013-da73c095-e082-4276-acf9-8728ca8b08ab")),
+                  GetHeroCardV2(
+                    "Insertar archivos directamente en tu sitio web o blog",
+                    "Se aplica a: Office.com OneDrive",
+                    "Si tiene un sitio web o un blog, es muy fácil y rápido incluir fotos, vídeos, documentos de Office y otros archivos desde OneDrive.\r\r"+
+                    ">1. Ve al [sitio web de OneDrive](https://onedrive.live.com/about/es-419/). Es posible que tengas que iniciar sesión con tu cuenta Microsoft.\r\r"+
+                    ">2. Elige el archivo que quieres insertar activando la casilla de la esquina superior derecha del archivo.\r\r"+
+                    ">3. Pulsa o haz clic en **Insertar** en la parte superior de la página y elige **Generar**.\r\r"+
+                    ">4. Copia o pega el código en el código de tu sitio web o blog.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-archivos-directamente-en-tu-sitio-web-o-blog-ed07dd52-8bdb-431d-96a5-cbe8a80b7418?ui=es-ES&rs=es-ES&ad=ES")),
+
+            };
+        }
+
+        // Agregar firma en documento, agregar firma al documento, agregar firma a los mensajes Outlook
+        public static IList<Attachment> GetAgregarFirmaWordFirmaDigitalFirmaMensajes()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar una firma",
+                    "Se aplica a: Word 2016 Word 2013",
+                    "Use **Línea de firma** para insertar una línea de firma con una X al lado para indicar dónde hay que firmar el documento.\r\r"+
+                    ">1. Haga clic en el lugar en donde quiera la línea.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Línea de firma**\r\r"+
+                    ">3. Haga clic en **Línea de firma de Microsoft Office.**\r\r"+
+                    ">4. En el cuadro Configuración de firma puede escribir un nombre en el cuadro Firmante sugerido. También puede agregar un puesto en el cuadro Puesto del firmante sugerido.\r\r"+
+                    ">5. Haga clic en Aceptar. La línea de firma aparecerá en el documento.\r\r"+
+                    "Si desea hacer una firma personalizada haga click [aquí](https://support.office.com/es-es/article/Insertar-una-firma-f3b3f74c-2355-4d53-be89-ae9c50022730)\r\r",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d")),
+
+                GetHeroCardV2(
+                    "Agregar o quitar una firma digital en archivos de Office",
+                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Word Starter 2010",
+                    ">1. Haga clic en la pestaña **Archivo**.\r\r"+
+                    ">2. Haga clic en **Información**.\r\r"+
+                    ">3. Haga clic en **Proteger documento**, **Proteger libro** o **Proteger presentación**.\r\r"+
+                    ">4. Haga clic en **Agregar una firma digital**.\r\r"+
+                    ">5. Lea el mensaje de Word, Excel o PowerPoint y después haga clic en **Aceptar**.\r\r"+
+                    ">6. En el cuadro de diálogo **Firmar**, en el cuadro **Razón para firmar este documento**, escriba la razón.\r\r"+
+                    ">7. Haga clic en **Firmar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d#__toc311526848")),
+
+                GetVideoCard(
+                    "Agregar una firma a los mensajes en Outlook",
+                    "En Outlook puede crear firmas personalizadas para sus mensajes de correo electrónico. Puede incluir texto, imágenes, su tarjeta " +
+                    "de presentación electrónica, un logotipo o incluso una imagen con su firma manuscrita. Puede configurarlo para que las firmas " +
+                    "se agreguen automáticamente a todos los mensajes salientes o puede elegir qué mensajes incluirán una firma.",
+                    "https://videocontent.osi.office.net/f6ae6849-cbd6-4863-a3c5-546e90246c45/dcb8a228-ebbc-47fe-a315-d62959b5de1a_1280x720_3400.mp4",
+                    "https://support.office.com/es-es/article/Crear-y-agregar-una-firma-a-los-mensajes-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#ID0EAABAAA=2016,_2013"),
+
+            };
+        }
+
+        // Crear o modificar un hipervínculo - Crear o modificar o insertar un hipervínculo
+        public static IList<Attachment> GetCrearHipervinculoWordOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear o modificar un hipervínculo",
+                    "Se aplica a: Excel, Word, Outlook, PowerPoint, Office",
+                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar ENTRAR o la barra espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office convierte automáticamente la dirección en un vínculo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf")),
+                GetHeroCardV2(
+                    "Crear o modificar un hipervínculo",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Office 2016",
+                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar **ENTRAR** o la barra"+
+                    " espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office"+
+                    " convierte automáticamente la dirección en un vínculo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Agregar un encabezado o pie de página Word y Power Point
+        public static IList<Attachment> GetAgregarEncabezadoPiePaginaWordPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                 GetHeroCardV2(
+                    "Agregar un encabezado o pie de página",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
+                    "Siga los siguientes pasos para agregar un encabezado o pie de página:\r\r"+
+                    ">1. Seleccione **Insertar** y, después, seleccione **Encabezado** o **Pie de página**.\r\r"+
+                    ">2. Después de seleccionar un formato, en el documento se mostrará el área de encabezado y pie de página.\r\r"+
+                    ">3. Escriba el texto que prefiera en el encabezado o pie de página.\r\r"+
+                    ">4. Cuando haya terminado, elija **Cerrar encabezado y pie de página**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-b87ee4df-abc1-41f8-995b-b39f6d99c7ed?ui=es-ES&rs=es-HN&ad=PE")),
+                 GetHeroCardV2(
+                    "Agregar un encabezado o pie de página a documentos o notas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "En PowerPoint, notas y documentos tiene encabezados y pies de página. Diapositivas tienen sólo pies de página."+
+                    " Haga click en **Ver más información** para ver instrucciones detalladas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-a-documentos-o-notas-882efcea-35cd-4b68-ac0b-041ae1ba7099?ui=es-ES&rs=es-ES&ad=ES")),
+
+                };
+        }
+
+        // Insertar tabla Word, crear tabla excel
+        public static IList<Attachment> GetInsertarDibujarTablaWordCrearExcelOutlook()
+        {
+            return new List<Attachment>()
+            {
+                  GetHeroCardV2(
+                    "Insertar o dibujar una tabla",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
+                    "Siga los siguientes pasos para insertar una tabla en Word:\r\r"+
+                    ">* Para insertar rápidamente una tabla básica, haga clic en **Insertar** > **Tabla** y mueva el cursor sobre la cuadrícula hasta que haya resaltado el número de columnas y filas que desee.\r\r"+
+                    ">* Haga clic y aparecerá la tabla en el documento. Si necesita hacer ajustes, puede [agregar filas y columnas de tabla](https://support.office.com/es-es/article/agregar-filas-y-columnas-a-una-tabla-42946584-741f-4461-9f20-0207bb78cda0?ui=es-ES&rs=es-ES&ad=ES)"+
+                    ", [eliminar filas y columnas de tabla](https://support.office.com/es-es/article/eliminar-una-fila-una-columna-o-una-celda-de-una-tabla-45dab66c-f6b3-4c92-b2ab-642aa240b9dc?ui=es-ES&rs=es-ES&ad=ES) "+
+                    "o [combinar celdas de la tabla en una celda](https://support.office.com/es-es/article/combinar-celdas-de-tabla-en-una-celda-689227b5-c73f-43e8-bece-ac564f60b9eb?ui=es-ES&rs=es-ES&ad=ES).\r\r"+
+                    ">* Al hacer clic en la tabla, aparecen las **Herramientas de tabla**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-o-dibujar-una-tabla-a138f745-73ef-4879-b99a-2f3d38be612a?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Como agregar tablas a mensajes en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
+                  GetHeroCardV2(
+                    "Crear o eliminar una tabla de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
+                    "Siga los siguientes pasos para crear una tabla:\r\r"+
+                    ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
+                    ">2. En la pestaña **Inicio**, haga clic en **Estilos** > **Dar formato como tabla** > seleccione un estilo en la **Galería de estilos** de tabla.\r\r"+
+                    ">3. Excel resaltará automáticamente el rango de datos de la tabla, si todo esta bien haga click en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
+            };
+        }
+
+        // Mover o cambiar el nombre de una carpeta en Outlook.com
+        // Como cambiar el nombre de una categoría de color
+        //Cambiar el nombre del autor de los documentos
+        public static IList<Attachment> GetCambiarNombreCarpetaCategoriaAutor()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mover o cambiar el nombre de una carpeta en Outlook.com",
+                    "Se aplica a: Outlook.com",
+                    "Puede arrastrar una carpeta en Outlook.com a un nuevo lugar en la jerarquía de carpetas, o bien " +
+                    "puede usar la opción mover en el menú contextual. También puede cambiar el nombre de las carpetas que cree.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mover-o-cambiar-el-nombre-de-una-carpeta-en-Outlook-com-c9c66fed-8a7c-426a-afc6-0d46a72080fb")),
+                 GetHeroCardV2(
+                    "Como cambiar el nombre de una categoría de color",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Las categorías de color son una excelente forma de agrupar visualmente mensajes, tareas, contactos o eventos de calendario que se parecen.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-nombre-de-una-categor%C3%ADa-de-color-692ab131-525a-467b-8cbd-4b08346d5346")),
+                GetHeroCardV2(
+                    "Cambiar el nombre del autor de los documentos",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "**Cambiar el nombre de autor para nuevos documentos**\r\r"+
+                    ">1. Haga clic en **Archivo** > **Opciones**.\r\r"+
+                    ">2. En Personalizar la copia de Microsoft Office, escriba un nombre nuevo en el cuadro nombre de usuario.\r\r",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-el-nombre-del-autor-de-los-documentos-0ad23fe7-b82e-40c4-b9d9-391fec971a54")),
+            };
+        }
+
 
         // -------------------------------------------------------------
 

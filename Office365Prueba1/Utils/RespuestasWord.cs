@@ -63,29 +63,7 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/colaborar-en-documentos-de-word-con-coautor%C3%ADa-en-tiempo-real-7dd3040c-3f30-4fdd-bab0-8586492a1f1d?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-        //Colaborar en documentos de Word con coautoría en tiempo real y trabajar de manera conjunta en documentos de Office en OneDrive
-        public static IList<Attachment> GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord()
-        {
-            return new List<Attachment>()
-            {
-
-                GetHeroCardV2(
-                    "Colaborar en documentos de Word con coautoría en tiempo real",
-                    "Se aplica a: Word 2016 Word 2016 para Mac Word para Mac 2011 Word Online Word para iPad Word para iPhone Word para tabletas Android Word para teléfonos Android",
-                    "La colaboración es un proceso simple de tres pasos:\r\r 1-Guarde el documento en OneDrive o SharePoint Online, de modo que otros usuarios puedan trabajar"+
-                    " en él.\r\r 2-Invite a personas para editarlo con usted.\r\r 3-Cuando abran o trabajen en el documento en Word 2016, Word Online y Word Android verán los"+
-                    " cambios de otros usuarios tan pronto como se realicen.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/colaborar-en-documentos-de-word-con-coautor%C3%ADa-en-tiempo-real-7dd3040c-3f30-4fdd-bab0-8586492a1f1d?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Trabajar de manera conjunta en documentos de Office en One Drive",
-                    "Se aplica a: Excel Online Word Online PowerPoint Online OneNote Online Office.com",
-                    "Con Office Online es fácil trabajar con otras personas porque puede enviar vínculos a documentos en lugar de enviar datos adjuntos. De este modo, ahorrará almacenamiento "+
-                    "de correo electrónico y evitará tener que conciliar varias versiones del mismo documento.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver información",
-                    value: "https://support.office.com/es-es/article/trabajar-de-manera-conjunta-en-documentos-de-office-en-onedrive-ea3807bc-2b73-406f-a8c9-a493de18258b")),
-                };
-        }
+        
 
         // COMBINAR
         //---------------------
@@ -206,47 +184,6 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d")),
             };
         }
-        // Agregar firma en documento, agregar firma al documento, agregar firma a los mensajes Outlook
-        public static IList<Attachment> GetAgregarFirmaWordFirmaDigitalFirmaMensajes()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Insertar una firma",
-                    "Se aplica a: Word 2016 Word 2013",
-                    "Use **Línea de firma** para insertar una línea de firma con una X al lado para indicar dónde hay que firmar el documento.\r\r"+
-                    ">1. Haga clic en el lugar en donde quiera la línea.\r\r"+
-                    ">2. Haga clic en **Insertar** > **Línea de firma**\r\r"+
-                    ">3. Haga clic en **Línea de firma de Microsoft Office.**\r\r"+
-                    ">4. En el cuadro Configuración de firma puede escribir un nombre en el cuadro Firmante sugerido. También puede agregar un puesto en el cuadro Puesto del firmante sugerido.\r\r"+
-                    ">5. Haga clic en Aceptar. La línea de firma aparecerá en el documento.\r\r"+
-                    "Si desea hacer una firma personalizada haga click [aquí](https://support.office.com/es-es/article/Insertar-una-firma-f3b3f74c-2355-4d53-be89-ae9c50022730)\r\r",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d")),
-
-                GetHeroCardV2(
-                    "Agregar o quitar una firma digital en archivos de Office",
-                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Word Starter 2010",
-                    ">1. Haga clic en la pestaña **Archivo**.\r\r"+
-                    ">2. Haga clic en **Información**.\r\r"+
-                    ">3. Haga clic en **Proteger documento**, **Proteger libro** o **Proteger presentación**.\r\r"+
-                    ">4. Haga clic en **Agregar una firma digital**.\r\r"+
-                    ">5. Lea el mensaje de Word, Excel o PowerPoint y después haga clic en **Aceptar**.\r\r"+
-                    ">6. En el cuadro de diálogo **Firmar**, en el cuadro **Razón para firmar este documento**, escriba la razón.\r\r"+
-                    ">7. Haga clic en **Firmar**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d#__toc311526848")),
-
-                GetVideoCard(
-                    "Agregar una firma a los mensajes en Outlook",
-                    "En Outlook puede crear firmas personalizadas para sus mensajes de correo electrónico. Puede incluir texto, imágenes, su tarjeta " +
-                    "de presentación electrónica, un logotipo o incluso una imagen con su firma manuscrita. Puede configurarlo para que las firmas " +
-                    "se agreguen automáticamente a todos los mensajes salientes o puede elegir qué mensajes incluirán una firma.",
-                    "https://videocontent.osi.office.net/f6ae6849-cbd6-4863-a3c5-546e90246c45/dcb8a228-ebbc-47fe-a315-d62959b5de1a_1280x720_3400.mp4",
-                    "https://support.office.com/es-es/article/Crear-y-agregar-una-firma-a-los-mensajes-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#ID0EAABAAA=2016,_2013"),
-
-            };
-        }
         // Agregar un PDF a un archivo de Office
         public static IList<Attachment> GetAgregarPDFArchivoOffice()
         {
@@ -260,58 +197,6 @@ namespace Office365Prueba1.Utils
                     "instalado Adobe Acrobat o Adobe Reader para ver o leer archivos PDF.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Agregar-un-PDF-a-un-archivo-de-Office-74819342-8f00-4ab4-bcbe-0f3df15ab0dc#ID0EAABAAA=2016,_2013,_2010")),
-            };
-        }
-        // Agregar archivo en outlook, word, excel, power point, one drive, one note
-        public static IList<Attachment> GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Insertar un documento en Word",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
-                    "Puede insertar el contenido de documentos de Microsoft Office Word creados previamente en un documento de Microsoft Office Word nuevo o diferente.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-documento-en-word-274128e5-4da7-4cb8-b65f-3d8b585e03f1")),
-                GetHeroCardV2(
-                    "Adjuntar archivos o insertar imágenes en mensajes de correo de Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Es fácil adjuntar imágenes, archivos, contactos, mensajes de correo y muchos otros elementos a los mensajes de Outlook. Outlook"
-                    +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
-                  GetHeroCardV2(
-                    "Insertar un objeto en la hoja de cálculo de Excel",
-                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
-                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
-                  GetHeroCardV2(
-                    "Insertar una hoja de cálculo o algún archivo en PowerPoint",
-                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
-                    ">1. En PowerPoint, en la pestaña **Insertar**, haga clic o puntee **Objeto**.\r\r"+
-                    ">2. En el cuadro de diálogo **Insertar objeto**, seleccione **Crear desde archivo**.\r\r"+
-                    ">3. Haga clic o puntee **Examinar** y, en el cuadro Examinar, busque el archivo que desea insertar y vincular.\r\r"+
-                    ">4. Antes de cerrar el cuadro de diálogo **Insertar objeto**, seleccione **Vínculo** y haga clic en **Aceptar**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
-                  GetHeroCardV2(
-                    "Cómo adjuntar un arhivo en One Note",
-                    "Se aplica a: OneNote 2013",
-                    "OneNote puede conservar toda la información acerca de un asunto o un proyecto en un único lugar, incluidas las copias de archivos y documentos relacionados.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/tareas-b%C3%A1sicas-en-microsoft-onenote-2013-da73c095-e082-4276-acf9-8728ca8b08ab")),
-                  GetHeroCardV2(
-                    "Insertar archivos directamente en tu sitio web o blog",
-                    "Se aplica a: Office.com OneDrive",
-                    "Si tiene un sitio web o un blog, es muy fácil y rápido incluir fotos, vídeos, documentos de Office y otros archivos desde OneDrive.\r\r"+
-                    ">1. Ve al [sitio web de OneDrive](https://onedrive.live.com/about/es-419/). Es posible que tengas que iniciar sesión con tu cuenta Microsoft.\r\r"+
-                    ">2. Elige el archivo que quieres insertar activando la casilla de la esquina superior derecha del archivo.\r\r"+
-                    ">3. Pulsa o haz clic en **Insertar** en la parte superior de la página y elige **Generar**.\r\r"+
-                    ">4. Copia o pega el código en el código de tu sitio web o blog.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-archivos-directamente-en-tu-sitio-web-o-blog-ed07dd52-8bdb-431d-96a5-cbe8a80b7418?ui=es-ES&rs=es-ES&ad=ES")),
-
             };
         }
         // Insertar un símbolo o carácter especial 
@@ -424,30 +309,6 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Insertar-un-salto-de-secci%C3%B3n-eef20fd8-e38c-4ba6-a027-e503bdf8375c")),
              };
         }
-        // Insertar un salto de página y sección
-        public static IList<Attachment> GetInsertarSaltoPaginaSeccion()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Insertar un salto de página",
-                    "Se aplica a: Word 2016 Visio 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
-                    "Puede agregar de forma manual un salto de página en cualquier ubicación del documento.\r\r"+
-                    ">1. Haga clic en el lugar donde desea empezar una página nueva.\r\r"+
-                    ">2. Haga clic en **Insertar** > **Salto de página**.\r\r"+
-                    ">3. Para ver dónde ha agregado saltos de página, haga clic en **Inicio** y, en el grupo **Párrafo**, haga clic en **Mostrar** u **Ocultar**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-salto-de-p%C3%A1gina-7613ff46-96e5-4e46-9491-40d7d410a043?ui=es-ES&rs=es-HN&ad=PE")),
-
-                GetHeroCardV2(
-                    "Insertar un salto de página",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Starter 2010",
-                    "Use los saltos de secciones para dividir y dar formato a documentos de todos los tamaños.\r\r"+
-                    ">* En la pestaña **Diseño**, en el grupo **Configurar página**, elija **Saltos** y, después, elija el tipo de salto de sección que quiera.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Insertar-un-salto-de-secci%C3%B3n-eef20fd8-e38c-4ba6-a027-e503bdf8375c")),
-            };
-        }
         // Insertar numeración de página
         public static IList<Attachment> GetInsertarNumeracionPaginaWord()
         {
@@ -480,31 +341,6 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Agregar-n%C3%BAmeros-de-p%C3%A1gina-en-Word-9f366518-0500-4b45-903d-987d3827c007")),
             };
         }
-        // Agregar números de página en Word e Insertar el recuento de palabras en un documento
-        public static IList<Attachment> GetAgregarNumerosPaginasWordInsertarRecuentoPalabras()
-        {
-            return new List<Attachment>()
-            {
-                 GetHeroCardV2(
-                    "Agregar números de página en Word",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
-                    "Siga los siguientes pasos:\r\r"+
-                    ">1. Elija **Insertar** > **Número de página**.\r\r"+
-                    ">2. Elija una ubicación (como **Principio de página** o **Final de página**) y, luego, seleccione un estilo en la galería. \r\r"+
-                    ">3. Cuando haya terminado, elija **Cerrar encabezado y pie de página** o haga doble clic en cualquier lugar fuera del área de encabezado y pie de página.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-n%C3%BAmeros-de-p%C3%A1gina-en-Word-9f366518-0500-4b45-903d-987d3827c007")),
-                 GetHeroCardV2(
-                    "Insertar el recuento de palabras en un documento",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
-                    "Siga los siguientes pasos:\r\r"+
-                    ">1. Haga clic en el lugar del documento donde desea que aparezca el recuento de palabras.\r\r"+
-                    ">2. Haga clic en **Insertar** > **Elementos rápidos** > **Campo**.\r\r"+
-                    ">3. En la lista **Nombres de campos**, haga clic en **NumWords** y después en **Aceptar**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/usar-los-campos-para-insertar-el-recuento-de-palabras-en-un-documento-8696d5ae-25bb-4173-a76f-00f213a2fa63?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
         // Agregar un encabezado o pie de página
         public static IList<Attachment> GetAgregarEncabezadoPiePaginaWord()
         {
@@ -520,31 +356,6 @@ namespace Office365Prueba1.Utils
                     ">4. Cuando haya terminado, elija **Cerrar encabezado y pie de página**.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-b87ee4df-abc1-41f8-995b-b39f6d99c7ed?ui=es-ES&rs=es-HN&ad=PE")),
-                };
-        }
-        // Agregar un encabezado o pie de página Word y Power Point
-        public static IList<Attachment> GetAgregarEncabezadoPiePaginaWordPowerPoint()
-        {
-            return new List<Attachment>()
-            {
-                 GetHeroCardV2(
-                    "Agregar un encabezado o pie de página",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
-                    "Siga los siguientes pasos para agregar un encabezado o pie de página:\r\r"+
-                    ">1. Seleccione **Insertar** y, después, seleccione **Encabezado** o **Pie de página**.\r\r"+
-                    ">2. Después de seleccionar un formato, en el documento se mostrará el área de encabezado y pie de página.\r\r"+
-                    ">3. Escriba el texto que prefiera en el encabezado o pie de página.\r\r"+
-                    ">4. Cuando haya terminado, elija **Cerrar encabezado y pie de página**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-b87ee4df-abc1-41f8-995b-b39f6d99c7ed?ui=es-ES&rs=es-HN&ad=PE")),
-                 GetHeroCardV2(
-                    "Agregar un encabezado o pie de página a documentos o notas",
-                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
-                    "En PowerPoint, notas y documentos tiene encabezados y pies de página. Diapositivas tienen sólo pies de página."+
-                    " Haga click en **Ver más información** para ver instrucciones detalladas.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-a-documentos-o-notas-882efcea-35cd-4b68-ac0b-041ae1ba7099?ui=es-ES&rs=es-ES&ad=ES")),
-
                 };
         }
         // Insertar o dibujar una tabla
@@ -564,39 +375,6 @@ namespace Office365Prueba1.Utils
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/insertar-o-dibujar-una-tabla-a138f745-73ef-4879-b99a-2f3d38be612a?ui=es-ES&rs=es-ES&ad=ES")),
                 };
-        }
-        // Insertar tabla Word, crear tabla excel
-        public static IList<Attachment> GetInsertarDibujarTablaWordCrearExcelOutlook()
-        {
-            return new List<Attachment>()
-            {
-                  GetHeroCardV2(
-                    "Insertar o dibujar una tabla",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
-                    "Siga los siguientes pasos para insertar una tabla en Word:\r\r"+
-                    ">* Para insertar rápidamente una tabla básica, haga clic en **Insertar** > **Tabla** y mueva el cursor sobre la cuadrícula hasta que haya resaltado el número de columnas y filas que desee.\r\r"+
-                    ">* Haga clic y aparecerá la tabla en el documento. Si necesita hacer ajustes, puede [agregar filas y columnas de tabla](https://support.office.com/es-es/article/agregar-filas-y-columnas-a-una-tabla-42946584-741f-4461-9f20-0207bb78cda0?ui=es-ES&rs=es-ES&ad=ES)"+
-                    ", [eliminar filas y columnas de tabla](https://support.office.com/es-es/article/eliminar-una-fila-una-columna-o-una-celda-de-una-tabla-45dab66c-f6b3-4c92-b2ab-642aa240b9dc?ui=es-ES&rs=es-ES&ad=ES) "+
-                    "o [combinar celdas de la tabla en una celda](https://support.office.com/es-es/article/combinar-celdas-de-tabla-en-una-celda-689227b5-c73f-43e8-bece-ac564f60b9eb?ui=es-ES&rs=es-ES&ad=ES).\r\r"+
-                    ">* Al hacer clic en la tabla, aparecen las **Herramientas de tabla**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-o-dibujar-una-tabla-a138f745-73ef-4879-b99a-2f3d38be612a?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Como agregar tablas a mensajes en Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
-                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
-                  GetHeroCardV2(
-                    "Crear o eliminar una tabla de Excel",
-                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
-                    "Siga los siguientes pasos para crear una tabla:\r\r"+
-                    ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
-                    ">2. En la pestaña **Inicio**, haga clic en **Estilos** > **Dar formato como tabla** > seleccione un estilo en la **Galería de estilos** de tabla.\r\r"+
-                    ">3. Excel resaltará automáticamente el rango de datos de la tabla, si todo esta bien haga click en **Aceptar**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
-            };
         }
         // Insertar una marca de agua en Word
         public static IList<Attachment> GetInsertarMarcaAguaWord()
@@ -661,6 +439,56 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Agregar-copiar-o-eliminar-un-cuadro-de-texto-4d968daa-5c86-48f2-88fa-b65871966017")),
                 };
         }
+        // Agregar números de página en Word e Insertar el recuento de palabras en un documento
+        public static IList<Attachment> GetAgregarNumerosPaginasWordInsertarRecuentoPalabras()
+        {
+            return new List<Attachment>()
+            {
+                 GetHeroCardV2(
+                    "Agregar números de página en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Elija **Insertar** > **Número de página**.\r\r"+
+                    ">2. Elija una ubicación (como **Principio de página** o **Final de página**) y, luego, seleccione un estilo en la galería. \r\r"+
+                    ">3. Cuando haya terminado, elija **Cerrar encabezado y pie de página** o haga doble clic en cualquier lugar fuera del área de encabezado y pie de página.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-n%C3%BAmeros-de-p%C3%A1gina-en-Word-9f366518-0500-4b45-903d-987d3827c007")),
+                 GetHeroCardV2(
+                    "Insertar el recuento de palabras en un documento",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en el lugar del documento donde desea que aparezca el recuento de palabras.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Elementos rápidos** > **Campo**.\r\r"+
+                    ">3. En la lista **Nombres de campos**, haga clic en **NumWords** y después en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-los-campos-para-insertar-el-recuento-de-palabras-en-un-documento-8696d5ae-25bb-4173-a76f-00f213a2fa63?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Insertar un salto de página y sección
+        public static IList<Attachment> GetInsertarSaltoPaginaSeccion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar un salto de página",
+                    "Se aplica a: Word 2016 Visio 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
+                    "Puede agregar de forma manual un salto de página en cualquier ubicación del documento.\r\r"+
+                    ">1. Haga clic en el lugar donde desea empezar una página nueva.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Salto de página**.\r\r"+
+                    ">3. Para ver dónde ha agregado saltos de página, haga clic en **Inicio** y, en el grupo **Párrafo**, haga clic en **Mostrar** u **Ocultar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-salto-de-p%C3%A1gina-7613ff46-96e5-4e46-9491-40d7d410a043?ui=es-ES&rs=es-HN&ad=PE")),
+
+                GetHeroCardV2(
+                    "Insertar un salto de página",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Starter 2010",
+                    "Use los saltos de secciones para dividir y dar formato a documentos de todos los tamaños.\r\r"+
+                    ">* En la pestaña **Diseño**, en el grupo **Configurar página**, elija **Saltos** y, después, elija el tipo de salto de sección que quiera.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Insertar-un-salto-de-secci%C3%B3n-eef20fd8-e38c-4ba6-a027-e503bdf8375c")),
+            };
+        }
+
 
         //CREAR
         //----------------------
@@ -684,27 +512,6 @@ namespace Office365Prueba1.Utils
         {
             return new List<Attachment>()
             {
-                GetHeroCardV2(
-                    "Crear o modificar un hipervínculo",
-                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Office 2016",
-                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar **ENTRAR** o la barra"+
-                    " espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office"+
-                    " convierte automáticamente la dirección en un vínculo.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf?ui=es-ES&rs=es-ES&ad=ES")),
-            };
-        }
-        // Crear o modificar un hipervínculo - Crear o modificar o insertar un hipervínculo
-        public static IList<Attachment> GetCrearHipervinculoWordOutlook()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Crear o modificar un hipervínculo",
-                    "Se aplica a: Excel, Word, Outlook, PowerPoint, Office",
-                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar ENTRAR o la barra espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office convierte automáticamente la dirección en un vínculo.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf")),
                 GetHeroCardV2(
                     "Crear o modificar un hipervínculo",
                     "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Office 2016",
@@ -967,11 +774,7 @@ namespace Office365Prueba1.Utils
                     "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
                     "**Cambiar el nombre de autor para nuevos documentos**\r\r"+
                     ">1. Haga clic en **Archivo** > **Opciones**.\r\r"+
-                    ">2. En Personalizar la copia de Microsoft Office, escriba un nombre nuevo en el cuadro nombre de usuario.\r\r"+
-                    "**Modificar el nombre de autor sólo en un documento existente**\r\r"+
-                    ">1. Haga clic en archivo y, a continuación, busque autor en Personas relacionadas a la derecha.\r\r"+
-                    ">2. Haga clic en el nombre del autor y, a continuación, haga clic en Editar propiedades.\r\r"+
-                    ">3. Escriba un nombre nuevo en el cuadro de diálogo Editar persona.",
+                    ">2. En Personalizar la copia de Microsoft Office, escriba un nombre nuevo en el cuadro nombre de usuario.\r\r",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/cambiar-el-nombre-del-autor-de-los-documentos-0ad23fe7-b82e-40c4-b9d9-391fec971a54")),
             };

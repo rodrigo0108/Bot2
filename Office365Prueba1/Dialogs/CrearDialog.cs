@@ -581,7 +581,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetCrearHipervinculoWordOutlook();
+                            reply.Attachments = Cards.GetCrearHipervinculoWordOutlook();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -612,7 +612,7 @@ namespace Office365Prueba1.Dialogs
                     else
                     {
                         // No se detectó la segunda parte de la pregunta
-                        reply.Attachments = RespuestasWord.GetCrearHipervinculoWordOutlook();
+                        reply.Attachments = Cards.GetCrearHipervinculoWordOutlook();
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);

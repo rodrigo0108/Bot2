@@ -670,27 +670,7 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Mover-o-cambiar-el-nombre-de-una-carpeta-en-Outlook-com-c9c66fed-8a7c-426a-afc6-0d46a72080fb")),
             };
         }
-        // Mover o cambiar el nombre de una carpeta en Outlook.com
-        // Como cambiar el nombre de una categoría de color
-        public static IList<Attachment> GetCambiarNombreCarpetaYCategoria()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Mover o cambiar el nombre de una carpeta en Outlook.com",
-                    "Se aplica a: Outlook.com",
-                    "Puede arrastrar una carpeta en Outlook.com a un nuevo lugar en la jerarquía de carpetas, o bien " +
-                    "puede usar la opción mover en el menú contextual. También puede cambiar el nombre de las carpetas que cree.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Mover-o-cambiar-el-nombre-de-una-carpeta-en-Outlook-com-c9c66fed-8a7c-426a-afc6-0d46a72080fb")),
-                 GetHeroCardV2(
-                    "Como cambiar el nombre de una categoría de color",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Las categorías de color son una excelente forma de agrupar visualmente mensajes, tareas, contactos o eventos de calendario que se parecen.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Cambiar-el-nombre-de-una-categor%C3%ADa-de-color-692ab131-525a-467b-8cbd-4b08346d5346")),
-            };
-        }
+
         // Cambiar el sonido reproducido cuando se recibe un mensaje de correo
         public static IList<Attachment> GetCambiarSonidoReproducidoMensajeCorreo()
         {
