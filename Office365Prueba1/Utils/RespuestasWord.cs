@@ -662,7 +662,6 @@ namespace Office365Prueba1.Utils
                 };
         }
 
-
         //CREAR
         //----------------------
         // Crear un documento Word
@@ -673,16 +672,39 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                     "Crear un documento",
                     "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
-                    "Empezar a usar un documento básico en Microsoft Office Word es tan fácil como abrir un documento nuevo o existente, y empezar a escribir. ",
+                    "Abrir un nuevo documento y empezar a escribir\r\r"+
+                    ">1. Haga clic en **Archivo** y después en **Nuevo**.\r\r"+
+                    ">2. Haga doble clic en **Documento en blanco**.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/crear-un-documento-3aa3c766-9733-4f60-9efa-de245467c13d")),
             };
         }
-        // Crear un documento Word
+        // Crear o modificar un hipervínculo
         public static IList<Attachment> GetCrearHipervinculo()
         {
             return new List<Attachment>()
             {
+                GetHeroCardV2(
+                    "Crear o modificar un hipervínculo",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Office 2016",
+                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar **ENTRAR** o la barra"+
+                    " espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office"+
+                    " convierte automáticamente la dirección en un vínculo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Crear o modificar un hipervínculo - Crear o modificar o insertar un hipervínculo
+        public static IList<Attachment> GetCrearHipervinculoWordOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear o modificar un hipervínculo",
+                    "Se aplica a: Excel, Word, Outlook, PowerPoint, Office",
+                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar ENTRAR o la barra espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office convierte automáticamente la dirección en un vínculo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf")),
                 GetHeroCardV2(
                     "Crear o modificar un hipervínculo",
                     "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Office 2016",
@@ -862,7 +884,23 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/combinar-correspondencia-con-una-hoja-de-c%C3%A1lculo-de-excel-858c7d7f-5cc0-4ba1-9a7b-0a948fa3d7d3")),
                 };
         }
-
+        // Crear una plantilla
+        public static IList<Attachment> GetCrearPlantilla()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una plantilla",
+                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Access 2016 Visio Standard 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Para guardar un archivo como una plantilla, haga clic en **archivo** > **Guardar como**.\r\r"+
+                    ">2. Haga doble clic en el **equipo**, o bien, en los programas de Office 2016, haga doble clic en **Este equipo**.\r\r"+
+                    ">3. Escriba un nombre para la plantilla en el cuadro **Nombre de archivo**.\r\r"+
+                    ">4. Haga clic en el elemento de plantilla en la lista **Guardar como tipo**.En Word, por ejemplo, haga clic en **Plantilla de Word** y haga clic en **Guardar**.\r\r",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-una-plantilla-86a1d089-5ae2-4d53-9042-1191bce57deb")),
+                };
+        }
 
 
         // COMPARTIR

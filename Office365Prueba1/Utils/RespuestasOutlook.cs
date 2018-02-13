@@ -143,6 +143,29 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/crear-una-plantilla-de-correo-electr%C3%B3nico-d14aff6f-b5be-4144-8979-2dca68a96215")),
             };
         }
+        // Crear una plantilla de mensaje de correo electrónico - Crear una plantilla de correo electrónico
+        public static IList<Attachment> GetCrearPlantillaMensajeCorreoElectronicoPlantillaCorreoElectronico()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una plantilla de mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Use plantillas de correo electrónico para enviar mensajes que incluyan información que normalmente no cambie de " +
+                    "un mensaje a otro. Redacte y guarde un mensaje como plantilla y vuelva a utilizarlo cuando lo necesite. " +
+                    "Se puede agregar información nueva antes de enviar la plantilla como mensaje de correo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-una-plantilla-de-mensaje-de-correo-electr%C3%B3nico-43ec7142-4dd0-4351-8727-bd0977b6b2d1")),
+                GetHeroCardV2(
+                    "Crear una plantilla de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Use plantillas de correo electrónico para enviar mensajes que incluyan información que normalmente no cambie de " +
+                    "un mensaje a otro. Redacte y guarde un mensaje como plantilla y vuelva a utilizarlo cuando lo necesite. Se puede " +
+                    "agregar información nueva antes de enviar la plantilla como mensaje de correo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-una-plantilla-de-correo-electr%C3%B3nico-d14aff6f-b5be-4144-8979-2dca68a96215")),
+            };
+        }
         // Crear un evento que dure todo el día
         public static IList<Attachment> GetCrearEventoQueDureTodoDia()
         {
@@ -367,6 +390,21 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Crear-sondeos-en-mensajes-de-correo-y-revisar-los-resultados-4d10e079-8ea1-489a-a79c-18cb71ae12dd?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Crear o modificar o insertar un hipervínculo
+        public static IList<Attachment> GetCrearModificarHipervínculo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear o modificar un hipervínculo",
+                    "Se aplica a: Excel, Word, Outlook, PowerPoint, Office",
+                    "La forma más rápida de crear un hipervínculo básico en un documento de Office es presionar ENTRAR o la barra espaciadora después de escribir la dirección de una página web existente, como http://www.contoso.com. Office convierte automáticamente la dirección en un vínculo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-modificar-un-hiperv%C3%ADnculo-5d8c0804-f998-4143-86b1-1199735e07bf")),
+
+            };
+        }
+
 
         // ---------------------
         // RECUPERAR

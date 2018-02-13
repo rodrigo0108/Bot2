@@ -12,6 +12,137 @@ namespace Office365Prueba1.Utils
         // PREGUNTAS DE POWER POINT
         // -------------------------------------------------------------
 
+        // CREAR
+        //---------------------
+        // Crear una presentación básica en cuatro pasos en PowerPoint
+        public static IList<Attachment> GetCrearPresentacionPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una presentación básica en cuatro pasos en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2016 para Mac",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la pestaña **Diseño**, haga clic en el tema que desee.\r\r"+
+                    ">2. En la pestaña **Inicio**, haga clic en **Nueva diapositiva**.\r\r"+
+                    ">3. En la pestaña **Transiciones**, haga clic en la transición que desee.\r\r"+
+                    ">4. Haga clic en **Aplicar en todo**\r\r"+
+                    "Si desea saber como crear una presentación autoejecutable haga clic [aquí](https://support.office.com/es-es/article/Crear-una-presentaci%C3%B3n-autoejecutable-57fc41ae-f36a-4fb5-94a3-52d5bc466037)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-una-presentaci%C3%B3n-b%C3%A1sica-en-cuatro-pasos-en-powerpoint-076863ce-0107-428d-a0e4-08ad8cea8ce9")),
+            };
+        }
+        // Crear y guardar una plantilla de PowerPoint
+        public static IList<Attachment> GetCrearGuardarPlantillaPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear y guardar una plantilla de PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Abra una presentación en blanco y, luego, en la pestaña **Vista**, en el grupo **Vistas Patrón**, seleccione **Patrón de diapositivas**.\r\r"+
+                    ">2. En la pestaña **Patrón de diapositivas**, haga clic en **Temas** y elija uno.\r\r"+
+                    ">3. Haga clic en **Insertar marcador de posición** y seleccione el tipo de marcador que quiere agregar.\r\r"+
+                    ">4. Complete todos los cambios que desea realizar para crear su plantilla y guardelo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-y-guardar-una-plantilla-de-PowerPoint-ee4429ad-2a74-4100-82f7-50f8169c8aca")),
+            };
+        }
+        // Crear una plantilla - Crear una plantilla de mensaje de correo electrónico - Crear una plantilla de correo electrónico
+        public static IList<Attachment> GetCrearPlantillaPlantillaMensajePlantillaCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una plantilla",
+                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Access 2016 Visio Standard 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Para guardar un archivo como una plantilla, haga clic en **archivo** > **Guardar como**.\r\r"+
+                    ">2. Haga doble clic en el **equipo**, o bien, en los programas de Office 2016, haga doble clic en **Este equipo**.\r\r"+
+                    ">3. Escriba un nombre para la plantilla en el cuadro **Nombre de archivo**.\r\r"+
+                    ">4. Haga clic en el elemento de plantilla en la lista **Guardar como tipo**.En Word, por ejemplo, haga clic en **Plantilla de Word** y haga clic en **Guardar**.\r\r",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-una-plantilla-86a1d089-5ae2-4d53-9042-1191bce57deb")),
+                GetHeroCardV2(
+                    "Crear una plantilla de mensaje de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Use plantillas de correo electrónico para enviar mensajes que incluyan información que normalmente no cambie de " +
+                    "un mensaje a otro. Redacte y guarde un mensaje como plantilla y vuelva a utilizarlo cuando lo necesite. " +
+                    "Se puede agregar información nueva antes de enviar la plantilla como mensaje de correo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-una-plantilla-de-mensaje-de-correo-electr%C3%B3nico-43ec7142-4dd0-4351-8727-bd0977b6b2d1")),
+                GetHeroCardV2(
+                    "Crear una plantilla de correo electrónico",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Use plantillas de correo electrónico para enviar mensajes que incluyan información que normalmente no cambie de " +
+                    "un mensaje a otro. Redacte y guarde un mensaje como plantilla y vuelva a utilizarlo cuando lo necesite. Se puede " +
+                    "agregar información nueva antes de enviar la plantilla como mensaje de correo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-una-plantilla-de-correo-electr%C3%B3nico-d14aff6f-b5be-4144-8979-2dca68a96215")),
+            };
+        }
+        // Crear o personalizar un patrón de diapositivas
+        public static IList<Attachment> GetCrearPersonalizarPatronDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear o personalizar un patrón de diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "En la vista **Patrón de diapositivas**, el patrón de diapositivas aparece en la parte superior del panel de miniaturas con sus respectivos diseños.\r\r"+
+                    "Usted puede cambiar el patrón moviendo las diapositivas donde mejor le parezca.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-o-personalizar-un-patr%C3%B3n-de-diapositivas-036d317b-3251-4237-8ddc-22f4668e2b56")),
+                };
+        }
+        // Utilizar o crear temas en PowerPoint
+        public static IList<Attachment> GetUtilizarCrearTemasPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Utilizar o crear temas en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Puede usar temas en PowerPoint para simplificar el proceso de creación de presentaciones de aspecto profesional. Puede crear su propio"+
+                    " tema que contiene colores personalizados, fuentes y efectos, empiece por un tema integrado y cambiar su configuración. A continuación, "+
+                    "puede guardar la configuración como un nuevo tema en la Galería de temas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/utilizar-o-crear-temas-en-powerpoint-83e68627-2c17-454a-9fd8-62deb81951a6?ui=es-ES&rs=es-ES&ad=ES")),
+                };
+        }
+        // Crear un organigrama
+        public static IList<Attachment> GetCrearOrganigrama()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un organigrama",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016",
+                    "Crear un organigrama\r\r"+
+                    ">1. En el grupo **Ilustraciones** de la pestaña **Insertar**, haga clic en **SmartArt**.\r\r"+
+                    ">2. En la galería **Elegir un gráfico SmartArt**, haga clic en **Jerarquía**, haga clic en un diseño de organigrama y luego **Aceptar** \r\r"+
+                    "Si desea saber como crear un organigrama con una plantilla haga clic [aquí](https://support.office.com/es-es/article/Crear-un-organigrama-en-PowerPoint-con-una-plantilla-d361c25f-665e-4d2c-bfc9-133763511a85)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-un-organigrama-9b51f667-11b7-4971-a757-a08a36684ee6")),
+                };
+        }
+        // Crear una escala de tiempo
+        public static IList<Attachment> GetCrearEscalaTiempo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una escala de tiempo",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016",
+                    "Crear una escala de tiempo\r\r"+
+                    ">1. En la ficha **Insertar**, haga clic en **SmartArt**.\r\r"+
+                    ">2. En la galería **Elegir un gráfico SmartArt**, haga clic en **proceso** y, a continuación, haga doble clic en un diseño de escala de tiempo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-una-escala-de-tiempo-9c4448a9-99c7-4b0e-8eff-0dcf535f223c")),
+                };
+        }
+
         // DEFINICION
         // --------------------
         // Definicon de Power Point

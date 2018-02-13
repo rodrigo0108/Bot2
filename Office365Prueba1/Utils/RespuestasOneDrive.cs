@@ -146,6 +146,27 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Usar-carpetas-de-b%C3%BAsqueda-para-buscar-mensajes-u-otros-elementos-de-Outlook-c1807038-01e4-475e-8869-0ccab0a56dc5?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Crear archivos en One Drive o crear documentos Word
+        public static IList<Attachment> GetCrearArchivosOneDriveDocumentosWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear archivos y carpetas en One Drive",
+                    "Se aplica a: OneDrive",
+                    "Al crear archivos y carpetas en OneDrive, podrá obtener acceso a ellos desde cualquier lugar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/v%C3%ADdeo-crear-archivos-y-carpetas-en-onedrive-profesional-o-educativo-e1f59717-2f02-494d-93c6-8ef9613e82ba#ID0EAABAAA=Transcripci%C3%B3n")),
+                GetHeroCardV2(
+                    "Crear un documento",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                    "Abrir un nuevo documento y empezar a escribir\r\r"+
+                    ">1. Haga clic en **Archivo** y después en **Nuevo**.\r\r"+
+                    ">2. Haga doble clic en **Documento en blanco**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-un-documento-3aa3c766-9733-4f60-9efa-de245467c13d")),
+            };
+        }
         // Crear documento desde One drive
         public static IList<Attachment> GetCrearDocumentoDesdeOneDrive()
         {
@@ -157,6 +178,28 @@ namespace Office365Prueba1.Utils
                     "Puede crear nuevos documentos de Office directamente desde OneDrive para la Empresa. Necesitará Office Web Apps Server para ver el menú Nuevo.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Crear-un-documento-desde-OneDrive-para-la-Empresa-4c54ddbf-e112-4165-b855-049e7dfec340")),
+            };
+        }
+        // Crear documento desde One drive o crear documentos Word
+        public static IList<Attachment> GetCrearDocumentoDesdeOneDriveDocumentoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un documento desde OneDrive para la Empresa",
+                    "Se aplica a: SharePoint Online Office para empresas Administración de Office 365, ...",
+                    "Puede crear nuevos documentos de Office directamente desde OneDrive para la Empresa. Necesitará Office Web Apps Server para ver el menú Nuevo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-un-documento-desde-OneDrive-para-la-Empresa-4c54ddbf-e112-4165-b855-049e7dfec340")),
+                GetHeroCardV2(
+                    "Crear un documento",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                    "Abrir un nuevo documento y empezar a escribir\r\r"+
+                    ">1. Haga clic en **Archivo** y después en **Nuevo**.\r\r"+
+                    ">2. Haga doble clic en **Documento en blanco**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-un-documento-3aa3c766-9733-4f60-9efa-de245467c13d")),
+
             };
         }
         // Crear cuenta en One Drive
@@ -328,7 +371,6 @@ namespace Office365Prueba1.Utils
 
         //-----ESTABLECER-ONE DRIVE--------
         //---------------------------------
-
 
         //Establecer la ubicación de almacenamiento de los archivos
         public static IList<Attachment> GetEstablecerUbicacionAlmacenamientoArchivosOneDrive()
