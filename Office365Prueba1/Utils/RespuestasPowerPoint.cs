@@ -225,6 +225,52 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        // USAR
+        //--------------------
+        // Usar una plantilla en Power Point
+        public static IList<Attachment> GetUsarPlantillaPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar una plantilla en Power Point",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para iniciar una nueva presentación basada en una plantilla, en el menú **Archivo**, haga clic en"+
+                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+        // Usar una plantilla en Power Point - Usar una plantilla en Excel - Usar una plantilla en Word
+        public static IList<Attachment> GetUsarPlantillaPowerPointExcelWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar una plantilla en Power Point",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para iniciar una nueva presentación basada en una plantilla, en el menú **Archivo**, haga clic en"+
+                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               GetHeroCardV2(
+                    "Usar una plantilla en Excel",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para iniciar un nuevo libro basado en una plantilla, en el menú **Archivo**, haga clic en"+
+                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Usar una plantilla en Word",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para empezar un nuevo documento basado en su plantilla, en el menú **Archivo**, haga clic en"+
+                    " **Nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+
+
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
         {
             var heroCard = new HeroCard

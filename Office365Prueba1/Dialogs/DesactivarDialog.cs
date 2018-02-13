@@ -161,15 +161,17 @@ namespace Office365Prueba1.Dialogs
                 else
                 {
                     reply.Attachments = RespuestasOneDrive.GetDesactivarDesinstalarOneDrive();
-                    await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                    await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{serv}'?");
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
                     return;
                 }
             }
-            // Si el usuario no ingreso la segunda parte de la pregunta
-            await context.PostAsync($"Lo siento, su pregunta no esta registrada");
-            await context.PostAsync($"O tal vez no escribió la pregunta correctamente");
+            // No se detectó la primera parte de la pregunta
+            await context.PostAsync(preguntaNoRegistrada2);
+            reply.Attachments = Cards.GetConsultaV2();
+            await context.PostAsync(reply);
+            await context.PostAsync("O tal vez no escribió la pregunta correctamente");
             return;
         }
     }

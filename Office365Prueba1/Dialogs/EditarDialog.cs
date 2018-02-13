@@ -49,7 +49,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1 == "grupos" || palabra1 == "grupo")
                 {
-                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "contactos" || palabra2 == "contacto")
@@ -73,7 +73,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1 == "listas" || palabra1 == "lista")
                 {
-                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "distribucion" || palabra2 == "distribución")

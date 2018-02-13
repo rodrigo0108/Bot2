@@ -375,7 +375,6 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-
                     reply.Attachments = RespuestasOneDrive.GetCrearArchivosCarpetasOneDrive();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
@@ -539,9 +538,17 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             return;
                         }
+                        else if(palabra2 == "combinación" || palabra2 == "combinacion" || palabra2 == "combinaciones")
+                        {
+                            reply.Attachments = RespuestasWord.GetCrearListaCombinacionCorrespondencia();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetCrearListaComprobacion();
+                            reply.Attachments = RespuestasWord.GetCrearListaComprobacionListaCombinacion();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -549,7 +556,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasWord.GetCrearListaComprobacion();
+                    reply.Attachments = RespuestasWord.GetCrearListaComprobacionListaCombinacion();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -590,6 +597,22 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                     await context.PostAsync(reply);
+                    return;
+                }
+                else if (palabra1 == "estilos" || palabra1 == "estilo")
+                {
+                    reply.Attachments = RespuestasWord.GetCrearEstiloFormatoDocumento();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
+                else if (palabra1 == "combinación" || palabra1 == "combinacion" || palabra1 == "combinaciones")
+                {
+                    reply.Attachments = RespuestasWord.GetCombinarCorrespondenciaHojaCalculoExcel();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     return;
                 }
                 // -------------------------------------------------------------------

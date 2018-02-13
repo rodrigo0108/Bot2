@@ -192,7 +192,22 @@ namespace Office365Prueba1.Utils
             };
         }
 
-
+        // USAR
+        //--------------------
+        // Usar una plantilla en Excel  
+        public static IList<Attachment> GetUsarPlantillaExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar una plantilla en Excel",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para iniciar un nuevo libro basado en una plantilla, en el menú **Archivo**, haga clic en"+
+                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
 
 
         // ----------------------------------------------------------------------- 

@@ -86,6 +86,7 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/trabajar-de-manera-conjunta-en-documentos-de-office-en-onedrive-ea3807bc-2b73-406f-a8c9-a493de18258b")),
                 };
         }
+
         // COMBINAR
         //---------------------
         //Combinar documentos
@@ -134,6 +135,7 @@ namespace Office365Prueba1.Utils
                     value: "https://support.microsoft.com/es-es/help/919599/how-to-change-the-default-view-to-draft-view-in-word")),
             };
         }
+
         // AGREGAR
         //----------------------
         // Adjuntar archivos en word
@@ -786,6 +788,81 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/hacer-una-lista-de-comprobaci%C3%B3n-en-word-dd04fa4f-2ca7-4543-8818-c469eca9f45c?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Crear un estilo basado en el formato del documento
+        public static IList<Attachment> GetCrearEstiloFormatoDocumento()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un estilo basado en el formato del documento",
+                    "Se aplica a: Word 2016 Outlook 2016 Word 2013 Outlook 2013 Word 2010 Word 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic con el botón derecho en el texto en el que quiere basar un nuevo estilo.\r\r"+
+                    ">2. En la minibarra de herramientas que aparece, haga clic en **Estilos** y luego en **Crear un estilo**.\r\r"+
+                    ">3. En el cuadro de diálogo **Crear nuevo estilo a partir del formato**, asigne un nombre al estilo y haga clic en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/personalizar-o-crear-estilos-en-word-d38d6e47-f6fc-48eb-a607-1eb120dec563?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Crear una nueva lista de combinación de correspondencia
+        public static IList<Attachment> GetCrearListaCombinacionCorrespondencia()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una nueva lista de combinación de correspondencia",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word Starter 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Abra Word y elija **archivo** > **nuevo** > **Documento en blanco**.\r\r"+
+                    ">2. Elija **Seleccionar destinatarios** > **escribir una nueva lista**.\r\r"+
+                    ">3. En la **Nueva lista de direcciones** diálogo cuadro Tipo información del destinatario en cada columna según corresponda, haga clic en **Aceptar** y guarde.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Configurar-una-nueva-lista-de-combinaci%C3%B3n-de-correspondencia-con-Word-1a752328-b1b5-4865-96a2-e0acd561fe6f")),
+            };
+        }
+        // Crear lista de comprobacion - Crear lista de combinacion de correspondencia
+        public static IList<Attachment> GetCrearListaComprobacionListaCombinacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una lista de comprobación en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Con Word se pueden crear dos tipos de listas de comprobación:\r\r"+
+                    ">* Listas con casillas o marcas de verificación, en lugar de viñetas o números.\r\r"+
+                    ">* Listas que se pueden marcar en Word. Para ello, es necesario agregar un control de contenido de la pestaña **Desarrollador**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/hacer-una-lista-de-comprobaci%C3%B3n-en-word-dd04fa4f-2ca7-4543-8818-c469eca9f45c?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Crear una nueva lista de combinación de correspondencia",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word Starter 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Abra Word y elija **archivo** > **nuevo** > **Documento en blanco**.\r\r"+
+                    ">2. Elija **Seleccionar destinatarios** > **escribir una nueva lista**.\r\r"+
+                    ">3. En la **Nueva lista de direcciones** diálogo cuadro Tipo información del destinatario en cada columna según corresponda, haga clic en **Aceptar** y guarde.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Configurar-una-nueva-lista-de-combinaci%C3%B3n-de-correspondencia-con-Word-1a752328-b1b5-4865-96a2-e0acd561fe6f")),
+
+            };
+        }
+        // Combinar correspondencia con una hoja de cálculo de Excel
+        public static IList<Attachment> GetCombinarCorrespondenciaHojaCalculoExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Combinar correspondencia con una hoja de cálculo de Excel",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010",
+                    "Entre los documentos que Word puede crear con la combinación de correspondencia se incluyen etiquetas, cartas, sobres y "+
+                    "mensajes de correo. Existen tres documentos relacionados con el proceso de combinación de correspondencia:\r\r"+
+                    ">* Su documento principal\r\r"+
+                    ">* Su origen de datos\r\r"+
+                    ">* El documento combinado",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/combinar-correspondencia-con-una-hoja-de-c%C3%A1lculo-de-excel-858c7d7f-5cc0-4ba1-9a7b-0a948fa3d7d3")),
+                };
+        }
+
 
 
         // COMPARTIR
@@ -1007,6 +1084,22 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Ajustar-la-sangr%C3%ADa-y-el-espaciado-36239d98-14c5-411e-a880-1ddf25d65cd6")),
             };
         }
+        //Modificar un estilo existente
+        public static IList<Attachment> GetModificarEstiloExistente()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Personalizar o crear estilos en Word",
+                    "Se aplica a: Word 2016 Outlook 2016 Word 2013 Outlook 2013 Word 2010 Word 2007",
+                    "Modificar un estilo existente\r\r"+
+                    "Hay dos maneras de modificar un estilo existente en la galería de estilos:\r\r"+
+                    ">* [Modificar un estilo actualizándolo para que coincida con el formato del documento](https://support.office.com/es-es/article/personalizar-o-crear-estilos-en-word-d38d6e47-f6fc-48eb-a607-1eb120dec563?ui=es-ES&rs=es-ES&ad=ES#update)\r\r"+
+                    ">* [Modificar un estilo de forma manual en el cuadro de diálogo Modificar estilo](https://support.office.com/es-es/article/personalizar-o-crear-estilos-en-word-d38d6e47-f6fc-48eb-a607-1eb120dec563?ui=es-ES&rs=es-ES&ad=ES#manual)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/personalizar-o-crear-estilos-en-word-d38d6e47-f6fc-48eb-a607-1eb120dec563?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
 
         // ELIMINAR
         //----------------------
@@ -1223,6 +1316,25 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/guardar-o-convertir-a-pdf-o-xps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // CONVERTIR
+        //--------------------
+        // Convertir texto en tabla o viceversa
+        public static IList<Attachment> GetConvertirTextoTabla()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Convertir texto en tabla o viceversa",
+                    "Se aplica a: Word 2016 Outlook 2016",
+                    "Convertir texto en una tabla\r\r"+
+                    ">1. Inserte caracteres separadores, como comas o tabulaciones, para indicar dónde dividir el texto en columnas de tabla.\r\r"+
+                    ">2. Use marcas de párrafo para indicar dónde desea comenzar una nueva fila de la tabla.\r\r"+
+                    ">3. Seleccione el texto que quiere convertir y, después, haga clic en **Insertar** > **Tabla** > **Convertir texto en tabla**.\r\r"+
+                    ">4. Elija las opciones que quiera en el cuadro **Convertir texto en tabla**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Convertir-texto-en-tabla-o-viceversa-b5ce45db-52d5-4fe3-8e9c-e04b62f189e1")),
+            };
+        }
 
         // EDITAR
         //--------------------
@@ -1361,6 +1473,129 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/conocer-la-legibilidad-de-un-documento-85b4969e-e80a-4777-8dd3-f7fc3c8b3fd2?ui=es-ES&rs=es-ES&ad=ES")),
                 };
         }
+
+        // AJUSTAR
+        //------------------
+        // Ajustar texto en Word
+        public static IList<Attachment> GetAjustarTextoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Ajustar texto en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Siga los siguientes pasos: \r\r"+
+                    ">1. Haga clic en una imagen u objeto para seleccionarlo.\r\r"+
+                    ">2. Haga clic en la pestaña **Formato de Herramientas de imagen** o de **Herramientas de dibujo** y, en el grupo **Organizar**, haga clic en **Ajustar texto**.\r\r"+
+                    ">3. Elija el estilo de ajuste que quiere usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Ajustar-texto-en-Word-bdbbe1fe-c089-4b5c-b85c-43997da64a12")),
+                };
+        }
+
+        // REVISAR
+        //------------------
+        // Revisar la ortografía y gramática en Office
+        public static IList<Attachment> GetRevisarOrtografiaOffice()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Revisar la ortografía y gramática en Office",
+                    "Se aplica a: Office",
+                    "Para iniciar la revisión ortográfica y gramatical en el archivo presione F7 o siga estos pasos:\r\r"+
+                    ">1. Haga clic en la pestaña **Revisar** de la cinta de opciones.\r\r"+
+                    ">2. Haga clic en **Ortografía** u **Ortografía y gramática**.\r\r"+
+                    ">3. Si el programa encuentra errores de ortografía, aparecerá un cuadro de diálogo con la primera palabra mal escrita encontrada por el corrector ortográfico.\r\r"+
+                    ">4. Cuando haya decidido cómo resolver el error ortográfico, el corrector pasará a la siguiente palabra incorrecta.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/revisar-la-ortograf%C3%ADa-y-gram%C3%A1tica-en-office-5cdeced7-d81d-47de-9096-efd0ee909227?ui=es-ES&rs=es-ES&ad=ES")),
+                };
+        }
+
+        // USAR
+        //------------------
+        // Usar una plantilla en Word
+        public static IList<Attachment> GetUsarPlantillaWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar una plantilla en Word",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para empezar un nuevo documento basado en su plantilla, en el menú **Archivo**, haga clic en"+
+                    " **Nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+        // Usar las opciones de diseño de Word para mover imágenes
+        public static IList<Attachment> GetUsarOpcionesDiseñoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar las opciones de diseño de Word para mover imágenes",
+                    "Se aplica a: Word 2016 Word 2013 Word Online",
+                    "Abra **Opciones de diseño**\r\r"+
+                    ">1. Haga clic en una imagen para seleccionarla.\r\r"+
+                    ">2. Haga clic en el icono de **Opciones de diseño**.\r\r"+
+                    ">3. Seleccione las opciones de diseño que prefiera.\r\r"+
+                    "Si le interesa como usar plantillas de Avery Wizard haga click [aquí](https://support.office.com/es-es/article/avery-wizard-que-desea-eliminar-4c1c1aba-fefe-4e66-ad14-5f3b910a85dc?ui=es-ES&rs=es-ES&ad=ES)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/revisar-la-ortograf%C3%ADa-y-gram%C3%A1tica-en-office-5cdeced7-d81d-47de-9096-efd0ee909227?ui=es-ES&rs=es-ES&ad=ES")),
+                };
+        }
+        // Usar la combinación de correspondencia para crear y enviar correo masivo, etiquetas y sobres
+        public static IList<Attachment> GetUsarCombinacionCorrespondenciaCrearEnviarCorreo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar la combinación de correspondencia para crear y enviar correo masivo, etiquetas y sobres",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word Starter 2010",
+                    "Con el proceso de combinación de correspondencia, su organización puede crear un lote de cartas o correos electrónicos personalizados para enviar a los contactos profesionales."+
+                    "Cada carta o correo electrónico puede incluir tanto contenido estándar como personalizado.\r\r"+
+                    ">* Si desea saber como usar la combinación de correspondencia para personalizar las letras de correo masivo haga clic [aquí](https://support.office.com/es-es/article/usar-la-combinaci%C3%B3n-de-correspondencia-para-personalizar-las-letras-de-correo-masivo-d7686bb1-3077-4af3-926b-8c825e9505a3?ui=es-ES&rs=es-ES&ad=ES)\r\r"+
+                    ">* Si desea saber como usar la combinación de correspondencia para enviar mensajes de correo electrónico masivo haga clic [aquí](https://support.office.com/es-es/article/Usar-la-combinaci%C3%B3n-de-correspondencia-para-enviar-mensajes-de-correo-electr%C3%B3nico-masivo-0f123521-20ce-4aa8-8b62-ac211dedefa4)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-la-combinaci%C3%B3n-de-correspondencia-para-crear-y-enviar-correo-masivo-etiquetas-y-sobres-f488ed5b-b849-4c11-9cff-932c49474705")),
+                };
+        }
+
+        // APLICAR
+        //-----------------
+        // Aplicar un estilo a texto en Word
+        public static IList<Attachment> GetAplicarEstiloTextoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Aplicar un estilo a texto en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Siga los suigientes pasos:\r\r"+
+                    ">1. Seleccione el texto al que desea aplicar un estilo.\r\r"+
+                    ">2. En la ficha **Inicio**, en el grupo **estilos**, haga clic en el estilo que desee.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/aplicar-un-estilo-a-texto-en-word-f8b96097-4d25-4fac-8200-6139c8093109")),
+               };
+        }
+        // Aplicar o quitar estilos y efectos de los objetos
+        public static IList<Attachment> GetAplicarEstilosObjetos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Aplicar o quitar estilos y efectos de los objetos",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "**Aplicar un estilo**\r\r"+
+                    ">1. Haga clic en el objeto que desea cambiar y, a continuación, haga clic en la ficha **formato**.\r\r"+
+                    ">2. Haga clic en la opción que quiera.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/aplicar-o-quitar-estilos-y-efectos-de-los-objetos-6f916fb0-5b31-4d5d-8de7-11d44abfd0c7")),
+               };
+        }
+
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
         {

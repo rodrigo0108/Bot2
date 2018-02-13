@@ -131,6 +131,37 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     return;
                 }
+                else if (palabra1 == "estilos" || palabra1 == "estilo")
+                {
+                    foreach (var servicio in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = servicio.Entity.ToLower().Replace(" ", "");
+
+                        if (serv == "word")
+                        {
+                            reply.Attachments = RespuestasWord.GetAplicarEstiloTextoWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasWord.GetAplicarEstilosObjetos();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{serv}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            return;
+                        }
+                    }
+                    reply.Attachments = RespuestasWord.GetAplicarEstilosObjetos();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
                 else
                 {
                     await context.PostAsync($"Lo siento, su pregunta no esta registrada");

@@ -770,7 +770,14 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaConsulta);
                     return;
                 }
-
+                else if (palabra1 == "estilos" || palabra1 == "estilo")
+                {
+                    reply.Attachments = RespuestasWord.GetModificarEstiloExistente();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    return;
+                }
                 else
                 {
                     await context.PostAsync(preguntaNoRegistrada2);

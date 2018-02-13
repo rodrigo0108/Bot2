@@ -235,5 +235,10 @@ namespace Office365Prueba1.Dialogs
         {
             await new ProbarDialog(context, result).StartAsync();
         }
+        [LuisIntent("Consulta.Ajustar")]
+        public async Task ConsultaAjustar(IDialogContext context, LuisResult result)
+        {
+            await new AjustarDialog(context, result).StartAsync();
+        }
     }
 }
