@@ -510,7 +510,10 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                     "Como agregar tablas a mensajes en Outlook",
                     "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
-                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
+                    "Agregar tabla:\r\r"+
+                    ">1. Haga clic donde desee insertar una tabla en el mensaje.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Tabla**.\r\r"+
+                    ">3. Haga clic en **Insertar tabla** para una plantilla de tabla básica.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
 

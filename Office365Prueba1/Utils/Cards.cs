@@ -315,6 +315,7 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Solucionar-problemas-en-OneNote-para-Windows-10-942b006c-46ac-4300-a629-7fac5ae4dc70?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+
         // -------------------------------------------------------------
         //-------- PREGUNTAS SOBRE MICROSOFT ----------
         //---------------------------------------------
@@ -503,13 +504,16 @@ namespace Office365Prueba1.Utils
                     "o [combinar celdas de la tabla en una celda](https://support.office.com/es-es/article/combinar-celdas-de-tabla-en-una-celda-689227b5-c73f-43e8-bece-ac564f60b9eb?ui=es-ES&rs=es-ES&ad=ES).",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/insertar-o-dibujar-una-tabla-a138f745-73ef-4879-b99a-2f3d38be612a?ui=es-ES&rs=es-ES&ad=ES")),
-                 GetHeroCardV2(
+                GetHeroCardV2(
                     "Como agregar tablas a mensajes en Outlook",
                     "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
-                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
+                    "Agregar tabla:\r\r"+
+                    ">1. Haga clic donde desee insertar una tabla en el mensaje.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Tabla**.\r\r"+
+                    ">3. Haga clic en **Insertar tabla** para una plantilla de tabla básica.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
-                  GetHeroCardV2(
+                GetHeroCardV2(
                     "Crear o eliminar una tabla de Excel",
                     "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
                     "Siga los siguientes pasos para crear una tabla:\r\r"+
@@ -745,6 +749,158 @@ namespace Office365Prueba1.Utils
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Cambiar-el-tama%C3%B1o-de-las-diapositivas-040a811c-be43-40b9-8d04-0de5ed79987e")),
                };
+        }
+
+        // Agregar texto a una diapositiva - Power Point
+        // Inserta texto automáticamente -  Word
+        public static IList<Attachment> GetAgregarTextoWordPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar texto a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010",
+                    "Puede agregar texto a una diapositiva de PowerPoint o a un patrón de diapositivas insertando un cuadro de texto y escribiendo dentro de ese cuadro. "+
+                    "También puede eliminar ese texto seleccionando el texto o el cuadro completo y agregar texto a marcadores de posición y formas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-texto-a-una-diapositiva-11b8b646-f775-4b77-a512-ca51bb54b26c")),
+                GetHeroCardV2(
+                    "Inserta texto automáticamente",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "En Word, puede insertar texto automáticamente con ambos bloques de texto con formato previo desde la Galería "+
+                    "de Autotexto o con palabras, frases y oraciones que Word completa automáticamente después de que ha escrito "+
+                    "solamente algunos caracteres.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/inserta-texto-autom%C3%A1ticamente-0bc40cab-f49c-4e06-bcb2-cd43c1674d1b?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Agregar un comentario de revisión - Power Point
+        // Agregar un comentario en Word
+        public static IList<Attachment> GetAgregarComentariosWordPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar comentarios en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Como insertar un comentario en Word:\r\r"+
+                    ">1. Seleccione el texto o elemento sobre el que quiera agregar un comentario o haga clic al final del texto.\r\r"+
+                    ">2. En la pestaña Revisar, en el grupo Comentarios, haga clic en Nuevo comentario.\r\r"+
+                    ">![duck](https://support.content.office.net/es-es/media/5a49f0e2-171e-4b05-871b-8ef4a0545f1c.gif)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-documento-en-word-274128e5-4da7-4cb8-b65f-3d8b585e03f1")),
+                GetHeroCardV2(
+                    "Agregar un comentario de revisión",
+                    "Se aplica a: PowerPoint 2010",
+                    "Cómo agregar comentarios en Power Point:\r\r"+
+                    ">1. Seleccione el texto o el objeto o haga clic sobre una diapositiva\r\r"+
+                    ">2. En la ficha **Revisar** en el grupo **Comentarios**, haga clic en **Nuevo comentario**.\r\r"+
+                    ">3. Escriba los comentarios",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/revisi%C3%B3n-mostrar-revisiones-y-agregar-comentarios-9dacc2d3-0d0e-4ccf-a248-723689a1e8a7")),
+            };
+        }
+
+        // Insertar una marca de agua en Word
+        // Agregar una marca de agua "BORRADOR" al fondo de las diapositivas
+        public static IList<Attachment> GetAgregarMarcaAguaWordPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar una marca de agua en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "Agregar una marca de agua de texto\r\r"+
+                    ">1. En la pestaña **Diseño**, en el grupo **Fondo de página**, elija **Marca de agua**\r\r"+
+                    ">2. Elija una de las marcas de agua integradas en la galería de marcas de agua mostrado. Si desea agregar su propia marca de agua de texto, consulte"+
+                    " [Crear y guardar una marca de agua personalizada](https://support.office.com/es-es/article/agregar-la-marca-de-agua-borrador-al-documento-e7258ae7-575d-4b58-92d3-9a98c1f067e4?ui=es-ES&rs=es-ES&ad=ES).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-una-marca-de-agua-en-word-f90f26a5-2101-4a75-bbfe-f27ef05002de")),
+               GetHeroCardV2(
+                    "Agregar una marca de agua 'BORRADOR' al fondo de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "PowerPoint no tiene una galería de marcas de agua prediseñadas como Word, pero puede agregar de forma manual"+
+                    " un fondo del texto en las diapositivas para obtener el efecto de marca de agua.\r\r"+
+                    ">![duck](https://support.content.office.net/es-es/media/b26111db-6b12-4332-ac2f-a14f45cef359.png)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-una-marca-de-agua-borrador-al-fondo-de-las-diapositivas-ea4cc5f5-ea5d-4213-9c7d-ed01a7952ed0?ui=es-ES&rs=es-ES&ad=ES#OfficeVersion-WaterTxt=2016,_2013")),
+            };
+        }
+
+        // Insertar hipervínculos de Facebook o Twitter en la firma de correo electrónico
+        // Agregar un hipervínculo a una diapositiva
+        public static IList<Attachment> GetAgregarHipervinculosOutlookPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar hipervínculos de Facebook o Twitter en la firma de correo electrónico",
+                    "SSe aplica a: Outlook 2016 Outlook 2013",
+                    "Puede modificar su firma de correo electrónico o cree uno nuevo para incluir "
+                    +"vínculos a perfiles de Facebook o Twitter. Para empezar, asegúrese de que guarde copias de los iconos de Facebook y Twitter en su equipo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Insertar-hiperv%C3%ADnculos-a-Facebook-y-Twitter-en-la-firma-de-correo-electr%C3%B3nico-40833df1-9459-48f0-b90f-0f6e66536206")),
+
+                GetHeroCardV2(
+                    "Agregar un hipervínculo a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Puede agregar hipervínculos a una presentación para realizar una amplia variedad de cosas. Puede usar vínculos "+
+                    "para acceder a otro lugar de la presentación rápidamente, abrir una presentación diferente o ir a un página web.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-un-hiperv%C3%ADnculo-a-una-diapositiva-239c6c94-d52f-480c-99ae-8b0acf7df6d9")),
+            };
+        }
+
+        // Insertar y reproducir un archivo de vídeo
+        // Inserte vídeos en línea en OneNote para Windows 10
+        public static IList<Attachment> GetInsertarArchivoVideoPowerPointOneNote()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar y reproducir un archivo de vídeo",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Insertar un vídeo almacenado en su equipo\r\r"+
+                    ">1. En la pestaña **Insertar**, haga clic en la flecha situada debajo de **Video** y luego en **Video en Mi PC**.\r\r"+
+                    ">2. En el cuadro de diálogo **Insertar vídeo**, haga clic en el vídeo que desea y a continuación, haga clic en **Insertar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-y-reproducir-un-archivo-de-v%C3%ADdeo-desde-su-equipo-o-desde-onedrive-f3fcbd3e-5f86-4320-8aea-31bff480ed02?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Inserte vídeos en línea en OneNote",
+                    "Se aplica a: OneNote para Windows 10",
+                    "Agregar vídeos a las notas es una excelente forma de crear los blocs de notas interactivas " +
+                    "que puede compartir con o distribuir a otras personas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/inserte-v%C3%ADdeos-en-l%C3%ADnea-en-onenote-para-windows-10-bea22b6e-04dc-4f3d-a04b-bdeb26f3f522?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Agregar una tabla a una diapositiva
+        // Como agregar tablas a mensajes en Outlook
+        public static IList<Attachment> GetAgregarTablaDiapositiva()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una tabla a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010",
+                    "Crear una tabla:\r\r"+
+                    ">1. En la pestaña **Insertar**, seleccione **Tabla**.\r\r"+
+                    ">2. Haga clic en **Insertar tabla** y escriba un número en las listas **Número de columnas** y **Número de filas**.\r\r"+
+                    ">3. Haga clic en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-una-diapositiva-34f106c9-5320-4b89-9129-806e64b258ac")),
+                GetHeroCardV2(
+                    "Como agregar tablas a mensajes en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Agregar tabla:\r\r"+
+                    ">1. Haga clic donde desee insertar una tabla en el mensaje.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Tabla**.\r\r"+
+                    ">3. Haga clic en **Insertar tabla** para una plantilla de tabla básica.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
+            };
         }
 
         // -------------------------------------------------------------

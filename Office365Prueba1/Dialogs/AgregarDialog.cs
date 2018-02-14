@@ -49,7 +49,6 @@ namespace Office365Prueba1.Dialogs
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
                 // Se guarda la primera parte de la pregunta
                 context.PrivateConversationData.SetValue<string>("Palabra1", palabra1);
-                // ---------------------------------------------------------------------
                 if (palabra1 == "contacto" || palabra1 == "contactos" || palabra1 == "correos" || palabra1 == "correo" || palabra1 == "emails" || palabra1 == "email")
                 {
                     // Recorrido de la segunda parte de la pregunta
@@ -126,7 +125,6 @@ namespace Office365Prueba1.Dialogs
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
-                // ---------------------------------------------------------------------
                 else if (palabra1 == "nombres" || palabra1 == "nombre" || palabra1 == "personas" || palabra1 == "persona")
                 {
                     // Recorrido de la segunda parte de la pregunta
@@ -193,7 +191,6 @@ namespace Office365Prueba1.Dialogs
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
-                // ---------------------------------------------------------------------
                 else if (palabra1 == "graficos" || palabra1 == "grafico" || palabra1 == "gráficos" || palabra1 == "gráfico")
                 {
                     // Recorrido de la segunda parte de la pregunta
@@ -241,11 +238,20 @@ namespace Office365Prueba1.Dialogs
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
+                        else if (palabra2 == "diapositiva" || palabra2 == "diapositivas")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarTablaDiapositiva();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
                         else
                         {
-                            reply.Attachments = RespuestasOutlook.GetAgregarTablasMensajeOutlook();
+                            reply.Attachments = Cards.GetAgregarTablaDiapositiva();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
-                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
@@ -294,6 +300,16 @@ namespace Office365Prueba1.Dialogs
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
+                        else if (servicioU == "powerpoint")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarTablaDiapositiva();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
                         else
                         {
                             reply.Attachments = Cards.GetInsertarTabla();
@@ -338,6 +354,15 @@ namespace Office365Prueba1.Dialogs
                     else if (servicio == "Word")
                     {
                         reply.Attachments = RespuestasWord.GetInsertarDibujarTablaWord();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                    else if (servicio == "PowerPoint")
+                    {
+                        reply.Attachments = RespuestasPowerPoint.GetAgregarTablaDiapositiva();
                         await context.PostAsync(confirmacionRespuesta1);
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
@@ -701,19 +726,28 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
+                        } 
+                        else if (palabra2 == "diapositiva" || palabra2 == "diapositivas")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarHipervinculoDiapositiva();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
                         }
                         else
                         {
-                            reply.Attachments = RespuestasOutlook.GetInsertarHipervinculosFirmaCorreo();
+                            reply.Attachments = Cards.GetAgregarHipervinculosOutlookPowerPoint();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
-                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                     }
-                    reply.Attachments = RespuestasOutlook.GetCrearModificarHipervínculo();
-                    await context.PostAsync(confirmacionRespuesta1);
+                    reply.Attachments = Cards.GetAgregarHipervinculosOutlookPowerPoint();
+                    await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
@@ -733,6 +767,98 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
+                        }
+                        else if (palabra2 == "video" || palabra2 == "videos")
+                        {
+                            // Recorrido de la segunda parte de la pregunta
+                            foreach (var entityP3 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra3"))
+                            {
+                                var palabra3 = entityP3.Entity.ToLower().Replace(" ", "");
+                                if (palabra3 == "presentación" || palabra3 == "presentacion" || palabra3 == "presentaciones")
+                                {
+                                    reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
+                                else
+                                {
+                                    reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                                    await context.PostAsync(preguntaNoRegistrada2);
+                                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                                    await context.PostAsync(reply);
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
+                            }
+                            // Recorrido del Servicio de la pregunta
+                            foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                            {
+                                var serv = entity.Entity.ToLower().Replace(" ", "");
+                                if (serv == "onenote" || serv == "noenote" || serv == "note")
+                                {
+                                    reply.Attachments = RespuestasOneNote.GetInserteVideosLineaOneNote();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
+                                else if (serv == "powerpoint")
+                                {
+                                    reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
+                                else
+                                {
+                                    reply.Attachments = Cards.GetInsertarArchivoVideoPowerPointOneNote();
+                                    await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
+                                    await context.PostAsync(opcionSecundarioDeRespuesta2);
+                                    await context.PostAsync(reply);
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
+                            }
+                            //obtener el producto si este a sido escodigo anteriormente
+                            var service = "Servicio";
+                            context.PrivateConversationData.TryGetValue<string>("tipoDeServicio", out service);
+                            if (service == "OneNote")
+                            {
+                                reply.Attachments = RespuestasOneNote.GetInserteVideosLineaOneNote();
+                                await context.PostAsync(confirmacionRespuesta1);
+                                await context.PostAsync(reply);
+                                await context.PostAsync(preguntaConsulta);
+                                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
+                                context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                return;
+                            }
+                            else if (service == "PowerPoint")
+                            {
+                                reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                                await context.PostAsync(confirmacionRespuesta1);
+                                await context.PostAsync(reply);
+                                await context.PostAsync(preguntaConsulta);
+                                context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                return;
+                            }
+                            else
+                            {
+                                // No se detectó la segunda parte de la pregunta
+                                reply.Attachments = Cards.GetInsertarArchivoVideoPowerPointOneNote();
+                                await context.PostAsync(preguntaNoRegistrada1);
+                                await context.PostAsync(opcionSecundarioDeRespuesta2);
+                                await context.PostAsync(reply);
+                                context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                return;
+                            }
                         }
                         else
                         {
@@ -1040,6 +1166,29 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (palabra1 == "vídeos" || palabra1 == "vídeo" || palabra1 == "video" || palabra1 == "videos")
                 {
+                    // Recorrido de la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "presentación" || palabra2 == "presentacion" || palabra2 == "presentaciones")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                            await context.PostAsync(preguntaNoRegistrada2);
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
                     // Recorrido del Servicio de la pregunta
                     foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
@@ -1050,14 +1199,25 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else if (serv == "powerpoint")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = RespuestasOneNote.GetInserteVideosLineaOneNote();
+                            reply.Attachments = Cards.GetInsertarArchivoVideoPowerPointOneNote();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
-                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
@@ -1076,12 +1236,21 @@ namespace Office365Prueba1.Dialogs
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                         return;
                     }
+                    else if (servicio == "PowerPoint")
+                    {
+                        reply.Attachments = RespuestasPowerPoint.GetInsertarArchivoVideo();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
                     else
                     {
                         // No se detectó la segunda parte de la pregunta
-                        reply.Attachments = RespuestasOneNote.GetInserteVideosLineaOneNote();
+                        reply.Attachments = Cards.GetInsertarArchivoVideoPowerPointOneNote();
                         await context.PostAsync(preguntaNoRegistrada1);
-                        await context.PostAsync(opcionSecundarioDeRespuesta1);
+                        await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                         return;
@@ -1111,20 +1280,31 @@ namespace Office365Prueba1.Dialogs
                     foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
                         var serv = entity.Entity.ToLower().Replace(" ", "");
-                        if (serv == "word" || serv == "Word")
+                        if (serv == "word")
                         {
                             reply.Attachments = RespuestasWord.GetAgregarComentarioWord();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else if (serv== "powerpoint")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarComentariosRevision();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetAgregarComentarioWord();
+                            reply.Attachments = Cards.GetAgregarComentariosWordPowerPoint();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
-                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
@@ -1142,12 +1322,21 @@ namespace Office365Prueba1.Dialogs
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                         return;
                     }
+                    else if (servicio == "PowerPoint")
+                    {
+                        reply.Attachments = RespuestasPowerPoint.GetAgregarComentariosRevision();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
                     else
                     {
                         // No se detectó la segunda parte de la pregunta
-                        reply.Attachments = RespuestasWord.GetAgregarComentarioWord();
+                        reply.Attachments = Cards.GetAgregarComentariosWordPowerPoint();
                         await context.PostAsync(preguntaNoRegistrada1);
-                        await context.PostAsync(opcionSecundarioDeRespuesta1);
+                        await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                         return;
@@ -1192,15 +1381,27 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else if (serv == "powerpoint")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarMarcaAguaDiapositivas();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = RespuestasWord.GetInsertarMarcaAguaWord();
+                            reply.Attachments = Cards.GetAgregarMarcaAguaWordPowerPoint();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
-                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
@@ -1217,13 +1418,23 @@ namespace Office365Prueba1.Dialogs
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                         return;
                     }
+                    else if(servicio == "PowerPoint")
+                    {
+                        reply.Attachments = RespuestasPowerPoint.GetAgregarMarcaAguaDiapositivas();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
                     else
                     {
                         // No se detectó la segunda parte de la pregunta
-                        reply.Attachments = RespuestasWord.GetInsertarMarcaAguaWord();
+                        reply.Attachments = Cards.GetAgregarMarcaAguaWordPowerPoint();
                         await context.PostAsync(preguntaNoRegistrada1);
-                        await context.PostAsync(opcionSecundarioDeRespuesta1);
+                        await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                         return;
                     }
@@ -1262,8 +1473,60 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var serv = entity.Entity.ToLower().Replace(" ", "");
+                        if (serv == "word" || serv == "wrd")
+                        {
+                            reply.Attachments = RespuestasWord.GetInsertarTextoAutomaticamenteWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        }
+                        else if (serv == "powerpoint" || serv == "pwrpoint" || serv == "pwrpt" || serv == "powerpt")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarTextoDiapositiva();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = Cards.GetAgregarTextoWordPowerPoint();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    //obtener el producto si este a sido escogido anteriormente
+                    var servicio = "Servicio";
+                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+                    switch (servicio)
+                    {
+                        case "Word":
+                            reply.Attachments = RespuestasWord.GetInsertarTextoAutomaticamenteWord();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        case "PowerPoint":
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarTextoDiapositiva();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                    }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasWord.GetInsertarTextoAutomaticamenteWord();
+                    reply.Attachments = Cards.GetAgregarTextoWordPowerPoint();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -1516,7 +1779,108 @@ namespace Office365Prueba1.Dialogs
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
-
+                else if (palabra1 == "color")
+                {
+                    // Recorrido de la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "diapositiva" || palabra2 == "diapositivas")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarColorDiapositivas();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarColorDiapositivas();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasPowerPoint.GetAgregarColorDiapositivas();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "diseño" || palabra1 == "diseños")
+                {
+                    // Recorrido de la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "diapositiva" || palabra2 == "diapositivas")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarColorDiapositivas();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetAgregarColorDiapositivas();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasPowerPoint.GetAgregarColorDiapositivas();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "diapositiva" || palabra1 == "diapositivas")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetAgregarDiapositivas();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "transición" || palabra1 == "transicion" || palabra1 == "transiciones")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetAgregarTransicionesDiapositivas();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "audio" || palabra1 == "audios")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetAgregarAudioPresentacion();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "notas" || palabra1 == "nota")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetAgregarNotasOradorDiapositivas();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
                 else
                 {
                     await context.PostAsync(preguntaNoRegistrada2);
@@ -1528,7 +1892,7 @@ namespace Office365Prueba1.Dialogs
             }
             // Si el usuario no ingreso la primera parte de la pregunta
             await context.PostAsync(preguntaNoRegistrada2);
-            reply.Attachments = Respuestas.GetConsultaV2();
+            reply.Attachments = Cards.GetConsultaV2();
             await context.PostAsync(reply);
             await context.PostAsync("O tal vez no escribió la pregunta correctamente");
             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta2);

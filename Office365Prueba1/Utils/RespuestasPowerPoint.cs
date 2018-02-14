@@ -182,6 +182,7 @@ namespace Office365Prueba1.Utils
                     "https://products.office.com/es-mx/what-is-powerpoint"),
             };
         }
+
         // AGREGAR
         //---------------------
         // Adjuntar archivos en power point
@@ -214,6 +215,173 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-a-documentos-o-notas-882efcea-35cd-4b68-ac0b-041ae1ba7099?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Agregar texto a una diapositiva
+        public static IList<Attachment> GetAgregarTextoDiapositiva()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar texto a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010",
+                    "Puede agregar texto a una diapositiva de PowerPoint o a un patrón de diapositivas insertando un cuadro de texto y escribiendo dentro de ese cuadro. "+
+                    "También puede eliminar ese texto seleccionando el texto o el cuadro completo y agregar texto a marcadores de posición y formas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-texto-a-una-diapositiva-11b8b646-f775-4b77-a512-ca51bb54b26c")),
+            };
+        }
+        // Agregar un comentario de revisión
+        public static IList<Attachment> GetAgregarComentariosRevision()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar un comentario de revisión",
+                    "Se aplica a: PowerPoint 2010",
+                    "Cómo agregar comentarios en Power Point:\r\r"+
+                    ">1. Seleccione el texto o el objeto o haga clic sobre una diapositiva\r\r"+
+                    ">2. En la ficha **Revisar** en el grupo **Comentarios**, haga clic en **Nuevo comentario**.\r\r"+
+                    ">3. Escriba los comentarios",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/revisi%C3%B3n-mostrar-revisiones-y-agregar-comentarios-9dacc2d3-0d0e-4ccf-a248-723689a1e8a7")),
+            };
+        }
+        // Agregar color y diseños a Mis diapositivas con temas
+        public static IList<Attachment> GetAgregarColorDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar color y diseños a Mis diapositivas con temas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Elegir un tema al abrir PowerPoint\r\r"+
+                    ">1. Seleccione un tema.\r\r"+
+                    ">![duck](https://support.content.office.net/es-es/media/b03b54a4-c861-4ea6-b847-4e8d0ec15565.png)\r\r"+
+                    ">2. Elija una variación de color y haga clic en **Crear**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-color-y-dise%C3%B1os-a-mis-diapositivas-con-temas-a54d6866-8c32-4fbc-b15d-6fcc4bd1edf6?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Agregar una marca de agua "BORRADOR" al fondo de las diapositivas
+        public static IList<Attachment> GetAgregarMarcaAguaDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una marca de agua 'BORRADOR' al fondo de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "PowerPoint no tiene una galería de marcas de agua prediseñadas como Word, pero puede agregar de forma manual"+
+                    " un fondo del texto en las diapositivas para obtener el efecto de marca de agua.\r\r"+
+                    ">![duck](https://support.content.office.net/es-es/media/b26111db-6b12-4332-ac2f-a14f45cef359.png)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-una-marca-de-agua-borrador-al-fondo-de-las-diapositivas-ea4cc5f5-ea5d-4213-9c7d-ed01a7952ed0?ui=es-ES&rs=es-ES&ad=ES#OfficeVersion-WaterTxt=2016,_2013")),
+            };
+        }
+        // Agregar una diapositiva nueva
+        public static IList<Attachment> GetAgregarDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una diapositiva nueva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Agregar una diapositiva nueva:\r\r"+
+                    ">1. En la pestaña **Vista**, haga clic en **Normal**.\r\r"+
+                    ">2. Haga clic en la diapositiva detrás de la cual desea insertar la nueva diapositiva.\r\r"+
+                    ">3. En la pestaña **Inicio**, haga clic en **Nueva diapositiva**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-reorganizar-duplicar-y-eliminar-diapositivas-en-powerpoint-e35a232d-3fd0-4ee1-abee-d7d4d6da92fc?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Agregar un hipervínculo a una diapositiva
+        public static IList<Attachment> GetAgregarHipervinculoDiapositiva()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar un hipervínculo a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Puede agregar hipervínculos a una presentación para realizar una amplia variedad de cosas. Puede usar vínculos "+
+                    "para acceder a otro lugar de la presentación rápidamente, abrir una presentación diferente o ir a un página web.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-un-hiperv%C3%ADnculo-a-una-diapositiva-239c6c94-d52f-480c-99ae-8b0acf7df6d9")),
+            };
+        }
+        // Agregar una transición a una diapositiva
+        public static IList<Attachment> GetAgregarTransicionesDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una transición a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 para Mac PowerPoint 2011 para Mac",
+                    "Elegir un tema al abrir PowerPoint\r\r"+
+                    ">1. En el panel Miniaturas, haga clic en la diapositiva a la que desea aplicar una transición."+
+                    ">2. En la pestaña **Transiciones**, busque el efecto que más le guste y haga clic sobre él.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-editar-o-quitar-transiciones-entre-diapositivas-en-powerpoint-para-mac-937604f5-93f8-4f96-9232-8d55d7f0bead")),
+            };
+        }
+        // Agregar o eliminar audio en una presentación de PowerPoint
+        public static IList<Attachment> GetAgregarAudioPresentacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una transición a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 para Mac PowerPoint 2011 para Mac",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la pestaña **Insertar** en el grupo **Multimedia**, haga clic en **Audio**."+
+                    ">2. En la lista, haga clic en **Audio en mi PC**, busque y seleccione el clip de audio que quiere y, después, haga clic en **Insertar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-o-eliminar-audio-en-una-presentaci%C3%B3n-de-powerpoint-c3b2a9fd-2547-41d9-9182-3dfaa58f1316?ui=es-ES&rs=es-ES&ad=ES#OfficeVersion=2013,_2016")),
+            };
+        }
+        // Insertar y reproducir un archivo de vídeo
+        public static IList<Attachment> GetInsertarArchivoVideo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar y reproducir un archivo de vídeo",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Insertar un vídeo almacenado en su equipo\r\r"+
+                    ">1. En la pestaña **Insertar**, haga clic en la flecha situada debajo de **Video** y luego en **Video en Mi PC**.\r\r"+
+                    ">2. En el cuadro de diálogo **Insertar vídeo**, haga clic en el vídeo que desea y a continuación, haga clic en **Insertar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-y-reproducir-un-archivo-de-v%C3%ADdeo-desde-su-equipo-o-desde-onedrive-f3fcbd3e-5f86-4320-8aea-31bff480ed02?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Agregar una tabla a una diapositiva
+        public static IList<Attachment> GetAgregarTablaDiapositiva()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una tabla a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010",
+                    "Crear una tabla:\r\r"+
+                    ">1. En la pestaña **Insertar**, seleccione **Tabla**.\r\r"+
+                    ">2. Haga clic en **Insertar tabla** y escriba un número en las listas **Número de columnas** y **Número de filas**.\r\r"+
+                    ">3. Haga clic en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-una-diapositiva-34f106c9-5320-4b89-9129-806e64b258ac")),
+            };
+        }
+        // Agregar notas del orador a las diapositivas
+        public static IList<Attachment> GetAgregarNotasOradorDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar notas del orador a las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint Online",
+                    "Puede agregar notas que pueden ser consultadas más adelante mientras realiza una presentación con diapositivas a una audiencia."+
+                    "El **panel Notas** es el lugar para almacenar información adicional que no necesita estar en la diapositiva.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-notas-del-orador-a-las-diapositivas-26985155-35f5-45ba-812b-e1bd3c48928e")),
+            };
+        }
+
         // COMPARTIR
         //---------------------
         // Compartir la presentación de PowerPoint 2016 con otros usuarios
