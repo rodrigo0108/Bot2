@@ -1104,6 +1104,21 @@ namespace Office365Prueba1.Utils
 
         // GUARDAR
         //--------------------
+        // Guardar un documento
+        public static IList<Attachment> GetGuardarDocumentoWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Guardar un documento",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
+                    "La forma en que se graba un documento y el formato en el que se graba depende de cómo se planee utilizar el documento."+
+                    " Por ejemplo, si el documento es para su propio uso y nunca espera abrirlo en una versión anterior de Microsoft Office"+
+                    " Word, la forma más sencilla de guardarlo es usar el comando Guardar, usando todas las configuraciones predeterminadas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/guardar-un-documento-b7f55d8c-d714-4892-8fde-853a82419027")),
+            };
+        }
         // Guardar o convertir a PDF o XPS
         public static IList<Attachment> GetGuardarArchivoPDF()
         {

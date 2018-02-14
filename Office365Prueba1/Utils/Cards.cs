@@ -903,6 +903,29 @@ namespace Office365Prueba1.Utils
             };
         }
 
+
+        // Guardar o convertir a PDF o XPS
+        // Guardar archivos en One Drive
+        public static IList<Attachment> GetGuardarArchivosOneDrivePdf()
+        {
+            return new List<Attachment>()
+            {
+               GetHeroCardV2(
+                    "Guardar o convertir a PDF o XPS",
+                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 OneNote 2016 Publisher 2016 Access 2016 Visio Professional 2016",
+                    "Para exportar o guardar como PDF, un archivo Office, en el menú **Archivo**, haga clic en **Exportar** o en **Guardar como**. Para ver "+
+                    "instrucciones detalladas, entre al siguiente [enlace](https://support.office.com/es-es/article/guardar-o-convertir-a-pdf-o-xps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110?ui=es-ES&rs=es-ES&ad=ES)"+
+                    " para seleccionar un programa de Office.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/guardar-o-convertir-a-pdf-o-xps-d85416c5-7d77-4fd6-a216-6f4bf7c7c110?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Guardar un documento en su OneDrive desde Office 2010",
+                    "Se aplica a: Excel 2010 Word 2010 PowerPoint 2010 OneNote 2010",
+                    "Al guardar un documento en OneDrive, el documento se almacena en una ubicación central a la que puede tener acceso desde prácticamente cualquier lugar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/guardar-un-documento-en-su-onedrive-desde-office-2010-b9e0c0a9-2bd7-42cf-9178-24d60c51ac75")),
+            };
+        }
         // -------------------------------------------------------------
 
         public static IList<Attachment> GetConsulta()
