@@ -372,7 +372,7 @@ namespace Office365Prueba1.Utils
         // Como cambiar el color de fondo del calendario
         // Cambiar el color de fondo de una página en OneNote para Windows 10
         //Cambiar el fondo o el color de un documento en Word 2016 para Windows
-        public static IList<Attachment> GetCambiarColorFondoOutlookOneDriveDocumentoWord()
+        public static IList<Attachment> GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint()
         {
             return new List<Attachment>()
             {
@@ -400,7 +400,15 @@ namespace Office365Prueba1.Utils
                     ">2. Haga clic en el color deseado en Colores del tema o en Colores estándar.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Cambiar-el-fondo-o-el-color-de-un-documento-en-Word-2016-para-Windows-db481e61-7af6-4063-bbcd-b276054a5515")),
-            };
+                GetHeroCardV2(
+                    "Cambiar el color de fondo de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Si decide que quiere agregar más contraste entre el fondo y el texto en las diapositivas, puede cambiar los colores de"+
+                    " fondo a otro color sólido o degradado. Dar formato a los colores y el fondo de las diapositivas es una forma adecuada"+
+                    " de generar interés visual.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-de-las-diapositivas-3ac2075c-f51b-4fbd-b356-b4c6748ec966#OfficeVersion-BkgdColor=2016,_2013")),
+               };
         }
 
         // Accion imprimir Outlook - OneNote
@@ -716,6 +724,58 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        // Usar una plantilla en Power Point - Usar una plantilla en Excel - Usar una plantilla en Word
+        public static IList<Attachment> GetUsarPlantillaPowerPointExcelWord()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar una plantilla en Power Point",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para iniciar una nueva presentación basada en una plantilla, en el menú **Archivo**, haga clic en"+
+                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               GetHeroCardV2(
+                    "Usar una plantilla en Excel",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para iniciar un nuevo libro basado en una plantilla, en el menú **Archivo**, haga clic en"+
+                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Usar una plantilla en Word",
+                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
+                    "Para empezar un nuevo documento basado en su plantilla, en el menú **Archivo**, haga clic en"+
+                    " **Nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+
+        // Cambiar la fuente o el tamaño de fuente en la lista de mensajes
+        // Cambiar el tamaño de las diapositivas
+        public static IList<Attachment> GetCambiarTamanoFuenteListaMensajesTamanoDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar la fuente o el tamaño de fuente en la lista de mensajes",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Para buscar más rápidamente a través de la Bandeja de entrada, desea ampliar el texto de las líneas de asunto"+
+                    " y el encabezado de columna, o cambiar la fuente para facilitar la lectura.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-la-fuente-o-el-tama%C3%B1o-de-fuente-en-la-lista-de-mensajes-57bd24a6-1f85-45ac-a657-fba877d3fe00?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Cambiar el tamaño de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2016",
+                    "Para cambiar el tamaño de las diapositivas\r\r"+
+                    ">* Vaya a la pestaña Diseño de la cinta de opciones\r\r"+
+                    ">* Seleccione el **tamaño de diapositiva**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-tama%C3%B1o-de-las-diapositivas-040a811c-be43-40b9-8d04-0de5ed79987e")),
+               };
+        }
 
         // -------------------------------------------------------------
 

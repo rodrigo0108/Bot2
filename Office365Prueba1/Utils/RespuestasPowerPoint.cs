@@ -372,34 +372,88 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
                };
         }
-        // Usar una plantilla en Power Point - Usar una plantilla en Excel - Usar una plantilla en Word
-        public static IList<Attachment> GetUsarPlantillaPowerPointExcelWord()
+        
+        // CAMBIAR - MODIFICAR
+        //---------------------
+        // Modificar o responder a un comentario
+        public static IList<Attachment> GetModificarComentarioPowerPoint()
         {
             return new List<Attachment>()
             {
                 GetHeroCardV2(
-                    "Usar una plantilla en Power Point",
-                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
-                    "Para iniciar una nueva presentación basada en una plantilla, en el menú **Archivo**, haga clic en"+
-                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
+                    "Modificar o responder a un comentario",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Use el **panel Comentarios** para modificar los comentarios agregados.\r\r"+
+                    ">* Haga clic en el texto del comentario que desea modificar.\r\r"+
+                    ">* Se abrirá un cuadro de entrada de texto con el comentario.\r\r"+
+                    ">* Realice los cambios oportunos y haga clic fuera del cuadro de comentarios para finalizar.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
-               GetHeroCardV2(
-                    "Usar una plantilla en Excel",
-                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
-                    "Para iniciar un nuevo libro basado en una plantilla, en el menú **Archivo**, haga clic en"+
-                    " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Usar una plantilla en Word",
-                    "Se aplica a: Excel 2016 para Mac PowerPoint 2016 para Mac Word 2016 para Mac",
-                    "Para empezar un nuevo documento basado en su plantilla, en el menú **Archivo**, haga clic en"+
-                    " **Nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+                    value: "https://support.office.com/es-es/article/agregar-cambiar-ocultar-o-eliminar-comentarios-en-una-presentaci%C3%B3n-a8f071fa-6e5d-4c37-a025-1cf48a76eb38")),
                };
         }
+        // Cambiar el color de fondo de las diapositivas
+        public static IList<Attachment> GetCambiarColorFondoDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar el color de fondo de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Si decide que quiere agregar más contraste entre el fondo y el texto en las diapositivas, puede cambiar los colores de"+
+                    " fondo a otro color sólido o degradado. Dar formato a los colores y el fondo de las diapositivas es una forma adecuada"+
+                    " de generar interés visual.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-de-las-diapositivas-3ac2075c-f51b-4fbd-b356-b4c6748ec966#OfficeVersion-BkgdColor=2016,_2013")),
+               };
+        }
+        // Cambiar el tamaño de las diapositivas
+        public static IList<Attachment> GetCambiarTamanoDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar el tamaño de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2016",
+                    "Para cambiar el tamaño de las diapositivas\r\r"+
+                    ">* Vaya a la pestaña Diseño de la cinta de opciones\r\r"+
+                    ">* Seleccione el **tamaño de diapositiva**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-tama%C3%B1o-de-las-diapositivas-040a811c-be43-40b9-8d04-0de5ed79987e")),
+               };
+        }
+        // Cambiar el orden de reproducción de los efectos de animación
+        public static IList<Attachment> GetCambiarOrdenReproduccionEfectosAnimacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar el orden de reproducción de los efectos de animación",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Si los efectos de animación no se reproducen en la secuencia que desea, puede reorganizar el orden.\r\r"+
+                    ">1. Haga clic en el objeto de la diapositiva con los efectos de animación que desee cambiar.\r\r"+
+                    ">2. En la pestaña **Animaciones**, haga clic en **Panel de animación**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Cambiar-el-orden-de-reproducci%C3%B3n-de-los-efectos-de-animaci%C3%B3n-f41984c7-c5a6-4120-af1e-5208cf4295b4")),
+               };
+        }
+        // Cambiar un efecto de animación
+        public static IList<Attachment> GetCambiarEfectoAnimacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Cambiar un efecto de animación",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el objeto que tiene el efecto de animación que desea cambiar.\r\r"+
+                    ">2. En la ficha **animaciones**, en el grupo **animación**, haga clic en el botón "+
+                    "![duck](https://support.content.office.net/es-es/media/cf59dbdd-98bc-400e-a84b-4483044bf700.jpg) **más** y, a continuación, seleccione la nueva animación que desee.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-o-quitar-un-efecto-de-animaci%C3%B3n-fb8a3ab0-f651-45e0-b5f0-b18ba2e7c711?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+
+
 
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)

@@ -293,9 +293,18 @@ namespace Office365Prueba1.Dialogs
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                                     return;
                                 }
+                                else if (palabra3 == "diapositiva" || palabra3 == "diapositivas")
+                                {
+                                    reply.Attachments = RespuestasPowerPoint.GetCambiarColorFondoDiapositivas();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
                                 else
                                 {
-                                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWord();
+                                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
                                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                                     await context.PostAsync(reply);
@@ -303,7 +312,7 @@ namespace Office365Prueba1.Dialogs
                                     return;
                                 }
                             }
-                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWord();
+                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
                             await context.PostAsync(preguntaNoRegistrada1);
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -379,7 +388,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWord();
+                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -388,7 +397,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWord();
+                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                     await context.PostAsync(reply);
@@ -397,19 +406,19 @@ namespace Office365Prueba1.Dialogs
                 }
                 // -------------------------------------------------------------------
                 // La primera parte de la pregunta es tamaño fuente
-                else if (palabra1 == "tamañodefuente" || palabra1 == "tamañosdefuentes" || palabra1 == "tamaño de fuente")
+                else if (palabra1 == "tamaño" || palabra1 == "tamaños")
                 {
                     // Se detectó  la segunda parte de la pregunta
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "lista" || palabra2 == "listas")
+                        if (palabra2 == "fuente" || palabra2 == "fuentes")
                         {
                             // Se detectó  la tercera parte de la pregunta
                             foreach (var entityP3 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra3"))
                             {
                                 var palabra3 = entityP3.Entity.ToLower().Replace(" ", "");
-                                if (palabra3 == "mensaje" || palabra3 == "mensajes" || palabra3 == "correo" || palabra3 == "correo")
+                                if (palabra3 == "lista" || palabra3 == "listas")
                                 {
                                     reply.Attachments = RespuestasOutlook.GetCambiarTamanoFuenteListaMensajes();
                                     await context.PostAsync(confirmacionRespuesta1);
@@ -436,9 +445,18 @@ namespace Office365Prueba1.Dialogs
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
+                        else if (palabra2 == "diapositiva" || palabra2 == "diapositivas")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetCambiarTamanoDiapositivas();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(preguntaConsulta);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
                         else
                         {
-                            reply.Attachments = RespuestasOutlook.GetCambiarTamanoFuenteListaMensajes();
+                            reply.Attachments = Cards.GetCambiarTamanoFuenteListaMensajesTamanoDiapositivas();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -447,7 +465,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasOutlook.GetCambiarTamanoFuenteListaMensajes();
+                    reply.Attachments = Cards.GetCambiarTamanoFuenteListaMensajesTamanoDiapositivas();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
@@ -665,6 +683,7 @@ namespace Office365Prueba1.Dialogs
                     reply.Attachments = RespuestasOutlook.GetCambiarCitaOutlook();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
@@ -733,6 +752,16 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "notas" || palabra1 == "nota" || palabra1 == "blocsdenotas" || palabra1 == "blocdenotas" || palabra1 == "bloc" || palabra1 == "block")
+                {
+                    reply.Attachments = RespuestasOneNote.GetCambiarEntreBlocsNotasOneNote();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else if (palabra1 == "letrasmayúsculas" || palabra1 == "letramayúscula" || palabra1 == "mayúscula" || palabra1 == "mayuscula" || palabra1 == "mayúsculas" || palabra1 == "mayusculas")
@@ -808,6 +837,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                         else if (palabra2 == "cuadrodetexto" || palabra2 == "cuadrosdetexto")
@@ -816,6 +846,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                         else
@@ -825,6 +856,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                     }
@@ -833,6 +865,8 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else if (palabra1 == "encabezados" || palabra1 == "encabezado" || palabra1 == "piedepágina" || palabra1 == "piedepagina" || palabra1 == "piesdepágina" || palabra1 == "piesdepagina")
@@ -841,6 +875,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else if (palabra1 == "espaciado" || palabra1 == "espaciado")
@@ -849,6 +884,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else if (palabra1 == "sangría" || palabra1 == "sangrías")
@@ -857,6 +893,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else if (palabra1 == "estilos" || palabra1 == "estilo")
@@ -865,12 +902,100 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "comentarios" || palabra1 == "comentario")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetModificarComentarioPowerPoint();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "orden")
+                {
+                    // Se detectó la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "reproducción" || palabra2 == "reproduccion")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetCambiarOrdenReproduccionEfectosAnimacion();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetCambiarOrdenReproduccionEfectosAnimacion();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = reply.Attachments = RespuestasPowerPoint.GetCambiarOrdenReproduccionEfectosAnimacion();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "efecto" || palabra1 == "efectos")
+                {
+                    // Se detectó la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "animación" || palabra2 == "animacion" || palabra2 == "animaciones")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetCambiarEfectoAnimacion();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetCambiarEfectoAnimacion();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasPowerPoint.GetCambiarEfectoAnimacion();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "animación" || palabra1 == "animacion" || palabra1 == "animaciones")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetCambiarEfectoAnimacion();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else
                 {
                     await context.PostAsync(preguntaNoRegistrada2);
                     await context.PostAsync($"O tal vez no escribió correctamente la palabra '{palabra1}'?");
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta2);
                     return;
                 }
             }
@@ -879,6 +1004,7 @@ namespace Office365Prueba1.Dialogs
             reply.Attachments = Cards.GetConsultaV2();
             await context.PostAsync(reply);
             await context.PostAsync("O tal vez no escribió la pregunta correctamente");
+            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta2);
             return;
         }
     }

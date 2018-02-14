@@ -337,7 +337,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasPowerPoint.GetUsarPlantillaPowerPointExcelWord();
+                            reply.Attachments = Cards.GetUsarPlantillaPowerPointExcelWord();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -366,7 +366,7 @@ namespace Office365Prueba1.Dialogs
                             return;
                         }
                     }
-                    reply.Attachments = RespuestasPowerPoint.GetUsarPlantillaPowerPointExcelWord();
+                    reply.Attachments = Cards.GetUsarPlantillaPowerPointExcelWord();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                     await context.PostAsync(reply);
