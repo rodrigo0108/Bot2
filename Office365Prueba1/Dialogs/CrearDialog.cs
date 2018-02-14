@@ -1039,6 +1039,15 @@ namespace Office365Prueba1.Dialogs
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
+                else if (palabra1 == "animación" || palabra1 == "animacion" || palabra1 == "animaciones")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetAplicarVariosEfectosAnimacion();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
 
                 // -------------------------------------------------------------------
                 else

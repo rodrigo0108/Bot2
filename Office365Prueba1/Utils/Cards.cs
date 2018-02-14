@@ -346,6 +346,55 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        //----------- PREGUNTAS SOBRE OFFICE -----------
+        //----------------------------------------------
+        // Insertar imágenes
+        public static IList<Attachment> GetAgregarImagen()
+        {
+            return new List<Attachment>()
+            {
+               GetHeroCardV2(
+                    "Insertar imágenes",
+                    "Se aplica a: Excel, Word, Outlook, PowerPoint, OneNote, Publisher",
+                    "Office ya no ofrece imágenes prediseñadas en sus aplicaciones, pero le ayuda a buscar imágenes " +
+                    "en línea para que las inserte en sus archivos. ",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Insertar-im%C3%A1genes-3c51edf4-22e1-460a-b372-9329a8724344")),
+            };
+        }
+        // Insertar un símbolo o carácter especial 
+        public static IList<Attachment> GetInsertarCaracterEspecialOffice()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar un símbolo o carácter especial",
+                    "Se aplica a: Excel 2016, Word 2016, Outlook 2016, Publisher 2010,  Word Starter 2010",
+                    "**¿Qué desea hacer?:**\r\r"+
+                    ">1. [Insertar un símbolo](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm1)\r\r"+
+                    ">2. [Insertar un carácter especial](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm2)\r\r"+
+                    ">3. [Insertar un carácter Unicode](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm3)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce")),
+            };
+        }
+
+        // Agregar un PDF a un archivo de Office
+        public static IList<Attachment> GetAgregarPDFArchivoOffice()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar un PDF a un archivo de Office",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016 Publisher 2016",
+                    "Vea cómo insertar un archivo en formato PDF en un archivo de Office como un objeto. Puede "+
+                    "cambiar el tamaño de un objeto, pero no puede editarlo después de insertarlo. Necesitará tener "+
+                    "instalado Adobe Acrobat o Adobe Reader para ver o leer archivos PDF.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-un-PDF-a-un-archivo-de-Office-74819342-8f00-4ab4-bcbe-0f3df15ab0dc#ID0EAABAAA=2016,_2013,_2010")),
+            };
+        }
+
         //------- PREGUNTAS CON VARIOS SERVICIOS -------
         //----------------------------------------------
         // Abrir archivos en su dispositivo móvil
@@ -438,10 +487,37 @@ namespace Office365Prueba1.Utils
 
         // Insertar una tabla en OneNote para Windows 10
         // Como agregar tablas a mensajes en Outlook
+        // Crear una tabla en el estilo que desee
+        // Insertar o dibujar una tabla Word
         public static IList<Attachment> GetInsertarTabla()
         {
             return new List<Attachment>()
             {
+                GetHeroCardV2(
+                    "Insertar o dibujar una tabla",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
+                    "Siga los siguientes pasos para insertar una tabla en Word:\r\r"+
+                    ">* Haga clic en **Insertar** > **Tabla** y mueva el cursor sobre la cuadrícula.\r\r"+
+                    ">* Si necesita hacer ajustes, puede [agregar filas y columnas de tabla](https://support.office.com/es-es/article/agregar-filas-y-columnas-a-una-tabla-42946584-741f-4461-9f20-0207bb78cda0?ui=es-ES&rs=es-ES&ad=ES)"+
+                    ", [eliminar filas y columnas de tabla](https://support.office.com/es-es/article/eliminar-una-fila-una-columna-o-una-celda-de-una-tabla-45dab66c-f6b3-4c92-b2ab-642aa240b9dc?ui=es-ES&rs=es-ES&ad=ES) "+
+                    "o [combinar celdas de la tabla en una celda](https://support.office.com/es-es/article/combinar-celdas-de-tabla-en-una-celda-689227b5-c73f-43e8-bece-ac564f60b9eb?ui=es-ES&rs=es-ES&ad=ES).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-o-dibujar-una-tabla-a138f745-73ef-4879-b99a-2f3d38be612a?ui=es-ES&rs=es-ES&ad=ES")),
+                 GetHeroCardV2(
+                    "Como agregar tablas a mensajes en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
+                  GetHeroCardV2(
+                    "Crear o eliminar una tabla de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
+                    "Siga los siguientes pasos para crear una tabla:\r\r"+
+                    ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
+                    ">2. En la pestaña **Inicio**, haga clic en **Estilos** > **Dar formato como tabla** > seleccione un estilo en la **Galería de estilos** de tabla.\r\r"+
+                    ">3. Haga clic en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
                 GetHeroCardV2(
                     "Insertar una tabla en OneNote",
                     "Se aplica a: OneNote para Windows 10",
@@ -449,12 +525,6 @@ namespace Office365Prueba1.Utils
                     "a una tabla en OneNote para Windows 10.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/insertar-una-tabla-en-onenote-para-windows-10-35052542-ca8e-42fe-be3f-bc5c748a14b1?ui=es-ES&rs=es-ES&ad=ES")),
-                 GetHeroCardV2(
-                    "Como agregar tablas a mensajes en Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
-                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
             };
         }
 
@@ -515,88 +585,20 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
             };
         }
-
-        // Agregar archivo en outlook, word, excel, power point, one drive, one note
-        public static IList<Attachment> GetAgregarArchivoOutlookWordExcelPowerPointOneDriveOneNote()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Insertar un documento en Word",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007",
-                    "Puede insertar el contenido de documentos de Microsoft Office Word creados previamente en un documento de Microsoft Office Word nuevo o diferente.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-documento-en-word-274128e5-4da7-4cb8-b65f-3d8b585e03f1")),
-                GetHeroCardV2(
-                    "Adjuntar archivos o insertar imágenes en mensajes de correo de Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Es fácil adjuntar imágenes, archivos, contactos, mensajes de correo y muchos otros elementos a los mensajes de Outlook. Outlook"
-                    +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
-                  GetHeroCardV2(
-                    "Insertar un objeto en la hoja de cálculo de Excel",
-                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
-                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
-                  GetHeroCardV2(
-                    "Insertar una hoja de cálculo o algún archivo en PowerPoint",
-                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
-                    ">1. En PowerPoint, en la pestaña **Insertar**, haga clic o puntee **Objeto**.\r\r"+
-                    ">2. En el cuadro de diálogo **Insertar objeto**, seleccione **Crear desde archivo**.\r\r"+
-                    ">3. Haga clic o puntee **Examinar** y, en el cuadro Examinar, busque el archivo que desea insertar y vincular.\r\r"+
-                    ">4. Antes de cerrar el cuadro de diálogo **Insertar objeto**, seleccione **Vínculo** y haga clic en **Aceptar**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
-                  GetHeroCardV2(
-                    "Cómo adjuntar un arhivo en One Note",
-                    "Se aplica a: OneNote 2013",
-                    "OneNote puede conservar toda la información acerca de un asunto o un proyecto en un único lugar, incluidas las copias de archivos y documentos relacionados.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/tareas-b%C3%A1sicas-en-microsoft-onenote-2013-da73c095-e082-4276-acf9-8728ca8b08ab")),
-                  GetHeroCardV2(
-                    "Insertar archivos directamente en tu sitio web o blog",
-                    "Se aplica a: Office.com OneDrive",
-                    "Si tiene un sitio web o un blog, es muy fácil y rápido incluir fotos, vídeos, documentos de Office y otros archivos desde OneDrive.\r\r"+
-                    ">1. Ve al [sitio web de OneDrive](https://onedrive.live.com/about/es-419/). Es posible que tengas que iniciar sesión con tu cuenta Microsoft.\r\r"+
-                    ">2. Elige el archivo que quieres insertar activando la casilla de la esquina superior derecha del archivo.\r\r"+
-                    ">3. Pulsa o haz clic en **Insertar** en la parte superior de la página y elige **Generar**.\r\r"+
-                    ">4. Copia o pega el código en el código de tu sitio web o blog.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-archivos-directamente-en-tu-sitio-web-o-blog-ed07dd52-8bdb-431d-96a5-cbe8a80b7418?ui=es-ES&rs=es-ES&ad=ES")),
-
-            };
-        }
+        
 
         // Agregar firma en documento, agregar firma al documento, agregar firma a los mensajes Outlook
-        public static IList<Attachment> GetAgregarFirmaWordFirmaDigitalFirmaMensajes()
+        public static IList<Attachment> GetAgregarFirma()
         {
             return new List<Attachment>()
             {
-                GetHeroCardV2(
-                    "Insertar una firma",
-                    "Se aplica a: Word 2016 Word 2013",
-                    "Use **Línea de firma** para insertar una línea de firma con una X al lado para indicar dónde hay que firmar el documento.\r\r"+
-                    ">1. Haga clic en el lugar en donde quiera la línea.\r\r"+
-                    ">2. Haga clic en **Insertar** > **Línea de firma**\r\r"+
-                    ">3. Haga clic en **Línea de firma de Microsoft Office.**\r\r"+
-                    ">4. En el cuadro Configuración de firma puede escribir un nombre en el cuadro Firmante sugerido. También puede agregar un puesto en el cuadro Puesto del firmante sugerido.\r\r"+
-                    ">5. Haga clic en Aceptar. La línea de firma aparecerá en el documento.\r\r"+
-                    "Si desea hacer una firma personalizada haga click [aquí](https://support.office.com/es-es/article/Insertar-una-firma-f3b3f74c-2355-4d53-be89-ae9c50022730)\r\r",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d")),
-
                 GetHeroCardV2(
                     "Agregar o quitar una firma digital en archivos de Office",
                     "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Word Starter 2010",
-                    ">1. Haga clic en la pestaña **Archivo**.\r\r"+
-                    ">2. Haga clic en **Información**.\r\r"+
-                    ">3. Haga clic en **Proteger documento**, **Proteger libro** o **Proteger presentación**.\r\r"+
-                    ">4. Haga clic en **Agregar una firma digital**.\r\r"+
-                    ">5. Lea el mensaje de Word, Excel o PowerPoint y después haga clic en **Aceptar**.\r\r"+
-                    ">6. En el cuadro de diálogo **Firmar**, en el cuadro **Razón para firmar este documento**, escriba la razón.\r\r"+
-                    ">7. Haga clic en **Firmar**.",
+                    "Siga los siguientes pasos:"+
+                    ">1. Haga clic en la pestaña **Archivo** y luego en  **Información**.\r\r"+
+                    ">2. Haga clic en **Proteger documento** y luego en **Agregar una firma digital**.\r\r"+
+                    ">3. Haga clic en **Aceptar** y por último complete los datos requeridos en el cuadro de diálogo **Firmar** y **Aceptar**",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d#__toc311526848")),
 
@@ -659,39 +661,7 @@ namespace Office365Prueba1.Utils
                 };
         }
 
-        // Insertar tabla Word, crear tabla excel
-        public static IList<Attachment> GetInsertarDibujarTablaWordCrearExcelOutlook()
-        {
-            return new List<Attachment>()
-            {
-                  GetHeroCardV2(
-                    "Insertar o dibujar una tabla",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
-                    "Siga los siguientes pasos para insertar una tabla en Word:\r\r"+
-                    ">* Para insertar rápidamente una tabla básica, haga clic en **Insertar** > **Tabla** y mueva el cursor sobre la cuadrícula hasta que haya resaltado el número de columnas y filas que desee.\r\r"+
-                    ">* Haga clic y aparecerá la tabla en el documento. Si necesita hacer ajustes, puede [agregar filas y columnas de tabla](https://support.office.com/es-es/article/agregar-filas-y-columnas-a-una-tabla-42946584-741f-4461-9f20-0207bb78cda0?ui=es-ES&rs=es-ES&ad=ES)"+
-                    ", [eliminar filas y columnas de tabla](https://support.office.com/es-es/article/eliminar-una-fila-una-columna-o-una-celda-de-una-tabla-45dab66c-f6b3-4c92-b2ab-642aa240b9dc?ui=es-ES&rs=es-ES&ad=ES) "+
-                    "o [combinar celdas de la tabla en una celda](https://support.office.com/es-es/article/combinar-celdas-de-tabla-en-una-celda-689227b5-c73f-43e8-bece-ac564f60b9eb?ui=es-ES&rs=es-ES&ad=ES).\r\r"+
-                    ">* Al hacer clic en la tabla, aparecen las **Herramientas de tabla**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-o-dibujar-una-tabla-a138f745-73ef-4879-b99a-2f3d38be612a?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Como agregar tablas a mensajes en Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
-                    "Si ha intentado alguna vez alinear filas y columnas de texto manualmente con espacios, sabrá lo frustrante que puede ser.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
-                  GetHeroCardV2(
-                    "Crear o eliminar una tabla de Excel",
-                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
-                    "Siga los siguientes pasos para crear una tabla:\r\r"+
-                    ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
-                    ">2. En la pestaña **Inicio**, haga clic en **Estilos** > **Dar formato como tabla** > seleccione un estilo en la **Galería de estilos** de tabla.\r\r"+
-                    ">3. Excel resaltará automáticamente el rango de datos de la tabla, si todo esta bien haga click en **Aceptar**.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
-            };
-        }
+        
 
         // Mover o cambiar el nombre de una carpeta en Outlook.com
         // Como cambiar el nombre de una categoría de color

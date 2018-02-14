@@ -143,6 +143,25 @@ namespace Office365Prueba1.Utils
                 };
         }
 
+        // APLICAR
+        //--------------------
+        // Aplicar varios efectos de animación a un objeto
+        public static IList<Attachment> GetAplicarVariosEfectosAnimacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Aplicar varios efectos de animación a un objeto",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el objeto de la diapositiva que desee animar.\r\r"+
+                    ">2. En la pestaña **Animaciones**, haga clic en **Panel de animación**.\r\r"+
+                    ">3. Haga clic en **Agregar animación** y elija un efecto de animación.\r\r",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/aplicar-varios-efectos-de-animaci%C3%B3n-a-un-objeto-9bb7b925-ab0f-47d4-bc11-85d939194bed")),
+            };
+        }
+
         // DEFINICION
         // --------------------
         // Definicon de Power Point

@@ -153,14 +153,10 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                     "Agregar o quitar una firma digital en archivos de Office",
                     "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Word Starter 2010",
-                    "Agregar firmas digitales en Word, Excel o PowerPoint:\r\r"+
-                    ">1. Haga clic en la pestaña **Archivo**.\r\r"+
-                    ">2. Haga clic en **Información**.\r\r"+
-                    ">3. Haga clic en **Proteger documento**, **Proteger libro** o **Proteger presentación**.\r\r"+
-                    ">4. Haga clic en **Agregar una firma digital**.\r\r"+
-                    ">5. Lea el mensaje de Word, Excel o PowerPoint y después haga clic en **Aceptar**.\r\r"+
-                    ">6. En el cuadro de diálogo **Firmar**, en el cuadro **Razón para firmar este documento**, escriba la razón.\r\r"+
-                    ">7. Haga clic en **Firmar**.",
+                    "Siga los siguientes pasos:"+
+                    ">1. Haga clic en la pestaña **Archivo** y luego en  **Información**.\r\r"+
+                    ">2. Haga clic en **Proteger documento** y luego en **Agregar una firma digital**.\r\r"+
+                    ">3. Haga clic en **Aceptar** y por último complete los datos requeridos en el cuadro de diálogo **Firmar** y **Aceptar**",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d#__toc311526848")),
             };
@@ -182,39 +178,6 @@ namespace Office365Prueba1.Utils
                     "Si desea hacer una firma personalizada haga click [aquí](https://support.office.com/es-es/article/Insertar-una-firma-f3b3f74c-2355-4d53-be89-ae9c50022730)",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/Agregar-o-quitar-una-firma-digital-en-archivos-de-Office-70d26dc9-be10-46f1-8efa-719c8b3f1a2d")),
-            };
-        }
-        // Agregar un PDF a un archivo de Office
-        public static IList<Attachment> GetAgregarPDFArchivoOffice()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Agregar un PDF a un archivo de Office",
-                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016 Publisher 2016",
-                    "Vea cómo insertar un archivo en formato PDF en un archivo de Office como un objeto. Puede "+
-                    "cambiar el tamaño de un objeto, pero no puede editarlo después de insertarlo. Necesitará tener "+
-                    "instalado Adobe Acrobat o Adobe Reader para ver o leer archivos PDF.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-un-PDF-a-un-archivo-de-Office-74819342-8f00-4ab4-bcbe-0f3df15ab0dc#ID0EAABAAA=2016,_2013,_2010")),
-            };
-        }
-        // Insertar un símbolo o carácter especial 
-        public static IList<Attachment> GetInsertarCaracterEspecialOffice()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Insertar un símbolo o carácter especial",
-                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 Publisher 2010  Word Starter 2010",
-                    "Puede usar el cuadro de diálogo **Símbolo** para insertar símbolos, como ¼ y ©, y caracteres"+
-                    " especiales, como guiones (—) o puntos suspensivos (…) que no están en el teclado.\r\r"+
-                    ">1. Haga clic en el lugar donde desee insertar el símbolo.\r\r"+
-                    ">2. En el grupo **Símbolos** de la pestaña **Insertar**, haga clic en **Símbolo**.\r\r"+
-                    ">3. Haga clic en el símbolo que desee en la lista desplegable.\r\r"+
-                    ">4. Haga clic en **Cerrar**.\r\r",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce")),
             };
         }
         // Inserta texto automáticamente
@@ -358,23 +321,22 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/agregar-un-encabezado-o-pie-de-p%C3%A1gina-b87ee4df-abc1-41f8-995b-b39f6d99c7ed?ui=es-ES&rs=es-HN&ad=PE")),
                 };
         }
-        // Insertar o dibujar una tabla
+        // Insertar o dibujar una tabla Word
         public static IList<Attachment> GetInsertarDibujarTablaWord()
         {
             return new List<Attachment>()
             {
-                 GetHeroCardV2(
+                  GetHeroCardV2(
                     "Insertar o dibujar una tabla",
                     "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online Word Starter 2010",
                     "Siga los siguientes pasos para insertar una tabla en Word:\r\r"+
-                    ">* Para insertar rápidamente una tabla básica, haga clic en **Insertar** > **Tabla** y mueva el cursor sobre la cuadrícula hasta que haya resaltado el número de columnas y filas que desee.\r\r"+
-                    ">* Haga clic y aparecerá la tabla en el documento. Si necesita hacer ajustes, puede [agregar filas y columnas de tabla](https://support.office.com/es-es/article/agregar-filas-y-columnas-a-una-tabla-42946584-741f-4461-9f20-0207bb78cda0?ui=es-ES&rs=es-ES&ad=ES)"+
+                    ">* Haga clic en **Insertar** > **Tabla** y mueva el cursor sobre la cuadrícula.\r\r"+
+                    ">* Si necesita hacer ajustes, puede [agregar filas y columnas de tabla](https://support.office.com/es-es/article/agregar-filas-y-columnas-a-una-tabla-42946584-741f-4461-9f20-0207bb78cda0?ui=es-ES&rs=es-ES&ad=ES)"+
                     ", [eliminar filas y columnas de tabla](https://support.office.com/es-es/article/eliminar-una-fila-una-columna-o-una-celda-de-una-tabla-45dab66c-f6b3-4c92-b2ab-642aa240b9dc?ui=es-ES&rs=es-ES&ad=ES) "+
-                    "o [combinar celdas de la tabla en una celda](https://support.office.com/es-es/article/combinar-celdas-de-tabla-en-una-celda-689227b5-c73f-43e8-bece-ac564f60b9eb?ui=es-ES&rs=es-ES&ad=ES).\r\r"+
-                    ">* Al hacer clic en la tabla, aparecen las **Herramientas de tabla**.",
+                    "o [combinar celdas de la tabla en una celda](https://support.office.com/es-es/article/combinar-celdas-de-tabla-en-una-celda-689227b5-c73f-43e8-bece-ac564f60b9eb?ui=es-ES&rs=es-ES&ad=ES).",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/insertar-o-dibujar-una-tabla-a138f745-73ef-4879-b99a-2f3d38be612a?ui=es-ES&rs=es-ES&ad=ES")),
-                };
+                 };
         }
         // Insertar una marca de agua en Word
         public static IList<Attachment> GetInsertarMarcaAguaWord()

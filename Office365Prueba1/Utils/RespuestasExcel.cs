@@ -59,10 +59,10 @@ namespace Office365Prueba1.Utils
                     "Siga los siguientes pasos para crear una tabla:\r\r"+
                     ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
                     ">2. En la pestaña **Inicio**, haga clic en **Estilos** > **Dar formato como tabla** > seleccione un estilo en la **Galería de estilos** de tabla.\r\r"+
-                    ">3. Excel resaltará automáticamente el rango de datos de la tabla, si todo esta bien haga click en **Aceptar**.",
+                    ">3. Haga clic en **Aceptar**.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/crear-o-eliminar-una-tabla-de-excel-e81aa349-b006-4f8a-9806-5af9df0ac664")),
-            };
+                };
         }
         // Crear una tabla de contenido en Word y crear tabla en Excel
         public static IList<Attachment> GetCrearTablaContenidoWordTablaExcel()
