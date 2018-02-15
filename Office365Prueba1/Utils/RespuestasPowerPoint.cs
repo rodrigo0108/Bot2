@@ -161,6 +161,22 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/aplicar-varios-efectos-de-animaci%C3%B3n-a-un-objeto-9bb7b925-ab0f-47d4-bc11-85d939194bed")),
             };
         }
+        // Aplicar una plantilla a una presentación
+        public static IList<Attachment> GetAplicarPlantillaPresentacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Aplicar una plantilla a una presentación",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007 ",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En PowerPoint, haga clic en **archivo** y, a continuación, haga clic en **nuevo**.\r\r"+
+                    ">2. Haga clic en **portada** y elija una plantilla para usar.\r\r"+
+                    ">3. Haga clic en **Crear**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Aplicar-una-plantilla-a-una-presentaci%C3%B3n-d3d4ece5-e965-45eb-9423-c34e61b34616")),
+            };
+        }
 
         // DEFINICION
         // --------------------
