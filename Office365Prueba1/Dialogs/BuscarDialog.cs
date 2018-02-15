@@ -165,7 +165,7 @@ namespace Office365Prueba1.Dialogs
                                     return;
                                 }
                             }
-                            reply.Attachments = RespuestasOneDrive.GetBuscarMoverArchivosOneDrive();
+                            reply.Attachments = RespuestasOneDrive.GetBuscarOMoverArchivosOneDrive();
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             return;

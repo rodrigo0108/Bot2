@@ -772,6 +772,25 @@ namespace Office365Prueba1.Utils
                };
         }
 
+        // TRABAJAR
+        //-------------------
+        // Trabajar conjuntamente en presentaciones de PowerPoint
+        public static IList<Attachment> GetTrabajarConjuntamentePresentacionesPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Trabajar conjuntamente en presentaciones de PowerPoint",
+                    "Se aplica a: Power Point",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en **Compartir** en la esquina superior derecha de la cinta de opciones.\r\r"+
+                    ">2. En **Invitar asistentes** escriba la dirección de correo electrónico del usuario con el que le gustaría compartir la presentación"+
+                    ">3. Haga clic en **Compartir**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/trabajar-conjuntamente-en-presentaciones-de-powerpoint-0c30ee3f-8674-4f0e-97be-89cf2892a34d?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+
 
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)

@@ -304,7 +304,7 @@ namespace Office365Prueba1.Dialogs
                                 }
                                 else
                                 {
-                                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
+                                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDrive();
                                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                                     await context.PostAsync(reply);
@@ -312,7 +312,7 @@ namespace Office365Prueba1.Dialogs
                                     return;
                                 }
                             }
-                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
+                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDrive();
                             await context.PostAsync(preguntaNoRegistrada1);
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -388,7 +388,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
+                            reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDrive();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -397,7 +397,7 @@ namespace Office365Prueba1.Dialogs
                         }
                     }
                     // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint();
+                    reply.Attachments = Cards.GetCambiarColorFondoOutlookOneDrive();
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                     await context.PostAsync(reply);

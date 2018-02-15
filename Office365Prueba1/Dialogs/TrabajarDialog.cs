@@ -20,15 +20,19 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
+            var estadoPregunta = "True";
+            var estadoPregunta2 = "False";
             var accion = "Trabajar";
             context.PrivateConversationData.SetValue<string>("Accion", accion);
 
-            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
             string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
+            string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
+            string preguntaNoRegistrada1 = "Lo siento, su pregunta no esta registrada, tal vez no escribió la pregunta correctamente";
             string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
+            string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
             string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
 
-            Constantes c = Constantes.Instance;
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
@@ -36,23 +40,130 @@ namespace Office365Prueba1.Dialogs
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
-                if (palabra1 == "conjunta" || palabra1=="cooperativa"|| palabra1 == "colaborativa" || palabra1=="coautoría" || palabra1 == "co-autoría" || palabra1 == "coautoria" || palabra1 == "co-autoria")
+                // Se guarda la primera parte de la pregunta
+                context.PrivateConversationData.SetValue<string>("Palabra1", palabra1);
+                // -------------------------------------------------------------------
+                if (palabra1 == "conjunta" || palabra1 == "cooperativa" || palabra1 == "colaborativa" || palabra1 == "colaborativamente")
                 {
+                    // Se detectó  la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+
+                        // La segunda parte de la prgunta es mensaje o correo
+                        if (palabra2 == "presentación" || palabra2 == "presentacion" || palabra2 == "presentaciones")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetTrabajarConjuntamentePresentacionesPowerPoint();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetTrabajarConjuntamentePresentacionesPowerPoint();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
                     foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
                         var service = entity.Entity.ToLower().Replace(" ", "");
 
-                        if (service== "word")
+                        if (service == "word")
                         {
                             reply.Attachments = RespuestasWord.GetTrabajarCoAutoriaTiempoReal();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
-                        else if(service == "onedrive")
+                        else if (service == "onedrive")
                         {
-                            reply.Attachments = RespuestasOneDrive.GetTrabajarManeraConjuntaOfficeOneDrive();
+                            reply.Attachments = RespuestasOneDrive.GetTrabajarManeraConjuntaOneDrive();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "OneDrive");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else if (service == "powerpoint")
+                        {
+                            reply.Attachments = RespuestasPowerPoint.GetTrabajarConjuntamentePresentacionesPowerPoint();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            await context.PostAsync($"Lo siento, '{service}' no esta registrado como servicio");
+                            reply.Attachments = Cards.GetTrabajarManeraConjunta();
+                            await context.PostAsync(opcionSecundarioDeRespuesta2);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    //obtener el producto si este a sido escogido anteriormente
+                    var servicio = "Servicio";
+                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+                    if (servicio == "Word")
+                    {
+                        reply.Attachments = RespuestasWord.GetTrabajarCoAutoriaTiempoReal();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                    else if (servicio == "OneDrive")
+                    {
+                        reply.Attachments = RespuestasOneDrive.GetTrabajarManeraConjuntaOneDrive();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                    else if (servicio == "PowerPoint")
+                    {
+                        reply.Attachments = RespuestasPowerPoint.GetTrabajarConjuntamentePresentacionesPowerPoint();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                    else
+                    {
+                        reply.Attachments = Cards.GetTrabajarManeraConjunta();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                }
+                else if (palabra1 == "coautoría" || palabra1 == "co-autoría" || palabra1 == "coautoria" || palabra1 == "co-autoria")
+                {
+                    // Se detecto el Servicio de la pregunta
+                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var service = entity.Entity.ToLower().Replace(" ", "");
+
+                        if (service == "word")
+                        {
+                            reply.Attachments = RespuestasWord.GetTrabajarCoAutoriaTiempoReal();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
@@ -61,50 +172,61 @@ namespace Office365Prueba1.Dialogs
                         else
                         {
                             await context.PostAsync($"Lo siento, '{service}' no esta registrado como servicio");
-                            reply.Attachments = Cards.GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord();
+                            reply.Attachments = RespuestasWord.GetTrabajarCoAutoriaTiempoReal();
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
                             return;
                         }
                     }
-                    //obtener el producto si este a sido escogido anteriormente
+                    // No se detectó el Servicio de la pregunta
+                    //obtener el producto si este a sido escodigo anteriormente
                     var servicio = "Servicio";
-                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
-                    switch (servicio)
+                    context.PrivateConversationData.TryGetValue<string>("tipoDeServicio", out servicio);
+                    if (servicio == "Word")
                     {
-                        case "Word":
-                            reply.Attachments = RespuestasWord.GetTrabajarCoAutoriaTiempoReal();
-                            await context.PostAsync(confirmacionRespuesta1);
-                            await context.PostAsync(reply);
-                            await context.PostAsync(preguntaConsulta);
-                            return;
-
-                        case "OneDrive":
-                            reply.Attachments = RespuestasOneDrive.GetTrabajarManeraConjuntaOfficeOneDrive();
-                            await context.PostAsync(confirmacionRespuesta1);
-                            await context.PostAsync(reply);
-                            await context.PostAsync(preguntaConsulta);
-                            return;
+                        reply.Attachments = RespuestasWord.GetTrabajarCoAutoriaTiempoReal();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
                     }
-                    reply.Attachments = Cards.GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord();
+                    else
+                    {
+                        reply.Attachments = RespuestasWord.GetTrabajarCoAutoriaTiempoReal();
+                        await context.PostAsync(preguntaNoRegistrada1);
+                        await context.PostAsync(opcionSecundarioDeRespuesta1);
+                        await context.PostAsync(reply);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                }
+                else if (palabra1 == "páginas" || palabra1 == "página" || palabra1 == "paginas" || palabra1 == "seccion" || palabra1 == "secciones")
+                {
+                    reply.Attachments = RespuestasOneNote.GetTrabajarPaginasSeccionesOneNote();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else
                 {
                     await context.PostAsync(preguntaNoRegistrada2);
                     await context.PostAsync($"O tal vez no escribió correctamente la palabra '{palabra1}'?");
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta2);
                     return;
                 }
             }
             // No se detectó la primera parte de la pregunta
-            await context.PostAsync(preguntaNoRegistrada2);
             reply.Attachments = Cards.GetConsultaV2();
+            await context.PostAsync(preguntaNoRegistrada2);
             await context.PostAsync(reply);
             await context.PostAsync("O tal vez no escribió la pregunta correctamente");
+            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta2);
             return;
         }
     }
+
 }

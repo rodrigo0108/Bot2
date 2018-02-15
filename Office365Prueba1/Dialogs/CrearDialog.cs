@@ -438,7 +438,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasOneDrive.GetCrearArchivosOneDriveDocumentosWord();
+                            reply.Attachments = Cards.GetCrearArchivosOneDriveDocumentosWord();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{servicioU }'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
@@ -469,7 +469,7 @@ namespace Office365Prueba1.Dialogs
                     }
                     else
                     {
-                        reply.Attachments = RespuestasOneDrive.GetCrearArchivosOneDriveDocumentosWord();
+                        reply.Attachments = Cards.GetCrearArchivosOneDriveDocumentosWord();
                         await context.PostAsync($"Lo siento, su pregunta no esta registrada, debe escribir un servicio.");
                         await context.PostAsync(opcionSecundarioDeRespuesta1);
                         await context.PostAsync(reply);
@@ -506,7 +506,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasOneDrive.GetCrearDocumentoDesdeOneDriveDocumentoWord();
+                            reply.Attachments = Cards.GetCrearDocumentoDesdeOneDriveDocumentoWord();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{servicioU}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -537,7 +537,7 @@ namespace Office365Prueba1.Dialogs
                     }
                     else
                     {
-                        reply.Attachments = RespuestasOneDrive.GetCrearDocumentoDesdeOneDriveDocumentoWord();
+                        reply.Attachments = Cards.GetCrearDocumentoDesdeOneDriveDocumentoWord();
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);

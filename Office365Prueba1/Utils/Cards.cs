@@ -438,14 +438,17 @@ namespace Office365Prueba1.Utils
              };
         }
 
-        //------- PREGUNTAS CON VARIOS SERVICIOS -------
-        //----------------------------------------------
+        // -------------------------------------------------------------
+        // PREGUNTAS CON VARIOS SERVICIOS
+        // -------------------------------------------------------------
+        //---------- ABRIR ------------
+        //-----------------------------
         // Abrir archivos en su dispositivo móvil
         // Abrir y cerrar archivos de datos de Outlook (.pst)
         public static IList<Attachment> GetAbrirArchivosOneDriveOutlook()
         {
             return new List<Attachment>()
-            {
+                {
                 GetHeroCardV2(
                 "Abrir archivos en su dispositivo móvil",
                 "Se aplica a: OneDrive para la Empresa OneDrive",
@@ -453,80 +456,95 @@ namespace Office365Prueba1.Utils
                 new CardAction(ActionTypes.OpenUrl, "Ver más información",
                 value: "https://support.office.com/es-es/article/inicio-r%C3%A1pido-de-onedrive-a5710114-6aeb-4bf5-a336-dffa7cc0b77a?ui=es-ES&rs=es-ES&ad=ES#ID0EAABAAA=Seguir_conectado")),
                 GetHeroCardV2(
-                    "Abrir y cerrar archivos de datos de Outlook (.pst)",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Outlook es parte de su rutina diaria. Se usa para enviar mensajes de correo electrónico, configurar eventos del calendario y crear tareas y otros elementos.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Abrir-y-cerrar-Archivos-de-datos-de-Outlook-pst-381b776d-7511-45a0-953a-0935c79d24f2")),
-            };
+                "Abrir y cerrar archivos de datos de Outlook (.pst)",
+                "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                "Outlook es parte de su rutina diaria. Se usa para enviar mensajes de correo electrónico, configurar eventos del calendario y crear tareas y otros elementos.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Abrir-y-cerrar-Archivos-de-datos-de-Outlook-pst-381b776d-7511-45a0-953a-0935c79d24f2")),
+                };
         }
 
         // Como cambiar el color de fondo del calendario
         // Cambiar el color de fondo de una página en OneNote para Windows 10
-        //Cambiar el fondo o el color de un documento en Word 2016 para Windows
-        public static IList<Attachment> GetCambiarColorFondoOutlookOneDriveDocumentoWordDiapositivaPowerPoint()
+        public static IList<Attachment> GetCambiarColorFondoOutlookOneDrive()
         {
             return new List<Attachment>()
             {
-                GetHeroCardV2(
-                    "Como cambiar el color de fondo del calendario",
-                    "Se aplica a: Outlook 2016 Outlook 2013",
-                    "El cambio del color de fondo es una forma rápida de hacer que su calendario sea diferente. Esto resulta " +
-                    "especialmente útil si trabaja con [múltiples calendarios](https://support.office.com/es-es/article/crear-calendarios-adicionales-4b5570c4-e95d-4673-b38a-2b8ead5f00ee?ui=es-ES&rs=es-ES&ad=ES).",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-del-calendario-3c544857-8446-46a5-ab9c-07b6af6e5091")),
-                GetHeroCardV2(
-                    "Cambiar el color de fondo de una página en OneNote",
-                    "Se aplica a: OneNote para Windows 10",
-                    "Para elegir un nuevo color para el fondo de la página actual, haga lo siguiente:\r\r" +
-                    ">1. Abra la página cuyo color de fondo que desee cambiar.\r\r" +
-                    ">2. En la ficha vista, haga clic o puntee en Color de página.\r\r" +
-                    ">3. Haga clic o puntee en el color que desee.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/cambiar-el-color-de-fondo-de-una-p%C3%A1gina-en-onenote-para-windows-10-c9265c78-a9b4-4cce-9ee3-46a2bb9e50f6?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Cambiar el fondo o el color de un documento en Word 2016 para Windows",
-                    "Se aplica a: Word 2016",
-                    "Para agregar interés visual adicional a su documento, agregue un color de fondo con el botón **Color de página**.\r\r"+
-                    ">1. Haga clic en Diseño > Color de página.\r\r"+
-                    ">2. Haga clic en el color deseado en Colores del tema o en Colores estándar.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Cambiar-el-fondo-o-el-color-de-un-documento-en-Word-2016-para-Windows-db481e61-7af6-4063-bbcd-b276054a5515")),
-                GetHeroCardV2(
-                    "Cambiar el color de fondo de las diapositivas",
-                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
-                    "Si decide que quiere agregar más contraste entre el fondo y el texto en las diapositivas, puede cambiar los colores de"+
-                    " fondo a otro color sólido o degradado. Dar formato a los colores y el fondo de las diapositivas es una forma adecuada"+
-                    " de generar interés visual.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-de-las-diapositivas-3ac2075c-f51b-4fbd-b356-b4c6748ec966#OfficeVersion-BkgdColor=2016,_2013")),
-               };
+            GetHeroCardV2(
+            "Como cambiar el color de fondo del calendario",
+            "Se aplica a: Outlook 2016 Outlook 2013",
+            "El cambio del color de fondo es una forma rápida de hacer que su calendario sea diferente. Esto resulta " +
+            "especialmente útil si trabaja con [múltiples calendarios](https://support.office.com/es-es/article/crear-calendarios-adicionales-4b5570c4-e95d-4673-b38a-2b8ead5f00ee?ui=es-ES&rs=es-ES&ad=ES).",
+            new CardAction(ActionTypes.OpenUrl, "Ver más información",
+            value: "https://support.office.com/es-es/article/Cambiar-el-color-de-fondo-del-calendario-3c544857-8446-46a5-ab9c-07b6af6e5091")),
+            GetHeroCardV2(
+            "Cambiar el color de fondo de una página en OneNote",
+            "Se aplica a: OneNote para Windows 10",
+            "Para elegir un nuevo color para el fondo de la página actual, haga lo siguiente:\r\r" +
+            ">1. Abra la página cuyo color de fondo que desee cambiar.\r\r" +
+            ">2. En la ficha vista, haga clic o puntee en Color de página.\r\r" +
+            ">3. Haga clic o puntee en el color que desee.",
+            new CardAction(ActionTypes.OpenUrl, "Ver más información",
+            value: "https://support.office.com/es-es/article/cambiar-el-color-de-fondo-de-una-p%C3%A1gina-en-onenote-para-windows-10-c9265c78-a9b4-4cce-9ee3-46a2bb9e50f6?ui=es-ES&rs=es-ES&ad=ES")),
+            };
         }
 
-        // Accion imprimir Outlook - OneNote
         // Imprimir notas en OneNote para Windows 10
         // Imprimir contactos, mensajes u otros elementos de Outlook
         public static IList<Attachment> GetImprimirOutlookOneNote()
         {
             return new List<Attachment>()
             {
-                GetHeroCardV2(
-                    "Imprimir notas en OneNote",
-                    "Se aplica a: OneNote para Windows 10",
-                    "siempre que sea necesaria una copia impresa de las notas, puede imprimir fácilmente una sola página, " +
-                    "una sección completa o un bloc de notas completo.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/imprimir-notas-en-onenote-para-windows-10-45edbbc5-fbb8-453f-99c7-aaadebe5c06a?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Imprimir contactos, mensajes u otros elementos de Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010 Outlook 2007",
-                    "Puede imprimir mensajes, contactos, calendarios, reuniones y tareas en Outlook. Cada tipo de elemento de " +
-                    "Outlook tiene varias opciones de impresión.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Imprimir-contactos-mensajes-u-otros-elementos-de-Outlook-d2c0b12b-e308-41ce-9016-a3089ebdbe38?ui=es-ES&rs=es-HN&ad=PE")),
+            GetHeroCardV2(
+            "Imprimir notas en OneNote",
+            "Se aplica a: OneNote para Windows 10",
+            "siempre que sea necesaria una copia impresa de las notas, puede imprimir fácilmente una sola página, " +
+            "una sección completa o un bloc de notas completo.",
+            new CardAction(ActionTypes.OpenUrl, "Ver más información",
+            value: "https://support.office.com/es-es/article/imprimir-notas-en-onenote-para-windows-10-45edbbc5-fbb8-453f-99c7-aaadebe5c06a?ui=es-ES&rs=es-ES&ad=ES")),
+            GetHeroCardV2(
+            "Imprimir contactos, mensajes u otros elementos de Outlook",
+            "Se aplica a: Outlook 2016 Outlook 2013 Office para empresas Office 365 Pequeña Empresa Outlook 2010 Outlook 2007",
+            "Puede imprimir mensajes, contactos, calendarios, reuniones y tareas en Outlook. Cada tipo de elemento de " +
+            "Outlook tiene varias opciones de impresión.",
+            new CardAction(ActionTypes.OpenUrl, "Ver más información",
+            value: "https://support.office.com/es-es/article/Imprimir-contactos-mensajes-u-otros-elementos-de-Outlook-d2c0b12b-e308-41ce-9016-a3089ebdbe38?ui=es-ES&rs=es-HN&ad=PE")),
             };
         }
 
+        // Insertar Archivos
+        public static IList<Attachment> GetInsertarArchivo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar un archivo en OneNote para Windows 10",
+                    "Se aplica a: OneNote para Windows 10",
+                    "Insertar un archivo en OneNote para Windows 10 facilita la mantener todas sus notas organizadas. " +
+                    "Puede insertar un archivo como datos adjuntos para que pueda abrir una copia del archivo en OneNote.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-archivo-en-onenote-para-windows-10-5fc09a27-71b3-4e92-9eb6-3b0be9380374?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Insertar un objeto en la hoja de cálculo de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
+                GetHeroCardV2(
+                    "Adjuntar archivos o insertar imágenes en mensajes de correo de Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
+                    "Es fácil adjuntar imágenes, archivos, contactos, mensajes de correo y muchos otros elementos a los mensajes de Outlook. Outlook"
+                    +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
+                GetHeroCardV2(
+                    "Insertar una hoja de cálculo o algún archivo en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Puede vincular datos de una hoja de cálculo guardada Excel a la presentación de PowerPoint si tiene PowerPoint 2013 o posterior.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
+            };
+        }
 
         // Insertar una tabla en OneNote para Windows 10
         // Como agregar tablas a mensajes en Outlook
@@ -574,65 +592,6 @@ namespace Office365Prueba1.Utils
             };
         }
 
-        //Colaborar en documentos de Word con coautoría en tiempo real y trabajar de manera conjunta en documentos de Office en OneDrive
-        public static IList<Attachment> GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord()
-        {
-            return new List<Attachment>()
-            {
-
-                GetHeroCardV2(
-                    "Colaborar en documentos de Word con coautoría en tiempo real",
-                    "Se aplica a: Word 2016 Word 2016 para Mac Word para Mac 2011 Word Online Word para iPad Word para iPhone Word para tabletas Android Word para teléfonos Android",
-                    "La colaboración es un proceso simple de tres pasos:\r\r 1-Guarde el documento en OneDrive o SharePoint Online, de modo que otros usuarios puedan trabajar"+
-                    " en él.\r\r 2-Invite a personas para editarlo con usted.\r\r 3-Cuando abran o trabajen en el documento en Word 2016, Word Online y Word Android verán los"+
-                    " cambios de otros usuarios tan pronto como se realicen.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/colaborar-en-documentos-de-word-con-coautor%C3%ADa-en-tiempo-real-7dd3040c-3f30-4fdd-bab0-8586492a1f1d?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Trabajar de manera conjunta en documentos de Office en One Drive",
-                    "Se aplica a: Excel Online Word Online PowerPoint Online OneNote Online Office.com",
-                    "Con Office Online es fácil trabajar con otras personas porque puede enviar vínculos a documentos en lugar de enviar datos adjuntos. De este modo, ahorrará almacenamiento "+
-                    "de correo electrónico y evitará tener que conciliar varias versiones del mismo documento.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver información",
-                    value: "https://support.office.com/es-es/article/trabajar-de-manera-conjunta-en-documentos-de-office-en-onedrive-ea3807bc-2b73-406f-a8c9-a493de18258b")),
-                };
-        }
-
-        // Insertar Archivos
-        public static IList<Attachment> GetInsertarArchivo()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Insertar un archivo en OneNote para Windows 10",
-                    "Se aplica a: OneNote para Windows 10",
-                    "Insertar un archivo en OneNote para Windows 10 facilita la mantener todas sus notas organizadas. " +
-                    "Puede insertar un archivo como datos adjuntos para que pueda abrir una copia del archivo en OneNote.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-archivo-en-onenote-para-windows-10-5fc09a27-71b3-4e92-9eb6-3b0be9380374?ui=es-ES&rs=es-ES&ad=ES")),
-                GetHeroCardV2(
-                    "Insertar un objeto en la hoja de cálculo de Excel",
-                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
-                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
-                GetHeroCardV2(
-                    "Adjuntar archivos o insertar imágenes en mensajes de correo de Outlook",
-                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010 Outlook 2007",
-                    "Es fácil adjuntar imágenes, archivos, contactos, mensajes de correo y muchos otros elementos a los mensajes de Outlook. Outlook"
-                    +" realiza un seguimiento de los documentos con los que ha trabajado recientemente, independientemente de que estén almacenados en el equipo o se guarden en OneDrive (solo en la nube).",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Adjuntar-archivos-o-insertar-im%C3%A1genes-en-mensajes-de-correo-de-Outlook-bdfafef5-792a-42b1-9a7b-84512d7de7fc?ui=es-ES&rs=es-HN&ad=PE")),
-                GetHeroCardV2(
-                    "Insertar una hoja de cálculo o algún archivo en PowerPoint",
-                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
-                    "Puede vincular datos de una hoja de cálculo guardada Excel a la presentación de PowerPoint si tiene PowerPoint 2013 o posterior.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-una-hoja-de-c%C3%A1lculo-de-excel-en-powerpoint-0690708a-5ce6-41b4-923f-11d57554138d")),
-            };
-        }
-        
-
         // Agregar firma en documento, agregar firma al documento, agregar firma a los mensajes Outlook
         public static IList<Attachment> GetAgregarFirma()
         {
@@ -659,6 +618,56 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        //--------- COLABORAR ---------
+        //-----------------------------
+        // Colaborar en documentos de Word con coautoría en tiempo real 
+        // Trabajar o colaborar de manera conjunta en documentos de Office en OneDrive
+        public static IList<Attachment> GetTrabajarManeraConjunta()
+        {
+            return new List<Attachment>()
+                {
+                GetHeroCardV2(
+                "Colaborar en documentos de Word con coautoría en tiempo real",
+                "Se aplica a: Word 2016, Word para Mac, Word Online, Word para iPad, Word para iPhone, Word para teléfonos y tabletas Android",
+                "Si usted y sus compañeros desean colaborar en un documento, use la coautoría en tiempo real para ver los cambios " +
+                "de todos los usuarios al mismo tiempo que se producen. La colaboración es un proceso simple de tres pasos:",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/colaborar-en-documentos-de-word-con-coautor%C3%ADa-en-tiempo-real-7dd3040c-3f30-4fdd-bab0-8586492a1f1d?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                "Trabajar de manera conjunta en documentos de Office en One Drive",
+                "Se aplica a: Excel Online, Word Online, PowerPoint Online, OneNote Online, Office.com",
+                "Con Office Online es fácil trabajar con otras personas porque puede enviar vínculos a documentos en lugar de enviar " +
+                "datos adjuntos. De este modo, ahorrará almacenamiento de correo electrónico y evitará tener que conciliar varias " +
+                "versiones del mismo documento.",
+                new CardAction(ActionTypes.OpenUrl, "Ver información",
+                value: "https://support.office.com/es-es/article/trabajar-de-manera-conjunta-en-documentos-de-office-en-onedrive-ea3807bc-2b73-406f-a8c9-a493de18258b")),
+                };
+                    }
+
+
+        //Colaborar en documentos de Word con coautoría en tiempo real y trabajar de manera conjunta en documentos de Office en OneDrive
+        public static IList<Attachment> GetTrabajarManeraConjuntaOneDriveTrabajarCoAutoriaWord()
+        {
+            return new List<Attachment>()
+            {
+
+                GetHeroCardV2(
+                    "Colaborar en documentos de Word con coautoría en tiempo real",
+                    "Se aplica a: Word 2016 Word 2016 para Mac Word para Mac 2011 Word Online Word para iPad Word para iPhone Word para tabletas Android Word para teléfonos Android",
+                    "La colaboración es un proceso simple de tres pasos:\r\r 1-Guarde el documento en OneDrive o SharePoint Online, de modo que otros usuarios puedan trabajar"+
+                    " en él.\r\r 2-Invite a personas para editarlo con usted.\r\r 3-Cuando abran o trabajen en el documento en Word 2016, Word Online y Word Android verán los"+
+                    " cambios de otros usuarios tan pronto como se realicen.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/colaborar-en-documentos-de-word-con-coautor%C3%ADa-en-tiempo-real-7dd3040c-3f30-4fdd-bab0-8586492a1f1d?ui=es-ES&rs=es-ES&ad=ES")),
+                GetHeroCardV2(
+                    "Trabajar de manera conjunta en documentos de Office en One Drive",
+                    "Se aplica a: Excel Online Word Online PowerPoint Online OneNote Online Office.com",
+                    "Con Office Online es fácil trabajar con otras personas porque puede enviar vínculos a documentos en lugar de enviar datos adjuntos. De este modo, ahorrará almacenamiento "+
+                    "de correo electrónico y evitará tener que conciliar varias versiones del mismo documento.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver información",
+                    value: "https://support.office.com/es-es/article/trabajar-de-manera-conjunta-en-documentos-de-office-en-onedrive-ea3807bc-2b73-406f-a8c9-a493de18258b")),
+                };
+        }
         // Crear o modificar un hipervínculo - Crear o modificar o insertar un hipervínculo
         public static IList<Attachment> GetCrearHipervinculoWordOutlook()
         {
@@ -706,8 +715,6 @@ namespace Office365Prueba1.Utils
 
                 };
         }
-
-        
 
         // Mover o cambiar el nombre de una carpeta en Outlook.com
         // Como cambiar el nombre de una categoría de color
@@ -968,6 +975,52 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/guardar-un-documento-en-su-onedrive-desde-office-2010-b9e0c0a9-2bd7-42cf-9178-24d60c51ac75")),
             };
         }
+
+        // Crear archivos en One Drive o crear documentos Word
+        public static IList<Attachment> GetCrearArchivosOneDriveDocumentosWord()
+        {
+            return new List<Attachment>()
+                {
+                GetHeroCardV2(
+                "Crear archivos y carpetas en One Drive",
+                "Se aplica a: OneDrive",
+                "Al crear archivos y carpetas en OneDrive, podrá obtener acceso a ellos desde cualquier lugar.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/v%C3%ADdeo-crear-archivos-y-carpetas-en-onedrive-profesional-o-educativo-e1f59717-2f02-494d-93c6-8ef9613e82ba#ID0EAABAAA=Transcripci%C3%B3n")),
+                GetHeroCardV2(
+                "Crear un documento",
+                "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                "Abrir un nuevo documento y empezar a escribir\r\r"+
+                ">1. Haga clic en **Archivo** y después en **Nuevo**.\r\r"+
+                ">2. Haga doble clic en **Documento en blanco**.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/crear-un-documento-3aa3c766-9733-4f60-9efa-de245467c13d")),
+                };
+        }
+
+        // Crear documento desde One drive o crear documentos Word
+        public static IList<Attachment> GetCrearDocumentoDesdeOneDriveDocumentoWord()
+        {
+            return new List<Attachment>()
+                {
+                GetHeroCardV2(
+                "Crear un documento desde OneDrive para la Empresa",
+                "Se aplica a: SharePoint Online Office para empresas Administración de Office 365, ...",
+                "Puede crear nuevos documentos de Office directamente desde OneDrive para la Empresa. Necesitará Office Web Apps Server para ver el menú Nuevo.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Crear-un-documento-desde-OneDrive-para-la-Empresa-4c54ddbf-e112-4165-b855-049e7dfec340")),
+                GetHeroCardV2(
+                "Crear un documento",
+                "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                "Abrir un nuevo documento y empezar a escribir\r\r"+
+                ">1. Haga clic en **Archivo** y después en **Nuevo**.\r\r"+
+                ">2. Haga doble clic en **Documento en blanco**.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/crear-un-documento-3aa3c766-9733-4f60-9efa-de245467c13d")),
+
+                };
+        }
+
         // -------------------------------------------------------------
 
         public static IList<Attachment> GetConsulta()

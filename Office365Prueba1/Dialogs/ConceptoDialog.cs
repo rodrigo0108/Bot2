@@ -180,7 +180,7 @@ namespace Office365Prueba1.Dialogs
                 }
                 else if (value == "onedrive")
                 {
-                    reply.Attachments = RespuestasOneDrive.GetOneDriveDefinicionCard();
+                    reply.Attachments = RespuestasOneDrive.GetOneDriveDefinicion();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
@@ -232,7 +232,7 @@ namespace Office365Prueba1.Dialogs
             }
             else if (servicio == "OneDrive")
             {
-                reply.Attachments = RespuestasOneDrive.GetOneDriveDefinicionCard();
+                reply.Attachments = RespuestasOneDrive.GetOneDriveDefinicion();
                 await context.PostAsync(confirmacionRespuesta1);
                 await context.PostAsync(reply);
                 await context.PostAsync(preguntaConsulta);
