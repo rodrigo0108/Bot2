@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 using Office365Prueba1.Dialogs;
 using Office365Prueba1.Models;
+using Autofac;
 
 namespace Office365Prueba1
 {
@@ -22,11 +25,20 @@ namespace Office365Prueba1
         {
             if (activity.Type == ActivityTypes.Message)
             {
+                using (var scope = DialogModule.BeginLifetimeScope(Conversation.Container, activity))
+                {
+                    var botData = scope.Resolve<IBotData>();
+                    await botData.LoadAsync(CancellationToken.None);
+                    activity.Locale = "es";
+                    await botData.FlushAsync(CancellationToken.None);
+                }
+
                 //Bot escribiendo
                 var connector = new ConnectorClient(new Uri(activity.ServiceUrl));
                 Activity repeticionmecanografiada = activity.CreateReply();
                 repeticionmecanografiada.Type = ActivityTypes.Typing;
                 await connector.Conversations.ReplyToActivityAsync(repeticionmecanografiada);
+                //----------------
                 await Conversation.SendAsync(activity, CrearDialogoLuis);
             }
             else

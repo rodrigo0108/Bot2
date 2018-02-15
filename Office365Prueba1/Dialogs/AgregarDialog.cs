@@ -1,15 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Web;
-using System.Configuration;
-using System.Collections.Generic;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Office365Prueba1.Models;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.FormFlow;
 using Office365Prueba1.Utils;
 
 namespace Office365Prueba1.Dialogs
@@ -1060,6 +1053,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }

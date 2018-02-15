@@ -347,20 +347,20 @@ namespace Office365Prueba1.Utils
             };
         }
 
-        //----------- PREGUNTAS SOBRE OFFICE -----------
-        //----------------------------------------------
+        //------------ PREGUNTAS SOBRE OFFICE ------------
+        //------------------------------------------------
         // Insertar imágenes
         public static IList<Attachment> GetAgregarImagen()
         {
             return new List<Attachment>()
             {
-               GetHeroCardV2(
-                    "Insertar imágenes",
-                    "Se aplica a: Excel, Word, Outlook, PowerPoint, OneNote, Publisher",
-                    "Office ya no ofrece imágenes prediseñadas en sus aplicaciones, pero le ayuda a buscar imágenes " +
-                    "en línea para que las inserte en sus archivos. ",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Insertar-im%C3%A1genes-3c51edf4-22e1-460a-b372-9329a8724344")),
+                GetHeroCardV2(
+                "Insertar imágenes",
+                "Se aplica a: Excel, Word, Outlook, PowerPoint, OneNote, Publisher",
+                "Office ya no ofrece imágenes prediseñadas en sus aplicaciones, pero le ayuda a buscar imágenes " +
+                "en línea para que las inserte en sus archivos. ",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Insertar-im%C3%A1genes-3c51edf4-22e1-460a-b372-9329a8724344")),
             };
         }
         // Insertar un símbolo o carácter especial 
@@ -369,31 +369,73 @@ namespace Office365Prueba1.Utils
             return new List<Attachment>()
             {
                 GetHeroCardV2(
-                    "Insertar un símbolo o carácter especial",
-                    "Se aplica a: Excel 2016, Word 2016, Outlook 2016, Publisher 2010,  Word Starter 2010",
-                    "**¿Qué desea hacer?:**\r\r"+
-                    ">1. [Insertar un símbolo](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm1)\r\r"+
-                    ">2. [Insertar un carácter especial](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm2)\r\r"+
-                    ">3. [Insertar un carácter Unicode](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm3)",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce")),
+                "Insertar un símbolo o carácter especial",
+                "Se aplica a: Excel 2016, Word 2016, Outlook 2016, Publisher 2010, Word Starter 2010",
+                "**¿Qué desea hacer?:**\r\r"+
+                ">1. [Insertar un símbolo](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm1)\r\r"+
+                ">2. [Insertar un carácter especial](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm2)\r\r"+
+                ">3. [Insertar un carácter Unicode](https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce#bm3)",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Insertar-un-s%C3%ADmbolo-o-car%C3%A1cter-especial-81e64967-74c0-4fd9-814a-3aa867d4cfce")),
             };
         }
-
         // Agregar un PDF a un archivo de Office
         public static IList<Attachment> GetAgregarPDFArchivoOffice()
         {
             return new List<Attachment>()
             {
                 GetHeroCardV2(
-                    "Agregar un PDF a un archivo de Office",
-                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016 Publisher 2016",
-                    "Vea cómo insertar un archivo en formato PDF en un archivo de Office como un objeto. Puede "+
-                    "cambiar el tamaño de un objeto, pero no puede editarlo después de insertarlo. Necesitará tener "+
-                    "instalado Adobe Acrobat o Adobe Reader para ver o leer archivos PDF.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Agregar-un-PDF-a-un-archivo-de-Office-74819342-8f00-4ab4-bcbe-0f3df15ab0dc#ID0EAABAAA=2016,_2013,_2010")),
+                "Agregar un PDF a un archivo de Office",
+                "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016 Publisher 2016",
+                "Vea cómo insertar un archivo en formato PDF en un archivo de Office como un objeto. Puede "+
+                "cambiar el tamaño de un objeto, pero no puede editarlo después de insertarlo. Necesitará tener "+
+                "instalado Adobe Acrobat o Adobe Reader para ver o leer archivos PDF.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Agregar-un-PDF-a-un-archivo-de-Office-74819342-8f00-4ab4-bcbe-0f3df15ab0dc#ID0EAABAAA=2016,_2013,_2010")),
             };
+        }
+        // Aplicar o quitar estilos y efectos de los objetos
+        public static IList<Attachment> GetAplicarEstilos()
+        {
+             return new List<Attachment>()
+             {
+                GetHeroCardV2(
+                "Aplicar o quitar estilos y efectos de los objetos",
+                "Se aplica a: Excel para Mac, PowerPoint para Mac, Word para Mac",
+                "**Aplicar un estilo**\r\r"+
+                ">1. Haga clic en el objeto que desea cambiar y, a continuación, haga clic en la ficha **formato**.\r\r"+
+                ">2. Haga clic en la opción que quiera.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/aplicar-o-quitar-estilos-y-efectos-de-los-objetos-6f916fb0-5b31-4d5d-8de7-11d44abfd0c7")),
+             };
+        }
+        // Crear y Usar su propia plantilla en Office para Mac
+        public static IList<Attachment> GetUsarPlantilla()
+        {
+             return new List<Attachment>()
+             {
+                GetHeroCardV2(
+                "Crear y usar su propia plantilla en Office para Mac",
+                "Se aplica a: Excel 2016 para Mac, PowerPoint 2016 para Mac, Word 2016 para Mac",
+                "Para crear una plantilla, puede empezar con un documento, presentación, o libro que ya ha creado, uno que haya descargado o " +
+                "uno nuevo que desea personalizar en cualquier número de formas.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+             };
+        }
+        // Firmas digitales y certificados
+        public static IList<Attachment> GetDefinicionFirmaDigital()
+        {
+             return new List<Attachment>()
+             {
+                GetHeroCardV2(
+                "¿Qué es una firma digital?",
+                "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016 Access 2016 Visio Professional 2016",
+                "Una firma digital es un sello de autenticación electrónico cifrado en información digital, como mensajes de correo, "+
+                "macros o documentos electrónicos. La firma constata que la información proviene del firmante y no se ha modificado.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Firmas-digitales-y-certificados-8186cd15-e7ac-4a16-8597-22bd163e8e96#__toc311530578")),
+             };
         }
 
         //------- PREGUNTAS CON VARIOS SERVICIOS -------

@@ -559,7 +559,42 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
                };
         }
-        
+        // Usar varios temas en una presentación
+        public static IList<Attachment> GetUsarTemasPresentacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar varios temas en una presentación",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la ficha **Vista**, haga clic en **Patrón de diapositivas**.\r\r"+
+                    ">2. En la ficha **Patrón de diapositivas**, escoja **Insertar patrón de diapositivas** y elija un tema\r\r"+
+                    ">3. Cuando haya terminado la selección, haga clic en **Cerrar vista patrón**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-varios-temas-en-una-presentaci%C3%B3n-a5648a47-1a8b-49a7-a031-23eba396ca81")),
+               };
+        }
+        // Usar la transición de morfo en PowerPoint
+        public static IList<Attachment> GetUsarTransicionMorfoPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar la transición de transformación en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint Online PowerPoint para tabletas Android",
+                    "La transición de transformación le permite animar un movimiento suave de una diapositiva a la siguiente, "+
+                    "además puede crear la apariencia del movimiento en una amplia gama de cosas: texto, formas, imágenes, SmartArt, WordArt y gráficos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-la-transici%c3%b3n-de-morfo-en-powerpoint-8dd1c7b2-b935-44f5-a74c-741d8d9244ea?ui=es-ES&rs=es-ES&ad=ES")),
+                GetVideoCard(
+                    "",
+                    "",
+                    "https://videocontent.osi.office.net/4161aec5-e388-46e7-b96b-5e6171b89e3a/9a3b66d5-2d10-4957-bb79-5ab68de9c6c1_1280x720_3400.mp4",
+                    "https://support.office.com/es-es/article/usar-la-transici%c3%b3n-de-morfo-en-powerpoint-8dd1c7b2-b935-44f5-a74c-741d8d9244ea?ui=es-ES&rs=es-ES&ad=ES"),
+            };
+        }
+
         // CAMBIAR - MODIFICAR
         //---------------------
         // Modificar o responder a un comentario
@@ -640,6 +675,102 @@ namespace Office365Prueba1.Utils
                };
         }
 
+        // GUARDAR
+        //-------------------
+        // Guardar y compartir una presentación en OneDrive
+        public static IList<Attachment> GetGuardarCompartirPresentacionOneDrive()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Guardar y compartir una presentación en OneDrive",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Primero debe tener una cuenta de Microsoft\r\r"+
+                    ">1. [Inicie sesión](https://onedrive.live.com/about/es-ES/) en OneDrive con la cuenta Microsoft.\r\r"+
+                    ">2. Haga clic en **Archivo** > **Guardar como** > **Agregar un sitio** > **OneDrive**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Guardar-y-compartir-una-presentaci%C3%B3n-en-OneDrive-cdbec569-a18f-4bdc-92e8-d07a8ab5eb95")),
+               };
+        }
+        // Guardar una plantilla
+        public static IList<Attachment> GetGuardarPlantillaPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Guardar una plantilla en Power Point",
+                    "Se aplica a: PowerPoint 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Vaya a **Archivo** > **Guardar como**.\r\r"+
+                    ">2. Elija **Este equipo** y guárdelo donde usted desee.\r\r"+
+                    ">3. En la lista **Guardar como tipo**, seleccione **Plantilla de PowerPoint** y luego haga clic en **Guardar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/guardar-una-plantilla-y-a-continuaci%c3%b3n-aplicarlo-a-una-nueva-presentaci%c3%b3n-58788ba9-02d5-4156-b59e-8f81e0c98e4f?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+
+        // ANIMAR
+        //-------------------
+        // Animar texto u objetos
+        public static IList<Attachment> GetAnimarTextoObjetosPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Animar texto u objetos",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Selecciona el objeto o texto de la diapositiva que quieras animar.\r\r"+
+                    ">2. En la pestaña **Animaciones** de la cinta, haga clic en **Agregar animación** y elija un efecto de animación.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Animar-texto-u-objetos-305a1c94-83b1-4778-8df5-fcf7a9b7b7c6")),
+               };
+        }
+        // Animar un conjunto de objetos como un grupo
+        public static IList<Attachment> GetAnimarConjuntoObjetosPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Animar un conjunto de objetos como un grupo",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Mantenga presionada la tecla **Ctrl** y haga clic en todos los objetos que quiera animar conjuntamente\r\r"+
+                    ">2. Haga clic derecho sobre los objetos seleccionados y después haga clic en **Agrupar**.\r\r"+
+                    ">3. En la pestaña **Animación**, haga clic en el efecto de animación que desee aplicar al grupo",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Animar-un-conjunto-de-objetos-como-un-grupo-69f4fa42-b7eb-4381-8042-c3a20e0611bb")),
+               };
+        }
+        // Animar una imagen de la diapositiva
+        public static IList<Attachment> GetAnimarImagenDiapositiva()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Animar una imagen de la diapositiva",
+                    "Se aplica a: PowerPoint Online ",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione una imagen.\r\r"+
+                    ">2. En la pestaña **Animaciones**, elija un efecto de animación.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Animar-una-imagen-de-la-diapositiva-23334c65-c38d-407e-9fa4-e13a994bb098")),
+               };
+        }
+        // Cómo puedo animar celdas, filas o columnas individuales de una tabla
+        public static IList<Attachment> GetAnimarCeldasFilasColumenasTabla()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Animar una imagen de la diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "El proceso implica cambiar la tabla a un conjunto de objetos dibujados que luego se pueden 'desagrupar' y animar por separado.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/1ad81923-bb3b-4cb2-bf47-052f33f2e805.png)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/c%c3%b3mo-puedo-animar-celdas-filas-o-columnas-individuales-de-una-tabla-a161e49c-3801-4385-95b4-de84253593d1?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
 
 
 

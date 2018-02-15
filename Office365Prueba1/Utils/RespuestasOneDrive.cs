@@ -698,17 +698,13 @@ namespace Office365Prueba1.Utils
                 value: "https://support.office.com/es-es/article/usar-onedrive-para-la-empresa-en-windows-phone-6b0e1e05-2b8c-48fa-8820-7f25e2290fca?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-        //Usar One Drive en Windows Phone - iOS - Android
-        public static IList<Attachment> GetUsarOneDriveWindowsPhoneIosAndroid()
+        // Usar OneDrive en iOS
+        // Usar OneDrive para Android
+        // Usar OneDrive en Windows Phone
+        public static IList<Attachment> GetUsarOneDrive()
         {
             return new List<Attachment>()
             {
-                GetHeroCardV2(
-                "Usar OneDrive en Windows Phone",
-                "Se aplica a: OneDrive para la Empresa OneDrive",
-                "Los pasos y sugerencias para las tareas más comunes con la aplicación OneDrive para Windows Phone, se enceuntran dentro del link.",
-                new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                value: "https://support.office.com/es-es/article/Usar-OneDrive-en-Windows-Phone-6d8496dd-7e1e-44fa-8dc8-b8cf6ef6a1a9")),
                 GetHeroCardV2(
                 "Usar OneDrive en iOS",
                 "Se aplica a: Office para empresas OneDrive para la Empresa OneDrive",
@@ -721,6 +717,12 @@ namespace Office365Prueba1.Utils
                 "Después de que descargue la aplicación OneDrive, expanda las secciones siguientes para obtener información sobre cómo usarla.",
                 new CardAction(ActionTypes.OpenUrl, "Ver más información",
                 value: "https://support.office.com/es-es/article/Usar-OneDrive-para-Android-eee1d31c-792d-41d4-8132-f9621b39eb36")),
+                GetHeroCardV2(
+                "Usar OneDrive en Windows Phone",
+                "Se aplica a: OneDrive para la Empresa OneDrive",
+                "Los pasos y sugerencias para las tareas más comunes con la aplicación OneDrive para Windows Phone, se enceuntran dentro del link.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/Usar-OneDrive-en-Windows-Phone-6d8496dd-7e1e-44fa-8dc8-b8cf6ef6a1a9")),
             };
         }
 

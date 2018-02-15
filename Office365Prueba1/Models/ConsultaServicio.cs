@@ -15,10 +15,6 @@ namespace Office365Prueba1.Models
         Excel,
         PowerPoint,
         OneNote,
-        //SharePoint,
-        //MicrosoftTeams,
-        //Publisher,
-        //Access
     }
 
     [Serializable]

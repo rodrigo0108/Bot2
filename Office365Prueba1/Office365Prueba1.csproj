@@ -166,6 +166,7 @@
     <Compile Include="Dialogs\AbrirDialog.cs" />
     <Compile Include="Dialogs\AgregarDialog.cs" />
     <Compile Include="Dialogs\AjustarDialog.cs" />
+    <Compile Include="Dialogs\AnimarDialog.cs" />
     <Compile Include="Dialogs\AplicarDialog.cs" />
     <Compile Include="Dialogs\BuscarDialog.cs" />
     <Compile Include="Dialogs\CambiarDialog.cs" />
