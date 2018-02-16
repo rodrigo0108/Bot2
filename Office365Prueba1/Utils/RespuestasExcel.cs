@@ -30,21 +30,84 @@ namespace Office365Prueba1.Utils
                     "https://support.office.com/es-es/article/Inicio-r%C3%A1pido-de-Excel-2016-94b00f50-5896-479c-b0c5-ff74603b35a3?ui=es-ES&rs=es-ES&ad=ES"),
             };
         }
-        // AGREGAR
+        /// AGREGAR
         //---------------------
         // Adjuntar archivos en excel
         public static IList<Attachment> GetAdjuntarArchivosExcel()
+        {
+            return new List<Attachment>()
+                {
+                GetHeroCardV2(
+                "Insertar un objeto en la hoja de cálculo de Excel",
+                "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
+                new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
+                };
+        }
+        // Insertar, mover o eliminar saltos de página en una hoja de cálculo
+        public static IList<Attachment> GetInsertarSaltosPaginaHojaCalculo()
         {
             return new List<Attachment>()
             {
                 GetHeroCardV2(
                     "Insertar un objeto en la hoja de cálculo de Excel",
                     "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
-                    "Puede usar vinculación e incrustación de objetos (OLE) para incluir contenido de otros programas, como Word o Excel.",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la ficha **Ver**, en el grupo **Vistas de libro**, haga clic en **Vista previa de salto de página**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/67067591-a24b-4c5a-8c18-e1c44efb2a0c.png)\r\r"+
+                    ">2. Seleccione la fila o columna donde quiera insertarlo.\r\r"+
+                    ">3. En el grupo **Configurar página** de la pestaña **Diseño de página**, haga clic en **Saltos** y luego en **Insertar salto de página**.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/insertar-un-objeto-en-la-hoja-de-c%C3%A1lculo-de-excel-e73867b2-2988-4116-8d85-f5769ea435ba")),
+                    value: "https://support.office.com/es-es/article/insertar-mover-o-eliminar-saltos-de-p%c3%a1gina-en-una-hoja-de-c%c3%a1lculo-ad3dc726-beec-4a4c-861f-ed640612bdc2?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
+        // Escribir, insertar o cambiar una ecuación
+        public static IList<Attachment> GetInsertarEcuacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar o cambiar una ecuación",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Elija **Insertar** > **Ecuación** y seleccione la ecuación que prefiera de la galería.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/d557f6b7-4c2e-44c4-a053-5f6a276d914e.png)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-mover-o-eliminar-saltos-de-p%c3%a1gina-en-una-hoja-de-c%c3%a1lculo-ad3dc726-beec-4a4c-861f-ed640612bdc2?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Agregar una consulta a una hoja de cálculo de Excel (Power Query)
+        public static IList<Attachment> GetAgregarConsultaHojaCalculo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una consulta a una hoja de cálculo de Excel (Power Query)",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "En Power Query, tiene varias opciones para cargar consultas en su libro de trabajo. El cuadro de diálogo"+
+                    " **Opciones** le permite establecer los ajustes de carga de consulta predeterminados.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-una-consulta-a-una-hoja-de-c%c3%a1lculo-de-excel-power-query-ca69e0f0-3db1-4493-900c-6279bef08df4?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Insertar o eliminar celdas, filas y columnas
+        public static IList<Attachment> GetInsertarCeldasFilasColumnas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar o eliminar celdas, filas y columnas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 ",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione la celda o el intervalo de celdas en las que va insertar las nuevas celdas.\r\r"+
+                    ">2. En el grupo **Celdas** haga clic en  **Insertar** > **Insertar celdas**. \r\r"+
+                    ">3. En el cuadro de diálogo **Insertar**, haga clic en la dirección donde quiere desplazar las celdas adyacentes.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-o-eliminar-celdas-filas-y-columnas-6f40e6e4-85af-45e0-b39d-65dd504a3246?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
+
 
         //CREAR
         //---------------------
@@ -249,7 +312,7 @@ namespace Office365Prueba1.Utils
                     ">2. En el cuadro **Categoría**, haga clic en **Personalizado**.\r\r"+
                     ">3. En el cuadro **Tipo**, realice los cambios necesarios en el formato de número seleccionado",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Crear-o-eliminar-un-formato-de-n%C3%BAmero-personalizado-78f2a361-936b-4c03-8772-09fab54be7f4)),
+                    value: "https://support.office.com/es-es/article/Crear-o-eliminar-un-formato-de-n%C3%BAmero-personalizado-78f2a361-936b-4c03-8772-09fab54be7f4")),
                };
         }
         // COMPARTIR

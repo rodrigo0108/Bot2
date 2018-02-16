@@ -1656,6 +1656,29 @@ namespace Office365Prueba1.Dialogs
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
                         if (palabra2 == "página" || palabra2 == "pagina")
                         {
+                            foreach (var entityP3 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra3"))
+                            {
+                                var palabra3 = entityP3.Entity.ToLower().Replace(" ", "");
+                                if (palabra3 == "hoja" || palabra3 == "hojas")
+                                {
+                                    reply.Attachments = RespuestasExcel.GetInsertarSaltosPaginaHojaCalculo();
+                                    await context.PostAsync(confirmacionRespuesta1);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
+                                else
+                                {
+                                    reply.Attachments = RespuestasExcel.GetInsertarSaltosPaginaHojaCalculo();
+                                    await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
+                                    await context.PostAsync(opcionSecundarioDeRespuesta2);
+                                    await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    return;
+                                }
+                            }
                             reply.Attachments = RespuestasWord.GetInsertarSaltoPagina();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
@@ -1869,6 +1892,33 @@ namespace Office365Prueba1.Dialogs
                 else if (palabra1 == "notas" || palabra1 == "nota")
                 {
                     reply.Attachments = RespuestasPowerPoint.GetAgregarNotasOradorDiapositivas();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "ecuación" || palabra1 == "ecuacion" || palabra1 == "ecuaciones")
+                {
+                    reply.Attachments = RespuestasExcel.GetInsertarEcuacion();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "consulta" || palabra1 == "consultas")
+                {
+                    reply.Attachments = RespuestasExcel.GetAgregarConsultaHojaCalculo();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "celda" || palabra1 == "celdas" || palabra1 == "fila" || palabra1 == "filas" || palabra1 == "columna" || palabra1 == "columnas")
+                {
+                    reply.Attachments = RespuestasExcel.GetInsertarCeldasFilasColumnas();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
