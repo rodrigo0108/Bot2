@@ -824,6 +824,23 @@ namespace Office365Prueba1.Utils
                };
         }
 
+        // VER- MOSTRAR
+        //------------------
+        // Mostrar información de pie de página en las diapositivas
+        public static IList<Attachment> GetMostrarInformacionPiePaginaDiapositiva()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar información de pie de página en las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Los pies de página suelen estar en la parte inferior de las diapositivas. Pueden contener la fecha y la hora,"+
+                    " números de diapositiva y otros tipos de texto como el título de la presentación o 'Información confidencial de la empresa'.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mostrar-informaci%C3%B3n-de-pie-de-p%C3%A1gina-en-las-diapositivas-ba490a83-6d39-4aa5-bd3b-e676020d8b6c")),
+               };
+        }
+
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
         {
             var heroCard = new HeroCard

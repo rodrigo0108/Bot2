@@ -325,10 +325,11 @@ namespace Office365Prueba1.Utils
                 GetHeroCardV2(
                     "Compartir el libro de Excel con otros usuarios",
                     "Se aplica a: Excel 2016 Excel 2016 para Mac",
-                    ">1. Si ha cargado el archivo, haga clic en el nombre de archivo para abrirlo. El libro se abrirá en una pestaña nueva en el explorador web.\r\r"+
-                    ">2. Haga clic en el botón Editar en Excel. Si no se encuentra este botón, haga clic en Editar en el exploradory, después, haga clic en Editar en Excel después de que se vuelva a cargar la página.\r\r"+
-                    ">3. Cuando el archivo se abra en el programa Excel, haga clic en Compartir en la esquina superior derecha.\r\r"+
-                    ">4. Escriba las direcciones de correo electrónico en el cuadro Invitar a personas y sepárelas entre sí con un punto y coma. Asegúrese de seleccionar Puede editar. Cuando haya terminado, haga clic en el botón Enviar.",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Abra el archivo\r\r"+
+                    ">2. Haga clic en el botón **Editar** o **Editar en el explorador** y, después, dentro de la página haga clic en **Editar**.\r\r"+
+                    ">3. Haga clic en **Compartir** en la esquina superior derecha.\r\r"+
+                    ">4. Escriba las direcciones de correo electrónico en el cuadro Invitar a personas y sepárelas entre sí con un punto y coma, haga clic en el botón **Enviar**.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/compartir-el-libro-de-excel-con-otros-usuarios-8d8a52bb-03c3-4933-ab6c-330aabf1e589?ui=es-ES&rs=es-ES&ad=ES")),
             };
@@ -370,6 +371,148 @@ namespace Office365Prueba1.Utils
                };
         }
 
+        // VER - MOSTRAR
+        //--------------------
+        // Mostrar u ocultar fórmulas
+        public static IList<Attachment> GetMostrarFormulas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar u ocultar fórmulas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Haga clic en la pestaña **Revisar** y, después, haga clic en **Desproteger hoja**. Si el botón **Desproteger hoja** no está "+
+                    "disponible, desactive primero [la característica Libro compartido](https://support.office.com/es-es/article/la-característica-libro-compartido-49b833c0-873b-48d8-8bf2-c1c59a628534).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/mostrar-u-ocultar-f%c3%b3rmulas-f7f5ab4e-bf24-4efc-8fc9-0c1b77a5356f?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+        // Mostrar u ocultar valores cero
+        public static IList<Attachment> GetMostrarValoresCero()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar valores cero",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 ",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en **Archivo** > **Opciones** > **Avanzadas**.\r\r"+
+                    ">2. En **Mostrar opciones para esta hoja**, seleccione una hoja de cálculo y, "+
+                    "active la casilla **Mostrar un cero en celdas que tienen un valor cero**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mostrar-u-ocultar-valores-cero-3ec7a433-46b8-4516-8085-a00e9e476b03")),
+            };
+        }
+        // Mostrar u ocultar filas o columnas
+        public static IList<Attachment> GetMostrarFilasColumnas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar u ocultar filas o columnas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 ",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Para mostrar las filas ocultas, seleccione la fila por encima y por debajo de las filas que desea mostrar.\r\r"+
+                    ">2. En la ficha **Inicio**, en el grupo **Celdas**, haga clic en la opción **Formato**.\r\r"+
+                    ">3. En **Visibilidad**, elija **Ocultar y mostrar** y, a continuación, haga clic en **Mostrar filas** o en **Mostrar columnas**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/mostrar-u-ocultar-filas-o-columnas-659c2cad-802e-44ee-a614-dde8443579f8?ui=es-ES&rs=es-HN&ad=PE#bmdisplayrowcolumn")),
+            };
+        }
+        // Mostrar una hoja de cálculo oculta
+        public static IList<Attachment> GetMostrarHojaCalculoOculta()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar una hoja de cálculo oculta",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en Inicio > formato.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/88b7e837-5fc0-4596-9159-b6eda61cfb04.gif)\r\r"+
+                    ">2. En **Visibilidad**, haga clic en **Ocultar y mostrar** y en **Mostrar hoja**.\r\r"+
+                    ">3. En el cuadro **Mostrar**, haga doble clic en el nombre de la hoja oculta que desee mostrar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/ocultar-o-mostrar-hojas-de-c%c3%a1lculo-o-libros-a8f5977c-8f1a-4ce7-a45d-58cd2c7516de?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Mostrar u ocultar las líneas de división en una hoja de cálculo
+        public static IList<Attachment> GetMostrarLineaCuadricula()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar una hoja de cálculo oculta",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. [Seleccione una o más hojas de cálculo](https://support.office.com/es-es/article/seleccione-una-o-más-hojas-de-cálculo-096b40c9-0ee7-4980-bac6-cc92aec7b266).\r\r"+
+                    ">2. En la ficha **Ver** o **Vista**, en el grupo **Mostrar/ocultar**, active la casilla de verificación **Líneas de cuadrícula**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/mostrar-u-ocultar-las-l%c3%adneas-de-divisi%c3%b3n-en-una-hoja-de-c%c3%a1lculo-3ef5aacb-4539-4ad5-9945-5ed53772dc4d?ui=es-ES&rs=es-HN&ad=PE")),
+            };
+        }
+        // Mostrar números como fechas u horas
+        public static IList<Attachment> GetMostrarNumerosFechasHoras()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar números como fechas u horas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En el grupo **Número** de la ficha Inicio, haga clic en el selector de cuadro de diálogo situado junto a **Número**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/63114aca-c8ba-4cd3-a58c-d518828c484d.jpg)\r\r"+
+                    ">2. En la lista **Categoría**, haga clic en **Fecha** o en **Hora**.\r\r"+
+                    ">3. En la lista **Tipo**, haga clic en el formato de fecha u hora que desea utilizar y en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mostrar-n%C3%BAmeros-como-fechas-u-horas-418bd3fe-0577-47c8-8caa-b4d30c528309")),
+            };
+        }
+        // Mostrar números como moneda
+        public static IList<Attachment> GetMostrarNumerosMoneda()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar números como moneda",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la pestaña **Inicio**, haga clic en el selector de cuadro de diálogo junto a **Número**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/63114aca-c8ba-4cd3-a58c-d518828c484d.jpg)\r\r"+
+                    ">2. En la lista **Categoría**, haga clic en **Moneda** o en **Contabilidad**.\r\r"+
+                    ">3. En el cuadro **Símbolo**, haga clic en el símbolo de moneda que desee usar. y en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mostrar-n%C3%BAmeros-como-moneda-0a03bb38-1a07-458d-9e30-2b54366bc7a4")),
+            };
+        }
+        // Mostrar números como fechas, horas  y mostrar números como monedas
+        public static IList<Attachment> GetMostrarNumerosFechasHorasMonedas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Mostrar números como fechas u horas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En el grupo **Número** de la ficha Inicio, haga clic en el selector de cuadro de diálogo situado junto a **Número**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/63114aca-c8ba-4cd3-a58c-d518828c484d.jpg)\r\r"+
+                    ">2. En la lista **Categoría**, haga clic en **Fecha** o en **Hora**.\r\r"+
+                    ">3. En la lista **Tipo**, haga clic en el formato de fecha u hora que desea utilizar y en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mostrar-n%C3%BAmeros-como-fechas-u-horas-418bd3fe-0577-47c8-8caa-b4d30c528309")),
+                GetHeroCardV2(
+                    "Mostrar números como moneda",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la pestaña **Inicio**, haga clic en el selector de cuadro de diálogo junto a **Número**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/63114aca-c8ba-4cd3-a58c-d518828c484d.jpg)\r\r"+
+                    ">2. En la lista **Categoría**, haga clic en **Moneda** o en **Contabilidad**.\r\r"+
+                    ">3. En el cuadro **Símbolo**, haga clic en el símbolo de moneda que desee usar. y en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Mostrar-n%C3%BAmeros-como-moneda-0a03bb38-1a07-458d-9e30-2b54366bc7a4")),
+            };
+        }
+        
 
         // ----------------------------------------------------------------------- 
 
