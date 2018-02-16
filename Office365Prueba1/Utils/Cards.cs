@@ -998,6 +998,33 @@ namespace Office365Prueba1.Utils
                 };
         }
 
+        // Crear etiquetas Word y Crear e imprimir etiquetas postales para una lista de direcciones en Excel
+        public static IList<Attachment> GetCrearEtiquetasWordEtiquetasPostalesExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una lista de comprobación en Word",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Starter 2010",
+                    "Para un lote de etiquetas diferentes, se recomienda empezar el documento desde una plantilla de etiqueta. "+
+                    "Para buscar una, vaya a la pestaña **Archivo** en Word, haga clic en **Nuevo** y, a continuación, en el cuadro"+
+                    " de búsqueda, escriba etiquetas y presione Entrar. O bien, en el explorador, consulte [plantillas de etiquetas en templates.office.com](https://templates.office.com/en-us/Labels).\r\r"+
+                    "Si desea saber como crear etiquetas de dirección de retorno haga clic [aquí](https://support.office.com/es-es/article/Crear-etiquetas-de-remite-be712991-16dd-4b9e-810e-35b5320c922b)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/hacer-una-lista-de-comprobaci%C3%B3n-en-word-dd04fa4f-2ca7-4543-8818-c469eca9f45c?ui=es-ES&rs=es-ES&ad=ES")),
+
+                GetHeroCardV2(
+                    "Crear e imprimir etiquetas postales para una lista de direcciones en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Para crear e imprimir las etiquetas postales, primero debe preparar los datos de la hoja de cálculo en Excel y "+
+                    "utilizar después Word para configurar, organizar, revisar e imprimir las etiquetas postales."+
+                    "Si desea utilizar etiquetas de dirección para realizar envíos masivos de correo a su lista de direcciones, puede "+
+                    "usar la combinación de correspondencia para crear una hoja de etiquetas de dirección.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-e-imprimir-etiquetas-postales-para-una-lista-de-direcciones-en-Excel-d9484315-5123-48ae-bc58-2e8dcf271252")),
+               };
+        }
+
         // Crear documento desde One drive o crear documentos Word
         public static IList<Attachment> GetCrearDocumentoDesdeOneDriveDocumentoWord()
         {

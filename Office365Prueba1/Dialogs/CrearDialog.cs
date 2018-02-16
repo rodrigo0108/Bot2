@@ -868,7 +868,7 @@ namespace Office365Prueba1.Dialogs
                         }
                         else
                         {
-                            reply.Attachments = RespuestasExcel.GetCrearEtiquetasWordEtiquetasPostalesExcel();
+                            reply.Attachments = Cards.GetCrearEtiquetasWordEtiquetasPostalesExcel();
                             await context.PostAsync($"Lo siento, {serv} no esta registrado, consulte otra vez el servicio escribiendo ayuda");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
@@ -900,7 +900,7 @@ namespace Office365Prueba1.Dialogs
                     else
                     {
                         // No se detectó la segunda parte de la pregunta
-                        reply.Attachments = RespuestasExcel.GetCrearEtiquetasWordEtiquetasPostalesExcel();
+                        reply.Attachments = Cards.GetCrearEtiquetasWordEtiquetasPostalesExcel();
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);
@@ -1184,6 +1184,15 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
+                else if (palabra1 == "macro" || palabra1 == "macros")
+                {
+                    reply.Attachments = RespuestasExcel.GetCrearMacro();
+                    await context.PostAsync(confirmacionRespuesta1);
+                    await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }

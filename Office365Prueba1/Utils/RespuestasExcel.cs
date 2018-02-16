@@ -209,32 +209,6 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Crear-e-imprimir-etiquetas-postales-para-una-lista-de-direcciones-en-Excel-d9484315-5123-48ae-bc58-2e8dcf271252")),
                };
         }
-        // Crear etiquetas Word y Crear e imprimir etiquetas postales para una lista de direcciones en Excel
-        public static IList<Attachment> GetCrearEtiquetasWordEtiquetasPostalesExcel()
-        {
-            return new List<Attachment>()
-            {
-                GetHeroCardV2(
-                    "Crear una lista de comprobación en Word",
-                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Starter 2010",
-                    "Para un lote de etiquetas diferentes, se recomienda empezar el documento desde una plantilla de etiqueta. "+
-                    "Para buscar una, vaya a la pestaña **Archivo** en Word, haga clic en **Nuevo** y, a continuación, en el cuadro"+
-                    " de búsqueda, escriba etiquetas y presione Entrar. O bien, en el explorador, consulte [plantillas de etiquetas en templates.office.com](https://templates.office.com/en-us/Labels).\r\r"+
-                    "Si desea saber como crear etiquetas de dirección de retorno haga clic [aquí](https://support.office.com/es-es/article/Crear-etiquetas-de-remite-be712991-16dd-4b9e-810e-35b5320c922b)",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/hacer-una-lista-de-comprobaci%C3%B3n-en-word-dd04fa4f-2ca7-4543-8818-c469eca9f45c?ui=es-ES&rs=es-ES&ad=ES")),
-
-                GetHeroCardV2(
-                    "Crear e imprimir etiquetas postales para una lista de direcciones en Excel",
-                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
-                    "Para crear e imprimir las etiquetas postales, primero debe preparar los datos de la hoja de cálculo en Excel y "+
-                    "utilizar después Word para configurar, organizar, revisar e imprimir las etiquetas postales."+
-                    "Si desea utilizar etiquetas de dirección para realizar envíos masivos de correo a su lista de direcciones, puede "+
-                    "usar la combinación de correspondencia para crear una hoja de etiquetas de dirección.",
-                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
-                    value: "https://support.office.com/es-es/article/Crear-e-imprimir-etiquetas-postales-para-una-lista-de-direcciones-en-Excel-d9484315-5123-48ae-bc58-2e8dcf271252")),
-               };
-        }
         // Crear una fórmula simple
         public static IList<Attachment> GetCrearFormulaSimple()
         {
@@ -315,6 +289,27 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Crear-o-eliminar-un-formato-de-n%C3%BAmero-personalizado-78f2a361-936b-4c03-8772-09fab54be7f4")),
                };
         }
+        // Crear una macro
+        public static IList<Attachment> GetCrearMacro()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una macro",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2016 para Mac ",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En el grupo Código en la pestaña **Desarrollador**, haga clic en **Grabar macro**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/b962324a-f530-4dc2-bd6c-401bc1faaafa.jpg)\r\r"+
+                    ">2. Escriba un nombre para la macro en el cuadro **Nombre de la macro**\r\r"+
+                    ">3. Especifique una tecla de método abreviado en el cuadro **Tecla de método abreviado**\r\r"+
+                    ">4. Haga clic en **Aceptar** para comenzar a grabar.\r\r"+
+                    ">5. Realice las acciones que desee automatizar.\r\r"+
+                    ">6. Haga clic en **Detener grabación**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/inicio-r%C3%A1pido-crear-una-macro-741130ca-080d-49f5-9471-1e5fb3d581a8")),
+               };
+        }
+
         // COMPARTIR
         // ---------------------
         //Compartir el libro de Excel con otros usuarios
