@@ -235,7 +235,23 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Crear-un-modelo-de-datos-en-Excel-87e7a54c-87dc-488e-9410-5c75dbcb0f7b")),
                };
         }
-
+        // Crear un formato de número personalizado
+        public static IList<Attachment> GetCrearFormatoNumeroPersonalizado()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un formato de número personalizado",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 ",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la pestaña **Inicio**, haga clic en el Selector de cuadro de diálogo junto a **Número**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/63114aca-c8ba-4cd3-a58c-d518828c484d.jpg)\r\r"+
+                    ">2. En el cuadro **Categoría**, haga clic en **Personalizado**.\r\r"+
+                    ">3. En el cuadro **Tipo**, realice los cambios necesarios en el formato de número seleccionado",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-o-eliminar-un-formato-de-n%C3%BAmero-personalizado-78f2a361-936b-4c03-8772-09fab54be7f4)),
+               };
+        }
         // COMPARTIR
         // ---------------------
         //Compartir el libro de Excel con otros usuarios

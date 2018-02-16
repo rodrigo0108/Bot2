@@ -1155,6 +1155,38 @@ namespace Office365Prueba1.Dialogs
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
+                else if (palabra1 == "formato" || palabra1 == "formatos")
+                {
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "número" || palabra2 == "números")
+                        {
+                            reply.Attachments = RespuestasExcel.GetCrearFormatoNumeroPersonalizado();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasExcel.GetCrearFormatoNumeroPersonalizado();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    // No se detectó la segunda parte de la pregunta
+                    reply.Attachments = RespuestasExcel.GetCrearFormatoNumeroPersonalizado();
+                    await context.PostAsync(preguntaNoRegistrada1);
+                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    await context.PostAsync(reply);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    return;
+                }
                 // -------------------------------------------------------------------
                 else
                 {
