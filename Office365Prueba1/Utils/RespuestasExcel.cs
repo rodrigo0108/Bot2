@@ -172,6 +172,69 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Crear-e-imprimir-etiquetas-postales-para-una-lista-de-direcciones-en-Excel-d9484315-5123-48ae-bc58-2e8dcf271252")),
                };
         }
+        // Crear una fórmula simple
+        public static IList<Attachment> GetCrearFormulaSimple()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una fórmula simple en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en la celda donde desea introducir la fórmula.\r\r"+
+                    ">2. Escriba el = (signo igual) seguido de las constantes y operadores para su cálculo."+
+                    ">3. Presione **Enter**(Windows) o **Retorno**(Mac).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-una-f%C3%B3rmula-simple-en-excel-11a5f0e5-38a3-4115-85bc-f4a465f64a8a?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+        // Crear un histograma en Excel
+        public static IList<Attachment> GetCrearHistogramaExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un histograma en Excel",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016 Excel 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione los datos.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Insertar gráfico estadístico** > **Histograma**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/f2724c8f-ac73-43c9-a0b2-718be485a399.png)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/crear-un-histograma-en-excel-85680173-064b-4024-b39d-80f17ff2f4e8?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+        // Crear una tabla dinámica para analizar datos de una hoja de cálculo
+        public static IList<Attachment> GetCrearTablaDinamicaExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear una tabla dinámica para analizar datos de una hoja de cálculo",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en una celda del rango de datos.\r\r"+
+                    ">2. Vaya a **Insertar** > **Tablas** > **Tabla dinámica recomendada**.\r\r"+
+                    ">3. Excel le brinda varias opciones, seleccione una y haga clic en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-una-tabla-din%C3%A1mica-para-analizar-datos-de-una-hoja-de-c%C3%A1lculo-a9a84538-bfe9-40a9-a8e9-f99134456576")),
+               };
+        }
+        // Crear un modelo de datos en Excel
+        public static IList<Attachment> GetCrearModeloDatos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Crear un modelo de datos en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "Un modelo de datos es un nuevo método para integrar datos de varias tablas y generar de forma efectiva un origen de datos "+
+                    "relacional en un libro de Excel, estos se usan de forma transparente y proporcionan datos tabulares utilizados en tablas y"+
+                    " gráficos dinámicos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Crear-un-modelo-de-datos-en-Excel-87e7a54c-87dc-488e-9410-5c75dbcb0f7b")),
+               };
+        }
 
         // COMPARTIR
         // ---------------------
@@ -206,6 +269,25 @@ namespace Office365Prueba1.Utils
                     " **nuevo a partir de plantilla** y, a continuación, seleccione la plantilla que desee usar.",
                     new CardAction(ActionTypes.OpenUrl, "Ver más información",
                     value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
+               };
+        }
+
+        // IMPORTAR
+        //--------------------
+        // Importar datos en Excel y crear un modelo de datos
+        public static IList<Attachment> GetImportarDatosExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Importar datos en Excel y crear un modelo de datos",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "Tiene estas opciones:\r\r"+
+                    ">* [Importar datos desde una base de datos](https://support.office.com/es-es/article/tutorial-importar-datos-en-excel-y-crear-un-modelo-de-datos-4b4e5ab4-60ee-465e-8195-09ebba060bf0?ui=es-ES&rs=es-ES&ad=ES#__toc358186197)\r\r"+
+                    ">* [Importar datos de una hoja de cálculo](https://support.office.com/es-es/article/tutorial-importar-datos-en-excel-y-crear-un-modelo-de-datos-4b4e5ab4-60ee-465e-8195-09ebba060bf0?ui=es-ES&rs=es-ES&ad=ES#__toc358186198)\r\r"+
+                    ">* [Importar datos con la función copiar y pegar](https://support.office.com/es-es/article/tutorial-importar-datos-en-excel-y-crear-un-modelo-de-datos-4b4e5ab4-60ee-465e-8195-09ebba060bf0?ui=es-ES&rs=es-ES&ad=ES#__toc358186199)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/tutorial-importar-datos-en-excel-y-crear-un-modelo-de-datos-4b4e5ab4-60ee-465e-8195-09ebba060bf0?ui=es-ES&rs=es-ES&ad=ES")),
                };
         }
 

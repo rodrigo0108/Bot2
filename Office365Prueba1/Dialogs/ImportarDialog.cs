@@ -21,11 +21,13 @@ namespace Office365Prueba1.Dialogs
 
         public async Task StartAsync()
         {
-            var accion = "Importar";
-            context.PrivateConversationData.SetValue<string>("Accion", accion);
-            
             var reply = context.MakeMessage();
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+
+            var estadoPregunta = "True";
+            var estadoPregunta2 = "False";
+            var accion = "Importar";
+            context.PrivateConversationData.SetValue<string>("Accion", accion);
 
             string confirmacionRespuesta1 = "Tengo esta respuesta para usted:";
             string confirmacionRespuesta2 = "Tengo estas respuestas para usted:";
@@ -33,14 +35,17 @@ namespace Office365Prueba1.Dialogs
             string preguntaNoRegistrada2 = "Lo siento, su pregunta no esta registrada";
             string opcionSecundarioDeRespuesta1 = "Pero esta respuesta le podría interesar:";
             string opcionSecundarioDeRespuesta2 = "Pero estas respuestas le podrían interesar:";
-            string preguntaConsulta = "¿Tiene alguna otra consulta?";
+            string preguntaConsulta = "si tiene otra consulta por favor hágamelo saber";
 
             // Recorrido de la primera parte de la pregunta
             foreach (var entityP1 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra1"))
             {
                 var palabra1 = entityP1.Entity.ToLower().Replace(" ", "");
+                context.PrivateConversationData.SetValue<string>("Palabra1", palabra1);
+                // -------------------------------------------------------------------
                 if (palabra1 == "correodegmail" || palabra1 == "gmail" || palabra1 == "correogmail")
                 {
+                    // Recorrido de la segunda parte de la pregunta
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
@@ -50,6 +55,8 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Outlook");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                         else
@@ -58,18 +65,35 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                     }
-                    await context.PostAsync($"Quizás desea saber como importar un correo gmail a outlook, tengo esto: ");
-                    reply.Attachments = RespuestasOutlook.GetImportarGmailOutlook();
-                    await context.PostAsync(reply);
-                    await context.PostAsync($"Caso contrario, la pregunta no se encuentra registrada o vuelva a escribir correctamente la pregunta.");
-                    return;
-
+                    // obtener el producto si este a sido escodigo anteriormente
+                    var servicio = "Servicio";
+                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+                    if (servicio == "Outlook")
+                    {
+                        reply.Attachments = RespuestasOutlook.GetImportarGmailOutlook();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                    else
+                    {
+                        reply.Attachments = RespuestasOutlook.GetImportarGmailOutlook();
+                        await context.PostAsync($"Lo siento, su pregunta no esta registrada, debe escribir un servicio.");
+                        await context.PostAsync(opcionSecundarioDeRespuesta1);
+                        await context.PostAsync(reply);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
                 }
-                else if(palabra1 == "contactos" || palabra1 == "contacto")
+                else if (palabra1 == "contactos" || palabra1 == "contacto")
                 {
+                    // Recorrido de la segunda parte de la pregunta
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
@@ -79,6 +103,8 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Outlook");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                         else
@@ -87,20 +113,94 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                             return;
                         }
                     }
-                    // No se detectó la segunda parte de la pregunta
-                    reply.Attachments = RespuestasOutlook.GetImportarContactosOutlook();
-                    await context.PostAsync(preguntaNoRegistrada1);
-                    await context.PostAsync(opcionSecundarioDeRespuesta1);
+                    // obtener el producto si este a sido escodigo anteriormente
+                    var servicio = "Servicio";
+                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+                    if (servicio == "Outlook")
+                    {
+                        reply.Attachments = RespuestasOutlook.GetImportarContactosOutlook();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                    else
+                    {
+                        reply.Attachments = RespuestasOutlook.GetImportarContactosOutlook();
+                        await context.PostAsync($"Lo siento, su pregunta no esta registrada, debe escribir un servicio.");
+                        await context.PostAsync(opcionSecundarioDeRespuesta1);
+                        await context.PostAsync(reply);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                }
+                else if (palabra1 == "dato" || palabra1 == "datos")
+                {
+                    // Recorrido de la segunda parte de la pregunta
+                    foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    {
+                        var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
+                        if (palabra2 == "excel")
+                        {
+                            reply.Attachments = RespuestasExcel.GetImportarDatosExcel();
+                            await context.PostAsync(confirmacionRespuesta1);
+                            await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "Excel");
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                        else
+                        {
+                            reply.Attachments = RespuestasExcel.GetImportarDatosExcel();
+                            await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
+                            await context.PostAsync(opcionSecundarioDeRespuesta1);
+                            await context.PostAsync(reply);
+                            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            return;
+                        }
+                    }
+                    // obtener el producto si este a sido escodigo anteriormente
+                    var servicio = "Servicio";
+                    context.PrivateConversationData.TryGetValue<string>("tipoServicio", out servicio);
+                    if (servicio == "Excel")
+                    {
+                        reply.Attachments = RespuestasExcel.GetImportarDatosExcel();
+                        await context.PostAsync(confirmacionRespuesta1);
+                        await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                    else
+                    {
+                        reply.Attachments = RespuestasExcel.GetImportarDatosExcel();
+                        await context.PostAsync($"Lo siento, su pregunta no esta registrada, debe escribir un servicio.");
+                        await context.PostAsync(opcionSecundarioDeRespuesta1);
+                        await context.PostAsync(reply);
+                        context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        return;
+                    }
+                }
+                else if (palabra1 == "diapositiva" || palabra1 == "diapositivas")
+                {
+                    reply.Attachments = RespuestasPowerPoint.GetImportarDiapositivasPresentacion();
+                    await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
+                    await context.PostAsync(preguntaConsulta);
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
                 else
                 {
-                    await context.PostAsync($"Lo siento, su pregunta no esta registrada");
-                    await context.PostAsync($"O tal vez no la escribió correctamente, ¿{palabra1}?");
+                    await context.PostAsync(preguntaNoRegistrada2);
+                    await context.PostAsync($"O tal vez no escribió correctamente la palabra '{palabra1}'?");
+                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta2);
                     return;
                 }
             }
@@ -109,6 +209,7 @@ namespace Office365Prueba1.Dialogs
             reply.Attachments = Cards.GetConsultaV2();
             await context.PostAsync(reply);
             await context.PostAsync("O tal vez no escribió la pregunta correctamente");
+            context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta2);
             return;
         }
     }

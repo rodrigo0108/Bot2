@@ -807,7 +807,22 @@ namespace Office365Prueba1.Utils
                };
         }
 
-
+        // IMPORTAR
+        //-------------------
+        // Volver a usar (importar) las diapositivas de otra presentación
+        public static IList<Attachment> GetImportarDiapositivasPresentacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Importar diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Puede agregar una o varias diapositivas a la presentación a otra, sin tener que abrir otro archivo.\r\r"+
+                    "Cuando se importa una diapositiva de una presentación a otra, se trata simplemente de una copia del original.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Volver-a-usar-importar-las-diapositivas-de-otra-presentaci%C3%B3n-c67671cd-386b-45dd-a1b4-1e656458bb86")),
+               };
+        }
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
         {
