@@ -1097,8 +1097,62 @@ namespace Office365Prueba1.Utils
 
             };
         }
-      
+        // Quitar una marca de agua en Word
+        // Quitar una marca de agua transparente de las diapositivas
+        public static IList<Attachment> GetQuitarMarcaAguaWordPowerPoint()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar o cambiar un encabezado o pie de página de una sola página",
+                    "Se aplica a: Word 2016 Word 2013 Word 2010 Word 2007 Word Online",
+                    "Puede quitar una marca de agua de un documento si lo desea.\r\r"+
+                    ">1. Abra el documento donde quiera quitar la marca de agua.\r\r"+
+                    ">2. Vaya a la pestaña **Diseño**(en Word 2010 o Word 2007, vaya a la pestaña **Diseño de página**) y, en el grupo **Fondo de página**, seleccione **Marca de agua**.\r\r"+
+                    ">3. Seleccione **Quitar marca de agua**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/quitar-una-marca-de-agua-636cc588-489d-46c4-a03f-07f3f4820029?ui=es-ES&rs=es-HN&ad=PE")),
 
+                GetHeroCardV2(
+                    "Quitar una marca de agua transparente de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en la pestaña **Vista** y luego en **Patrón de diapositivas**.\r\r"+
+                    ">2. Haga clic en el patrón o diseño de diapositivas que contenga la marca de agua.\r\r"+
+                    ">3. En la diapositiva, seleccione la imagen que quiere quitar y presione **Eliminar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Quitar-una-marca-de-agua-transparente-de-las-diapositivas-44f576d2-4e06-498c-9930-1b1dbd878ae2")),
+            };
+        }
+
+        // Quitar formato condicional Excel
+        // Borrar todo el formato de texto PowerPoint y Word
+        public static IList<Attachment> GetBorrarFormatoWordExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Borrar todo el formato de texto",
+                    "Se aplica a: Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016 Publisher 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el texto que desea restablecer a su formato predeterminado.\r\r"+
+                    ">2. En el grupo **Fuente** de la ficha **Inicio**, haga clic en **Borrar todo el formato**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/45a272d9-d934-4938-bbc0-8d69c6c36773.png).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Borrar-todo-el-formato-de-texto-c094c4da-7f09-4cea-9a8d-c166949c9c80")),
+                GetHeroCardV2(
+                    "Quitar formato condicional",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el rango de celdas.\r\r"+
+                    ">2. Haga clic en el botón **Lente de análisis rápido** ![duck](https://support.content.office.net/es-es/media/d569b32d-d9c4-4676-b46e-ee17543dd843.jpg).\r\r"+
+                    ">3. Haga clic en **Borrar formato**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Quitar-formato-condicional-a3a74584-96fe-44ea-8a84-e726ce81094b")),
+
+            };
+        }
+        
         // -------------------------------------------------------------
 
         public static IList<Attachment> GetConsulta()

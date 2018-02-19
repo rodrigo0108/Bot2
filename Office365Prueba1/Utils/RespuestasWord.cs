@@ -1052,6 +1052,23 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        // Borrar todo el formato de texto
+        public static IList<Attachment> GetBorrarFormatoTexto()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Borrar todo el formato de texto",
+                    "Se aplica a: Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016 Publisher 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el texto que desea restablecer a su formato predeterminado.\r\r"+
+                    ">2. En el grupo **Fuente** de la ficha **Inicio**, haga clic en **Borrar todo el formato**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/45a272d9-d934-4938-bbc0-8d69c6c36773.png).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Borrar-todo-el-formato-de-texto-c094c4da-7f09-4cea-9a8d-c166949c9c80")),
+            };
+        }
+
         // DESACTIVAR
         //---------------------
         // Desactivar hipervínculos

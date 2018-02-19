@@ -91,13 +91,13 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/agregar-una-consulta-a-una-hoja-de-c%c3%a1lculo-de-excel-power-query-ca69e0f0-3db1-4493-900c-6279bef08df4?ui=es-ES&rs=es-ES&ad=ES")),
             };
         }
-        // Insertar o eliminar celdas, filas y columnas
+        // Insertar  filas y columnas
         public static IList<Attachment> GetInsertarCeldasFilasColumnas()
         {
             return new List<Attachment>()
             {
                 GetHeroCardV2(
-                    "Insertar o eliminar celdas, filas y columnas",
+                    "Insertar celdas, filas y columnas",
                     "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 ",
                     "Siga los siguientes pasos:\r\r"+
                     ">1. Seleccione la celda o el intervalo de celdas en las que va insertar las nuevas celdas.\r\r"+
@@ -108,6 +108,53 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        // Insertar títulos a gráficos
+        public static IList<Attachment> GetAgregarTitulosGraficos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar título a un gráfico",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016",
+                    "Cuando se crea un gráfico, aparece un cuadro de título de gráfico encima del gráfico. Simplemente puede activar esta casilla y "+
+                    "escriba el título que desee, aplique el formato que desee y moverla a un lugar diferente en el gráfico.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-o-quitar-t%C3%ADtulos-de-un-gr%C3%A1fico-4cf3c009-1482-4908-922a-997c32ea8250?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Agregar una línea de tendencia a un gráfico
+        public static IList<Attachment> GetAgregarLineaTendencia()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una línea de tendencia a un gráfico",
+                    "Se aplica a: Excel 2016 Word 2016 Outlook 2016 PowerPoint 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En el [gráfico](https://support.office.com/es-es/article/crear-un-gr%C3%A1fico-de-principio-a-fin-0baf399e-dd61-4e18-8a73-b3fd5d5680c2?ui=es-ES&rs=es-ES&ad=ES), haga clic en el serie de datos al que desea agregar una línea de tendencia\r\r"+
+                    ">2. Haga clic en el botón **Elementos de gráfico** ![duck](https://support.content.office.net/es-es/media/626dda4e-57b4-416e-bc66-e7479e005a0a.jpg)\r\r"+
+                    ">3. Active la casilla **Línea de tendencia**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-una-l%C3%ADnea-promedio-m%C3%B3vil-o-de-tendencia-a-un-gr%C3%A1fico-fa59f86c-5852-4b68-a6d4-901a745842ad?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Insertar o quitar bordes de celda en una hoja de cálculo
+        public static IList<Attachment> GetInsertarQuitarBordesCeldaHojaCalculo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Insertar o quitar bordes de celda en una hoja de cálculo",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione la celda o rango de celdas.\r\r"+
+                    ">2. En la pestaña **Inicio**, haga clic en la flecha situada junto a **bordes** y elija las opciones de borde que desee.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Insertar-o-quitar-bordes-de-celda-en-una-hoja-de-c%C3%A1lculo-54fc84b6-d267-4d2c-bb27-7b00bb0abbf1")),
+            };
+        }
 
         //CREAR
         //---------------------
@@ -117,7 +164,7 @@ namespace Office365Prueba1.Utils
             return new List<Attachment>()
             {
                 GetHeroCardV2(
-                    "Crear o eliminar una tabla de Excel",
+                    "Crear una tabla de Excel",
                     "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
                     "Siga los siguientes pasos para crear una tabla:\r\r"+
                     ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
@@ -142,7 +189,7 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Crear-una-tabla-de-contenido-en-Word-882e8564-0edb-435e-84b5-1d8552ccf0c0")),
 
                 GetHeroCardV2(
-                    "Crear o eliminar una tabla de Excel",
+                    "Crear una tabla de Excel",
                     "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007 Excel 2016 para Mac Excel para Mac 2011",
                     "Siga los siguientes pasos para crear una tabla:\r\r"+
                     ">1. Seleccione cualquier rango de celdas que desea incluir en la tabla.\r\r"+
@@ -507,8 +554,53 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Mostrar-n%C3%BAmeros-como-moneda-0a03bb38-1a07-458d-9e30-2b54366bc7a4")),
             };
         }
-        
 
+        // ELIMINAR - QUITAR - DESAPARECER
+        //--------------------
+        // Quitar una contraseña de una hoja de cálculo o un libro
+        public static IList<Attachment> GetQuitarContrasenaHojaCalculolibroExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar la protección en un documento, un libro o una presentación",
+                    "Se aplica a: Excel 2016 Word 2016 PowerPoint 2016",
+                    "Para quitar la contraseña, abra el archivo que requiere la contraseña actual y vaya a **Archivo** > **Proteger documento** > **Cifrar con contraseña**. "+
+                    "Elimine la contraseña y haga clic en Aceptar. No olvide guardar el archivo para hacer que el cambio sea permanente.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-o-quitar-la-protecci%C3%B3n-en-un-documento-un-libro-o-una-presentaci%C3%B3n-05084cc3-300d-4c1a-8416-38d3e37d6826?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+        // Quitar valores duplicados
+        public static IList<Attachment> GetQuitarValoresDuplicados()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar valores duplicados",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Para quitar valores duplicados, use el comando **Quitar duplicados** del grupo **Herramientas de datos** en la ficha **Datos**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Filtrar-valores-%C3%BAnicos-o-quitar-valores-duplicados-ccf664b0-81d6-449b-bbe1-8daaec1e83c2")),
+            };
+        }
+
+        // Quitar formato condicional
+        public static IList<Attachment> GetQuitarFormatoCondicionalExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar formato condicional",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el rango de celdas.\r\r"+
+                    ">2. Haga clic en el botón **Lente de análisis rápido** ![duck](https://support.content.office.net/es-es/media/d569b32d-d9c4-4676-b46e-ee17543dd843.jpg).\r\r"+
+                    ">3. Haga clic en **Borrar formato**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Quitar-formato-condicional-a3a74584-96fe-44ea-8a84-e726ce81094b")),
+            };
+        }
         // ----------------------------------------------------------------------- 
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)

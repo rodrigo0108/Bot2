@@ -558,6 +558,68 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/cambiar-o-eliminar-informaci%C3%B3n-de-encabezado-y-pie-de-p%C3%A1gina-en-una-presentaci%C3%B3n-5695469d-eaf5-412a-b0ce-e6b7d11082a2")),
             };
         }
+        // Eliminar diapositivas en PowerPoint
+        public static IList<Attachment> GetEliminarDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Eliminar diapositivas en PowerPoint",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010",
+                    "En el panel de la izquierda, haga clic con el botón derecho en la miniatura de diapositiva que quiere eliminar (mantenga presionada la tecla"+
+                    " CTRL para seleccionar varias diapositivas o mantenga presionada MAYÚS para seleccionar varias diapositivas seguidas) y, después, haga clic en **Eliminar diapositiva**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/agregar-reorganizar-duplicar-y-eliminar-diapositivas-en-powerpoint-e35a232d-3fd0-4ee1-abee-d7d4d6da92fc")),
+            };
+        }
+        // Quitar una marca de agua transparente de las diapositivas
+        public static IList<Attachment> GetQuitarMarcaAguaDiapositivas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar una marca de agua transparente de las diapositivas",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en la pestaña **Vista** y luego en **Patrón de diapositivas**.\r\r"+
+                    ">2. Haga clic en el patrón o diseño de diapositivas que contenga la marca de agua.\r\r"+
+                    ">3. En la diapositiva, seleccione la imagen que quiere quitar y presione **Eliminar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Quitar-una-marca-de-agua-transparente-de-las-diapositivas-44f576d2-4e06-498c-9930-1b1dbd878ae2")),
+            };
+        }
+        // Borrar todo el formato de texto
+        public static IList<Attachment> GetBorrarFormatoTexto()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Borrar todo el formato de texto",
+                    "Se aplica a: Word 2016 Outlook 2016 PowerPoint 2016 OneNote 2016 Publisher 2016",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Seleccione el texto que desea restablecer a su formato predeterminado.\r\r"+
+                    ">2. En el grupo **Fuente** de la ficha **Inicio**, haga clic en **Borrar todo el formato**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/bccd741c-5245-4291-9495-81e1320160f0.png).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Borrar-todo-el-formato-de-texto-c094c4da-7f09-4cea-9a8d-c166949c9c80")),
+            };
+        }
+
+        // Quitar un efecto de animación
+        public static IList<Attachment> GetQuitarEfectoAnimacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Quitar un efecto de animación",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010 PowerPoint 2007",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. En la pestaña de la **animación**, haga clic en **Panel de animación**.\r\r"+
+                    ">2. Haga clic en el efecto animado y en el **Panel de animación**, haga clic en el efecto que desea quitar, haga clic en la flecha abajo y, a continuación, haga clic en **Quitar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/cambiar-o-quitar-un-efecto-de-animaci%C3%B3n-fb8a3ab0-f651-45e0-b5f0-b18ba2e7c711?ui=es-ES&rs=es-ES&ad=ES#__toc242245221&OfficeVersion=2016,_2013")),
+            };
+        }
 
         // USAR
         //--------------------
