@@ -1048,6 +1048,57 @@ namespace Office365Prueba1.Utils
                 };
         }
 
+        // Insertar archivos directamente en tu sitio web o blog
+        // Inserte vídeos en línea en OneNote para Windows 10
+        public static IList<Attachment> GetInsertarArchivoVideoOneNoteArchivoSitioWeb()
+        {
+            return new List<Attachment>()
+            {
+            GetHeroCardV2(
+                    "Insertar archivos directamente en tu sitio web o blog",
+                    "Se aplica a: Office.com OneDrive",
+                    "Si tiene un sitio web o un blog, es muy fácil y rápido incluir fotos, vídeos, documentos de Office y otros archivos desde OneDrive. "+
+                    "Incluso puedes personalizar el modo en que los libros de Excel insertados se muestran a otras personas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/insertar-archivos-directamente-en-tu-sitio-web-o-blog-ed07dd52-8bdb-431d-96a5-cbe8a80b7418?ui=es-ES&rs=es-ES&ad=ES")),
+            GetHeroCardV2(
+                    "Inserte vídeos en línea en OneNote",
+                    "Se aplica a: OneNote para Windows 10",
+                    "Agregar vídeos a las notas es una excelente forma de crear los blocs de notas interactivas " +
+                    "que puede compartir con o distribuir a otras personas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/inserte-v%C3%ADdeos-en-l%C3%ADnea-en-onenote-para-windows-10-bea22b6e-04dc-4f3d-a04b-bdeb26f3f522?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Agregar una tabla a una diapositiva
+        public static IList<Attachment> GetAgregarTablaPowerPointOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar una tabla a una diapositiva",
+                    "Se aplica a: PowerPoint 2016 PowerPoint 2013 PowerPoint 2010",
+                    "Crear una tabla:\r\r"+
+                    ">1. En la pestaña **Insertar**, seleccione **Tabla**.\r\r"+
+                    ">2. Haga clic en **Insertar tabla** y escriba un número en las listas **Número de columnas** y **Número de filas**.\r\r"+
+                    ">3. Haga clic en **Aceptar**",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-una-diapositiva-34f106c9-5320-4b89-9129-806e64b258ac")),
+                GetHeroCardV2(
+                    "Como agregar tablas a mensajes en Outlook",
+                    "Se aplica a: Outlook 2016 Outlook 2013 Outlook 2010",
+                    "Agregar tabla:\r\r"+
+                    ">1. Haga clic donde desee insertar una tabla en el mensaje.\r\r"+
+                    ">2. Haga clic en **Insertar** > **Tabla**.\r\r"+
+                    ">3. Haga clic en **Insertar tabla** para una plantilla de tabla básica.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Agregar-una-tabla-a-un-mensaje-59766ab4-0fe5-4520-ba0b-e34f8b8cd025")),
+
+            };
+        }
+      
+
         // -------------------------------------------------------------
 
         public static IList<Attachment> GetConsulta()
