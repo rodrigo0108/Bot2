@@ -185,7 +185,8 @@
     <Compile Include="Dialogs\EnviarDialog.cs" />
     <Compile Include="Dialogs\EstablecerDialog.cs" />
     <Compile Include="Dialogs\ExportarDialog.cs" />
-    <Compile Include="Dialogs\GuardarDialog.cs" />
+    <Compile Include="Dialogs\GuardarDialog.cs" />	
+    <Compile Include="Dialogs\HacerDialog.cs" />
     <Compile Include="Dialogs\ImportarDialog.cs" />
     <Compile Include="Dialogs\ImprimirDialog.cs" />
     <Compile Include="Dialogs\LuisDialog.cs" />
@@ -203,7 +204,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HacerDialog.cs" />
     <Compile Include="Utils\Cards.cs" />
     <Compile Include="Models\ConsultaServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
