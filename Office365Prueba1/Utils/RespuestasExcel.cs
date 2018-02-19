@@ -156,6 +156,21 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        // Agregar valores que coinciden con un único criterio con una función
+        public static IList<Attachment> GetAgregarValoresFuncion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Agregar valores en una función específica",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Algunas funciones:\r\r"+
+                    ">1. [SUMAR.SI](https://support.office.com/es-es/article/sumar-si-funci%C3%B3n-sumar-si-169b8c99-c05c-4483-a712-1697a653039b?ui=es-ES&rs=es-ES&ad=ES) (función SUMAR.SI)\r\r"+
+                    ">2. [SUMAR.SI.CONJUNTO](https://support.office.com/es-es/article/sumar-si-conjunto-funci%C3%B3n-sumar-si-conjunto-c9e748f5-7ea7-455d-9406-611cebce642b?ui=es-ES&rs=es-ES&ad=ES) (función SUMAR.SI.CONJUNTO)\r\r",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://answers.microsoft.com/es-es/msoffice/forum/msoffice_excel?auth=1")),
+            };
+        }
         //CREAR
         //---------------------
         // Crear una tabla en el estilo que desee
