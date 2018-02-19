@@ -25,6 +25,8 @@ namespace Office365Prueba1.Dialogs
 
             var estadoPregunta = "True";
             var estadoPregunta2 = "False";
+            var estadoRespuesta = "True";
+            var estadoRespuesta2 = "False";
             var accion = "Agregar";
             context.PrivateConversationData.SetValue<string>("Accion", accion);
 
@@ -61,6 +63,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else if (palabra3 == "contacto" || palabra3 == "contactos")
@@ -70,6 +73,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else
@@ -97,6 +101,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -137,6 +142,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else if (palabra3 == "contactos" || palabra3 == "contacto")
@@ -146,6 +152,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else
@@ -154,7 +161,9 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra3}'?");
                                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                                     await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                             }
@@ -172,7 +181,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -197,6 +208,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -205,7 +217,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -229,6 +243,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (palabra2 == "diapositiva" || palabra2 == "diapositivas")
@@ -238,21 +253,24 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
                         {
-                            reply.Attachments = Cards.GetAgregarTablaDiapositiva();
+                            reply.Attachments = Cards.GetAgregarTablaPowerPointOutlook();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
-                    foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
+                    foreach (var serv in result.Entities.Where(Entity => Entity.Type == "Servicio"))
                     {
-                        var servicioU = entity.Entity.ToLower().Replace(" ", "");
+                        var servicioU = serv.Entity.ToLower().Replace(" ", "");
                         if (servicioU == "word")
                         {
                             reply.Attachments = RespuestasWord.GetInsertarDibujarTablaWord();
@@ -261,6 +279,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (servicioU == "onenote")
@@ -271,6 +290,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (servicioU == "excel")
@@ -281,6 +301,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Excel");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (servicioU == "outlook")
@@ -291,6 +312,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Outlook");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (servicioU == "powerpoint")
@@ -301,6 +323,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -309,7 +332,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{servicioU}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -324,6 +349,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "Outlook")
@@ -333,6 +359,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "Excel")
@@ -342,6 +369,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "Word")
@@ -351,6 +379,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "PowerPoint")
@@ -360,6 +389,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -369,7 +399,9 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
@@ -386,6 +418,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (palabra2 == "entregas" || palabra2 == "entrega")
@@ -395,6 +428,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -403,7 +437,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -428,6 +464,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -436,7 +473,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -461,6 +500,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -469,7 +509,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -494,6 +536,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -502,7 +545,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -527,6 +572,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (palabra2 == "archivos" || palabra2 == "archivo" || palabra2 == "documentos" || palabra2 == "documento")
@@ -536,6 +582,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -544,7 +591,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
 
@@ -560,6 +609,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Outlook");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "word")
@@ -570,6 +620,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "excel")
@@ -580,6 +631,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Excel");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "powerpoint")
@@ -590,6 +642,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "office")
@@ -600,6 +653,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Office");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -610,6 +664,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -623,6 +678,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "Word")
@@ -632,6 +688,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "Excel")
@@ -641,6 +698,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "PowerPoint")
@@ -650,6 +708,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "Office")
@@ -659,6 +718,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -667,7 +727,9 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta1);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
@@ -684,6 +746,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -694,6 +757,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
 
@@ -718,8 +782,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
-                        } 
+                        }
                         else if (palabra2 == "diapositiva" || palabra2 == "diapositivas")
                         {
                             reply.Attachments = RespuestasPowerPoint.GetAgregarHipervinculoDiapositiva();
@@ -727,6 +792,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -735,14 +801,15 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
                     reply.Attachments = Cards.GetAgregarHipervinculosOutlookPowerPoint();
                     await context.PostAsync(confirmacionRespuesta2);
                     await context.PostAsync(reply);
-                    await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
@@ -759,6 +826,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (palabra2 == "video" || palabra2 == "videos")
@@ -774,6 +842,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else
@@ -782,7 +851,9 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(preguntaNoRegistrada2);
                                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                                     await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                             }
@@ -798,6 +869,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else if (serv == "powerpoint")
@@ -808,6 +880,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else
@@ -816,7 +889,9 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                                     await context.PostAsync(reply);
+                                    await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                             }
@@ -829,8 +904,8 @@ namespace Office365Prueba1.Dialogs
                                 await context.PostAsync(confirmacionRespuesta1);
                                 await context.PostAsync(reply);
                                 await context.PostAsync(preguntaConsulta);
-                                context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                                 context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                 return;
                             }
                             else if (service == "PowerPoint")
@@ -840,6 +915,7 @@ namespace Office365Prueba1.Dialogs
                                 await context.PostAsync(reply);
                                 await context.PostAsync(preguntaConsulta);
                                 context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                 return;
                             }
                             else
@@ -849,17 +925,21 @@ namespace Office365Prueba1.Dialogs
                                 await context.PostAsync(preguntaNoRegistrada1);
                                 await context.PostAsync(opcionSecundarioDeRespuesta2);
                                 await context.PostAsync(reply);
+                                await context.PostAsync(preguntaConsulta);
                                 context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                 return;
                             }
                         }
                         else
                         {
-                            reply.Attachments = RespuestasOneDrive.GetInsertarArchivosSitioWebBlog();
+                            reply.Attachments = Cards.GetInsertarArchivoVideoOneNoteArchivoSitioWeb();
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -874,6 +954,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Outlook");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "word" || serv == "wrd")
@@ -884,6 +965,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "excel" || serv == "excl")
@@ -894,6 +976,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Excel");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "powerpoint" || serv == "pwrpoint" || serv == "pwrpt" || serv == "powerpt")
@@ -904,6 +987,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "onenote" || serv == "noenote" || serv == "note")
@@ -914,9 +998,10 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
-                        else if (serv=="onedrive")
+                        else if (serv == "onedrive")
                         {
                             reply.Attachments = RespuestasOneDrive.GetInsertarArchivosSitioWebBlog();
                             await context.PostAsync(confirmacionRespuesta1);
@@ -924,6 +1009,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "OneDrive");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -932,7 +1018,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -947,6 +1035,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
 
                         case "Outlook":
@@ -955,6 +1044,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         case "Excel":
                             reply.Attachments = RespuestasExcel.GetAdjuntarArchivosExcel();
@@ -962,6 +1052,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         case "PowerPoint":
                             reply.Attachments = RespuestasPowerPoint.GetAdjuntarArchivosPowerPoint();
@@ -969,6 +1060,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         case "OneNote":
                             reply.Attachments = RespuestasOneNote.GetAgregarArchivosOneNote();
@@ -976,6 +1068,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         case "OneDrive":
                             reply.Attachments = RespuestasOneDrive.GetInsertarArchivosSitioWebBlog();
@@ -983,6 +1076,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                     }
                     reply.Attachments = Cards.GetInsertarArchivo();
@@ -990,6 +1084,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "contenido" || palabra1 == "contenidos")
@@ -1004,7 +1099,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
+                            context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1013,7 +1110,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1026,8 +1125,8 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(confirmacionRespuesta1);
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
-                        context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -1037,7 +1136,9 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta1);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
@@ -1055,6 +1156,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1063,7 +1165,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1077,6 +1181,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -1086,11 +1191,13 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta1);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
-                else if (palabra1 == "imagen" || palabra1 == "imagenes" || palabra1 == "imágenes" || palabra1 == "imágen")
+                else if (palabra1 == "imagen" || palabra1 == "imagenes" || palabra1 == "imágenes")
                 {
                     // Recorrido del Servicio de la pregunta
                     foreach (var entity in result.Entities.Where(Entity => Entity.Type == "Servicio"))
@@ -1104,6 +1211,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "word" || serv == "Word")
@@ -1114,6 +1222,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1122,7 +1231,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1136,6 +1247,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "Word")
@@ -1145,6 +1257,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -1154,7 +1267,9 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta1);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
@@ -1171,6 +1286,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1179,7 +1295,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaNoRegistrada2);
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1195,6 +1313,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "OneNote");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "powerpoint")
@@ -1205,6 +1324,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1213,7 +1333,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1226,8 +1348,8 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(confirmacionRespuesta1);
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
-                        context.PrivateConversationData.SetValue<string>("tipoServicio", "Servicio");
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "PowerPoint")
@@ -1237,6 +1359,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -1246,7 +1369,9 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
@@ -1257,6 +1382,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "cuenta" || palabra1 == "cuentas")
@@ -1266,6 +1392,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "comentarios" || palabra1 == "comentario")
@@ -1282,9 +1409,10 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
-                        else if (serv== "powerpoint")
+                        else if (serv == "powerpoint")
                         {
                             reply.Attachments = RespuestasPowerPoint.GetAgregarComentariosRevision();
                             await context.PostAsync(confirmacionRespuesta1);
@@ -1292,6 +1420,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1300,7 +1429,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1314,6 +1445,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else if (servicio == "PowerPoint")
@@ -1323,6 +1455,7 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -1332,7 +1465,9 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(preguntaNoRegistrada1);
                         await context.PostAsync(opcionSecundarioDeRespuesta2);
                         await context.PostAsync(reply);
+                        await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
@@ -1343,15 +1478,17 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
-                else if (palabra1 == "carácterespecial" || palabra1 == "caracterespecial" || palabra1 == "carácteresespeciales" || palabra1 == "caracteresespeciales" || palabra1=="símbolo" || palabra1=="simbolo")
+                else if (palabra1 == "carácterespecial" || palabra1 == "caracterespecial" || palabra1 == "carácteresespeciales" || palabra1 == "caracteresespeciales" || palabra1 == "símbolo" || palabra1 == "simbolo")
                 {
                     reply.Attachments = Cards.GetInsertarCaracterEspecialOffice();
                     await context.PostAsync(confirmacionRespuesta1);
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "wordart")
@@ -1361,6 +1498,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "marcadeagua" || palabra1 == "marcasdeagua")
@@ -1377,6 +1515,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "powerpoint")
@@ -1387,6 +1526,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1397,6 +1537,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1410,15 +1551,17 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
-                    else if(servicio == "PowerPoint")
+                    else if (servicio == "PowerPoint")
                     {
                         reply.Attachments = RespuestasPowerPoint.GetAgregarMarcaAguaDiapositivas();
                         await context.PostAsync(confirmacionRespuesta1);
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                     else
@@ -1430,19 +1573,11 @@ namespace Office365Prueba1.Dialogs
                         await context.PostAsync(reply);
                         await context.PostAsync(preguntaConsulta);
                         context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                        context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         return;
                     }
                 }
-                else if (palabra1 == "comentarios" || palabra1 == "comentario")
-                {
-                    reply.Attachments = RespuestasWord.GetAgregarComentarioWord();
-                    await context.PostAsync(confirmacionRespuesta1);
-                    await context.PostAsync(reply);
-                    await context.PostAsync(preguntaConsulta);
-                    context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
-                    return;
-                }
-                else if (palabra1 == "texto" || palabra1=="textos")
+                else if (palabra1 == "texto" || palabra1 == "textos")
                 {
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
@@ -1454,6 +1589,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1464,6 +1600,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1478,6 +1615,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                         }
                         else if (serv == "powerpoint" || serv == "pwrpoint" || serv == "pwrpt" || serv == "powerpt")
                         {
@@ -1487,6 +1625,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1495,7 +1634,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, no se tiene registrado el servicio '{serv}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta2);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1510,6 +1651,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         case "PowerPoint":
                             reply.Attachments = RespuestasPowerPoint.GetAgregarTextoDiapositiva();
@@ -1517,6 +1659,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                     }
                     // No se detectó la segunda parte de la pregunta
@@ -1526,6 +1669,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
 
                 }
@@ -1534,13 +1678,14 @@ namespace Office365Prueba1.Dialogs
                     foreach (var entityP2 in result.Entities.Where(Entity => Entity.Type == "Pregunta::Palabra2"))
                     {
                         var palabra2 = entityP2.Entity.ToLower().Replace(" ", "");
-                        if (palabra2 == "diccionario" )
+                        if (palabra2 == "diccionario")
                         {
                             reply.Attachments = RespuestasWord.GetAgregarPalabrasDiccionarioCorrectorOrtografico();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1551,6 +1696,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1559,7 +1705,6 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
-                    await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
@@ -1575,15 +1720,17 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
-                        else if(palabra2=="página" || palabra2 == "páginas" || palabra2 == "pagina" || palabra2 == "paginas")
+                        else if (palabra2 == "página" || palabra2 == "páginas" || palabra2 == "pagina" || palabra2 == "paginas")
                         {
                             reply.Attachments = RespuestasWord.GetAgregarNumerosPaginasWord();
                             await context.PostAsync(confirmacionRespuesta1);
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1594,6 +1741,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1602,7 +1750,6 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
-                    await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
@@ -1618,6 +1765,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1628,6 +1776,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1636,7 +1785,6 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada1);
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
-                    await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
@@ -1647,6 +1795,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "salto" || palabra1 == "saltos")
@@ -1666,6 +1815,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                                 else
@@ -1676,6 +1826,7 @@ namespace Office365Prueba1.Dialogs
                                     await context.PostAsync(reply);
                                     await context.PostAsync(preguntaConsulta);
                                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                                     return;
                                 }
                             }
@@ -1684,6 +1835,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (palabra2 == "sección" || palabra2 == "seccion")
@@ -1693,6 +1845,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1703,6 +1856,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1726,6 +1880,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "Word");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else if (serv == "powerpoint")
@@ -1736,6 +1891,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("tipoServicio", "PowerPoint");
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1746,6 +1902,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1760,6 +1917,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         case "PowerPoint":
                             reply.Attachments = RespuestasPowerPoint.GetAgregarEncabezadoPiePaginaPowerPoint();
@@ -1767,6 +1925,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                     }
                     // No se detectó la segunda parte de la pregunta
@@ -1774,7 +1933,6 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(preguntaNoRegistrada2);
                     await context.PostAsync(opcionSecundarioDeRespuesta2);
                     await context.PostAsync(reply);
-                    await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
                     return;
                 }
@@ -1785,6 +1943,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "formulario" || palabra1 == "formularios")
@@ -1794,6 +1953,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "color")
@@ -1809,6 +1969,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1817,7 +1978,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1827,6 +1990,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(opcionSecundarioDeRespuesta1);
                     await context.PostAsync(reply);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "diseño" || palabra1 == "diseños")
@@ -1842,6 +2006,7 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync(reply);
                             await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                         else
@@ -1850,7 +2015,9 @@ namespace Office365Prueba1.Dialogs
                             await context.PostAsync($"Lo siento, su pregunta no esta registrada, tal vez no escribió correctamente la palabra '{palabra2}'?");
                             await context.PostAsync(opcionSecundarioDeRespuesta1);
                             await context.PostAsync(reply);
+                            await context.PostAsync(preguntaConsulta);
                             context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                            context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                             return;
                         }
                     }
@@ -1869,6 +2036,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "transición" || palabra1 == "transicion" || palabra1 == "transiciones")
@@ -1878,6 +2046,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "audio" || palabra1 == "audios")
@@ -1887,6 +2056,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "notas" || palabra1 == "nota")
@@ -1896,6 +2066,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "ecuación" || palabra1 == "ecuacion" || palabra1 == "ecuaciones")
@@ -1905,6 +2076,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "consulta" || palabra1 == "consultas")
@@ -1914,6 +2086,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else if (palabra1 == "celda" || palabra1 == "celdas" || palabra1 == "fila" || palabra1 == "filas" || palabra1 == "columna" || palabra1 == "columnas")
@@ -1923,6 +2096,7 @@ namespace Office365Prueba1.Dialogs
                     await context.PostAsync(reply);
                     await context.PostAsync(preguntaConsulta);
                     context.PrivateConversationData.SetValue<string>("EstadoPregunta", estadoPregunta);
+                    context.PrivateConversationData.SetValue<string>("EstadoRespuesta", estadoRespuesta);
                     return;
                 }
                 else
@@ -1944,4 +2118,3 @@ namespace Office365Prueba1.Dialogs
         }
     }
 }
-
