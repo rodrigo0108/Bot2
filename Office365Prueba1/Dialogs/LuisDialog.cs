@@ -245,5 +245,10 @@ namespace Office365Prueba1.Dialogs
         {
             await new AnimarDialog(context, result).StartAsync();
         }
+        [LuisIntent("Consulta.Hacer")]
+        public async Task ConsultaHacer(IDialogContext context, LuisResult result)
+        {
+            await new HacerDialog(context, result).StartAsync();
+        }
     }
 }

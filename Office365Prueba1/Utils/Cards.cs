@@ -1152,7 +1152,47 @@ namespace Office365Prueba1.Utils
 
             };
         }
-        
+
+
+        // Usar una fórmula en una tabla de Word o de Outlook
+        public static IList<Attachment> GetUsarFormulaWordOutlook()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar una fórmula en una tabla de Word o de Outlook",
+                    "Se aplica a: Word 2016 Outlook 2016 Word 2013 Outlook 2013",
+                    "Seleccione la celda de la tabla donde desee mostrar los resultados.\r\r"+
+                    "E inserte el comando **Fórmula** que se encuentra en la pestaña **Diseño** en **Herramientas de tabla**, en el grupo **Datos**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/28bc04f3-5a31-457c-b4d4-437b3581d341.jpg)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-una-f%C3%B3rmula-en-una-tabla-de-word-o-de-outlook-cbd0596e-ea8a-485e-a35d-b2cb2c4f3e27")),
+                };
+        }
+
+        // Usar fórmulas en Excel
+        // Usar una fórmula en una tabla de Word o de Outlook
+        public static IList<Attachment> GetUsarFormulaWordOutlookExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Información general sobre fórmulas en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "En excel una fórmula siempre empieza con un signo igual (=), que puede ir seguido de números, operadores matemáticos (como los signos + o - "+
+                    "para sumar o restar) y funciones integradas de **Excel**, que pueden ampliar el poder de una fórmula.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/informaci%C3%B3n-general-sobre-f%C3%B3rmulas-en-excel-ecfdc708-9162-49e8-b993-c311f47ca173")),
+
+                GetHeroCardV2(
+                    "Usar una fórmula en una tabla de Word o de Outlook",
+                    "Se aplica a: Word 2016 Outlook 2016 Word 2013 Outlook 2013",
+                    "Seleccione la celda de la tabla donde desee mostrar los resultados.\r\r"+
+                    "E inserte el comando **Fórmula** que se encuentra en la pestaña **Diseño** en **Herramientas de tabla**, en el grupo **Datos**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-una-f%C3%B3rmula-en-una-tabla-de-word-o-de-outlook-cbd0596e-ea8a-485e-a35d-b2cb2c4f3e27")),
+                };
+        }
         // -------------------------------------------------------------
 
         public static IList<Attachment> GetConsulta()

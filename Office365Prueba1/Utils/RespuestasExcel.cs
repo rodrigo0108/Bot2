@@ -408,7 +408,290 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/crear-y-usar-su-propia-plantilla-en-office-para-mac-a1b72758-61a0-4215-80eb-165c6c4bed04?ui=es-ES&rs=es-ES&ad=ES")),
                };
         }
+        // Usar fórmulas con formato condicional
+        public static IList<Attachment> GetUsarFormulasFormatoCondicional()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar fórmulas con formato condicional",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "El formato condicional resalta rápidamente información importante en una hoja de cálculo. Sin embargo, a veces las reglas de formato integradas no van lo bastante lejos."+
+                    " Por esa razón debe añadir su propia regla de formato condicional que lo ayudará a agilizar acciones que las reglas integradas no pueden realizar.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-f%C3%B3rmulas-con-formato-condicional-fed60dfa-1d3f-4e13-9ecb-f1951ff89d7f")),
+               };
+        }
 
+        // Usar fórmulas en Excel
+        public static IList<Attachment> GetUsarFormulasExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Información general sobre fórmulas en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "En excel una fórmula siempre empieza con un signo igual (=), que puede ir seguido de números, operadores matemáticos (como los signos + o - "+
+                    "para sumar o restar) y funciones integradas de **Excel**, que pueden ampliar el poder de una fórmula.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/informaci%C3%B3n-general-sobre-f%C3%B3rmulas-en-excel-ecfdc708-9162-49e8-b993-c311f47ca173")),
+               };
+        }
+
+        // Usar nombres en fórmulas
+        public static IList<Attachment> GetUsarNombresFormulas()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar nombres en fórmulas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Si utiliza nombres, sus fórmulas serán mucho más fáciles de entender y mantener. Puede definir un nombre para un rango de celdas, una función, "+
+                    "una constante o una tabla. Una vez que haya adoptado la práctica de utilizar nombres en su libro, podrá actualizar, auditar y administrar esos nombres con facilidad.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Definir-y-usar-nombres-en-f%C3%B3rmulas-4d0f13ac-53b7-422e-afd2-abd7ff379c64")),
+               };
+        }
+
+        // Usar Excel como calculadora
+        public static IList<Attachment> GetUsarExcelCalculadora()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar Excel como calculadora",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "En un hoja de cálculo, puede escribir fórmulas sencillas para agregar, dividir, multiplicar y restar dos o más valores numéricos. Cuando se familiarice con éstas "+
+                    "y desee obtener más información sobre cómo crear fórmulas complejas, puede obtener más información en "+
+                    "[información general sobre las fórmulas](https://support.office.com/es-es/article/informaci%C3%B3n-general-sobre-f%C3%B3rmulas-en-excel-ecfdc708-9162-49e8-b993-c311f47ca173?ui=es-ES&rs=es-ES&ad=ES)"+
+                    " y [lista de funciones de hoja de cálculo](https://support.office.com/es-es/article/lista-de-funciones-de-hoja-de-c%C3%A1lculo-por-categor%C3%ADa-9d1bdb2c-9fbd-4b9f-9a62-7b1c61c771da).",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-excel-como-calculadora-a1abc057-ed11-443a-a635-68216555ad0a")),
+               };
+        }
+
+        // Usar columnas calculadas en una tabla de Excel
+        public static IList<Attachment> GetUsarColumnasCalculadasExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar columnas calculadas en una tabla de Excel",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Las columnas calculadas le permiten especificar una fórmula en una celda y dicha fórmula expandirá automáticamente al resto de la columna por sí mismo."+
+                    " No es necesario utilizar los comandos rellenar ni copiar. Esto puede ser muy un ahorro de tiempo, especialmente si tiene una gran cantidad de filas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-columnas-calculadas-en-una-tabla-de-Excel-873fbac6-7110-4300-8f6f-aafa2ea11ce8")),
+               };
+        }
+
+        // Usar la lista de campos para organizar los campos en una tabla dinámica
+        public static IList<Attachment> GetUsarListaCamposTabla()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar la lista de campos para organizar los campos en una tabla dinámica",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Si hace clic dentro de la tabla dinámica, pero no ve la lista de campos, haga lo siguiente para abrirla:\r\r"+
+                    ">1. Haga clic en cualquier parte de la tabla dinámica para mostrar las **Herramientas de tabla dinámica**.\r\r"+
+                    ">2. Haga clic en **Analizar** > **Lista de campos**.\r\r"+
+                    "![duck](https://support.content.office.net/es-es/media/7ea8506a-2ca2-4e0b-a050-711120a9bec1.jpg)",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/Usar-columnas-calculadas-en-una-tabla-de-Excel-873fbac6-7110-4300-8f6f-aafa2ea11ce8")),
+               };
+        }
+
+        // Usar funciones en Excel
+        public static IList<Attachment> GetUsarFuncionesExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Usar funciones en Excel",
+                    "Se aplica a: Excel",
+                    "Una función es una fórmula predefinida que le permite ahorrar tiempo. Por ejemplo, use la función SUMA para sumar una gran "+
+                    "cantidad de números o celdas, y use la función PRODUCTO para multiplicarlos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/usar-funciones-en-excel-2013-feca0bfc-79ed-4052-b8b3-db9b32fa7aec")),
+                GetVideoCard(
+                    "Office 365 - Excel",
+                    "Funciones en Excel",
+                    "http://wus-streaming-video-rt-microsoft-com.akamaized.net/5e355f0c-b138-4d2f-a74a-d82147bc672a/3dd25b76-3085-437c-93f6-4f4523d0_1280x720_2993.mp4",
+                    "https://support.office.com/es-es/article/usar-funciones-en-excel-2013-feca0bfc-79ed-4052-b8b3-db9b32fa7aec"),
+               };
+        }
+
+        // USAR- FUNCIONES
+
+        //Funciones de compatibilidad
+        public static IList<Attachment> GetUsarFuncionCompatibilidad()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones de compatibilidad",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones de compatibilidad:\r\r"+
+                    "> Función [DISTR.BETA](https://support.office.com/es-es/article/funci%C3%B3n-distrbeta-49f1b9a9-a5da-470f-8077-5f1730b5fd47): Devuelve la función de distribución beta acumulativa.\r\r"+
+                    "> Función [PRONOSTICO](https://support.office.com/es-es/article/funci%C3%B3n-pronostico-50ca49c9-7b40-4892-94e4-7ad38bbeda99): Devuelve un valor en una tendencia lineal.\r\r"+
+                    "> Función [MODA](https://support.office.com/es-es/article/funci%C3%B3n-moda-e45192ce-9122-4980-82ed-4bdc34973120): Devuelve el valor más común de un conjunto de datos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-de-compatibilidad-referencia-3d03e2d6-8559-4962-b037-58ac27efa2ad")),
+               };
+        }
+        //Funciones de cubo
+        public static IList<Attachment> GetUsarFuncionCubo()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones de cubo",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones de cubo:\r\r"+
+                    "> Función [VALORCUBO](https://support.office.com/es-es/article/funci%C3%B3n-valorcubo-8733da24-26d1-4e34-9b3a-84a8f00dcbe0): Devuelve un valor agregado del cubo.\r\r"+
+                    "> Función [RECUENTOCONJUNTOCUBO](https://support.office.com/es-es/article/funci%C3%B3n-recuentoconjuntocubo-c4c2a438-c1ff-4061-80fe-982f2d705286): Devuelve el número de elementos de un conjunto.\r\r"+
+                    "> Función [MIEMBROCUBO](https://support.office.com/es-es/article/funci%C3%B3n-miembrocubo-0f6a15b9-2c18-4819-ae89-e1b5c8b398ad): Devuelve un miembro o tupla del cubo. Se usa para validar la existencia del miembro o la tupla en el cubo.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-de-cubo-referencia-2378132b-d3f2-4af1-896d-48a9ee840eb2")),
+               };
+        }
+
+        //Funciones de base de datos
+        public static IList<Attachment> GetUsarFuncionBaseDatos()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones de base de datos",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones de base de datos:\r\r"+
+                    "> Función [BDPROMEDIO](https://support.office.com/es-es/article/funci%C3%B3n-bdpromedio-a6a2d5ac-4b4b-48cd-a1d8-7b37834e5aee): Devuelve el promedio de las entradas seleccionadas en la base de datos.\r\r"+
+                    "> Función [BDMAX](https://support.office.com/es-es/article/funci%C3%B3n-bdmax-f4e8209d-8958-4c3d-a1ee-6351665d41c2): Devuelve el valor máximo de las entradas seleccionadas de la base de datos.\r\r"+
+                    "> Función [BDSUMA](https://support.office.com/es-es/article/funci%C3%B3n-bdsuma-53181285-0c4b-4f5a-aaa3-529a322be41b): Suma los números de la columna de campo de los registros de la base de datos que cumplen los criterios.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-de-base-de-datos-referencia-ad87e69b-fc20-4d3d-9d52-d7dc023f5c23")),
+               };
+        }
+
+        //Funciones de fecha y hora
+        public static IList<Attachment> GetUsarFuncionFechaHora()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones de fecha y hora",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones de fecha y hora:\r\r"+
+                    "> Función [FECHA](https://support.office.com/es-es/article/funci%C3%B3n-fecha-e36c0c8c-4104-49da-ab83-82328b832349): Devuelve el número de serie correspondiente a una fecha determinada.\r\r"+
+                    "> Función [DIA](https://support.office.com/es-es/article/funci%C3%B3n-dia-8a7d1cbb-6c7d-4ba1-8aea-25c134d03101): Convierte un número de serie en un valor de día del mes.\r\r"+
+                    "> Función [DIAS.LAB](https://support.office.com/es-es/article/funci%C3%B3n-diaslab-48e717bf-a7a3-495f-969e-5005e3eb18e7): Devuelve el número de todos los días laborables existentes entre dos fechas.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-de-fecha-y-hora-referencia-fd1b5961-c1ae-4677-be58-074152f97b81")),
+               };
+        }
+
+        //Funciones de información
+        public static IList<Attachment> GetUsarFuncionInformacion()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones de información",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones de información:\r\r"+
+                    "> Función [CELDA](https://support.office.com/es-es/article/funci%C3%B3n-celda-51bd39a5-f338-4dbe-a33f-955d67c2b2cf): Devuelve información acerca del formato, la ubicación o el contenido de una celda.\r\r"+
+                    "> Función [INFO](https://support.office.com/es-es/article/funci%C3%B3n-info-725f259a-0e4b-49b3-8b52-58815c69acae): Devuelve información acerca del entorno operativo en uso.\r\r"+
+                    "> Función [ESREF](https://support.office.com/es-es/article/funci%C3%B3n-esref-0f2d7971-6019-40a0-a171-f2d869135665): Devuelve VERDADERO si el valor es una referencia.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-de-informaci%C3%B3n-referencia-f953e38d-07e5-4602-b753-1413810950e3")),
+               };
+        }
+
+        //Funciones lógicas
+        public static IList<Attachment> GetUsarFuncionLogica()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones lógicas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones lógicas:\r\r"+
+                    "> Función [Y](https://support.office.com/es-es/article/funci%C3%B3n-y-5f19b2e8-e1df-4408-897a-ce285a19e9d9): Devuelve VERDADERO si todos sus argumentos son VERDADERO.\r\r"+
+                    "> Función [SI](https://support.office.com/es-es/article/funci%C3%B3n-si-69aed7c9-4e8a-4755-a9bc-aa8bbff73be2): Especifica una prueba lógica que realizar.\r\r"+
+                    "> Función [SI.ERROR](https://support.office.com/es-es/article/funci%C3%B3n-sierror-c526fd07-caeb-47b8-8bb6-63f3e417f611): Devuelve un valor que se especifica si una fórmula lo evalúa como un error; de lo contrario, devuelve el resultado de la fórmula.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-l%C3%B3gicas-referencia-e093c192-278b-43f6-8c3a-b6ce299931f5")),
+               };
+        }
+
+        //Funciones matemáticas y trigonométricas
+        public static IList<Attachment> GetUsarFuncionMatematicaTrigonometrica()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones matemáticas y trigonométricas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones matemáticas y trigonométricas:\r\r"+
+                    "> Función [ABS](https://support.office.com/es-es/article/funci%C3%B3n-abs-3420200f-5628-4e8c-99da-c99d7c87713c): Devuelve el valor absoluto de un número.\r\r"+
+                    "> Función [LOG10](https://support.office.com/es-es/article/funci%C3%B3n-log10-c75b881b-49dd-44fb-b6f4-37e3486a0211): Devuelve el logaritmo en base 10 de un número.\r\r"+
+                    "> Función [SUMAR.SI](https://support.office.com/es-es/article/funci%C3%B3n-sumarsi-169b8c99-c05c-4483-a712-1697a653039b): Suma las celdas especificadas que cumplen unos criterios determinados.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-matem%C3%A1ticas-y-trigonom%C3%A9tricas-referencia-ee158fd6-33be-42c9-9ae5-d635c3ae8c16")),
+               };
+        }
+
+        //Funciones estadísticas
+        public static IList<Attachment> GetUsarFuncionEstadistica()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones estadísticas",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones estadísticas:\r\r"+
+                    "> Función [PROMEDIO](https://support.office.com/es-es/article/funci%C3%B3n-promedio-047bac88-d466-426c-a32b-8f33eb960cf6): Devuelve el promedio de sus argumentos.\r\r"+
+                    "> Función [CONTAR](https://support.office.com/es-es/article/funci%C3%B3n-contar-a59cd7fc-b623-4d93-87a4-d23bf411294c): Cuenta cuántos números hay en la lista de argumentos.\r\r"+
+                    "> Función [FRECUENCIA](https://support.office.com/es-es/article/funci%C3%B3n-frecuencia-44e3be2b-eca0-42cd-a3f7-fd9ea898fdb9): Devuelve una distribución de frecuencia como una matriz vertical.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-estad%C3%ADsticas-referencia-624dac86-a375-4435-bc25-76d659719ffd")),
+               };
+        }
+
+        //Funciones de búsqueda y referencia 
+        public static IList<Attachment> GetUsarFuncionBusquedaReferencia()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones de búsqueda y referencia ",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de búsqueda y referencia:\r\r"+
+                    "> Función [DIRECCION](https://support.office.com/es-es/article/funci%C3%B3n-direccion-d0c26c0d-3991-446b-8de4-ab46431d4f89): Devuelve una referencia como texto a una sola celda de una hoja de cálculo.\r\r"+
+                    "> Función [HIPERVINCULO](https://support.office.com/es-es/article/funci%C3%B3n-hipervinculo-333c7ce6-c5ae-4164-9c47-7de9b76f577f): Crea un acceso directo o un salto que abre un documento almacenado en un servidor de red, en una intranet o en Internet.\r\r"+
+                    "> Función [FILA](https://support.office.com/es-es/article/funci%C3%B3n-fila-3a63b74a-c4d0-4093-b49a-e76eb49a6d8d): Devuelve el número de fila de una referencia.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-de-b%C3%BAsqueda-y-referencia-referencia-8aa21a3a-b56a-4055-8257-3ec89df2b23e")),
+               };
+        }
+
+        //Funciones más populares
+        public static IList<Attachment> GetUsarFuncionesPopulares()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Funciones más populares",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010",
+                    "Algunos ejemplos de funciones estadísticas:\r\r"+
+                    "> Función [SUMA](https://support.office.com/es-es/article/funci%C3%B3n-suma-043e1c7d-7726-4e80-8f32-07b23e057f89): Use esta función para agregar los valores de las celdas.\r\r"+
+                    "> Función [SI](https://support.office.com/es-es/article/funci%C3%B3n-si-69aed7c9-4e8a-4755-a9bc-aa8bbff73be2): Use esta función para devolver un valor si una condición es verdadera y otro valor si es falsa. [Vídeo acerca del uso de la función SI](https://support.office.com/es-es/article/aqu%C3%AD-puede-ver-un-v%C3%ADdeo-acerca-del-uso-de-la-funci%C3%B3n-si-c3ca139f-f7c6-495d-a65b-61947f7a103e).\r\r"+
+                    "> Función [BUSCAR](https://support.office.com/es-es/article/funci%C3%B3n-buscar-446d94af-663b-451d-8251-369d5e3864cb): Use esta función cuando necesite buscar en una sola fila o columna y encontrar un valor desde la misma posición en una segunda fila o columna.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/funciones-de-excel-por-categor%C3%ADa-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb")),
+               };
+        }
         // IMPORTAR
         //--------------------
         // Importar datos en Excel y crear un modelo de datos
@@ -616,6 +899,24 @@ namespace Office365Prueba1.Utils
                     value: "https://support.office.com/es-es/article/Quitar-formato-condicional-a3a74584-96fe-44ea-8a84-e726ce81094b")),
             };
         }
+
+        // APLICAR
+        //------------------
+        // Aplicar formato condicional en Excel
+        public static IList<Attachment> GetAplicarFormatoCondicionalExcel()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Aplicar formato condicional en Excel",
+                    "Se aplica a: Excel 2016 Excel 2013",
+                    "El formato condicional permite aplicar colores en las celdas según condiciones específicas, como valores duplicados, valores que cumplen criterios específicos. "
+                    +"También puede mostrar la clasificación de celdas individuales comparadas con un rango de valores con barras de datos, escalas de colores y conjuntos de iconos.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/aplicar-formato-condicional-en-excel-34402f91-c7e7-4060-944c-65d913033d18")),
+            };
+        }
+
         // ----------------------------------------------------------------------- 
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
