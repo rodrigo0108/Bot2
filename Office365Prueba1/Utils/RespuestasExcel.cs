@@ -917,6 +917,39 @@ namespace Office365Prueba1.Utils
             };
         }
 
+        // BUSCAR
+        // ------------------
+        // Buscar vínculos (referencias externas) en un libro
+        public static IList<Attachment> GetBuscarVinculosLibro()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Buscar vínculos (referencias externas) en un libro",
+                    "Se aplica a: Excel 2016 Excel 2013 Excel 2010 Excel 2007",
+                    "Cualquier libro de Excel al que se haya vinculado tendrá el nombre de archivo de ese libro en el vínculo con su extensión de archivo .xl* (como .xls, .xlsx o .xlsm),"+
+                    " por lo que el método recomendado consiste en buscar todas las referencias a la extensión de archivo parcial .xl.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/buscar-v%C3%ADnculos-referencias-externas-en-un-libro-fcbf4576-3aab-4029-ba25-54313a532ff1?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
+
+        // Encontrar las celdas ocultas de una hoja de cálculo
+        public static IList<Attachment> GetBuscarCeldasOcultasHoja()
+        {
+            return new List<Attachment>()
+            {
+                GetHeroCardV2(
+                    "Encontrar las celdas ocultas de una hoja de cálculo",
+                    "Se aplica a: Excel 2013",
+                    "Siga los siguientes pasos:\r\r"+
+                    ">1. Haga clic en la hoja de cálculo donde desee buscar.\r\r"+
+                    ">2. En la pestaña **Inicio** en el grupo **Edición**, haga clic en **Buscar y seleccionar**.\r\r"+
+                    ">3. Haga clic en **Ir a Especial** y en **Seleccionar**, haga clic en **Solo celdas visibles** y en **Aceptar**.",
+                    new CardAction(ActionTypes.OpenUrl, "Ver más información",
+                    value: "https://support.office.com/es-es/article/encontrar-las-celdas-ocultas-de-una-hoja-de-c%C3%A1lculo-ead313b5-1673-4c31-95ef-ec97767ad04d?ui=es-ES&rs=es-ES&ad=ES")),
+            };
+        }
         // ----------------------------------------------------------------------- 
 
         private static Attachment GetHeroCard(string title, string subtitle, string text, CardImage cardImage)
